@@ -1,0 +1,21 @@
+# Môi trường Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Dữ liệu: bộ CMU tải lại bằng lệnh trong data/README.md, không commit
+data/raw/
+
+# Dữ liệu tự thu: chỉ commit bản đã ẩn danh trong data/collected/
+data/collected/raw/
+consent/
+*.pdf
+
+# Hệ điều hành / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+results/pipeline_test_*

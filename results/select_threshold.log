@@ -1,0 +1,61 @@
+﻿Nhóm phát triển: 36 người, nhóm kiểm tra: 15 người
+tau=-1.00  static: FAR=0.000 FRR=0.995  accept: FAR=0.000 FRR=0.998  fallback: FAR=0.000 FRR=0.961
+tau=-0.90  static: FAR=0.001 FRR=0.992  accept: FAR=0.000 FRR=0.996  fallback: FAR=0.000 FRR=0.938
+tau=-0.80  static: FAR=0.002 FRR=0.987  accept: FAR=0.000 FRR=0.994  fallback: FAR=0.000 FRR=0.898
+tau=-0.70  static: FAR=0.003 FRR=0.977  accept: FAR=0.001 FRR=0.989  fallback: FAR=0.001 FRR=0.841
+tau=-0.60  static: FAR=0.003 FRR=0.960  accept: FAR=0.001 FRR=0.982  fallback: FAR=0.001 FRR=0.762
+tau=-0.50  static: FAR=0.005 FRR=0.932  accept: FAR=0.001 FRR=0.967  fallback: FAR=0.002 FRR=0.671
+tau=-0.40  static: FAR=0.010 FRR=0.888  accept: FAR=0.002 FRR=0.940  fallback: FAR=0.003 FRR=0.571
+tau=-0.30  static: FAR=0.018 FRR=0.825  accept: FAR=0.004 FRR=0.898  fallback: FAR=0.005 FRR=0.480
+tau=-0.20  static: FAR=0.030 FRR=0.741  accept: FAR=0.006 FRR=0.858  fallback: FAR=0.009 FRR=0.400
+tau=-0.10  static: FAR=0.052 FRR=0.647  accept: FAR=0.010 FRR=0.815  fallback: FAR=0.015 FRR=0.340
+tau=-0.00  static: FAR=0.073 FRR=0.565  accept: FAR=0.014 FRR=0.780  fallback: FAR=0.022 FRR=0.293
+tau= 0.10  static: FAR=0.105 FRR=0.494  accept: FAR=0.020 FRR=0.740  fallback: FAR=0.032 FRR=0.256
+tau= 0.20  static: FAR=0.139 FRR=0.432  accept: FAR=0.027 FRR=0.705  fallback: FAR=0.043 FRR=0.221
+tau= 0.30  static: FAR=0.178 FRR=0.381  accept: FAR=0.037 FRR=0.674  fallback: FAR=0.057 FRR=0.194
+tau= 0.40  static: FAR=0.210 FRR=0.339  accept: FAR=0.044 FRR=0.632  fallback: FAR=0.072 FRR=0.172
+tau= 0.50  static: FAR=0.238 FRR=0.305  accept: FAR=0.052 FRR=0.584  fallback: FAR=0.086 FRR=0.153
+tau= 0.60  static: FAR=0.264 FRR=0.278  accept: FAR=0.059 FRR=0.546  fallback: FAR=0.101 FRR=0.135
+tau= 0.70  static: FAR=0.288 FRR=0.252  accept: FAR=0.065 FRR=0.514  fallback: FAR=0.114 FRR=0.122
+tau= 0.80  static: FAR=0.310 FRR=0.230  accept: FAR=0.072 FRR=0.484  fallback: FAR=0.128 FRR=0.109
+tau= 0.90  static: FAR=0.334 FRR=0.205  accept: FAR=0.078 FRR=0.446  fallback: FAR=0.143 FRR=0.098
+tau= 1.00  static: FAR=0.357 FRR=0.186  accept: FAR=0.087 FRR=0.404  fallback: FAR=0.158 FRR=0.089
+tau= 1.10  static: FAR=0.378 FRR=0.168  accept: FAR=0.094 FRR=0.373  fallback: FAR=0.173 FRR=0.080
+tau= 1.20  static: FAR=0.397 FRR=0.153  accept: FAR=0.102 FRR=0.335  fallback: FAR=0.188 FRR=0.073
+tau= 1.30  static: FAR=0.415 FRR=0.137  accept: FAR=0.110 FRR=0.309  fallback: FAR=0.202 FRR=0.068
+tau= 1.40  static: FAR=0.433 FRR=0.121  accept: FAR=0.118 FRR=0.279  fallback: FAR=0.217 FRR=0.062
+tau= 1.50  static: FAR=0.447 FRR=0.108  accept: FAR=0.127 FRR=0.248  fallback: FAR=0.231 FRR=0.057
+tau= 1.60  static: FAR=0.462 FRR=0.096  accept: FAR=0.135 FRR=0.225  fallback: FAR=0.246 FRR=0.053
+tau= 1.70  static: FAR=0.476 FRR=0.085  accept: FAR=0.145 FRR=0.204  fallback: FAR=0.260 FRR=0.049
+tau= 1.80  static: FAR=0.491 FRR=0.075  accept: FAR=0.155 FRR=0.186  fallback: FAR=0.274 FRR=0.046
+tau= 1.90  static: FAR=0.505 FRR=0.066  accept: FAR=0.166 FRR=0.172  fallback: FAR=0.288 FRR=0.042
+tau= 2.00  static: FAR=0.517 FRR=0.059  accept: FAR=0.174 FRR=0.150  fallback: FAR=0.301 FRR=0.039
+tau= 2.10  static: FAR=0.532 FRR=0.051  accept: FAR=0.185 FRR=0.132  fallback: FAR=0.314 FRR=0.036
+tau= 2.20  static: FAR=0.545 FRR=0.044  accept: FAR=0.197 FRR=0.122  fallback: FAR=0.327 FRR=0.034
+tau= 2.30  static: FAR=0.558 FRR=0.040  accept: FAR=0.212 FRR=0.108  fallback: FAR=0.339 FRR=0.032
+tau= 2.40  static: FAR=0.571 FRR=0.036  accept: FAR=0.225 FRR=0.097  fallback: FAR=0.351 FRR=0.029
+tau= 2.50  static: FAR=0.582 FRR=0.031  accept: FAR=0.240 FRR=0.087  fallback: FAR=0.362 FRR=0.027
+tau= 2.60  static: FAR=0.593 FRR=0.028  accept: FAR=0.260 FRR=0.075  fallback: FAR=0.373 FRR=0.025
+tau= 2.70  static: FAR=0.605 FRR=0.025  accept: FAR=0.275 FRR=0.068  fallback: FAR=0.384 FRR=0.023
+tau= 2.80  static: FAR=0.614 FRR=0.021  accept: FAR=0.285 FRR=0.064  fallback: FAR=0.395 FRR=0.022
+tau= 2.90  static: FAR=0.626 FRR=0.018  accept: FAR=0.299 FRR=0.058  fallback: FAR=0.405 FRR=0.021
+tau= 3.00  static: FAR=0.637 FRR=0.017  accept: FAR=0.310 FRR=0.053  fallback: FAR=0.415 FRR=0.020
+
+static   tau=-0.11  dev FAR=0.050 FRR=0.652  test FAR=0.029 FRR=0.751
+
+accept   tau=0.40  dev FAR=0.044 FRR=0.632  test FAR=0.018 FRR=0.632
+
+fallback tau=0.25  dev FAR=0.050 FRR=0.206  test FAR=0.015 FRR=0.196
+
+FRR theo phiên trên nhóm kiểm tra:
+ session  static  accept  fallback
+       1   0.376   0.124     0.124
+       2   0.563   0.300     0.175
+       3   0.657   0.515     0.187
+       4   0.757   0.680     0.228
+       5   0.807   0.732     0.212
+       6   0.865   0.763     0.185
+       7   0.911   0.859     0.216
+       8   0.923   0.883     0.216
+
+Đã ghi models/model_config.json (fallback, tau = 0.25)
