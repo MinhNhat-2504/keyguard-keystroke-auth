@@ -21,7 +21,7 @@ Dữ liệu: CMU Keystroke Dynamics Benchmark, 51 người × 400 lần gõ × 8
 | Random Forest (kẻ gian mẫu chưa quen tay) | 0,167 | 0,173 | **0,034** | **0,069** | 287 ms |
 
 - Scaled Manhattan với n = 200 cho EER 0,098, khớp với 0,096 trong bài gốc của Killourhy & Maxion (2009). Quy trình đánh giá tái lập được kết quả đã công bố.
-- Người dùng gõ nhanh dần theo thời gian: cả câu mất 3,26 giây ở phiên 1, còn 2,29 giây ở phiên 8. Mô hình nào dựa vào "mức quen tay" thay vì "ai đang gõ" sẽ tụt khi kẻ gian đã luyện gõ (Isolation Forest, Random Forest).
+- Người dùng gõ nhanh dần theo thời gian: cả câu mất 3,06 giây ở phiên 1, còn 2,19 giây ở phiên 8, nhanh hơn khoảng 28% (trung vị theo từng người rồi lấy trung bình, `results/typing_time_by_session.csv`). Mô hình nào dựa vào "mức quen tay" thay vì "ai đang gõ" sẽ tụt khi kẻ gian đã luyện gõ (Isolation Forest, Random Forest).
 - Scaled Manhattan ổn định nhất trước kẻ gian đã quen tay ở n = 20 và học lại nhanh hơn hàng nghìn lần, nên được chọn cho sản phẩm.
 
 **2. Ngưỡng chung và cập nhật hồ sơ** (Scaled Manhattan, đăng ký 20 lần gõ, giữ 50 lần gần nhất). Ngưỡng chọn trên 36 người để FAR ≤ 5%; số liệu dưới là của 15 người kiểm tra chưa từng dùng khi chọn ngưỡng.
@@ -54,10 +54,12 @@ keyguard-keystroke-auth/
 │  ├─ run_benchmark.py       # so sánh các mô hình trên CMU
 │  ├─ select_threshold.py    # chọn ngưỡng chung, ghi models/model_config.json
 │  ├─ evaluate_collected.py  # đánh giá trên dữ liệu nhóm tự thu
+│  ├─ make_report_figures.py # hình khổ một cột cho report
 │  └─ make_sample_jsonl.py   # tạo dữ liệu mẫu để chạy thử
 ├─ models/model_config.json  # cấu hình mô hình mà web demo dùng
 ├─ results/                  # CSV/JSON kết quả
-├─ figures/                  # hình cho report
+├─ figures/                  # hình (figures/report/: bản dùng trong report)
+├─ report/KeyGuard_Report.docx  # report 6 trang (template IEEE)
 ├─ data/README.md            # nguồn dữ liệu, cách tải, định dạng JSONL
 ├─ tests/
 ├─ collector/                # web thu dữ liệu (TV2)
@@ -79,6 +81,7 @@ python -m pytest -q                      # kiểm thử
 python scripts/run_benchmark.py          # so sánh mô hình, ~3 phút   -> results/, figures/
 python scripts/select_threshold.py       # chọn ngưỡng, ~2 phút      -> models/model_config.json
 python scripts/evaluate_collected.py     # khi đã có dữ liệu tự thu trong data/collected/
+python scripts/make_report_figures.py    # vẽ hình cho report     -> figures/report/
 ```
 
 Mọi script dùng `seed = 42`.
