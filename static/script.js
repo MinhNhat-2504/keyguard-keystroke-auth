@@ -1,122 +1,153 @@
+// Trang thu dữ liệu: mã người tham gia và số lần gõ mỗi phiên do SERVER quản lý.
+// TARGET_STRING và MAX_REPS do server truyền qua thuộc tính data- của thẻ <body> trong index.html.
+const TARGET_STRING = document.body.dataset.phrase;
+const MAX_REPS = parseInt(document.body.dataset.maxReps, 10);
+const STORAGE_KEY = "keyguard_participant_id";
+
 let currentParticipantId = "";
-let currentRep = 1;
-const MAX_REPS = 40;
-let eventsLog = [];
+let counts = { "1": 0, "2": 0, "3": 0 };   // số mẫu đã lưu của mã hiện tại, theo phiên
 
 const inputField = document.getElementById('targetInput');
 const statusMsg = document.getElementById('statusMsg');
 const sessionSelect = document.getElementById('sessionSelect');
 const changeUserBtn = document.getElementById('changeUserBtn');
+const resumeBtn = document.getElementById('resumeBtn');
+const resumeInput = document.getElementById('resumeInput');
+const pidEl = document.getElementById('pid');
+const progressInfo = document.getElementById('progressInfo');
 
-// 1. Hàm xin một mã ID mới từ server
+let capture = null;
+
+function say(text, color) {
+    statusMsg.style.color = color || "";
+    statusMsg.innerText = text;
+}
+
+function rememberPid(pid) {
+    try { pid ? localStorage.setItem(STORAGE_KEY, pid) : localStorage.removeItem(STORAGE_KEY); } catch (e) { /* bỏ qua */ }
+}
+
+function recalledPid() {
+    try { return localStorage.getItem(STORAGE_KEY) || ""; } catch (e) { return ""; }
+}
+
+function currentSession() {
+    return parseInt(sessionSelect.value, 10) || 1;
+}
+
+// Cập nhật ô nhập và dòng tiến độ theo phiên đang chọn.
+function refreshProgress(focus = true) {
+    const s = currentSession();
+    const n = counts[String(s)] || 0;
+    progressInfo.innerText = currentParticipantId ? `Phiên ${s}: đã có ${n}/${MAX_REPS} mẫu` : "";
+    if (!currentParticipantId) {
+        capture.lock();
+        return;
+    }
+    if (n >= MAX_REPS) {
+        capture.lock();
+        inputField.placeholder = `Phiên ${s} đã đủ ${MAX_REPS} mẫu!`;
+        say(`🎉 Phiên ${s} đã hoàn thành đủ ${MAX_REPS}/${MAX_REPS} mẫu. Cảm ơn bạn! Chọn phiên khác nếu cần.`, "blue");
+    } else {
+        capture.unlock(focus);
+        inputField.placeholder = "Bấm vào đây và bắt đầu gõ...";
+        say("");
+    }
+}
+
+function setParticipant(pid, sessionCounts) {
+    currentParticipantId = pid;
+    counts = Object.assign({ "1": 0, "2": 0, "3": 0 }, sessionCounts || {});
+    pidEl.innerText = pid || "Lỗi kết nối server!";
+    rememberPid(pid);
+    refreshProgress();
+}
+
+// Xin mã mới (server giữ chỗ nên hai người cùng lúc không bao giờ trùng mã).
 async function fetchNewId() {
     try {
-        let res = await fetch('/api/get-id');
-        let data = await res.json();
-        currentParticipantId = data.participant_id;
-       
-        const pidEl = document.getElementById('pid');
-        if (pidEl) pidEl.innerText = currentParticipantId;
+        const res = await fetch('/api/get-id');
+        const data = await res.json();
+        if (!res.ok || !data.participant_id) throw new Error(data.message || "Lỗi");
+        setParticipant(data.participant_id, {});
     } catch (err) {
-        const pidEl = document.getElementById('pid');
-        if (pidEl) pidEl.innerText = "Lỗi kết nối server!";
+        setParticipant("", {});
+        say("Không thể xin mã từ server!", "red");
     }
 }
 
-// Khi mở trang lần đầu
-window.addEventListener('DOMContentLoaded', async () => {
-    await fetchNewId();
-});
-
-// Nút đổi sang người test mới trên cùng một máy
-if (changeUserBtn) {
-    changeUserBtn.addEventListener('click', async () => {
-        if (confirm("Chuyển sang người test tiếp theo? Dữ liệu của người trước đã được lưu an toàn.")) {
-            currentRep = 1;
-            inputField.disabled = false;
-            inputField.value = "";
-            statusMsg.innerText = "";
-            await fetchNewId();
-        }
-    });
-}
-
-// 2. Lắng nghe sự kiện bàn phím (down / up)
-if (inputField) {
-    inputField.addEventListener('keydown', (e) => {
-        if (currentRep > MAX_REPS) return;
-        eventsLog.push({
-            key: e.key,
-            type: "down",
-            t: performance.now()
-        });
-    });
-
-    inputField.addEventListener('keyup', (e) => {
-        if (currentRep > MAX_REPS) return;
-        eventsLog.push({
-            key: e.key,
-            type: "up",
-            t: performance.now()
-        });
-        
-        // Khi gõ xong câu mẫu và bấm Enter
-        if (e.key === "Enter") {
-            submitSample();
-        }
-    });
-}
-
-// 3. Gửi dữ liệu lần gõ về server Flask
-async function submitSample() {
-    if (currentRep > MAX_REPS) return;
-
-    const currentSession = sessionSelect ? parseInt(sessionSelect.value) : 1;
-
-    let payload = {
-        participant_id: currentParticipantId,
-        session: currentSession,
-        rep: currentRep,
-        events: eventsLog
-    };
-
+// Quay lại với mã đã có để thu phiên ngày 2/3.
+async function resumeId(pid) {
     try {
-        let response = await fetch('/api/submit-sample', {
+        const res = await fetch('/api/participant/' + encodeURIComponent(pid));
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+            say(data.message || "Không tìm thấy mã này.", "red");
+            return false;
+        }
+        setParticipant(data.participant_id, data.sessions);
+        return true;
+    } catch (err) {
+        say("Không thể kết nối đến server!", "red");
+        return false;
+    }
+}
+
+async function submitSample(events) {
+    capture.lock();
+    try {
+        const response = await fetch('/api/submit-sample', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({
+                participant_id: currentParticipantId,
+                session: currentSession(),
+                events: events
+            })
         });
-        let result = await response.json();
+        const result = await response.json();
+        const s = String(currentSession());
 
-        if (result.success) {
-            currentRep++;
-           
-            if (currentRep > MAX_REPS) {
-                inputField.disabled = true;
-                inputField.placeholder = "Đã hoàn thành đủ 40 mẫu!";
-                if (statusMsg) {
-                    statusMsg.style.color = "blue";
-                    statusMsg.innerText = `🎉 Tuyệt vời! Bạn đã hoàn thành đủ 40/40 mẫu của Phiên ${currentSession}. Cảm ơn bạn!`;
-                }
-            } else {
-                if (statusMsg) {
-                    statusMsg.style.color = "green";
-                    statusMsg.innerText = `Lần gõ #${currentRep - 1} thành công! (Tiến độ: ${currentRep - 1}/${MAX_REPS})`;
-                }
+        if (response.ok && result.success) {
+            counts[s] = result.count;
+            refreshProgress();
+            if (counts[s] < MAX_REPS) {
+                say(`Lần gõ #${counts[s]} thành công! (Tiến độ: ${counts[s]}/${MAX_REPS})`, "green");
             }
-            inputField.value = "";
         } else {
-            if (statusMsg) {
-                statusMsg.style.color = "red";
-                statusMsg.innerText = `Gõ sai: ${result.message} (Vui lòng gõ lại từ đầu)`;
-            }
-            inputField.value = "";
+            if (typeof result.count === "number") counts[s] = result.count;
+            refreshProgress();
+            if (counts[s] < MAX_REPS) say(`Gõ sai: ${result.message} (Vui lòng gõ lại từ đầu)`, "red");
         }
     } catch (err) {
-        if (statusMsg) {
-            statusMsg.style.color = "red";
-            statusMsg.innerText = "Không thể kết nối đến server!";
-        }
+        capture.unlock();
+        say("Không thể kết nối đến server! Lần gõ này chưa được lưu, hãy gõ lại.", "red");
     }
-    eventsLog = [];
 }
+
+window.addEventListener('DOMContentLoaded', async () => {
+    capture = attachKeyCapture(inputField, TARGET_STRING, (events, err) => {
+        if (err) { say(err, "red"); return; }
+        submitSample(events);
+    });
+    capture.lock();
+
+    const saved = recalledPid();
+    if (!(saved && await resumeId(saved))) await fetchNewId();
+});
+
+sessionSelect.addEventListener('change', () => refreshProgress(false));
+
+changeUserBtn.addEventListener('click', async () => {
+    if (confirm("Chuyển sang người test tiếp theo? Dữ liệu của người trước đã được lưu an toàn.")) {
+        capture.reset();
+        await fetchNewId();
+    }
+});
+
+resumeBtn.addEventListener('click', async () => {
+    const pid = resumeInput.value.trim().toUpperCase();
+    if (!/^P\d{2,4}$/.test(pid)) { say("Mã không hợp lệ (dạng P01, P02, ...).", "red"); return; }
+    capture.reset();
+    if (await resumeId(pid)) resumeInput.value = "";
+});

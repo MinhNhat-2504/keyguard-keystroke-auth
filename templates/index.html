@@ -6,14 +6,18 @@
     <title>KeyGuard - Thu thập dữ liệu nhịp gõ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body data-phrase="{{ phrase }}" data-max-reps="{{ max_reps }}">
 <div class="container">
     <h2>KeyGuard Data Collector</h2>
-   
+
     <div class="info-card">
         Mã định danh của bạn: <span id="pid" style="color: var(--primary-color);">Đang tải...</span>
         <br><br>
         <button id="changeUserBtn">Đổi sang người test mới</button>
+        <br><br>
+        <label for="resumeInput"><b>Quay lại thu tiếp bằng mã đã có:</b></label>
+        <input type="text" id="resumeInput" placeholder="Ví dụ: P03" autocomplete="off" maxlength="6">
+        <button id="resumeBtn" style="margin-top: 10px;">Tiếp tục với mã này</button>
     </div>
 
     <div class="info-card">
@@ -23,16 +27,22 @@
             <option value="2">Phiên 2 (Ngày 2)</option>
             <option value="3">Phiên 3 (Ngày 3)</option>
         </select>
+        <div id="progressInfo" style="margin-top: 10px;"></div>
     </div>
-   
+
     <p>Hãy gõ chính xác câu mẫu bên dưới rồi nhấn <b>Enter</b>:</p>
-    <div class="target-box">.tie5Roanl</div>
-   
+    <div class="target-box">{{ phrase }}</div>
+
     <input type="text" id="targetInput" placeholder="Bấm vào đây và bắt đầu gõ..." autofocus autocomplete="off">
-   
+
     <div class="status" id="statusMsg"></div>
+
+    <div class="nav">
+        <a href="/register">Đăng ký tài khoản demo</a> · <a href="/login">Đăng nhập demo</a>
+    </div>
 </div>
 
+<script src="{{ url_for('static', filename='keycapture.js') }}"></script>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

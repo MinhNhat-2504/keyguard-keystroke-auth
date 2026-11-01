@@ -106,3 +106,23 @@ button:hover {
     font-weight: 600;
     min-height: 24px;
 }
+
+.nav {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+input:disabled, select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

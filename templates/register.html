@@ -6,98 +6,138 @@
     <title>KeyGuard - Đăng ký tài khoản nhịp gõ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 </head>
-<body>
+<body data-phrase="{{ phrase }}" data-n-enroll="{{ n_enroll }}">
 <div class="card">
     <h2>KeyGuard - Đăng ký mẫu nhịp gõ</h2>
-   
+
     <div id="setupStep">
-        <label>Nhập tên tài khoản muốn đăng ký:</label>
-        <input type="text" id="regUsername" placeholder="Ví dụ: Thư Nguyễn">
-        <button onclick="startEnroll()">Bắt đầu ghi nhận mẫu</button>
+        <label for="regUsername">Nhập tên tài khoản muốn đăng ký:</label>
+        <input type="text" id="regUsername" placeholder="Ví dụ: Thư Nguyễn" maxlength="50" autocomplete="off">
+        <div class="status" id="setupStatus" style="color: #c53030;"></div>
+        <button id="startBtn">Bắt đầu ghi nhận mẫu</button>
     </div>
-    
+
     <div id="typingStep" class="hidden">
-        <p style="text-align: center; font-weight: 600; color: var(--primary-color);">Tiến độ: Lần <span id="currentAttempt">1</span> / 5</p>
-        <p>Gõ chính xác chuỗi:</p>
-        <div class="target-text">.tie5Roanl</div>
-        <input type="text" id="regInput" placeholder="Gõ xong khớp chuỗi tự động..." autocomplete="off">
+        <p style="text-align: center; font-weight: 600; color: var(--primary-color);">Tiến độ: Lần <span id="currentAttempt">1</span> / {{ n_enroll }}</p>
+        <p>Gõ chính xác chuỗi rồi nhấn <b>Enter</b>:</p>
+        <div class="target-text">{{ phrase }}</div>
+        <input type="text" id="regInput" placeholder="Gõ chuỗi trên rồi nhấn Enter..." autocomplete="off">
         <div class="status" id="regStatus"></div>
     </div>
-    
+
+    <div id="doneStep" class="hidden"></div>
+
     <div class="link">
-        <a href="/">Đã có tài khoản? Quay lại đăng nhập</a>
+        <a href="/login">Đã có tài khoản? Quay lại đăng nhập</a>
+        <br><br>
+        <a href="/">Trang thu thập dữ liệu</a>
     </div>
 </div>
+<script src="{{ url_for('static', filename='keycapture.js') }}"></script>
 <script>
-    const TARGET_STRING = ".tie5Roanl";
-    const TOTAL_ENROLL_ATTEMPTS = 5;
-    let regUsername = "";
-    let currentAttempt = 1;
-    let allEnrollEvents = [];
-   
-    let currentKeyEvents = [];
-    let keyPressedTime = {};
+    const TARGET_STRING = document.body.dataset.phrase;
+    const TOTAL_ENROLL_ATTEMPTS = parseInt(document.body.dataset.nEnroll, 10);
 
-    function startEnroll() {
-        regUsername = document.getElementById('regUsername').value.trim();
-        if (!regUsername) {
-            alert("Vui lòng nhập tên tài khoản!");
+    const $ = (id) => document.getElementById(id);
+    let username = "";
+    let samples = [];
+    let capture = null;
+
+    function showStep(name) {
+        for (const id of ["setupStep", "typingStep", "doneStep"]) {
+            $(id).classList.toggle("hidden", id !== name);
+        }
+    }
+
+    function setStatus(text, color) {
+        $("regStatus").style.color = color || "";
+        $("regStatus").innerText = text;
+    }
+
+    function resetAll() {
+        samples = [];
+        $("currentAttempt").innerText = 1;
+        setStatus("");
+        showStep("setupStep");
+    }
+
+    async function startEnroll() {
+        username = $("regUsername").value.trim();
+        $("setupStatus").innerText = "";
+        if (!username) {
+            $("setupStatus").innerText = "Vui lòng nhập tên tài khoản!";
             return;
         }
-        document.getElementById('setupStep').classList.add('hidden');
-        document.getElementById('typingStep').classList.remove('hidden');
-        document.getElementById('regInput').focus();
-        initEnrollListeners();
-    }
-
-    function initEnrollListeners() {
-        const input = document.getElementById('regInput');
-        input.addEventListener('keydown', (e) => {
-            const time = performance.now();
-            if (!keyPressedTime[e.key]) keyPressedTime[e.key] = time;
-        });
-
-        input.addEventListener('keyup', (e) => {
-            const time = performance.now();
-            currentKeyEvents.push({
-                key: e.key,
-                down_time: keyPressedTime[e.key] || time,
-                up_time: time,
-                hold_time: time - (keyPressedTime[e.key] || time)
-            });
-            delete keyPressedTime[e.key];
-        });
-
-        input.addEventListener('input', async (e) => {
-            if (input.value === TARGET_STRING) {
-                allEnrollEvents.push({
-                    attempt_index: currentAttempt,
-                    events: [...currentKeyEvents]
-                });
-                input.value = "";
-                currentKeyEvents = [];
-                keyPressedTime = {};
-               
-                currentAttempt++;
-                if (currentAttempt > TOTAL_ENROLL_ATTEMPTS) {
-                    document.getElementById('typingStep').innerHTML = "<h3 style='color: var(--primary-color); text-align: center;'>⏳ Đang xử lý đăng ký...</h3>";
-                   
-                    const response = await fetch('/api/enroll', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ username: regUsername, events: allEnrollEvents })
-                    });
-                    const res = await response.json();
-                   
-                    document.getElementById('typingStep').innerHTML = `<h3 style='color: #2f855a; text-align: center;'>🎉 Hoàn tất!</h3><p style='text-align: center;'>${res.message}</p><div class='link'><a href='/'>Quay lại trang Đăng nhập</a></div>`;
-                } else {
-                    document.getElementById('currentAttempt').innerText = currentAttempt;
-                    document.getElementById('regStatus').innerText = "Thành công! Tiếp tục lần tiếp theo.";
-                    setTimeout(() => { document.getElementById('regStatus').innerText = ""; }, 1000);
-                }
+        // Kiểm tra trùng tên trước để không phải gõ 20 lần rồi mới bị từ chối.
+        try {
+            const res = await fetch('/api/check-username?username=' + encodeURIComponent(username));
+            const data = await res.json();
+            if (!res.ok || !data.success) {
+                $("setupStatus").innerText = data.message || "Tên tài khoản không hợp lệ.";
+                return;
             }
-        });
+            if (!data.available) {
+                $("setupStatus").innerText = "Tên tài khoản đã tồn tại, vui lòng chọn tên khác.";
+                return;
+            }
+            username = data.username;
+        } catch (err) {
+            $("setupStatus").innerText = "Không thể kết nối đến server!";
+            return;
+        }
+        samples = [];
+        $("currentAttempt").innerText = 1;
+        showStep("typingStep");
+        capture.unlock();
     }
+
+    async function onSample(events, err) {
+        if (err) { setStatus(err, "#c53030"); return; }
+        samples.push(events);
+
+        if (samples.length < TOTAL_ENROLL_ATTEMPTS) {
+            $("currentAttempt").innerText = samples.length + 1;
+            setStatus("Thành công! Tiếp tục lần tiếp theo.", "#2f855a");
+            return;
+        }
+
+        capture.lock();
+        showStep("doneStep");
+        $("doneStep").innerHTML = "<h3 style='color: var(--primary-color); text-align: center;'>⏳ Đang xử lý đăng ký...</h3>";
+        try {
+            const response = await fetch('/api/enroll', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username, samples: samples })
+            });
+            const res = await response.json();
+            if (response.ok && res.success) {
+                $("doneStep").innerHTML = "<h3 style='color: #2f855a; text-align: center;'>🎉 Hoàn tất!</h3>" +
+                    "<p id='doneMsg' style='text-align: center;'></p>" +
+                    "<div class='link'><a href='/login'>Đi tới trang Đăng nhập</a></div>";
+                $("doneMsg").innerText = res.message;
+            } else {
+                showEnrollError(res.message || "Đăng ký thất bại.");
+            }
+        } catch (err2) {
+            showEnrollError("Không thể kết nối đến server. Vui lòng thử lại.");
+        }
+    }
+
+    function showEnrollError(message) {
+        $("doneStep").innerHTML = "<h3 style='color: #c53030; text-align: center;'>❌ Đăng ký chưa thành công</h3>" +
+            "<p id='errMsg' style='text-align: center;'></p>" +
+            "<button id='retryBtn'>Thử lại từ đầu</button>";
+        $("errMsg").innerText = message;
+        $("retryBtn").addEventListener("click", resetAll);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        capture = attachKeyCapture($("regInput"), TARGET_STRING, onSample);
+        capture.lock();
+        $("startBtn").addEventListener("click", startEnroll);
+        $("regUsername").addEventListener("keydown", (e) => { if (e.key === "Enter") startEnroll(); });
+    });
 </script>
 </body>
 </html>

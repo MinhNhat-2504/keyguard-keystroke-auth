@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Dữ liệu chạy demo: không đưa lên repo công khai
+data/profiles/
+data/accounts.json
+data/participants.json
+data/challenges.json
+data/.lock
+data/.*.tmp

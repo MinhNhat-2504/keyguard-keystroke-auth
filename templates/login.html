@@ -6,73 +6,131 @@
     <title>KeyGuard - Đăng nhập xác thực nhịp gõ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
-<body>
+<body data-phrase="{{ phrase }}">
 <div class="card">
     <h2>KeyGuard - Đăng nhập</h2>
-    <label>Tên tài khoản:</label>
-    <input type="text" id="username" placeholder="Nhập tên đăng nhập...">
-   
-    <label style="margin-top: 20px;">Gõ chuỗi xác thực:</label>
-    <div class="target-text">.tie5Roanl</div>
-   
+    <label for="username">Tên tài khoản:</label>
+    <input type="text" id="username" placeholder="Nhập tên đăng nhập..." maxlength="50" autocomplete="off">
+
+    <label for="typingInput" style="margin-top: 20px;">Gõ chuỗi xác thực rồi nhấn Enter:</label>
+    <div class="target-text">{{ phrase }}</div>
+
     <input type="text" id="typingInput" placeholder="Click vào đây và gõ đúng chuỗi..." autocomplete="off">
-   
+
     <div id="resultBox" class="result"></div>
-   
+
+    <div id="otpBox" class="otp-box">
+        <div class="sms" id="smsBox"></div>
+        <label for="otpInput" style="margin-top: 10px;">Nhập mã OTP:</label>
+        <input type="text" id="otpInput" placeholder="6 chữ số" inputmode="numeric" maxlength="6" autocomplete="off">
+        <button id="otpBtn">Xác nhận OTP</button>
+    </div>
+
     <div class="link">
         <a href="/register">Chưa có tài khoản? Đăng ký nhịp gõ ngay</a>
+        <br><br>
+        <a href="/">Trang thu thập dữ liệu</a>
     </div>
 </div>
+<script src="{{ url_for('static', filename='keycapture.js') }}"></script>
 <script>
-    const TARGET_STRING = ".tie5Roanl";
-    let keyEvents = [];
-    let keyPressedTime = {};
-    const input = document.getElementById('typingInput');
-    
-    input.addEventListener('keydown', (e) => {
-        const time = performance.now();
-        if (!keyPressedTime[e.key]) keyPressedTime[e.key] = time;
-    });
+    const TARGET_STRING = document.body.dataset.phrase;
+    const $ = (id) => document.getElementById(id);
+    let challengeId = null;
+    let capture = null;
 
-    input.addEventListener('keyup', (e) => {
-        const time = performance.now();
-        keyEvents.push({
-            key: e.key,
-            down_time: keyPressedTime[e.key] || time,
-            up_time: time,
-            hold_time: time - (keyPressedTime[e.key] || time)
-        });
-        delete keyPressedTime[e.key];
-    });
+    function showResult(kind, html, isText) {
+        const box = $("resultBox");
+        box.style.display = "block";
+        box.className = "result " + kind;
+        if (isText) box.innerText = html; else box.innerHTML = html;
+    }
 
-    input.addEventListener('input', async (e) => {
-        if (input.value === TARGET_STRING) {
-            const username = document.getElementById('username').value.trim();
-            if (!username) {
-                alert("Vui lòng nhập tên tài khoản trước khi gõ!");
-                input.value = "";
-                return;
-            }
+    function confidenceLine(c) {
+        return (typeof c === "number" && isFinite(c)) ? `<br>Điểm tin cậy: ${(c * 100).toFixed(1)}%` : "";
+    }
+
+    function esc(s) {
+        const d = document.createElement("div");
+        d.innerText = String(s);
+        return d.innerHTML;
+    }
+
+    function hideOtp() {
+        challengeId = null;
+        $("otpBox").style.display = "none";
+        $("otpInput").value = "";
+    }
+
+    async function onSample(events, err) {
+        hideOtp();
+        if (err) { showResult("danger", "❌ " + err, true); return; }
+        const username = $("username").value.trim();
+        if (!username) {
+            showResult("danger", "❌ Vui lòng nhập tên tài khoản trước khi gõ!", true);
+            return;
+        }
+
+        capture.lock();
+        try {
             const response = await fetch('/api/verify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, events: keyEvents })
+                body: JSON.stringify({ username: username, events: events })
             });
             const result = await response.json();
-            const resultBox = document.getElementById('resultBox');
-            resultBox.style.display = 'block';
-           
-            if (result.accepted) {
-                resultBox.className = 'result success';
-                resultBox.innerHTML = `✅ ${result.message}<br>Điểm tin cậy: ${(result.confidence * 100).toFixed(1)}%`;
+
+            if (!response.ok || !result.success) {
+                showResult("danger", "❌ " + esc(result.message || "Đăng nhập thất bại."));
+            } else if (result.accepted) {
+                showResult("success", `✅ ${esc(result.message)}${confidenceLine(result.confidence)}`);
             } else {
-                resultBox.className = 'result danger';
-                resultBox.innerHTML = `❌ ${result.message}<br>Điểm tin cậy: ${(result.confidence * 100).toFixed(1)}%`;
+                showResult("danger", `❌ ${esc(result.message)}${confidenceLine(result.confidence)}`);
+                if (result.otp_required) {
+                    challengeId = result.challenge_id;
+                    $("smsBox").innerHTML = result.demo_otp
+                        ? `📱 <b>Tin nhắn giả lập:</b> mã OTP của bạn là <b>${esc(result.demo_otp)}</b> (hiệu lực ${Math.round(result.otp_ttl_seconds / 60)} phút)`
+                        : "📱 Mã OTP đã được gửi (mô phỏng).";
+                    $("otpBox").style.display = "block";
+                }
             }
-            input.value = "";
-            keyEvents = [];
-            keyPressedTime = {};
+        } catch (e) {
+            showResult("danger", "❌ Không thể kết nối đến server. Vui lòng thử lại.", true);
         }
+        capture.unlock(!challengeId);
+        if (challengeId) $("otpInput").focus();
+    }
+
+    async function submitOtp() {
+        const otp = $("otpInput").value.trim();
+        if (!challengeId) return;
+        if (!/^\d{6}$/.test(otp)) { showResult("danger", "❌ OTP gồm 6 chữ số.", true); return; }
+        $("otpBtn").disabled = true;
+        try {
+            const response = await fetch('/api/verify-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ challenge_id: challengeId, otp: otp })
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+                hideOtp();
+                showResult("success", "✅ " + esc(result.message));
+            } else {
+                showResult("danger", "❌ " + esc(result.message || "Xác minh OTP thất bại."));
+                if (response.status !== 401) hideOtp();   // hết hạn / quá số lần: phải gõ lại để nhận OTP mới
+                else $("otpInput").value = "";
+            }
+        } catch (e) {
+            showResult("danger", "❌ Không thể kết nối đến server. Vui lòng thử lại.", true);
+        }
+        $("otpBtn").disabled = false;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        capture = attachKeyCapture($("typingInput"), TARGET_STRING, onSample);
+        $("otpBtn").addEventListener("click", submitOtp);
+        $("otpInput").addEventListener("keydown", (e) => { if (e.key === "Enter") submitOtp(); });
     });
 </script>
 </body>

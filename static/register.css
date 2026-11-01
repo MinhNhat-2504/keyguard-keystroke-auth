@@ -124,3 +124,13 @@ p {
     color: #4a5568;
     font-size: 15px;
 }
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
