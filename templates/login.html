@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyGuard - Đăng nhập xác thực nhịp gõ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+<div class="card">
+    <h2>KeyGuard - Đăng nhập</h2>
+    <label>Tên tài khoản:</label>
+    <input type="text" id="username" placeholder="Nhập tên đăng nhập...">
+   
+    <label style="margin-top: 20px;">Gõ chuỗi xác thực:</label>
+    <div class="target-text">.tie5Roanl</div>
+   
+    <input type="text" id="typingInput" placeholder="Click vào đây và gõ đúng chuỗi..." autocomplete="off">
+   
+    <div id="resultBox" class="result"></div>
+   
+    <div class="link">
+        <a href="/register">Chưa có tài khoản? Đăng ký nhịp gõ ngay</a>
+    </div>
+</div>
+<script>
+    const TARGET_STRING = ".tie5Roanl";
+    let keyEvents = [];
+    let keyPressedTime = {};
+    const input = document.getElementById('typingInput');
+    
+    input.addEventListener('keydown', (e) => {
+        const time = performance.now();
+        if (!keyPressedTime[e.key]) keyPressedTime[e.key] = time;
+    });
+
+    input.addEventListener('keyup', (e) => {
+        const time = performance.now();
+        keyEvents.push({
+            key: e.key,
+            down_time: keyPressedTime[e.key] || time,
+            up_time: time,
+            hold_time: time - (keyPressedTime[e.key] || time)
+        });
+        delete keyPressedTime[e.key];
+    });
+
+    input.addEventListener('input', async (e) => {
+        if (input.value === TARGET_STRING) {
+            const username = document.getElementById('username').value.trim();
+            if (!username) {
+                alert("Vui lòng nhập tên tài khoản trước khi gõ!");
+                input.value = "";
+                return;
+            }
+            const response = await fetch('/api/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username, events: keyEvents })
+            });
+            const result = await response.json();
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+           
+            if (result.accepted) {
+                resultBox.className = 'result success';
+                resultBox.innerHTML = `✅ ${result.message}<br>Điểm tin cậy: ${(result.confidence * 100).toFixed(1)}%`;
+            } else {
+                resultBox.className = 'result danger';
+                resultBox.innerHTML = `❌ ${result.message}<br>Điểm tin cậy: ${(result.confidence * 100).toFixed(1)}%`;
+            }
+            input.value = "";
+            keyEvents = [];
+            keyPressedTime = {};
+        }
+    });
+</script>
+</body>
+</html>

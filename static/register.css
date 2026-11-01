@@ -1,0 +1,126 @@
+/* static/register.css - Tông xanh dương pastel */
+:root {
+    --primary-color: #2b6cb0;
+    --primary-hover: #2c5282;
+    --bg-color: #e8f0fe;
+    --card-bg: #ffffff;
+    --text-color: #2d3748;
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(43, 108, 176, 0.1);
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid #dbeafe;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+    color: #4a5568;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 2px solid #bfdbfe;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+    background-color: #ffffff;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+.target-text {
+    background: #dbeafe;
+    color: #1e3a8a;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: 1px dashed #93c5fd;
+}
+
+.hidden { display: none; }
+
+.status {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #2f855a;
+    text-align: center;
+}
+
+.link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+p {
+    color: #4a5568;
+    font-size: 15px;
+}
