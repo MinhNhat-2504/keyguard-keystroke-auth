@@ -103,18 +103,26 @@
         if (challengeId) $("otpInput").focus();
     }
 
+    let otpInFlight = false;   // đang chờ server trả lời OTP: không cho gửi thêm
+
     async function submitOtp() {
+        if (otpInFlight) return;                       // Enter giữ / bấm nhiều lần chỉ tạo một request
         const otp = $("otpInput").value.trim();
-        if (!challengeId) return;
+        const myChallenge = challengeId;
+        if (!myChallenge) return;
         if (!/^\d{6}$/.test(otp)) { showResult("danger", "❌ OTP gồm 6 chữ số.", true); return; }
+        otpInFlight = true;
         $("otpBtn").disabled = true;
+        $("otpInput").disabled = true;
+        capture.lock();                                // không cho gõ lại (tạo OTP mới) khi đang xác minh
         try {
             const response = await fetch('/api/verify-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ challenge_id: challengeId, otp: otp })
+                body: JSON.stringify({ challenge_id: myChallenge, otp: otp })
             });
             const result = await response.json();
+            if (myChallenge !== challengeId) return;   // không còn là thử thách hiện tại: bỏ phản hồi
             if (response.ok && result.success) {
                 hideOtp();
                 showResult("success", "✅ " + esc(result.message));
@@ -125,14 +133,19 @@
             }
         } catch (e) {
             showResult("danger", "❌ Không thể kết nối đến server. Vui lòng thử lại.", true);
+        } finally {
+            otpInFlight = false;
+            $("otpBtn").disabled = false;
+            $("otpInput").disabled = false;
+            capture.unlock(false);
+            if (challengeId) $("otpInput").focus();
         }
-        $("otpBtn").disabled = false;
     }
 
     window.addEventListener("DOMContentLoaded", () => {
         capture = attachKeyCapture($("typingInput"), TARGET_STRING, onSample);
         $("otpBtn").addEventListener("click", submitOtp);
-        $("otpInput").addEventListener("keydown", (e) => { if (e.key === "Enter") submitOtp(); });
+        $("otpInput").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.repeat) submitOtp(); });
     });
 </script>
 </body>

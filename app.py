@@ -362,7 +362,9 @@ def api_submit_sample():
     data = json_body()
     pid = parse_participant_id(data.get("participant_id"))
     try:
-        session = int(data.get("session"))
+        session = data.get("session")
+        if isinstance(session, bool) or not isinstance(session, int):
+            raise ValueError("session phải là số nguyên")
     except (TypeError, ValueError):
         raise ApiError("Phiên gõ không hợp lệ.", 400)
     if not 1 <= session <= MAX_SESSIONS:

@@ -93,35 +93,62 @@ async function resumeId(pid) {
     }
 }
 
+// Khóa chọn phiên / đổi người / nhập mã khi đang chờ server trả lời, để kết quả không bị gán nhầm.
+function setBusy(busy) {
+    for (const el of [sessionSelect, changeUserBtn, resumeBtn, resumeInput]) el.disabled = busy;
+}
+
+// Lấy lại tiến độ của đúng mã `pid` từ server (dùng khi mất kết nối và không biết mẫu đã lưu chưa).
+async function syncProgress(pid) {
+    try {
+        const res = await fetch('/api/participant/' + encodeURIComponent(pid));
+        const data = await res.json();
+        if (res.ok && data.success && pid === currentParticipantId) {
+            counts = Object.assign({ "1": 0, "2": 0, "3": 0 }, data.sessions);
+            return true;
+        }
+    } catch (e) { /* vẫn mất mạng */ }
+    return false;
+}
+
 async function submitSample(events) {
+    // Chốt người và phiên NGAY LÚC GỬI; mọi cập nhật sau await đều dùng hai giá trị này.
+    const pid = currentParticipantId;
+    const sess = currentSession();
+    const key = String(sess);
+
     capture.lock();
+    setBusy(true);
     try {
         const response = await fetch('/api/submit-sample', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                participant_id: currentParticipantId,
-                session: currentSession(),
-                events: events
-            })
+            body: JSON.stringify({ participant_id: pid, session: sess, events: events })
         });
         const result = await response.json();
-        const s = String(currentSession());
+        if (pid !== currentParticipantId) return;   // người đã đổi: bỏ phản hồi cũ
 
         if (response.ok && result.success) {
-            counts[s] = result.count;
+            counts[key] = result.count;
             refreshProgress();
-            if (counts[s] < MAX_REPS) {
-                say(`Lần gõ #${counts[s]} thành công! (Tiến độ: ${counts[s]}/${MAX_REPS})`, "green");
+            if (counts[key] < MAX_REPS) {
+                say(`Lần gõ #${counts[key]} thành công! (Tiến độ phiên ${sess}: ${counts[key]}/${MAX_REPS})`, "green");
             }
         } else {
-            if (typeof result.count === "number") counts[s] = result.count;
+            if (typeof result.count === "number") counts[key] = result.count;
             refreshProgress();
-            if (counts[s] < MAX_REPS) say(`Gõ sai: ${result.message} (Vui lòng gõ lại từ đầu)`, "red");
+            if (counts[key] < MAX_REPS) say(`Gõ sai: ${result.message} (Vui lòng gõ lại từ đầu)`, "red");
         }
     } catch (err) {
-        capture.unlock();
-        say("Không thể kết nối đến server! Lần gõ này chưa được lưu, hãy gõ lại.", "red");
+        // Có thể server đã lưu mẫu nhưng phản hồi không về: đồng bộ lại tiến độ thay vì đoán.
+        const synced = await syncProgress(pid);
+        if (pid !== currentParticipantId) return;
+        refreshProgress();
+        say(synced
+            ? `Mất kết nối khi gửi. Đã đồng bộ lại tiến độ từ server: phiên ${sess} hiện có ${counts[key]}/${MAX_REPS} mẫu.`
+            : "Không thể kết nối đến server! Chưa biết lần gõ này đã lưu chưa, hãy tải lại trang để xem tiến độ.", "red");
+    } finally {
+        setBusy(false);
     }
 }
 

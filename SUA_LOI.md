@@ -12,8 +12,9 @@ Không động vào `keyguard/` (code của Nhật). Phần khảo sát / thử 
 
 ## P1
 - **D. OTP mô phỏng + cập nhật hồ sơ**: chấp nhận -> `update()` + lưu. Không khớp -> server tạo OTP (hiệu lực 5 phút, tối đa 3 lần thử, lưu dạng băm),
-  lần gõ chỉ được đưa vào hồ sơ khi `/api/verify-otp` xác nhận OTP đúng. OTP "gửi" ra console server và hiện như tin nhắn SMS giả lập trên trang
-  (đặt `KEYGUARD_SHOW_OTP=0` để không trả OTP về trình duyệt).
+  lần gõ chỉ được đưa vào hồ sơ khi `/api/verify-otp` xác nhận OTP đúng. OTP "gửi" bằng cách in ra console của server (SMS mô phỏng).
+  **Mặc định server KHÔNG trả OTP về trình duyệt** (nếu trả thì kẻ gian nhìn thấy OTP và vượt xác minh). Chỉ khi chạy demo một mình mới đặt
+  `KEYGUARD_SHOW_OTP=1` để OTP hiện và tự điền trên trang. Có giới hạn số lần `/api/verify` mỗi phút và số OTP đang chờ mỗi tài khoản.
 - **E. Thu nhiều phiên**: `/api/get-id` giữ chỗ mã (khóa file, hai người cùng lúc không trùng); có ô "quay lại bằng mã đã có" để thu phiên 2/3;
   server tự đánh số lần gõ theo (người, phiên) nên không trùng và tối đa 40/phiên; đổi phiên đọc lại tiến độ từ server;
   mỗi mẫu lưu thêm `collected_at`. Kiểm tra phân biệt hoa/thường (`R` hoa) trước khi chuẩn hóa phím.
@@ -30,3 +31,11 @@ Không động vào `keyguard/` (code của Nhật). Phần khảo sát / thử 
 ## Chạy
     pip install -r requirements.txt
     python app.py        # http://127.0.0.1:5000  (/ , /register , /login)
+
+## Cập nhật sau lần chấm 02/11
+- **Collector đổi phiên khi đang gửi**: chốt mã người + phiên lúc gửi và cập nhật đúng khóa đó; khóa chọn phiên / đổi người / nhập mã trong lúc chờ;
+  nếu mất mạng thì đồng bộ lại tiến độ từ server thay vì đoán mẫu đã lưu hay chưa.
+- **`session` sai kiểu**: chỉ nhận số nguyên thật 1–3; `true`, `1.9`, chuỗi... trả 400 và không ghi dữ liệu.
+- **OTP gửi đồng thời**: có cờ đang gửi (Enter giữ / bấm liên tiếp chỉ tạo một request), khóa ô OTP và ô gõ lại khi chờ,
+  bỏ phản hồi không còn thuộc thử thách hiện tại nên thông báo thành công không bị ghi đè.
+- Chưa làm (để sau khảo sát): mẫu đồng ý, `data/README.md`, ảnh chụp + test toàn luồng (2.5), live test (2.6).
