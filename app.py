@@ -62,9 +62,16 @@ MAX_ENROLL_SAMPLES = 100
 USERNAME_MAX_LEN = 50
 OTP_TTL_SECONDS = 5 * 60
 OTP_MAX_ATTEMPTS = 3
-# Demo: OTP được "gửi" bằng cách in ra console server và trả kèm response để trang hiển thị
-# như một tin nhắn SMS giả lập. Đặt KEYGUARD_SHOW_OTP=0 để tắt việc trả OTP về trình duyệt.
-SHOW_OTP_IN_RESPONSE = os.environ.get("KEYGUARD_SHOW_OTP", "1") != "0"
+# OTP "gửi" bằng cách in ra console server (giống một tin nhắn SMS mô phỏng). MẶC ĐỊNH KHÔNG trả OTP
+# về trình duyệt, vì nếu trả thì kẻ gian nhìn thấy OTP và vượt xác minh. Chỉ khi chạy demo một mình,
+# không có người đóng vai kẻ gian, mới đặt KEYGUARD_SHOW_OTP=1 để OTP hiện trên trang như SMS giả lập.
+SHOW_OTP_IN_RESPONSE = os.environ.get("KEYGUARD_SHOW_OTP", "0") == "1"
+
+# Giới hạn tần suất /api/verify theo (địa chỉ IP, tài khoản) và số thử thách OTP đang chờ mỗi tài khoản.
+VERIFY_LIMIT = int(os.environ.get("KEYGUARD_VERIFY_LIMIT", "10"))        # số lần gọi tối đa / cửa sổ
+VERIFY_WINDOW_SECONDS = 60
+MAX_PENDING_CHALLENGES = int(os.environ.get("KEYGUARD_MAX_PENDING", "3"))  # OTP còn hiệu lực / tài khoản
+_verify_hits: dict[tuple[str, str], list[float]] = {}  # trong bộ nhớ từng tiến trình
 
 PARTICIPANT_RE = re.compile(r"^P\d{2,4}$")
 PROFILE_ID_RE = re.compile(r"^[0-9a-f]{32}$")
@@ -287,6 +294,26 @@ def hash_otp(otp: str, salt: str) -> str:
     return hashlib.sha256((salt + otp).encode()).hexdigest()
 
 
+def rate_limit_verify(account_key: str) -> None:
+    """Tối đa VERIFY_LIMIT lần /api/verify trong VERIFY_WINDOW_SECONDS cho mỗi (IP, tài khoản).
+
+    Lưu trong bộ nhớ nên mỗi worker gunicorn đếm riêng: đủ để chặn gọi dồn dập trong demo,
+    chưa phải giải pháp chống tấn công phân tán.
+    """
+    now = time.monotonic()
+    bucket_key = (request.remote_addr or "?", account_key)
+    hits = [t for t in _verify_hits.get(bucket_key, []) if now - t < VERIFY_WINDOW_SECONDS]
+    if len(hits) >= VERIFY_LIMIT:
+        retry = max(1, int(VERIFY_WINDOW_SECONDS - (now - hits[0])))
+        _verify_hits[bucket_key] = hits
+        raise ApiError(f"Thử quá nhiều lần. Vui lòng đợi {retry} giây rồi thử lại.", 429, retry_after=retry)
+    hits.append(now)
+    _verify_hits[bucket_key] = hits
+    if len(_verify_hits) > 5000:  # dọn khóa cũ, tránh phình bộ nhớ
+        for k in [k for k, v in _verify_hits.items() if not v or now - v[-1] >= VERIFY_WINDOW_SECONDS]:
+            del _verify_hits[k]
+
+
 def purge_challenges(challenges: dict) -> dict:
     now = time.time()
     return {cid: c for cid, c in challenges.items() if c["expires"] > now}
@@ -416,6 +443,7 @@ def api_verify():
     """Xác thực một lần gõ. Chấp nhận -> update hồ sơ. Không khớp -> tạo thử thách OTP mô phỏng."""
     data = json_body()
     _, key = normalize_username(data.get("username"))
+    rate_limit_verify(key)
     try:
         events = validate_events(data.get("events"))
     except InvalidSampleError as e:
@@ -446,6 +474,10 @@ def api_verify():
     cid = secrets.token_urlsafe(16)
     with data_lock():
         challenges = purge_challenges(read_json(CHALLENGES_FILE, {}))
+        pending = sorted((c for c in challenges.values() if c["profile_id"] == acc["id"]), key=lambda c: c["expires"])
+        if len(pending) >= MAX_PENDING_CHALLENGES:  # bỏ OTP cũ nhất, luôn chỉ giữ tối đa N thử thách đang chờ
+            oldest = pending[0]
+            challenges = {k: v for k, v in challenges.items() if v is not oldest}
         challenges[cid] = {
             "profile_id": acc["id"], "otp_hash": hash_otp(otp, salt), "salt": salt,
             "events": events, "attempts": 0, "expires": time.time() + OTP_TTL_SECONDS,

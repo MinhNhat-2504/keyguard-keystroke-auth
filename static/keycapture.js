@@ -21,6 +21,9 @@
 
         input.addEventListener("keyup", (e) => {
             if (locked) return;
+            // Bỏ qua keyup "mồ côi": chưa có keydown nào trong ô này (ví dụ keyup của phím Enter
+            // vừa bấm ở ô tên tài khoản, khi focus đã chuyển sang ô gõ).
+            if (!events.some((ev) => ev.type === "down")) { events = []; return; }
             events.push({ key: e.key, type: "up", t: performance.now() });
             if (e.key !== "Enter") return;
 

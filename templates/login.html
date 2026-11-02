@@ -90,8 +90,10 @@
                     challengeId = result.challenge_id;
                     $("smsBox").innerHTML = result.demo_otp
                         ? `📱 <b>Tin nhắn giả lập:</b> mã OTP của bạn là <b>${esc(result.demo_otp)}</b> (hiệu lực ${Math.round(result.otp_ttl_seconds / 60)} phút)`
-                        : "📱 Mã OTP đã được gửi (mô phỏng).";
+                        : "📱 Mã OTP đã được gửi (mô phỏng: OTP được in ở console của server).";
                     $("otpBox").style.display = "block";
+                    // Chế độ demo (server bật KEYGUARD_SHOW_OTP=1): tự điền OTP vào ô, người dùng chỉ cần bấm Xác nhận.
+                    if (result.demo_otp) $("otpInput").value = result.demo_otp;
                 }
             }
         } catch (e) {
