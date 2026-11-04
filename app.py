@@ -7,8 +7,10 @@ Trang:   /          thu dữ liệu (collector)
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import hmac
+import io
 import json
 import logging
 import math
@@ -19,12 +21,13 @@ import sys
 import time
 import unicodedata
 import uuid
+import zipfile
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, Response, jsonify, render_template, request
 from werkzeug.exceptions import HTTPException
 
 ROOT = Path(__file__).resolve().parent
@@ -44,16 +47,25 @@ log = logging.getLogger("keyguard.web")
 app = Flask(__name__, template_folder="templates", static_folder="static")
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024  # 2 MB là quá đủ cho 20 lần gõ
 
-DATA_DIR = ROOT / "data"
+# Mặc định dữ liệu nằm trong thư mục data/ cạnh app.py. Trên Render, nếu gắn ổ đĩa bền vững (Persistent Disk)
+# thì đặt KEYGUARD_DATA_DIR=<đường dẫn gắn ổ đĩa> để dữ liệu không mất khi deploy lại.
+DATA_DIR = Path(os.environ.get("KEYGUARD_DATA_DIR") or ROOT / "data")
 COLLECTED_DIR = DATA_DIR / "collected"
 PROFILES_DIR = DATA_DIR / "profiles"
-for _d in (COLLECTED_DIR, PROFILES_DIR):
+for _d in (DATA_DIR, COLLECTED_DIR, PROFILES_DIR):
     _d.mkdir(parents=True, exist_ok=True)
 
 PARTICIPANTS_FILE = DATA_DIR / "participants.json"   # các mã ẩn danh đã cấp
 ACCOUNTS_FILE = DATA_DIR / "accounts.json"           # tên đăng nhập -> mã hồ sơ nội bộ
 CHALLENGES_FILE = DATA_DIR / "challenges.json"       # OTP đang chờ xác nhận
 LOCK_FILE = DATA_DIR / ".lock"
+ATTEMPTS_FILE = DATA_DIR / "attempts.csv"            # nhật ký mọi lượt đăng nhập / OTP (ẩn danh)
+# Khóa tải dữ liệu /admin/export, /admin/stats. Không đặt biến này thì hai đường dẫn đó bị tắt (trả 404).
+ADMIN_KEY = os.environ.get("KEYGUARD_ADMIN_KEY", "")
+ROLES = ("unspecified", "genuine", "impostor")
+TESTER_RE = re.compile(r"^[A-Za-z0-9_-]{1,20}$")
+ATTEMPT_FIELDS = ["time", "attempt_id", "event", "account_ref", "role", "tester_id", "device",
+                  "accepted", "confidence", "otp_required", "otp_result"]
 
 MAX_SESSIONS = 3
 MAX_REPS = 40
@@ -320,6 +332,55 @@ def purge_challenges(challenges: dict) -> dict:
 
 
 # ----------------------------------------------------------------------------------------
+# Nhật ký thử nghiệm đăng nhập (dùng cho thử nghiệm thực tế): không ghi tên tài khoản, mẫu gõ hay OTP
+# ----------------------------------------------------------------------------------------
+def parse_role(value) -> str:
+    if value in (None, ""):
+        return "unspecified"
+    if value not in ROLES:
+        raise ApiError("Vai trò không hợp lệ.", 400)
+    return value
+
+
+def parse_tester(value) -> str:
+    if value in (None, ""):
+        return ""
+    if not isinstance(value, str) or not TESTER_RE.fullmatch(value.strip()):
+        raise ApiError("Mã người thử chỉ gồm chữ, số, '-' hoặc '_' (tối đa 20 ký tự).", 400)
+    return value.strip()
+
+
+def account_ref(profile_id: str) -> str:
+    """Mã ẩn danh của tài khoản đích: không suy ngược được ra tên đăng nhập."""
+    return hashlib.sha256(profile_id.encode()).hexdigest()[:8]
+
+
+def device_class() -> str:
+    return "mobile" if "mobi" in request.headers.get("User-Agent", "").lower() else "desktop"
+
+
+def log_attempt(**row) -> None:
+    """Thêm một dòng vào attempts.csv. Gọi NGOÀI data_lock (hàm tự lấy khóa). Lỗi ghi nhật ký không làm hỏng đăng nhập."""
+    row = {"time": now_iso(), **row}
+    try:
+        with data_lock():
+            new_file = not ATTEMPTS_FILE.exists()
+            with open(ATTEMPTS_FILE, "a", encoding="utf-8", newline="") as f:
+                w = csv.DictWriter(f, fieldnames=ATTEMPT_FIELDS, extrasaction="ignore")
+                if new_file:
+                    w.writeheader()
+                w.writerow(row)
+    except Exception:  # noqa: BLE001
+        log.exception("Không ghi được attempts.csv")
+
+
+def require_admin() -> None:
+    key = request.headers.get("X-Admin-Key") or request.args.get("key", "")
+    if not ADMIN_KEY or not hmac.compare_digest(key.encode(), ADMIN_KEY.encode()):
+        raise ApiError("Không tìm thấy.", 404)   # không tiết lộ là có đường dẫn này
+
+
+# ----------------------------------------------------------------------------------------
 # Giao diện
 # ----------------------------------------------------------------------------------------
 @app.route("/")
@@ -445,6 +506,8 @@ def api_verify():
     """Xác thực một lần gõ. Chấp nhận -> update hồ sơ. Không khớp -> tạo thử thách OTP mô phỏng."""
     data = json_body()
     _, key = normalize_username(data.get("username"))
+    role = parse_role(data.get("role"))
+    tester = parse_tester(data.get("tester_id"))
     rate_limit_verify(key)
     try:
         events = validate_events(data.get("events"))
@@ -462,9 +525,14 @@ def api_verify():
     if not math.isfinite(confidence):
         raise ApiError("Không tính được điểm tin cậy.", 500)
 
+    attempt_id = secrets.token_hex(6)
+    ref, device = account_ref(acc["id"]), device_class()
+
     if accepted:
         with data_lock():
             apply_update(acc["id"], events)
+        log_attempt(attempt_id=attempt_id, event="verify", account_ref=ref, role=role, tester_id=tester,
+                    device=device, accepted=1, confidence=f"{confidence:.4f}", otp_required=0)
         return jsonify({
             "success": True, "accepted": True, "confidence": confidence, "otp_required": False,
             "message": "Đăng nhập thành công! Nhịp gõ khớp. Hồ sơ đã được cập nhật.",
@@ -483,8 +551,11 @@ def api_verify():
         challenges[cid] = {
             "profile_id": acc["id"], "otp_hash": hash_otp(otp, salt), "salt": salt,
             "events": events, "attempts": 0, "expires": time.time() + OTP_TTL_SECONDS,
+            "log": {"attempt_id": attempt_id, "account_ref": ref, "role": role, "tester_id": tester, "device": device},
         }
         write_json_atomic(CHALLENGES_FILE, challenges)
+    log_attempt(attempt_id=attempt_id, event="verify", account_ref=ref, role=role, tester_id=tester,
+                device=device, accepted=0, confidence=f"{confidence:.4f}", otp_required=1)
     log.info("[OTP MÔ PHỎNG] tài khoản %s: %s (hiệu lực %d phút)", acc["display"], otp, OTP_TTL_SECONDS // 60)
     body = {
         "success": True, "accepted": False, "confidence": confidence, "otp_required": True,
@@ -504,26 +575,81 @@ def api_verify_otp():
         raise ApiError("Thiếu mã xác minh hoặc OTP.", 400)
     otp = otp.strip()
 
+    outcome, ch_log, left = "", {}, 0
     with data_lock():
         challenges = purge_challenges(read_json(CHALLENGES_FILE, {}))
         ch = challenges.get(cid)
         if ch is None:
             write_json_atomic(CHALLENGES_FILE, challenges)
-            raise ApiError("OTP đã hết hạn hoặc không tồn tại. Vui lòng gõ lại để nhận mã mới.", 410)
-        if hmac.compare_digest(hash_otp(otp, ch["salt"]), ch["otp_hash"]):
+            outcome = "expired"
+        elif hmac.compare_digest(hash_otp(otp, ch["salt"]), ch["otp_hash"]):
             del challenges[cid]
             write_json_atomic(CHALLENGES_FILE, challenges)
             apply_update(ch["profile_id"], ch["events"])
-            return jsonify({"success": True, "verified": True,
-                            "message": "Xác minh OTP thành công! Hồ sơ nhịp gõ đã được cập nhật."})
-        ch["attempts"] += 1
-        left = OTP_MAX_ATTEMPTS - ch["attempts"]
-        if left <= 0:
-            del challenges[cid]
-        write_json_atomic(CHALLENGES_FILE, challenges)
-    if left <= 0:
+            outcome, ch_log = "ok", ch.get("log", {})
+        else:
+            ch["attempts"] += 1
+            left = OTP_MAX_ATTEMPTS - ch["attempts"]
+            ch_log = ch.get("log", {})
+            if left <= 0:
+                del challenges[cid]
+                outcome = "locked"
+            else:
+                outcome = "wrong"
+            write_json_atomic(CHALLENGES_FILE, challenges)
+
+    if ch_log:  # lượt OTP của thử thách có trong nhật ký; OTP hết hạn không biết là của ai nên không ghi
+        log_attempt(event="otp", otp_result=outcome, **ch_log)
+    if outcome == "ok":
+        return jsonify({"success": True, "verified": True,
+                        "message": "Xác minh OTP thành công! Hồ sơ nhịp gõ đã được cập nhật."})
+    if outcome == "expired":
+        raise ApiError("OTP đã hết hạn hoặc không tồn tại. Vui lòng gõ lại để nhận mã mới.", 410)
+    if outcome == "locked":
         raise ApiError("Nhập sai OTP quá số lần cho phép. Vui lòng gõ lại để nhận mã mới.", 429)
     raise ApiError(f"OTP không đúng. Còn {left} lần thử.", 401, attempts_left=left)
+
+
+# ----------------------------------------------------------------------------------------
+# Tải dữ liệu về (chỉ bật khi đặt KEYGUARD_ADMIN_KEY): /admin/export?key=...  và  /admin/stats?key=...
+# Chỉ gồm dữ liệu ẩn danh: mẫu thu thập, nhật ký đăng nhập. KHÔNG gồm tên tài khoản hay hồ sơ nhịp gõ.
+# ----------------------------------------------------------------------------------------
+@app.route("/admin/export", methods=["GET"])
+def admin_export():
+    require_admin()
+    buf = io.BytesIO()
+    with data_lock(), zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in sorted(COLLECTED_DIR.glob("P*.jsonl")):
+            z.write(f, f"collected/{f.name}")
+        for f in (ATTEMPTS_FILE, PARTICIPANTS_FILE):
+            if f.exists():
+                z.write(f, f.name)
+    stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    return Response(buf.getvalue(), mimetype="application/zip",
+                    headers={"Content-Disposition": f"attachment; filename=keyguard_data_{stamp}.zip"})
+
+
+@app.route("/admin/stats", methods=["GET"])
+def admin_stats():
+    require_admin()
+    participants = {}
+    for f in sorted(COLLECTED_DIR.glob("P*.jsonl")):
+        recs = read_records(f.stem)
+        days = sorted({str(r["collected_at"])[:10] for r in recs if r.get("collected_at")})
+        sessions = {k: v for k, v in session_counts(f.stem).items() if v}
+        participants[f.stem] = {"samples": len(recs), "sessions": sessions, "days": days}
+    attempts = {"total": 0, "by_role": {}}
+    if ATTEMPTS_FILE.exists():
+        with open(ATTEMPTS_FILE, encoding="utf-8", newline="") as fh:
+            for row in csv.DictReader(fh):
+                if row["event"] != "verify":
+                    continue
+                attempts["total"] += 1
+                r = attempts["by_role"].setdefault(row["role"], {"verify": 0, "accepted": 0, "otp_required": 0})
+                r["verify"] += 1
+                r["accepted"] += int(row["accepted"] or 0)
+                r["otp_required"] += int(row["otp_required"] or 0)
+    return jsonify({"success": True, "participants": participants, "attempts": attempts})
 
 
 # ----------------------------------------------------------------------------------------

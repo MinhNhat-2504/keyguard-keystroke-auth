@@ -11,3 +11,4 @@ data/participants.json
 data/challenges.json
 data/.lock
 data/.*.tmp
+data/attempts.csv

@@ -144,3 +144,33 @@ input:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #bfdbfe;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    background-color: #f8fafc;
+}
+
+.test-opts[hidden] {
+    display: none;
+}
+
+.test-opts {
+    margin-top: 18px;
+    padding: 10px 14px;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    background: #f8fbff;
+}
+
+.test-opts summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #4a5568;
+}

@@ -39,3 +39,14 @@ Không động vào `keyguard/` (code của Nhật). Phần khảo sát / thử 
 - **OTP gửi đồng thời**: có cờ đang gửi (Enter giữ / bấm liên tiếp chỉ tạo một request), khóa ô OTP và ô gõ lại khi chờ,
   bỏ phản hồi không còn thuộc thử thách hiện tại nên thông báo thành công không bị ghi đè.
 - Chưa làm (để sau khảo sát): mẫu đồng ý, `data/README.md`, ảnh chụp + test toàn luồng (2.5), live test (2.6).
+
+## Lấy dữ liệu ra khỏi server (Render) + nhật ký thử nghiệm
+Dữ liệu thu thập nằm trên ổ đĩa của server, KHÔNG tự về GitHub. Trên gói miễn phí của Render ổ đĩa là tạm: deploy lại / khởi động lại có thể làm mất.
+- **Tải dữ liệu về:** đặt biến môi trường `KEYGUARD_ADMIN_KEY` (một chuỗi bí mật dài), rồi mở
+  `https://<tên>.onrender.com/admin/export?key=<khóa>` để tải file zip (mẫu `collected/*.jsonl`, `attempts.csv`, `participants.json`).
+  `/admin/stats?key=<khóa>` xem nhanh số người / phiên / ngày thu và số lượt thử. Không đặt biến này thì hai đường dẫn đó trả 404.
+  Zip KHÔNG chứa tên tài khoản hay hồ sơ nhịp gõ.
+- **Nhật ký đăng nhập `data/attempts.csv`:** mỗi lượt đăng nhập và mỗi lượt OTP một dòng: thời điểm, mã lượt, mã tài khoản đích ẩn danh
+  (băm), vai trò (chủ tài khoản / kẻ gian / không chọn), mã người thử, thiết bị (mobile/desktop), được chấp nhận, điểm tin cậy, có yêu cầu OTP,
+  kết quả OTP. Không ghi tên tài khoản, mẫu gõ hay mã OTP. Mục "Tùy chọn khi thử nghiệm" (chọn vai trò, nhập mã người thử) bị ẩn; chỉ hiện khi mở `/login?test=1`, nên gửi link này cho người tham gia thử nghiệm.
+- **Giữ dữ liệu khi deploy lại:** gắn Persistent Disk (gói trả phí) và đặt `KEYGUARD_DATA_DIR=<đường dẫn gắn ổ đĩa>`.

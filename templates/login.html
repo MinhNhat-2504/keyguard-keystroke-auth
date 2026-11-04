@@ -12,6 +12,18 @@
     <label for="username">Tên tài khoản:</label>
     <input type="text" id="username" placeholder="Nhập tên đăng nhập..." maxlength="50" autocomplete="off">
 
+    <details class="test-opts" id="testOpts" hidden>
+        <summary>Tùy chọn khi thử nghiệm (không bắt buộc)</summary>
+        <label for="role">Vai trò của bạn khi thử:</label>
+        <select id="role">
+            <option value="unspecified">Dùng bình thường</option>
+            <option value="genuine">Tôi là chủ tài khoản</option>
+            <option value="impostor">Tôi đóng vai kẻ gian</option>
+        </select>
+        <label for="testerId">Mã người thử (nếu có, ví dụ P05):</label>
+        <input type="text" id="testerId" placeholder="Có thể để trống" maxlength="20" autocomplete="off">
+    </details>
+
     <label for="typingInput" style="margin-top: 20px;">Gõ chuỗi xác thực rồi nhấn Enter:</label>
     <div class="target-text">{{ phrase }}</div>
 
@@ -76,7 +88,7 @@
             const response = await fetch('/api/verify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, events: events })
+                body: JSON.stringify({ username: username, events: events, role: $("role").value, tester_id: $("testerId").value.trim() })
             });
             const result = await response.json();
 
@@ -143,6 +155,8 @@
     }
 
     window.addEventListener("DOMContentLoaded", () => {
+        // Mục chọn vai trò chỉ hiện khi mở /login?test=1 (dùng cho đợt thử nghiệm); người dùng thường không thấy.
+        if (new URLSearchParams(location.search).has("test")) $("testOpts").hidden = false;
         capture = attachKeyCapture($("typingInput"), TARGET_STRING, onSample);
         $("otpBtn").addEventListener("click", submitOtp);
         $("otpInput").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.repeat) submitOtp(); });
