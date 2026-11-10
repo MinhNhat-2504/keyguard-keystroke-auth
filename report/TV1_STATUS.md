@@ -39,3 +39,5 @@ FAR tổng không phản ánh mọi người: s018 có FAR30/560=5,36%; s002 có
 Để tái lập, xem docs/COLLECTED_PRELIMINARY.md. Cấu hình này khác bản web tau0,250315 ở nhánh nguồn; khi tích hợp cần dùng cả thư viện/cấu hình cùng phiên bản, không trộn số liệu. Bản main tập trung phần Nhật, không merge hay sửa nhánh Thư.
 
 Phạm vi push: repo public; raw601 mẫu và bảng genuine từng lượt giữ local/ignore, chỉ bàn giao code/manifest/tổng hợp/hình/report. Lần push ban đầu chứa raw bị auto-review chặn; đã bỏ raw khỏi commit mới, không thay đổi hay xóa file dữ liệu local.
+
+Đã bàn giao commit chức năng `674dfdccbad4125b173a3ca19ca247296da3781b` lên GitHub main, xác minh bằng ref remote và commit API. Report6 trang hai cột,27 test đạt, kết quả sơ bộ/giới hạn và điểm47/50 như trên.
