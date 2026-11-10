@@ -1,0 +1,39 @@
+﻿Đã đọc 20400 lần gõ của 51 người.
+ScaledManhattan    n=  5  EER=0.264 ± 0.148  AUC=0.784  EER(kẻ gian quen tay)=0.231
+ScaledManhattan    n= 10  EER=0.235 ± 0.142  AUC=0.814  EER(kẻ gian quen tay)=0.220
+ScaledManhattan    n= 20  EER=0.202 ± 0.128  AUC=0.853  EER(kẻ gian quen tay)=0.206
+ScaledManhattan    n= 50  EER=0.158 ± 0.106  AUC=0.895  EER(kẻ gian quen tay)=0.185
+ScaledManhattan    n=100  EER=0.128 ± 0.082  AUC=0.928  EER(kẻ gian quen tay)=0.160
+ScaledManhattan    n=200  EER=0.098 ± 0.070  AUC=0.953  EER(kẻ gian quen tay)=0.138
+OneClassSVM        n=  5  EER=0.234 ± 0.134  AUC=0.809  EER(kẻ gian quen tay)=0.242
+OneClassSVM        n= 10  EER=0.212 ± 0.129  AUC=0.840  EER(kẻ gian quen tay)=0.223
+OneClassSVM        n= 20  EER=0.189 ± 0.116  AUC=0.867  EER(kẻ gian quen tay)=0.209
+OneClassSVM        n= 50  EER=0.176 ± 0.113  AUC=0.880  EER(kẻ gian quen tay)=0.198
+OneClassSVM        n=100  EER=0.142 ± 0.093  AUC=0.915  EER(kẻ gian quen tay)=0.160
+OneClassSVM        n=200  EER=0.109 ± 0.072  AUC=0.942  EER(kẻ gian quen tay)=0.131
+IsolationForest    n=  5  EER=0.284 ± 0.149  AUC=0.765  EER(kẻ gian quen tay)=0.339
+IsolationForest    n= 10  EER=0.210 ± 0.117  AUC=0.853  EER(kẻ gian quen tay)=0.275
+IsolationForest    n= 20  EER=0.165 ± 0.099  AUC=0.897  EER(kẻ gian quen tay)=0.258
+IsolationForest    n= 50  EER=0.129 ± 0.085  AUC=0.930  EER(kẻ gian quen tay)=0.209
+IsolationForest    n=100  EER=0.107 ± 0.074  AUC=0.948  EER(kẻ gian quen tay)=0.170
+IsolationForest    n=200  EER=0.088 ± 0.069  AUC=0.963  EER(kẻ gian quen tay)=0.142
+RandomForest       n=  5  EER=0.520 ± 0.222  AUC=0.468  EER(kẻ gian quen tay)=0.318
+RandomForest       n= 10  EER=0.470 ± 0.234  AUC=0.531  EER(kẻ gian quen tay)=0.282
+RandomForest       n= 20  EER=0.391 ± 0.231  AUC=0.632  EER(kẻ gian quen tay)=0.228
+RandomForest       n= 50  EER=0.297 ± 0.217  AUC=0.738  EER(kẻ gian quen tay)=0.184
+RandomForest       n=100  EER=0.198 ± 0.168  AUC=0.853  EER(kẻ gian quen tay)=0.126
+RandomForest       n=200  EER=0.095 ± 0.096  AUC=0.951  EER(kẻ gian quen tay)=0.072
+RandomForest-early n=  5  EER=0.279 ± 0.182  AUC=0.752  EER(kẻ gian quen tay)=0.250
+RandomForest-early n= 10  EER=0.241 ± 0.169  AUC=0.803  EER(kẻ gian quen tay)=0.230
+RandomForest-early n= 20  EER=0.167 ± 0.139  AUC=0.879  EER(kẻ gian quen tay)=0.172
+RandomForest-early n= 50  EER=0.101 ± 0.108  AUC=0.940  EER(kẻ gian quen tay)=0.135
+RandomForest-early n=100  EER=0.065 ± 0.078  AUC=0.969  EER(kẻ gian quen tay)=0.099
+RandomForest-early n=200  EER=0.034 ± 0.047  AUC=0.989  EER(kẻ gian quen tay)=0.069
+
+Bảng tổng hợp (n lớn nhất):
+          detector  n_train  eer_mean  eer_std  auc_mean  auc_std  eer_practiced_mean  eer_practiced_std  fit_ms_mean  score_ms_per_sample  n_users
+   IsolationForest      200    0.0884   0.0688    0.9631   0.0439              0.1420             0.0915     126.2780               0.0533       51
+       OneClassSVM      200    0.1089   0.0716    0.9421   0.0541              0.1313             0.0942       1.4159               0.0050       51
+      RandomForest      200    0.0951   0.0963    0.9509   0.0747              0.0724             0.0738     202.2843               0.0476       51
+RandomForest-early      200    0.0341   0.0472    0.9887   0.0273              0.0686             0.0649     202.0677               0.0472       51
+   ScaledManhattan      200    0.0982   0.0696    0.9532   0.0481              0.1377             0.0960       0.0496               0.0001       51

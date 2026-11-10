@@ -41,6 +41,7 @@ sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")  # in tiếng Việt trên console Windows
 
 from keyguard.features import FEATURE_NAMES, PHRASE, load_cmu  # noqa: E402
+from keyguard.evaluation import threshold_at_far  # noqa: E402
 from keyguard.simulation import POLICIES, POLICY_LABELS, simulate_user  # noqa: E402
 
 N_IMPOSTOR_PER_SUBJECT = 5
@@ -108,11 +109,11 @@ def main() -> None:
         print(f"tau={tau:5.2f}  " + "  ".join(f"{p}: FAR={row[f'far_{p}']:.3f} FRR={row[f'frr_{p}']:.3f}" for p in POLICIES))
     grid_df = pd.DataFrame(grid_rows)
 
-    rows, sessions, taus = [], {}, {}
+    rows, sessions, taus, user_rows = [], {}, {}, []
     for p in POLICIES:
-        if p in fixed_dev:  # z cố định: chọn tau đúng bằng phân vị, không phụ thuộc lưới
+        if p in fixed_dev:  # xử lý điểm trùng theo đúng phép chấp nhận <= tau
             zi = np.concatenate([i for _, i in fixed_dev[p].values()])
-            tau = float(np.quantile(zi, args.target_far, method="lower"))
+            tau = threshold_at_far(zi, args.target_far)
             dev = fixed_dev[p]
         else:
             feasible = grid_df[grid_df[f"far_{p}"] <= args.target_far]
@@ -123,7 +124,14 @@ def main() -> None:
         test = simulate_group(by_subject, test_users, cfg, tau, p)
         taus[p] = tau
         far_dev, frr_dev = rates(dev, tau)
+        if far_dev > args.target_far:
+            raise RuntimeError(f"{p}: FAR dev {far_dev} vượt mục tiêu {args.target_far}.")
         far_te, frr_te = rates(test, tau)
+        for subject, (zg, zi) in test.items():
+            user_rows.append({"policy": p, "subject": subject, "threshold": tau,
+                              "genuine_trials": len(zg), "genuine_rejected": int(np.sum(zg > tau)),
+                              "impostor_trials": len(zi), "impostor_accepted": int(np.sum(zi <= tau)),
+                              "far": float(np.mean(zi <= tau)), "frr": float(np.mean(zg > tau))})
         rows.append({
             "detector": cfg["detector"], "policy": p, "n_enroll": args.n_enroll, "window": args.window,
             "threshold": tau, "far_dev": far_dev, "frr_dev": frr_dev, "far_test": far_te, "frr_test": frr_te,
@@ -134,6 +142,7 @@ def main() -> None:
     (ROOT / "results").mkdir(exist_ok=True)
     res = pd.DataFrame(rows)
     res.to_csv(ROOT / "results/threshold_selection.csv", index=False)
+    pd.DataFrame(user_rows).to_csv(ROOT / "results/threshold_test_per_user.csv", index=False)
     grid_df.to_csv(ROOT / "results/threshold_grid_dev.csv", index=False)
     sess_df = pd.DataFrame(sessions).rename_axis("session").reset_index()
     sess_df.to_csv(ROOT / "results/frr_by_session.csv", index=False)

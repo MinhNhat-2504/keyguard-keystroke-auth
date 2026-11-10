@@ -1,0 +1,28 @@
+﻿Loại P01.jsonl:1: Thiếu collected_at; không suy đoán thứ tự theo thời gian.
+Loại P02.jsonl:1: Thiếu collected_at; không suy đoán thứ tự theo thời gian.
+Loại P10.jsonl:29: Khóa trùng: loại TẤT CẢ dòng cùng participant_id/session/rep.
+Loại P10.jsonl:39: Khóa trùng: loại TẤT CẢ dòng cùng participant_id/session/rep.
+597 lần gõ hợp lệ của 15 người; 4 lần gõ sai bị loại. Cấu hình: fallback, n = 20, tau = 0.27
+participant_id  n_valid  n_invalid  n_sessions  n_logins  genuine_rejected  impostor_trials_early  impostor_accepted_early  impostor_trials_late  impostor_accepted_late   frr  far_early  far_late  eer_early  eer_late
+           P01       40          1           1        20                 0                     70                       18                    70                      32 0.000      0.257     0.457      0.150     0.229
+           P02       39          1           1        19                 2                     70                       10                    70                      19 0.105      0.143     0.271      0.143     0.171
+           P03       40          0           1        20                 2                     70                        4                    70                       0 0.100      0.057     0.000      0.086     0.000
+           P04       40          0           1        20                 4                     70                       15                    70                       6 0.200      0.214     0.086      0.200     0.150
+           P05       40          0           1        20                 6                     70                        4                    70                       6 0.300      0.057     0.086      0.150     0.186
+           P06       40          0           1        20                 3                     70                        2                    70                       9 0.150      0.029     0.129      0.071     0.150
+           P07       40          0           1        20                 3                     70                       10                    70                       7 0.150      0.143     0.100      0.150     0.150
+           P08       40          0           1        20                 2                     70                       17                    70                      30 0.100      0.243     0.429      0.143     0.243
+           P09       40          0           1        20                 4                     70                        4                    70                       2 0.200      0.057     0.029      0.100     0.100
+           P10       38          2           1        18                 2                     70                       61                    70                      61 0.111      0.871     0.871      0.329     0.414
+           P11       40          0           1        20                 1                     70                       16                    70                      29 0.050      0.229     0.414      0.129     0.243
+           P12       40          0           1        20                11                     70                        0                    70                       0 0.550      0.000     0.000      0.100     0.100
+           P13       40          0           1        20                 0                     70                       59                    70                      65 0.000      0.843     0.929      0.300     0.300
+           P14       40          0           1        20                 9                     70                        9                    70                       9 0.450      0.129     0.129      0.171     0.200
+           P15       40          0           1        20                 0                     70                       55                    70                      56 0.000      0.786     0.800      0.150     0.200
+
+FRR theo phiên:
+ session  logins  rejected   frr
+       1     297        49 0.165
+
+Tổng hợp: FRR = 0.165; FAR (kẻ gian chưa quen tay) = 0.270; FAR (kẻ gian đã quen tay) = 0.315
+So với CMU (nhóm kiểm tra): FAR = 0.015, FRR = 0.192

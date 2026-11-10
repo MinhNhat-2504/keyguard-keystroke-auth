@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-10",
+  "timezone": "Asia/Saigon",
+  "python": "3.11.9",
+  "tests": {
+    "passed": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "benchmark": {
+    "per_user_rows": 1530,
+    "summary_rows": 30,
+    "fully_rerun": true,
+    "rf_n_jobs": 1
+  },
+  "threshold": {
+    "fully_rerun": true,
+    "per_user_policy_rows": 45,
+    "artifact_consistency_checked": true
+  },
+  "model_smoke": "results/model_smoke.json",
+  "collected_audit": "results/review_collected_audit.json",
+  "report": {
+    "word_version": "16.0",
+    "pdf_pages": 6,
+    "all_pages_nonblank": true,
+    "docx_images": 7,
+    "pending_tv2_evidence": true,
+    "appendix_columns": 2,
+    "appendix_both_columns_have_content": true
+  },
+  "limitations": [
+    "No clean dependency installation test",
+    "No browser/end-to-end OTP test",
+    "Collected evaluation is predominantly one session; no independent live test CSV or device metadata"
+  ],
+  "score_tv1": {
+    "before": 43,
+    "after": 47,
+    "total": 50
+  },
+  "collected": {
+    "source_commit": "44a610bd120b09e2838e76073cb164c3ce6cac36",
+    "raw_rows": 601,
+    "primary_samples": 597,
+    "genuine_trials": 297,
+    "participants": 15,
+    "manifest_byte_verified": true,
+    "artifact_consistency_checked": true
+  }
+}

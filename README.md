@@ -1,8 +1,8 @@
 # KeyGuard — Xác thực người dùng qua nhịp gõ phím
 
-Người khác gõ đúng mật khẩu vẫn bị từ chối, vì nhịp gõ không giống chủ tài khoản.
+Nghiên cứu lớp xác thực bổ sung qua nhịp gõ: mật khẩu đúng nhưng nhịp gõ không khớp sẽ cần xác minh thêm theo thiết kế.
 
-KeyGuard học cách một người gõ câu `.tie5Roanl` (thời gian giữ từng phím, khoảng cách giữa các phím) rồi dùng nhịp gõ đó làm lớp xác thực thứ hai, sau mật khẩu.
+KeyGuard học cách một người gõ câu `.tie5Roanl` + Enter. Main chứa thư viện và thực nghiệm; web trên `thu-branch` còn chờ sửa tích hợp, OTP và dữ liệu thật. Xem [bàn giao TV1](docs/TV1_HANDOFF.md) và [protocol](docs/EVALUATION_PROTOCOL.md).
 
 Bài tập lớn môn **Học máy Ứng dụng** — Trường Đại học Văn Lang.
 
@@ -14,25 +14,25 @@ Dữ liệu: CMU Keystroke Dynamics Benchmark, 51 người × 400 lần gõ × 8
 
 | Mô hình | n = 20 | n = 20, kẻ gian đã quen tay | n = 200 | n = 200, kẻ gian đã quen tay | Thời gian học |
 |---|---|---|---|---|---|
-| Scaled Manhattan | 0,201 | **0,205** | 0,098 | 0,138 | **0,06 ms** |
-| One-Class SVM | 0,189 | 0,209 | 0,110 | 0,131 | 2 ms |
-| Isolation Forest | **0,165** | 0,258 | 0,088 | 0,141 | 201 ms |
-| Random Forest | 0,392 | 0,227 | 0,095 | 0,072 | 306 ms |
-| Random Forest (kẻ gian mẫu chưa quen tay) | 0,167 | 0,173 | **0,034** | **0,069** | 287 ms |
+| Scaled Manhattan | 0,202 | **0,206** | 0,098 | 0,138 | **0,03 ms** |
+| One-Class SVM | 0,189 | 0,209 | 0,109 | 0,131 | 1,01 ms |
+| Isolation Forest | **0,165** | 0,258 | 0,088 | 0,142 | 122,07 ms |
+| Random Forest | 0,391 | 0,228 | 0,095 | 0,072 | 152,33 ms |
+| Random Forest (kẻ gian mẫu chưa quen tay) | 0,167 | 0,172 | **0,034** | **0,069** | 156,46 ms |
 
-- Scaled Manhattan với n = 200 cho EER 0,098, khớp với 0,096 trong bài gốc của Killourhy & Maxion (2009). Quy trình đánh giá tái lập được kết quả đã công bố.
-- Người dùng gõ nhanh dần theo thời gian: cả câu mất 3,06 giây ở phiên 1, còn 2,19 giây ở phiên 8, nhanh hơn khoảng 28% (trung vị theo từng người rồi lấy trung bình, `results/typing_time_by_session.csv`). Mô hình nào dựa vào "mức quen tay" thay vì "ai đang gõ" sẽ tụt khi kẻ gian đã luyện gõ (Isolation Forest, Random Forest).
+- EER đã nội suy tuyến tính tại FAR=FRR; timing là trung bình fit ở n=20, RF dùng một worker. Scaled Manhattan n=200 có EER 0,098 gần số công bố gốc; đây là đối chiếu, vì repo test 25 impostor còn [protocol gốc CMU](https://www.cs.cmu.edu/~keystroke/) dùng 50. Không khẳng định tái lập cùng protocol.
+- Thời gian gõ giảm từ 3,06 giây ở phiên 1 còn 2,19 giây ở phiên 8, khoảng 28% (trung vị theo người rồi lấy trung bình). Cách lấy mẫu impostor ảnh hưởng kết quả; đây là dấu hiệu cần kiểm soát mức quen tay, chưa chứng minh quan hệ nhân quả.
 - Scaled Manhattan ổn định nhất trước kẻ gian đã quen tay ở n = 20 và học lại nhanh hơn hàng nghìn lần, nên được chọn cho sản phẩm.
 
-**2. Ngưỡng chung và cập nhật hồ sơ** (Scaled Manhattan, đăng ký 20 lần gõ, giữ 50 lần gần nhất). Ngưỡng chọn trên 36 người để FAR ≤ 5%; số liệu dưới là của 15 người kiểm tra chưa từng dùng khi chọn ngưỡng.
+**2. Ngưỡng chung và cập nhật hồ sơ** (Scaled Manhattan, đăng ký 20 lần gõ, giữ 50 lần gần nhất). Ngưỡng chọn trên 36 người để FAR dev ≤ 5%; số liệu dưới thuộc 15 người không dùng chọn ngưỡng nhưng đã tham gia benchmark so sánh mô hình. Đây không phải holdout chưa từng được xem trong toàn quy trình.
 
 | Chính sách cập nhật hồ sơ | Ngưỡng τ | FAR | FRR |
 |---|---|---|---|
-| Không cập nhật | −0,11 | 2,9% | 75,1% |
-| Chỉ cập nhật khi được chấp nhận | 0,40 | 1,8% | 63,2% |
-| **Cập nhật cả sau xác minh thêm (OTP)** — dùng trong sản phẩm | **0,25** | **1,5%** | **19,6%** |
+| Không cập nhật | −0,104 | 2,86% | 75,04% |
+| Chỉ cập nhật khi được chấp nhận | 0,800 | 2,77% | 48,39% |
+| **Cập nhật cả sau xác minh thêm** — mô phỏng fallback | **0,272** | **1,49%** | **19,21%** |
 
-Với chính sách thứ ba (xác thực theo rủi ro), khoảng 4/5 lần đăng nhập của chủ tài khoản vào thẳng; lần còn lại phải xác minh thêm. FRR giữ ổn định quanh 20% suốt 8 phiên, trong khi hai chính sách kia tăng lên gần 90%.
+Kết quả chạy lại ngày 01/11/2026 sau khi sửa lịch thử impostor: ngay sau đăng ký và sau mỗi 50 lượt đăng nhập (đếm từ sau enrollment). Fallback giả định genuine luôn qua xác minh bổ sung, nên FRR là tỉ lệ cần bước này, không phải đo chất lượng OTP trên web. Static/fallback chọn tau có xử lý điểm trùng và kiểm tra FAR dev sau chọn; không bảo đảm FAR trên người mới. CSV/hình/cấu hình mới thay thế số cũ.
 
 | | |
 |---|---|
@@ -59,11 +59,10 @@ keyguard-keystroke-auth/
 ├─ models/model_config.json  # cấu hình mô hình mà web demo dùng
 ├─ results/                  # CSV/JSON kết quả
 ├─ figures/                  # hình (figures/report/: bản dùng trong report)
-├─ report/KeyGuard_Report.docx  # report 6 trang (template IEEE)
+├─ report/KeyGuard_Report.docx  # bản thảo IEEE đã render 6 trang, còn chờ minh chứng TV2
 ├─ data/README.md            # nguồn dữ liệu, cách tải, định dạng JSONL
 ├─ tests/
-├─ collector/                # web thu dữ liệu (TV2)
-└─ app/                      # web demo (TV2)
+└─ docs/                     # protocol và tài liệu bàn giao; web ở thu-branch
 ```
 
 ## Cách chạy
@@ -80,11 +79,16 @@ curl -L -o data/raw/DSL-StrongPasswordData.csv https://www.cs.cmu.edu/~keystroke
 python -m pytest -q                      # kiểm thử
 python scripts/run_benchmark.py          # so sánh mô hình, ~3 phút   -> results/, figures/
 python scripts/select_threshold.py       # chọn ngưỡng, ~2 phút      -> models/model_config.json
-python scripts/evaluate_collected.py     # khi đã có dữ liệu tự thu trong data/collected/
+python scripts/audit_collected.py        # kiểm tra chất lượng/quy mô JSONL trước đánh giá
+python scripts/evaluate_collected.py --data-kind collected  # chỉ khi có dữ liệu thật đủ mẫu
 python scripts/make_report_figures.py    # vẽ hình cho report     -> figures/report/
 ```
 
-Mọi script dùng `seed = 42`.
+Các thí nghiệm dùng `seed = 42`.
+
+Kiểm tra hợp đồng mô hình bằng mẫu dựng từ CMU: `python scripts/smoke_model.py`. Kiểm tra pipeline: `python scripts/evaluate_collected.py --input "data/sample/*.jsonl" --data-kind cmu-derived --out-prefix pipeline_test_sample --allow-missing-timestamp --order session`; kết quả này không thay thế dữ liệu thu thật. Kết quả smoke ở `results/model_smoke.json`, kiểm thử ở `results/test_results.xml`.
+
+Để tạo Word từ template và bảng/hình mới: `pip install -r requirements-report.txt`, rồi `python scripts/update_report.py`. Trên Windows có Word: `./scripts/render_report.ps1` để xuất PDF và kiểm tra số trang. Report vẫn ghi rõ các mục chờ dữ liệu/ảnh/live test thật.
 
 ## Dùng mô hình trong web demo
 
@@ -115,7 +119,15 @@ else:
 
 ## Dữ liệu
 
-Xem [data/README.md](data/README.md). Bộ CMU Keystroke Dynamics Benchmark (Killourhy & Maxion, 2009) và dữ liệu nhóm tự thu qua web, đã ẩn danh.
+Xem [data/README.md](data/README.md). Snapshot10/11 từ nhánh web có601 dòng/15 mã; chưa đủ2 phiên40 lượt khác ngày. Phân tích chính loại4 dòng (hai khóa trùng P10 và hai mẫu thiếu thời gian), còn597 mẫu/297 genuine. Audit cũ `review_collected_audit.json` là lịch sử2 mẫu ngày01/11; audit mới ở `results/collected_audit.json`.
+
+**Đánh giá sơ bộ trên bộ thu thật, cấu hình CMU giữ nguyên:** FRR49/297=**16,50%**, FAR5 mẫu đầu284/1050=**27,05%**, FAR5 mẫu cuối331/1050=**31,52%**. FAR không đạt mốc tham chiếu5%, không suy ra hiệu quả bảo mật trên web từ số CMU. Các lượt impostor chỉ chấm tại enrollment, không phải live test; không chỉnh tau sau khi xem kết quả. Xem [protocol, phân tích lỗi và độ nhạy](docs/COLLECTED_PRELIMINARY.md).
+
+![Kết quả sơ bộ theo người](figures/collected_preliminary.png)
+
+Tái lập snapshot: `git fetch origin thu-branch`, `python scripts/import_collected.py`; sau đó chạy `python scripts/evaluate_collected.py --input "data/collected/*.jsonl" --data-kind collected --out-prefix collected_preliminary` và `python scripts/analyze_collected.py` (script phân tích cần cả nhánh độ nhạy, lệnh đầy đủ trong tài liệu). SHA-256 raw ở `data/collected_manifest.json`. Report vẫn chờ ảnh sử dụng/live test, nhưng đã có bảng/hình dữ liệu tự thu.
+
+Main chỉ bàn giao mã, manifest, bảng tổng hợp/hình và report; snapshot sự kiện thô `data/collected/` và CSV genuine từng lượt được giữ local/ignore. Tái lập bằng lệnh import từ commit nguồn có sẵn; không giả định dữ liệu raw đã có trong checkout main.
 
 ## Phân công
 

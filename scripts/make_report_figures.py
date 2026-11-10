@@ -181,12 +181,48 @@ def fig_pipeline() -> None:
     plt.close(fig)
 
 
+def fig_architecture() -> None:
+    """Kiến trúc dựa trên source44a610b; live test còn chờ TV2."""
+    fig, ax = plt.subplots(figsize=(COL_W, 2.15))
+    ax.axis("off")
+    boxes = [
+        (0.5, 0.90, "Trình duyệt — HTML/CSS/JavaScript\nkeydown/keyup → {key, type, t}"),
+        (0.5, 0.65, "Flask API (app.py trên thu-branch)\ncollector / enroll / verify"),
+        (0.5, 0.40, "Thư viện keyguard (main)\n31 đặc trưng → Scaled Manhattan → confidence"),
+        (0.5, 0.15, "Lưu JSONL / hồ sơ JSON / model_config.json\nOTP/update đã có; chờ ảnh và live test"),
+    ]
+    for x, y, text in boxes:
+        ax.text(x, y, text, ha="center", va="center", fontsize=7,
+                bbox={"boxstyle": "round,pad=0.5", "facecolor": "#eef3fa", "edgecolor": "#46658e"},
+                transform=ax.transAxes)
+    for y in (0.79, 0.54, 0.29):
+        ax.annotate("", xy=(0.5, y-0.04), xytext=(0.5, y+0.04), xycoords="axes fraction",
+                    arrowprops={"arrowstyle": "->", "color": "#46658e"})
+    fig.savefig(OUT / "fig_architecture.png")
+    plt.close(fig)
+
+
+def fig_user_errors() -> None:
+    users = pd.read_csv(ROOT / "results/threshold_test_per_user.csv")
+    users = users[users.policy == "fallback"].sort_values("frr")
+    fig, ax = plt.subplots(figsize=(COL_W, 3.2))
+    ax.barh(users.subject, users.frr * 100, color="tab:blue", label="FRR / cần xác minh thêm")
+    ax.plot(users.far * 100, users.subject, "o", color="tab:red", label="FAR")
+    ax.set_xlabel("Tỉ lệ (%)")
+    ax.tick_params(axis="y", labelsize=7)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), frameon=False)
+    fig.savefig(OUT / "fig_user_errors.png")
+    plt.close(fig)
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     fig_pipeline()
+    fig_architecture()
     fig_eer_vs_enrollment()
     fig_typing_time()
     fig_policies()
+    fig_user_errors()
     print("Đã ghi:", ", ".join(sorted(p.name for p in OUT.glob("*.png"))))
 
 

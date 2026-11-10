@@ -1,0 +1,20 @@
+[
+  {
+    "file": "P01.jsonl",
+    "line": 1,
+    "participant_id": "P01",
+    "reason": "Thiếu collected_at; không suy đoán thứ tự theo thời gian."
+  },
+  {
+    "file": "P02.jsonl",
+    "line": 1,
+    "participant_id": "P02",
+    "reason": "Thiếu collected_at; không suy đoán thứ tự theo thời gian."
+  },
+  {
+    "file": "P10.jsonl",
+    "line": 39,
+    "participant_id": "P10",
+    "reason": "Trùng participant_id/session/rep; không đếm hai lần."
+  }
+]

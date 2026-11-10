@@ -10,8 +10,12 @@ data/raw/
 
 # Dữ liệu tự thu: chỉ commit bản đã ẩn danh trong data/collected/
 data/collected/raw/
+data/collected/
+results/collected*_genuine_trials.csv
 consent/
 *.pdf
+!report/KeyGuard_Report.pdf
+report/preview/
 
 # Hệ điều hành / IDE
 .DS_Store

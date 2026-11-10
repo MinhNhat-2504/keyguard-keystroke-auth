@@ -13,15 +13,15 @@ Mỗi dòng của file .jsonl:
   kẻ gian thử tại các mốc sau mỗi 50 lần đăng nhập và không làm thay đổi hồ sơ.
 - FRR được tách theo phiên để thấy ảnh hưởng của việc gõ ở ngày khác.
 
-Chạy:  python scripts/evaluate_collected.py --input "data/collected/*.jsonl"
+Chạy:  python scripts/evaluate_collected.py --input "data/collected/*.jsonl" --data-kind collected
 Kết quả: results/collected_per_user.csv, results/collected_by_session.csv, results/collected_summary.json
 """
 
 from __future__ import annotations
 
 import argparse
-import glob
 import json
+import hashlib
 import sys
 from pathlib import Path
 
@@ -31,9 +31,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")  # in tiếng Việt trên console Windows
+sys.stderr.reconfigure(encoding="utf-8")
 
 from keyguard.evaluation import equal_error_rate  # noqa: E402
-from keyguard.features import InvalidSampleError, extract_features  # noqa: E402
+from keyguard.collected import load_collected  # noqa: E402
 from keyguard.model import load_config  # noqa: E402
 from keyguard.simulation import simulate_user  # noqa: E402
 
@@ -41,28 +42,19 @@ N_IMPOSTOR_PER_PARTICIPANT = 5
 MIN_LOGINS = 5
 
 
-def load_jsonl(pattern: str) -> tuple[pd.DataFrame, dict]:
-    records, invalid = [], {}
-    files = sorted(glob.glob(pattern))
-    if not files:
-        raise SystemExit(f"Không tìm thấy file nào khớp {pattern!r}")
-    for path in files:
-        with open(path, encoding="utf-8") as f:
-            for line in f:
-                if not line.strip():
-                    continue
-                r = json.loads(line)
-                pid = str(r["participant_id"])
-                try:
-                    x = extract_features(r["events"])
-                except InvalidSampleError:
-                    invalid[pid] = invalid.get(pid, 0) + 1
-                    continue
-                records.append({"participant_id": pid, "session": int(r["session"]), "rep": int(r["rep"]), "x": x})
-    if not records:
+def load_jsonl(pattern: str, **options) -> tuple[pd.DataFrame, dict, list]:
+    try:
+        df, issues = load_collected(pattern, **options)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
+    invalid = {}
+    for issue in issues:
+        pid = issue["participant_id"] or "unknown"
+        invalid[pid] = invalid.get(pid, 0) + 1
+        print(f"Loại {issue['file']}:{issue['line']}: {issue['reason']}")
+    if df.empty:
         raise SystemExit("Không có lần gõ hợp lệ nào.")
-    df = pd.DataFrame(records).sort_values(["participant_id", "session", "rep"]).reset_index(drop=True)
-    return df, invalid
+    return df, invalid, issues
 
 
 def main() -> None:
@@ -70,11 +62,17 @@ def main() -> None:
     ap.add_argument("--input", default=str(ROOT / "data/collected/*.jsonl"))
     ap.add_argument("--config", default=None)
     ap.add_argument("--out-prefix", default="collected")
+    ap.add_argument("--duplicate-policy", choices=["first", "exclude-all"], default="exclude-all")
+    ap.add_argument("--order", choices=["session", "timestamp"], default="timestamp")
+    ap.add_argument("--allow-missing-timestamp", action="store_true")
+    ap.add_argument("--data-kind", choices=["collected", "cmu-derived", "synthetic"], required=True,
+                    help="Nhãn nguồn dữ liệu để không nhầm chạy thử với thu thật.")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
     n, tau, policy = cfg["n_enroll"], cfg["threshold"], cfg["policy"]
-    df, invalid = load_jsonl(args.input)
+    df, invalid, issues = load_jsonl(args.input, duplicate_policy=args.duplicate_policy,
+                                    require_timestamp=not args.allow_missing_timestamp, order=args.order)
     print(f"{len(df)} lần gõ hợp lệ của {df.participant_id.nunique()} người; "
           f"{sum(invalid.values())} lần gõ sai bị loại. Cấu hình: {policy}, n = {n}, tau = {tau:.2f}")
 
@@ -84,7 +82,7 @@ def main() -> None:
     if len(data) < 2:
         raise SystemExit("Cần ít nhất 2 người tham gia để đo FAR.")
 
-    rows, sess_rows, pooled = [], [], {"g": [], "i_early": [], "i_late": []}
+    rows, sess_rows, trials, pooled = [], [], [], {"g": [], "i_early": [], "i_late": []}
     for pid, g in data.items():
         X = np.vstack(g["x"].to_list())
         if len(X) < n + MIN_LOGINS:
@@ -100,6 +98,11 @@ def main() -> None:
             "n_invalid": invalid.get(pid, 0),
             "n_sessions": int(g["session"].nunique()),
             "n_logins": len(zg),
+            "genuine_rejected": int(np.sum(zg > tau)),
+            "impostor_trials_early": len(zi_early),
+            "impostor_accepted_early": int(np.sum(zi_early <= tau)),
+            "impostor_trials_late": len(zi_late),
+            "impostor_accepted_late": int(np.sum(zi_late <= tau)),
             "frr": float(np.mean(zg > tau)),
             "far_early": float(np.mean(zi_early <= tau)),
             "far_late": float(np.mean(zi_late <= tau)),
@@ -109,6 +112,10 @@ def main() -> None:
         for s in np.unique(sessions):
             sess_rows.append({"participant_id": pid, "session": int(s), "logins": int(np.sum(sessions == s)),
                               "rejected": int(np.sum(zg[sessions == s] > tau))})
+        for (_, sample), z in zip(g.iloc[n:].iterrows(), zg):
+            trials.append({"participant_id": pid, "session": sample["session"], "rep": sample["rep"],
+                           "collected_at": sample["collected_at"], "source_file": sample["source_file"],
+                           "source_line": sample["source_line"], "z": z, "rejected": bool(z > tau)})
         pooled["g"].append(zg)
         pooled["i_early"].append(zi_early)
         pooled["i_late"].append(zi_late)
@@ -120,12 +127,24 @@ def main() -> None:
     sess["frr"] = sess["rejected"] / sess["logins"]
     G, IE, IL = (np.concatenate(pooled[k]) for k in ("g", "i_early", "i_late"))
     summary = {
-        "input": args.input,
+        "data_kind": args.data_kind,
+        "input": str(Path(args.input).as_posix()),
+        "duplicate_policy": args.duplicate_policy,
+        "order": args.order,
+        "require_timestamp": not args.allow_missing_timestamp,
+        "excluded_rows": len(issues),
+        "valid_samples": len(df),
+        "config_sha256": hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest(),
         "policy": policy,
         "n_enroll": n,
         "threshold": tau,
         "participants": int(len(res)),
         "logins": int(len(G)),
+        "genuine_rejected": int(np.sum(G > tau)),
+        "impostor_trials_early": len(IE),
+        "impostor_accepted_early": int(np.sum(IE <= tau)),
+        "impostor_trials_late": len(IL),
+        "impostor_accepted_late": int(np.sum(IL <= tau)),
         "frr_pooled": float(np.mean(G > tau)),
         "far_early_pooled": float(np.mean(IE <= tau)),
         "far_late_pooled": float(np.mean(IL <= tau)),
@@ -137,6 +156,9 @@ def main() -> None:
     (ROOT / "results").mkdir(exist_ok=True)
     res.to_csv(ROOT / f"results/{args.out_prefix}_per_user.csv", index=False)
     sess.to_csv(ROOT / f"results/{args.out_prefix}_by_session.csv", index=False)
+    pd.DataFrame(trials).to_csv(ROOT / f"results/{args.out_prefix}_genuine_trials.csv", index=False)
+    (ROOT / f"results/{args.out_prefix}_exclusions.json").write_text(
+        json.dumps(issues, ensure_ascii=False, indent=2), encoding="utf-8")
     with open(ROOT / f"results/{args.out_prefix}_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 

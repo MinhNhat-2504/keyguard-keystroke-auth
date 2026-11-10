@@ -6,10 +6,10 @@
   "min_enroll": 20,
   "window": 50,
   "cv_folds": 5,
-  "threshold": 0.2503148687219377,
+  "threshold": 0.2720094565367825,
   "target_far": 0.05,
-  "test_far": 0.015238095238095238,
-  "test_frr": 0.19649122807017544,
+  "test_far": 0.01488095238095238,
+  "test_frr": 0.19210526315789472,
   "seed": 42,
   "dev_users": [
     "s005",

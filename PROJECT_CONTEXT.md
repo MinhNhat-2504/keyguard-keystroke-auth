@@ -1,0 +1,45 @@
+# Bối cảnh dự án — KeyGuard, Học máy Ứng dụng
+
+Cập nhật10/11/2026 (Asia/Saigon). Mục cuối ghi đánh giá sơ bộ đã làm; các mốc trước giữ lịch sử.
+
+- Mục tiêu: xác thực nhịp gõ `.tie5Roanl` + Enter, web demo và report Word 6 trang; chốt nhóm 07/11, nộp 08/11/2026. Phân công `../PHAN_CONG_HOC_MAY.md`: Trịnh Ngọc Minh Nhật/TV1 mô hình và report; Nguyễn Anh Thư/TV2 dữ liệu, web và thử nghiệm, mỗi người trọng số 50.
+- Đây là dự án Học máy, không trộn với `keystroke-auth-pareto-optimization` bên cạnh. Remote: `https://github.com/MinhNhat-2504/keyguard-keystroke-auth.git`. Main đang kiểm tra: `5e23206a9b011e09021dda4eea9bb89b1482ff85`.
+- Stack: Python 3.11, NumPy/Pandas/scikit-learn, Matplotlib, pytest. `keyguard/` cung cấp đặc trưng 31 chiều, 4 họ detector, evaluation, simulation, enroll/verify/update. `scripts/` thực nghiệm; `results/`, `figures/`, `models/model_config.json`, `report/KeyGuard_Report.docx` lưu sản phẩm.
+- Đã sửa EER nội suy và chọn ngưỡng xử lý điểm trùng theo accept<=tau. Sửa lịch impostor đếm từ sau enrollment thay vì chỉ số tuyệt đối; thêm test mốc. RF dùng n_jobs=1 vì Windows hạn chế tạo pipe; timing đã đo lại.
+- Đã chạy lại đầy đủ benchmark: 1.530 dòng theo người, 30 cấu hình (5 biến thể × 6 mức n × 51 người). Chạy lại 3 chính sách, chia36 dev/15 test; fallback n=20, window=50, tau≈0,2720094565, test FAR≈1,488095%, FRR≈19,210526%. Số mới thay số cũ; log ở results/. Có45 dòng chính sách/người, aggregate khớp cấu hình. Không chọn lại chính sách theo test; 15 người đã tham gia benchmark nên không gọi holdout độc lập cho toàn quy trình.
+- Phân tích CMU theo người: FAR s018=30/560≈5,36%, FRR s002=93/380≈24,47%; FAR tổng dưới5% không bảo đảm từng người. Report nêu rõ giới hạn này và giả định fallback.
+- Đã chạy26 test, không fail/error/skip, JUnit results/test_results.xml. Smoke enroll20/verify/update21 và JSON roundtrip đạt bằng CMU-derived, không phải HTTP/OTP. Thêm keyguard/collected.py, audit_collected.py và nhãn --data-kind bắt buộc cho evaluate_collected.py, loại dòng lỗi/trùng/không hữu hạn. Pipeline sample chạy được; chưa phải đánh giá dữ liệu thu thật.
+- DOCX đã cập nhật phương pháp/số liệu/sơ đồ kiến trúc và phụ lục lỗi theo người/AUC/tái lập; đã render PDF6 trang bằng Word16.0 và kiểm tra trực quan. Có7 hình, vẫn giữ các nhãn CHỜ TV2. report/templates/ và scripts/update_report.py tái tạo từ artifact; requirements-report.txt có python-docx; scripts/render_report.ps1 xuất PDF cần Word. Preview ở report/preview/ không theo dõi Git.
+- Sửa định dạng theo phản hồi: phụ lục trang 5–6 dùng hai cột như thân bài, hình/bảng vừa một cột; biểu đồ lỗi chuyển thanh ngang để đọc ở khổ cột. Script tạo report giữ cấu hình này. Word/PDF vẫn 6 trang; đã xem trực quan và kiểm tra cả cột trái/phải trang 5–6 đều có nội dung. Không tăng điểm vì sửa định dạng.
+- Nhánh web riêng `../keyguard-thu-review/`, commit `bb88874258524d1775e8660ac9cb0a3444f5ff25`, giữ nguyên source. Audit hiện có2 mẫu hợp lệ/2 mã, không ai đủ enroll/test; evaluator dừng đúng. Đã có docs/EVALUATION_PROTOCOL.md, docs/TV1_HANDOFF.md và report/TV1_STATUS.md.
+- File chấm đã được đổi tên thành `../CHAM_DIEM.md`: Nhật từ37,5 lên43/50 (8,6/10); Thư giữ11/50. Task1.1–1.4 hoàn tất phần độc lập, task1.5 công cụ3/7, report12/15 còn dữ liệu/ảnh/live test. Điểm không chính thức. Đã sửa source/main local, chưa commit/push/merge; không thay đổi dự án tối ưu hóa hoặc source nhánh Thư.
+
+## Chấm lại nhánh Thư ngày 02/11/2026
+
+- Đã fetch/check detached commit36d8ca696a46f4db84379d2f41614ded0a14a93c ở thư mục review. Đã có config, payload20 mẫu đúng schema, ID/profile an toàn và OTP/update; API kiểm tra thực với mẫu CMU-derived đạt27/29, 2 lỗi ép session bool/float. Kiểm tra giới hạn40/phiên và8 ID đồng thời đạt. Node VM tái hiện lỗi đổi phiên lúc submit và Enter OTP gửi lặp. Chưa kiểm thử trình duyệt.
+- CHAM_DIEM.md mục8: Thư tăng11→27/50 (5,4/10), Nhật giữ43/50, tổng70/100. Dữ liệu vẫn2 mẫu, chưa có đồng ý/ảnh/live test. Không sửa source main/nhánh Thư hoặc report trong lần chấm mới; chỉ cập nhật file chấm hiện có và context. Các mô tả lỗi web cũ ở trên là lịch sử01/11.
+- Nhánh Thư còn dùng tau≈0,250315; config sau sửa protocol của Nhật≈0,272009 mới nằm local chưa push, cần bàn giao cùng phiên bản, không tự đổi trong review.
+
+## Chấm lại nhánh Thư ngày 03/11/2026
+
+- Đã fetch/check detached d0ff40b310d860fd8e7f762adb4f172967a3d1c9 trong thư mục review. Ba lỗi02/11 đã sửa; HTTP/API29/30 đạt (duy nhất login.css404), Node VM8/8 hồi quy đạt. Commit xóa stylesheet nhưng template vẫn dùng, cần sửa định dạng/ẩn OTP ban đầu. Chưa chạy trình duyệt.
+- CHAM_DIEM.md mục9: Thư28/50 (5,6/10), Nhật giữ43/50, tổng71/100. Data/config/keyguard không đổi, vẫn2 mẫu và thiếu đồng ý/ảnh/live test; chưa làm thêm1.5–1.6. Không sửa source/main/report hoặc tạo file chấm mới trong review này.
+
+Việc tiếp theo: TV2 khôi phục stylesheet login, kiểm thử trình duyệt và bàn giao dữ liệu thật đủ người/phiên/ngày, ghi chú thiết bị/đồng ý, ảnh và CSV live test. Khi nhận, Nhật đánh giá theo cấu hình thống nhất, phân tích lỗi thật, cập nhật trạng thái web/phần chờ và phân trang lại report6 trang. Không tự cộng7 điểm của Nhật còn thiếu. Chưa cài sạch dependencies hoặc kiểm thử trình duyệt/toàn luồng web.
+
+## Chấm lại nhánh Thư ngày 10/11/2026 — trạng thái hiện tại
+
+- Review fetch/check detached44a610bd120b09e2838e76073cb164c3ce6cac36. CSS khôi phục, có data README/consent template và601 dòng từ15 mã. Cả601 validate_events đạt,600 khóa duy nhất; P10/session1/rep29 trùng dòng29,39, thiếu rep39;2 mẫu cũ không timestamp. Chủ yếu một phiên, chưa mã nào đủ2 phiên40 lượt khác ngày. Không sửa dữ liệu.
+-39/39 kiểm tra HTTP/API đạt với dữ liệu tạm CMU-derived, có log verify/OTP và admin stats/export; OTP hết hạn chưa ghi nhật ký. Chưa ảnh/test bàn giao hoặc CSV/bảng live test thật. Không chạy trình duyệt hoặc độ chính xác bộ mới.
+-CHAM_DIEM.md mục10: Thư36/50(7,2/10), Nhật giữ43/50, tổng79/100; không tự phạt quá hạn. Nhật đã có thể làm đánh giá sơ bộ15 mã (mọi mã đủ25 mẫu) sau chốt xử lý trùng và config; phải công bố giới hạn một phiên và chưa suy ra drift nhiều ngày. Lần này chỉ chấm, không sửa source/report hoặc chạy task1.5 mới.
+-Ưu tiên: đối chiếu P10 với nguồn, thống nhất model/config, đánh giá sơ bộ với nhãn đúng; thu bổ sung phiên/ngày và thiết bị/đồng ý, test/ảnh/live CSV rồi cập nhật report6 trang. Source/config của Nhật vẫn local, chưa push; không cộng điểm trước khi thực hiện.
+
+## Hoàn thành sơ bộ task Nhật ngày10/11 — chuẩn bị push theo yêu cầu
+
+- Nhập snapshot15 file/601 dòng từ Git44a610b nguyên byte vào data/collected; manifest SHA-256 và .gitattributes -text bảo toàn byte. Không đổi raw. Chính sách chính định trước: loại cả2 dòng khóa P10/1/29 và2 mẫu thiếu timestamp →597 mẫu; sắp UTC,20 enroll/mã,297 genuine test. Loader thêm duplicate_policy/require_timestamp/order, exclusions có source/file/line. Audit default first vẫn600 mẫu, khác597 của phân tích theo chủ đích; tài liệu đã giải thích.
+- Giữ config CMU tau0,2720094565/window50/fallback. Kết quả:49/297 genuine cần xác minh16,50%; impostor284/1050 đầu27,05%,331/1050 cuối31,52%; EER TB15,81%/18,90%. Chỉ checkpoint enrollment vì mỗi người18–20 genuine, không tới50. Bộ giữ lại chỉ session1; không kết luận drift nhiều phiên/ngày hoặc live test. FAR cao vượt5%, không hiệu chỉnh trên test.
+- Phân tích lỗi P10/P13/P15 FAR cao; P12 FRR55%,P14 FRR45%; thời gian trung vị theo mã2,56–9,64s, thiếu metadata nên không suy nhân quả. Nhánh độ nhạy first598 mẫu/298 genuine,FRR16,44%,FAR không đổi. docs/COLLECTED_PRELIMINARY.md ghi protocol, nguồn, số liệu và giới hạn; có bảng/plots/genuine trials/diagnostics/summary hash cấu hình. Không tái chạy CMU benchmark vì code mô hình không đổi trong bước này.
+-27 test đạt0 skip/error/fail, smoke enroll20→verify→update21 JSON đạt. Report/README/status cập nhật dữ liệu thật và web đã cóOTP/API, còn chờ ảnh/live test; Word/PDF6 trang hai cột, đã xem trực quan. Không merge code web; bản main chuẩn bị push gồm cả phần Nhật đã làm local trước đó.
+-CHAM_DIEM.md tại thư mục cha mục11 cập nhật Nhật43→47/50(9,4/10):1.5 từ3→6,1.6 từ12→13. Thư36/50, tổng83/100. Giữ3 điểm do thiếu nhiều phiên/metadata và ảnh/live test. File chấm cha không thuộc Git repo; report/TV1_STATUS.md ghi trạng thái/điểm để bàn giao trên GitHub.
+-Tiếp theo: Thư đối chiếuP10, bổ sung phiên/ngày/thiết bị/xác nhận đồng ý, ảnh và live CSV; Nhật đánh giá bổ sung rồi chốt report6 trang. Không tự điều chỉnh threshold theo bộ đã xem. User đã yêu cầu push; phải kiểm tra kết quả remote sau commit, không force push.
+-Push ban đầu chứa601 mẫu thô bị auto-review từ chối vì dữ liệu hành vi nhạy cảm. GitHub metadata xác minh repo public/admin+push; raw15/15 blob khớp source thu-branch cùng repo. Chọn phương án giảm dữ liệu: raw collected và CSV genuine từng lượt giữ local/ignore, bỏ khỏi commit mới; chỉ push mã/manifest/bảng tổng hợp/hình/report. Không xóa dữ liệu local, không dùng công cụ khác để vượt từ chối. Phải kiểm tra push mới theo phạm vi đã giảm; original commit chứa raw chưa được push.

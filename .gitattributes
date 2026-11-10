@@ -1,0 +1,2 @@
+# Preserve imported snapshot bytes so manifest SHA-256 is stable across Windows/Linux.
+data/collected/*.jsonl -text

@@ -1,0 +1,30 @@
+{
+  "valid_samples": 2,
+  "participants": 2,
+  "rejected_rows": 0,
+  "qualified_participants": 0,
+  "requirements": {
+    "min_people": 15,
+    "min_sessions": 2,
+    "min_reps": 40
+  },
+  "structural_ready": false,
+  "different_days_verified": false,
+  "consent_verified": false,
+  "note": "JSONL chuẩn không có ngày thu/đồng ý: cần đối chiếu nhật ký ẩn danh riêng. Không suy ra người thật từ mã.",
+  "sessions": [
+    {
+      "participant_id": "P01",
+      "session": 2,
+      "valid_reps": 1,
+      "meets_min_reps": false
+    },
+    {
+      "participant_id": "P02",
+      "session": 1,
+      "valid_reps": 1,
+      "meets_min_reps": false
+    }
+  ],
+  "issues": []
+}

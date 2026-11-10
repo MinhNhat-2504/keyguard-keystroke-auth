@@ -1,0 +1,10 @@
+{
+  "source_kind": "cmu-derived",
+  "enroll_samples": 20,
+  "confidence": 0.6112336826123566,
+  "accepted": true,
+  "updated_samples": 21,
+  "json_roundtrip": true,
+  "otp_tested": false,
+  "api_http_tested": false
+}

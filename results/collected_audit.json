@@ -1,0 +1,122 @@
+{
+  "valid_samples": 600,
+  "participants": 15,
+  "rejected_rows": 1,
+  "qualified_participants": 0,
+  "requirements": {
+    "min_people": 15,
+    "min_sessions": 2,
+    "min_reps": 40
+  },
+  "structural_ready": false,
+  "different_days_verified": false,
+  "consent_verified": false,
+  "timestamped_samples": 598,
+  "note": "collected_at là thời gian server khi có; chưa xác minh đồng ý và đủ phiên khác ngày. Không suy ra người thật từ mã.",
+  "sessions": [
+    {
+      "participant_id": "P01",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P01",
+      "session": 2,
+      "valid_reps": 1,
+      "meets_min_reps": false
+    },
+    {
+      "participant_id": "P02",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P03",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P04",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P05",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P06",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P07",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P08",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P09",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P10",
+      "session": 1,
+      "valid_reps": 39,
+      "meets_min_reps": false
+    },
+    {
+      "participant_id": "P11",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P12",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P13",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P14",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    },
+    {
+      "participant_id": "P15",
+      "session": 1,
+      "valid_reps": 40,
+      "meets_min_reps": true
+    }
+  ],
+  "issues": [
+    {
+      "file": "P10.jsonl",
+      "line": 39,
+      "participant_id": "P10",
+      "reason": "Trùng participant_id/session/rep; không đếm hai lần."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "source_repo": "https://github.com/MinhNhat-2504/keyguard-keystroke-auth",
+  "source_commit": "44a610bd120b09e2838e76073cb164c3ce6cac36",
+  "files": [
+    {
+      "path": "data/collected/P01.jsonl",
+      "sha256": "016e5ec23735623073b594d593c9f33afae1f8534e2fb495ccd9da40b8fe3f6e",
+      "rows": 41
+    },
+    {
+      "path": "data/collected/P02.jsonl",
+      "sha256": "518cba25128e61a15504dbb1a7f176e80a73dc86afb6eccd54fa095e883d2fff",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P03.jsonl",
+      "sha256": "60130dd000b7b0292c4444a4cc6aaf2bd4c4855b3f63ba852ddb1312ae14949a",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P04.jsonl",
+      "sha256": "c1ac7fe870cdf24f599608630dda83e8c2d7c4ac47662b12db38faae821b8014",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P05.jsonl",
+      "sha256": "d26958513d5b795119fb30547279cc42efde6a213ab1ff00e3267e0618709790",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P06.jsonl",
+      "sha256": "c2e32c4c8c997a5854060716c022f629507bc97156c0f2b70250b46fe0ee4e19",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P07.jsonl",
+      "sha256": "367723987f7bd9b558d500a678ac01e8221a149f2452718e0c9bedb97891658f",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P08.jsonl",
+      "sha256": "ea9ffb49b698193f9121b9b149ddf77346caca0b6bba94dfc179dc50f4ab3c43",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P09.jsonl",
+      "sha256": "09587e4e43f20db98fb7fee9f58a4fd1f284d580e98f38631a93437de68fe5c2",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P10.jsonl",
+      "sha256": "9a5339c0637f6d9ca03de23abf936f60457b1a33b8e1461cfa00c6729d8ad60b",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P11.jsonl",
+      "sha256": "4bff9df0c09bf5ac9c2e5ab00d6af315900c9a7ee85dc612483bfeaf9df1594f",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P12.jsonl",
+      "sha256": "3fb4a0c656f42b290e26fbe0eee4f9ae2ea8f45fcd236b5e209860594ccec1a6",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P13.jsonl",
+      "sha256": "496ecd75929d62c613193c36ea3647e2a8eaa832eb6aa57425bec67b5af3ac2b",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P14.jsonl",
+      "sha256": "b3ee83fb37773733f2789698fa48faf79ae5e1ae6f93ace90df6f533c1f1da87",
+      "rows": 40
+    },
+    {
+      "path": "data/collected/P15.jsonl",
+      "sha256": "13fca58140fcbabc6f1c8b8113fd7a3dc50e6c304c3c683b0fa854a72626b876",
+      "rows": 40
+    }
+  ],
+  "raw_rows": 601,
+  "note": "Bản sao nguyên byte từ nhánh thu-branch; chưa chỉnh sửa/đánh số lại mẫu gốc."
+}

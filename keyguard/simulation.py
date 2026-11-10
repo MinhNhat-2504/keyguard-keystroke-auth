@@ -38,11 +38,13 @@ def simulate_user(
     """
     if policy not in POLICIES:
         raise ValueError(f"Chính sách không hợp lệ: {policy}")
+    if checkpoint_every < 1:
+        raise ValueError("checkpoint_every phải dương.")
     n = cfg["n_enroll"]
     profile = build_profile(X[:n], cfg)
     zg, zi = np.empty(len(X) - n), []
     for t in range(n, len(X)):
-        if t == n or t % checkpoint_every == 0:
+        if (t - n) % checkpoint_every == 0:
             zi.append(profile_z(profile, imp_X))
         z = float(profile_z(profile, X[t])[0])
         zg[t - n] = z
