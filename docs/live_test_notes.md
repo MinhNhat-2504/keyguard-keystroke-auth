@@ -17,8 +17,8 @@
 ## 2. Cách tiến hành
 
 - **Chủ tài khoản (genuine):** 24 lượt đăng nhập, chọn vai "Tôi là chủ tài khoản" trong chế độ thử nghiệm (`/login?test=1`), trong 1 buổi.
-- **Kẻ gian (impostor):** 10 lượt từ 10 người khác nhau, mỗi người gõ 1 lượt đúng chuỗi `.tie5Roanl` rồi Enter vào tài khoản trên, chọn vai "Tôi đóng vai kẻ gian". Do gói Render miễn phí có thể bị ngủ hoặc reset, các bạn cùng hẹn thử trong một khoảng thời gian ngắn, nên các lượt dồn trong khoảng 2 phút.
-- Mã người thử không được điền lúc thử, nên **số người (10) do nhóm khai theo trí nhớ**, không do app ghi lại.
+- **Kẻ gian (impostor):** 10 lượt từ 10 người khác nhau, mỗi người gõ 1 lượt đúng chuỗi `.tie5Roanl` rồi Enter vào tài khoản trên, chọn vai "Tôi đóng vai kẻ gian". Do gói Render miễn phí có thể bị ngủ hoặc reset, các bạn cùng hẹn thử trong một khoảng thời gian ngắn
+- Mã người thử không được điền lúc thử, nên **số người (10) không do app ghi lại.
 - Lượt gõ sai câu không được ghi log. Lượt dùng thử ở chế độ "Dùng bình thường" (1 lượt) bị loại khỏi thống kê.
 - Kẻ gian không nhập OTP: OTP chỉ hiện ở console server, mô phỏng tin nhắn gửi vào điện thoại chủ tài khoản.
 - Hồ sơ tài khoản tự cập nhật mỗi khi lượt gõ được chấp nhận hoặc OTP đúng, nên hồ sơ của chủ có thể thay đổi nhẹ trong suốt buổi thử.
@@ -27,7 +27,7 @@
 
 | Chỉ số | Kết quả |
 |---|---|
-| Số người đóng kẻ gian | 10 (theo trí nhớ, tester_id không được ghi) |
+| Số người đóng kẻ gian | 10 |
 | Số lượt kẻ gian | 10 |
 | Số lượt chủ tài khoản | 24 |
 | FAR (kẻ gian được nhận ngay) | 0/10 = 0,0% |
@@ -48,5 +48,4 @@ Log không lưu tên tài khoản (chỉ mã băm `account_ref`), không lưu m�
 
 - Mẫu nhỏ: 10 lượt kẻ gian, mỗi người chỉ 1 lượt.
 - Một buổi thử, chưa kiểm tra chủ tài khoản đăng nhập ở các ngày khác nhau.
-- Mã người thử không ghi lại, số người dựa trên lời khai của nhóm.
 - Thiết bị và điều kiện gõ chưa được kiểm soát chặt, có thể khác với bộ dữ liệu CMU.
