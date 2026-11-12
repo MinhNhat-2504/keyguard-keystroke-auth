@@ -1,26 +1,27 @@
 #!/usr/bin/env python3
 """Tạo docs/live_test.csv từ attempts.csv và in các số cho bảng kết quả 2.6.
 
-Cách dùng (đơn giản nhất, đặt file này cạnh attempts.csv):
+Cách dùng (đặt file này cạnh attempts.csv):
     python make_live_test.py
-
-Cách dùng đầy đủ:
-    python make_live_test.py attempts.csv
-    python make_live_test.py attempts.csv -o docs/live_test.csv --impostor-people 8
+    python make_live_test.py attempts.csv -o docs/live_test.csv
 
 - Gộp dòng event=otp vào đúng lượt verify (theo attempt_id).
 - Chỉ giữ role = genuine / impostor (bỏ unspecified).
 - FAR/FRR tính theo lượt, ghi tử số/mẫu số.
-- Nếu tester_id trống (đợt thử không ghi mã), dùng --impostor-people N để ghi số người
-  theo trí nhớ. Chỉ điền số đúng sự thật.
+- Số người đóng kẻ gian được ĐẾM từ cột tester_id (trang đăng nhập bản mới bắt buộc nhập mã
+  khi chọn vai kẻ gian). Chỉ với log cũ không có tester_id mới dùng --impostor-people N; đó là số
+  người tự báo, KHÔNG được coi là đã kiểm chứng từ log.
 """
 import argparse
 import csv
 import sys
+from collections import Counter
 from pathlib import Path
 
 OUT_FIELDS = ["time", "attempt_id", "account_ref", "role", "tester_id", "device",
               "accepted", "confidence", "otp_required", "otp_result", "otp_tries"]
+MIN_IMPOSTORS = 10   # yêu cầu của task 2.6
+MIN_GENUINE = 20
 
 
 def frac(num, den):
@@ -32,7 +33,7 @@ def main():
     ap.add_argument("attempts", nargs="?", default="attempts.csv")
     ap.add_argument("-o", "--out", default="docs/live_test.csv")
     ap.add_argument("--impostor-people", type=int, default=None,
-                    help="số người đóng kẻ gian (khi tester_id trống)")
+                    help="CHỈ cho log cũ không có tester_id: số người kẻ gian do người tổ chức tự báo")
     args = ap.parse_args()
 
     with open(args.attempts, encoding="utf-8", newline="") as f:
@@ -71,31 +72,32 @@ def main():
     gen_otp_ok = sum(1 for r in gen_rej if r["otp_result"] == "ok")
     imp_otp_ok = sum(1 for r in imp_rej if r["otp_result"] == "ok")
 
-    ids = {r["tester_id"] for r in imp if r["tester_id"]}
-    if not ids and args.impostor_people is None and sys.stdin.isatty():
-        ans = input("tester_id trống. Có bao nhiêu bạn đóng kẻ gian (số bạn nhớ thật sự, Enter để bỏ qua)? ").strip()
-        if ans.isdigit():
-            args.impostor_people = int(ans)
-    if ids:
-        people = f"{len(ids)} (đếm từ tester_id)"
+    per_tester = Counter(r["tester_id"] for r in imp if r["tester_id"])
+    no_id = sum(1 for r in imp if not r["tester_id"])
+    if per_tester:
+        people = f"{len(per_tester)} (đếm từ tester_id)"
     elif args.impostor_people:
-        people = f"{args.impostor_people} (theo trí nhớ, tester_id không được ghi)"
+        people = f"{args.impostor_people} (người tổ chức tự báo, log không ghi tester_id: chưa kiểm chứng)"
     else:
-        people = "chưa rõ (tester_id trống, dùng --impostor-people N)"
+        people = "chưa rõ (tester_id trống)"
 
     print(f"Đã ghi {len(out)} dòng vào {args.out} (bỏ {dropped} lượt unspecified)\n")
     print("=== BẢNG KẾT QUẢ 2.6 ===")
     print(f"Số người đóng kẻ gian : {people}")
-    print(f"Số lượt impostor      : {len(imp)}  (yêu cầu >= 10 người)")
-    print(f"Số lượt genuine       : {len(gen)}  (yêu cầu >= 20 lượt)")
+    print(f"Số lượt impostor      : {len(imp)}")
+    print(f"Số lượt genuine       : {len(gen)}  (yêu cầu >= {MIN_GENUINE} lượt)")
     print(f"FAR (impostor nhận ngay): {frac(acc(imp), len(imp))}")
     print(f"FRR (genuine bị đòi OTP): {frac(len(gen_rej), len(gen))}")
     print(f"Sau OTP - genuine bị từ chối nhưng qua OTP : {frac(gen_otp_ok, len(gen_rej))}")
     print(f"Sau OTP - impostor qua được OTP            : {frac(imp_otp_ok, len(imp_rej))}")
-    if len(gen) < 20:
-        print(f"\n! Mới có {len(gen)} lượt genuine, cần thêm {20 - len(gen)}.")
-    if not ids and not args.impostor_people:
-        print("! Chưa có số người đóng kẻ gian cho bảng kết quả.")
+    if per_tester:
+        print("\nLượt impostor theo mã người thử: " + ", ".join(f"{k}: {v}" for k, v in sorted(per_tester.items())))
+    if no_id:
+        print(f"! {no_id} lượt impostor không có tester_id.")
+    if len(per_tester) < MIN_IMPOSTORS:
+        print(f"! Đã xác minh {len(per_tester)} người kẻ gian từ log, yêu cầu >= {MIN_IMPOSTORS}.")
+    if len(gen) < MIN_GENUINE:
+        print(f"! Mới có {len(gen)} lượt genuine, cần thêm {MIN_GENUINE - len(gen)}.")
 
 
 if __name__ == "__main__":

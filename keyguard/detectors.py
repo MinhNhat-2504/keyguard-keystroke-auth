@@ -93,7 +93,7 @@ class RForest:
             n_estimators=self.n_estimators,
             class_weight="balanced",
             random_state=self.random_state,
-            n_jobs=-1,
+            n_jobs=1,  # chạy được cả Windows hạn chế quyền tạo pipe
         )
         self.model_.fit(X, y)
         return self

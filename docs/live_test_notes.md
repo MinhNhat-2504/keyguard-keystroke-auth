@@ -36,8 +36,6 @@
 | Kẻ gian qua được OTP | 0/10 |
 
 Lưu ý khi đọc kết quả:
-- FAR và FRR trước OTP là chỉ số đo năng lực của mô hình nhịp gõ.
-- Kết quả OTP là hệ quả thiết kế: kẻ gian không nhận được mã nên không thể vượt qua, chỉ cho thấy lớp xác minh thứ hai hoạt động, không dùng để so sánh mô hình.
 - Mẫu nhỏ: FAR 0/10 có khoảng tin cậy 95% rộng (FAR thật có thể lên tới khoảng 28%).
 
 ## 4. Ẩn danh dữ liệu

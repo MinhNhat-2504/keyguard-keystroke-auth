@@ -103,7 +103,11 @@ def verify(profile: dict, events: list[dict], config: dict | None = None) -> tup
 
 
 def update(profile: dict, events: list[dict], config: dict | None = None) -> dict:
-    """Thêm một lần gõ ĐÃ ĐƯỢC CHẤP NHẬN vào hồ sơ, trả về hồ sơ mới. Không gọi khi bị từ chối."""
+    """Thêm mẫu của người đã xác thực, trả về hồ sơ mới.
+
+    Chỉ gọi khi verify chấp nhận hoặc xác minh bổ sung đã thành công.
+    Hàm này không tự kiểm tra OTP; bên gọi phải bảo đảm điều kiện đó.
+    """
     cfg = config or load_config()
     X = np.vstack([np.asarray(profile["samples"]), extract_features(events)])
     return build_profile(X, cfg)

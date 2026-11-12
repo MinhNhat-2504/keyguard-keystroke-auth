@@ -13,15 +13,15 @@
     <input type="text" id="username" placeholder="Nhập tên đăng nhập..." maxlength="50" autocomplete="off">
 
     <details class="test-opts" id="testOpts" hidden>
-        <summary>Tùy chọn khi thử nghiệm (không bắt buộc)</summary>
+        <summary>Tùy chọn khi thử nghiệm</summary>
         <label for="role">Vai trò của bạn khi thử:</label>
         <select id="role">
             <option value="unspecified">Dùng bình thường</option>
             <option value="genuine">Tôi là chủ tài khoản</option>
             <option value="impostor">Tôi đóng vai kẻ gian</option>
         </select>
-        <label for="testerId">Mã người thử (nếu có, ví dụ P05):</label>
-        <input type="text" id="testerId" placeholder="Có thể để trống" maxlength="20" autocomplete="off">
+        <label for="testerId">Mã người thử (bắt buộc với vai kẻ gian, ví dụ T01):</label>
+        <input type="text" id="testerId" placeholder="Ví dụ T01 (chữ, số, - hoặc _)" maxlength="20" autocomplete="off">
     </details>
 
     <label for="typingInput" style="margin-top: 20px;">Gõ chuỗi xác thực rồi nhấn Enter:</label>
@@ -82,13 +82,22 @@
             showResult("danger", "❌ Vui lòng nhập tên tài khoản trước khi gõ!", true);
             return;
         }
+        const testerId = $("testerId").value.trim();
+        if ($("role").value === "impostor" && !testerId) {
+            showResult("danger", "❌ Vai kẻ gian cần có mã người thử (ví dụ T01).", true);
+            return;
+        }
+        if (testerId && !/^[A-Za-z0-9_-]{1,20}$/.test(testerId)) {
+            showResult("danger", "❌ Mã người thử chỉ gồm chữ không dấu, số, dấu - hoặc _ (tối đa 20 ký tự).", true);
+            return;
+        }
 
         capture.lock();
         try {
             const response = await fetch('/api/verify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, events: events, role: $("role").value, tester_id: $("testerId").value.trim() })
+                body: JSON.stringify({ username: username, events: events, role: $("role").value, tester_id: testerId })
             });
             const result = await response.json();
 
@@ -156,7 +165,10 @@
 
     window.addEventListener("DOMContentLoaded", () => {
         // Mục chọn vai trò chỉ hiện khi mở /login?test=1 (dùng cho đợt thử nghiệm); người dùng thường không thấy.
-        if (new URLSearchParams(location.search).has("test")) $("testOpts").hidden = false;
+        if (new URLSearchParams(location.search).has("test")) {
+            $("testOpts").hidden = false;
+            $("testOpts").open = true;   // mở sẵn để không bỏ sót ô mã người thử
+        }
         capture = attachKeyCapture($("typingInput"), TARGET_STRING, onSample);
         $("otpBtn").addEventListener("click", submitOtp);
         $("otpInput").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.repeat) submitOtp(); });
