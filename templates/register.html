@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyGuard - Đăng ký tài khoản nhịp gõ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ui.css') }}">
 </head>
 <body data-phrase="{{ phrase }}" data-n-enroll="{{ n_enroll }}">
+<header class="site-header"><a class="site-brand" href="/">K<span>G</span> / KeyGuard</a><nav class="site-links" aria-label="Điều hướng chính"><a href="/">Thu mẫu</a><a href="/register" aria-current="page">Đăng ký</a><a href="/login">Đăng nhập</a></nav></header>
+<main class="page-shell"><div class="page-intro"><div class="eyebrow">Đăng ký tài khoản</div><h1>Tạo hồ sơ nhịp gõ</h1><p>Chọn tên tài khoản và nhập chuỗi mẫu đủ số lượt để tạo hồ sơ ban đầu.</p></div><div class="workspace">
+
 <div class="card">
-    <h2>KeyGuard - Đăng ký mẫu nhịp gõ</h2>
+    <h2>Thông tin đăng ký</h2>
 
     <div id="setupStep">
         <label for="regUsername">Nhập tên tài khoản muốn đăng ký:</label>
@@ -18,10 +22,10 @@
     </div>
 
     <div id="typingStep" class="hidden">
-        <p style="text-align: center; font-weight: 600; color: var(--primary-color);">Tiến độ: Lần <span id="currentAttempt">1</span> / {{ n_enroll }}</p>
+        <p class="enroll-progress" style="text-align: center; font-weight: 600; color: var(--primary-color);" aria-live="polite">Tiến độ: Lần <span id="currentAttempt">1</span> / {{ n_enroll }}</p>
         <p>Gõ chính xác chuỗi rồi nhấn <b>Enter</b>:</p>
         <div class="target-text">{{ phrase }}</div>
-        <input type="text" id="regInput" placeholder="Gõ chuỗi trên rồi nhấn Enter..." autocomplete="off">
+        <input type="text" id="regInput" aria-label="Nhập chuỗi để đăng ký mẫu" placeholder="Gõ chuỗi trên rồi nhấn Enter..." autocomplete="off">
         <div class="status" id="regStatus"></div>
     </div>
 
@@ -33,6 +37,7 @@
         <a href="/">Trang thu thập dữ liệu</a>
     </div>
 </div>
+<aside class="side-guide" aria-label="Hướng dẫn"><h2>Các bước thực hiện</h2><ol><li><strong>Chọn tên tài khoản</strong>Hệ thống kiểm tra tên trước khi bắt đầu thu mẫu.</li><li><strong>Gõ đủ số lượt</strong>Giữ nhịp gõ tự nhiên. Chỉ những lượt hợp lệ mới được tính vào tiến độ.</li><li><strong>Chuyển sang đăng nhập</strong>Sau khi tạo hồ sơ thành công, bạn có thể thử xác thực bằng nhịp gõ.</li></ol><p class="research-note">KeyGuard · Bài tập lớn Học máy ứng dụng. OTP trong phiên bản này được mô phỏng phục vụ nghiên cứu.</p></aside></div><footer class="page-footer">Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư<br>Giảng viên hướng dẫn: Nguyễn Thái Anh</footer></main>
 <script src="{{ url_for('static', filename='keycapture.js') }}"></script>
 <script>
     const TARGET_STRING = document.body.dataset.phrase;

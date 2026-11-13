@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyGuard - Đăng nhập xác thực nhịp gõ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ui.css') }}">
 </head>
 <body data-phrase="{{ phrase }}">
+<header class="site-header"><a class="site-brand" href="/">K<span>G</span> / KeyGuard</a><nav class="site-links" aria-label="Điều hướng chính"><a href="/">Thu mẫu</a><a href="/register">Đăng ký</a><a href="/login" aria-current="page">Đăng nhập</a></nav></header>
+<main class="page-shell"><div class="page-intro"><div class="eyebrow">Xác thực tài khoản</div><h1>Đăng nhập bằng nhịp gõ</h1><p>Nhập tên tài khoản, gõ chuỗi mẫu và nhấn Enter. Hệ thống có thể yêu cầu xác minh bổ sung.</p></div><div class="workspace">
+
 <div class="card">
-    <h2>KeyGuard - Đăng nhập</h2>
+    <h2>Thông tin xác thực</h2>
     <label for="username">Tên tài khoản:</label>
     <input type="text" id="username" placeholder="Nhập tên đăng nhập..." maxlength="50" autocomplete="off">
 
@@ -27,11 +31,11 @@
     <label for="typingInput" style="margin-top: 20px;">Gõ chuỗi xác thực rồi nhấn Enter:</label>
     <div class="target-text">{{ phrase }}</div>
 
-    <input type="text" id="typingInput" placeholder="Click vào đây và gõ đúng chuỗi..." autocomplete="off">
+    <input type="text" id="typingInput" aria-label="Nhập chuỗi xác thực" placeholder="Gõ chuỗi mẫu rồi nhấn Enter" autocomplete="off">
 
-    <div id="resultBox" class="result"></div>
+    <div id="resultBox" class="result" role="status" aria-live="polite"></div>
 
-    <div id="otpBox" class="otp-box">
+    <div id="otpBox" class="otp-box" role="region" aria-label="Xác minh OTP">
         <div class="sms" id="smsBox"></div>
         <label for="otpInput" style="margin-top: 10px;">Nhập mã OTP:</label>
         <input type="text" id="otpInput" placeholder="6 chữ số" inputmode="numeric" maxlength="6" autocomplete="off">
@@ -44,6 +48,7 @@
         <a href="/">Trang thu thập dữ liệu</a>
     </div>
 </div>
+<aside class="side-guide" aria-label="Hướng dẫn"><h2>Các bước thực hiện</h2><ol><li><strong>Nhập tên tài khoản</strong>Sử dụng tài khoản đã đăng ký hồ sơ nhịp gõ.</li><li><strong>Gõ chuỗi xác thực</strong>Gõ đúng chuỗi bên dưới theo nhịp tự nhiên, sau đó nhấn Enter.</li><li><strong>Xác minh khi được yêu cầu</strong>Nếu xuất hiện ô OTP, nhập mã theo hướng dẫn để hoàn tất.</li></ol><p class="research-note">KeyGuard · Bài tập lớn Học máy ứng dụng. OTP trong phiên bản này được mô phỏng phục vụ nghiên cứu.</p></aside></div><footer class="page-footer">Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư<br>Giảng viên hướng dẫn: Nguyễn Thái Anh</footer></main>
 <script src="{{ url_for('static', filename='keycapture.js') }}"></script>
 <script>
     const TARGET_STRING = document.body.dataset.phrase;
