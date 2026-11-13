@@ -10,8 +10,8 @@
 | Thiết bị của người tổ chức (chủ tài khoản) | Laptop Asus, Windows, trình duyệt Chrome (không ghi phiên bản). |
 | Thiết bị của kẻ gian | Laptop cá nhân của từng người tham gia, gồm các hãng Dell, HP và Asus, không ghi lại từng lượt gõ trên máy nào. Windows, trình duyệt Chrome. |
 | Mô hình và ngưỡng | `keyguard/` và `models/model_config.json` đồng bộ theo bản `main` của TV1 (commit `674dfdc`), ngưỡng tau = 0,2720094565. Cấu hình không đổi trong lúc thử, và `keyguard/` cùng `models/` vẫn giống hệt `main` ở commit `d6218af` (kiểm tra bằng `git diff`). |
-| Commit bàn giao | `d4a51f1` (mã nguồn và cấu hình không đổi từ commit này; các commit sau chỉ sửa tài liệu và ảnh) |
-| Nguồn dữ liệu | `docs/attempts_raw.csv` (xem mục 2b), chuyển thành `docs/live_test.csv` bằng `scripts/make_live_test.py` |
+| Commit bàn giao | `d4a51f1` và `a2e7f5f` (tài liệu, ảnh, dữ liệu). Commit `3bcd919` sau đó chỉ đổi giao diện (3 template và `static/ui.css`); backend, mô hình và cấu hình không đổi. Live test chạy trước `3bcd919`. |
+| Nguồn dữ liệu | `docs/attempts_original.csv` (xem mục 2b), chuyển thành `docs/live_test.csv` bằng `scripts/make_live_test.py` |
 
 ## 2. Cách tiến hành
 
@@ -26,10 +26,12 @@
 ## 2b. Nguồn gốc dữ liệu thử
 
 - File gốc app ghi ra là `attempts.csv` trên máy chủ Render. File này được tải về qua trang quản trị ngay sau buổi thử.
-- `docs/attempts_raw.csv` là bản sạch đã **qua trình soạn thảo (Excel)**, nên không phải nguyên bản byte-by-byte. Bản này có 38 dòng dữ liệu, không ngoặc kép, `confidence` dạng `0.xxxx`, xuống dòng kiểu CRLF.
+- `docs/attempts_original.csv` là bản đã **qua trình soạn thảo (Excel)**; tên "original" chỉ là tên tệp trong repo, không có nghĩa là bản xuất nguyên byte từ máy chủ. Bản này có 38 dòng dữ liệu, không ngoặc kép, `confidence` dạng `0.xxxx`, xuống dòng kiểu CRLF.
 - Dòng cuối của file từng bị xóa nhầm khi chỉnh. Dòng này được **khôi phục bằng tay** theo bản sao còn lại (`attempt_id` `f108bdf6a8fe`, `confidence` 0.0156). 37 dòng còn lại khớp 100% với bản sao đã qua Excel.
+- Tệp `attempts.csv` và `attempts_fixed.csv` (nếu còn trong repo) là của đợt nộp trước: `attempts.csv` có `confidence` ngoài khoảng [0,1] do lỗi định dạng khi qua trình soạn thảo, nên không dùng làm nguồn. Nguồn dùng để tạo bảng kết quả là `attempts_original.csv`.
+- Bản xuất nguyên byte từ máy chủ không còn được lưu, nên nguồn gốc dữ liệu chưa khép kín hoàn toàn; đây là giới hạn của nhóm.
 - Không có dòng nào bị sửa theo phỏng đoán: không sửa giờ, không điền `tester_id` bù, không đổi vai.
-- Kiểm tra lặp lại: chạy `python scripts/make_live_test.py docs/attempts_raw.csv -o docs/live_test_check2.csv` rồi so với `docs/live_test.csv` bằng `fc.exe`. Kết quả (13/11/2026): không có khác biệt, 33/33 dòng khớp.
+- Kiểm tra lặp lại: chạy `python scripts/make_live_test.py docs/attempts_original.csv -o docs/live_test_check2.csv` rồi so với `docs/live_test.csv` bằng `fc.exe`. Kết quả (13/11/2026): không có khác biệt, 33/33 dòng khớp.
 
 ## 3. Kết quả
 
@@ -54,7 +56,7 @@ Log không lưu tên tài khoản (chỉ mã băm `account_ref`), không lưu m�
 ## 5. Hạn chế
 
 - Mẫu nhỏ: 10 lượt kẻ gian, mỗi mã chỉ 1 lượt. 10 mã là mã được ghi, không được kiểm chứng là 10 người độc lập.
-- `attempts_raw.csv` đã qua trình soạn thảo và có một dòng khôi phục bằng tay (xem mục 2b).
+- `attempts_original.csv` đã qua trình soạn thảo và có một dòng khôi phục bằng tay (xem mục 2b).
 - Một buổi thử, chưa kiểm tra chủ tài khoản đăng nhập ở các ngày khác nhau.
 - Thiết bị và điều kiện gõ chưa được kiểm soát chặt, có thể khác với bộ dữ liệu CMU.
 
