@@ -32,6 +32,4 @@ Ca 10: log lấy từ lần thử tài khoản demo `935c64e2` (log 07:55 đến
 - Ca đăng ký thiếu mẫu không thử được qua giao diện vì nút nộp chỉ hiện khi đủ 20 lần. Việc máy chủ từ chối khi thiếu mẫu (lỗi 400) do người chấm kiểm tra bằng API, nhóm không tự thử qua giao diện.
 - Kiểm tra `tester_id` bắt buộc hiện chỉ ở giao diện. Gọi API trực tiếp với vai kẻ gian và mã trống vẫn được chấp nhận.
 - Nếu OTP đã bị xóa khỏi bộ nhớ khi hết hạn, log không ghi event "expired". Thiếu dòng "expired" trong log không có nghĩa là chưa chạy ca 11, hãy đối chiếu với cột "Thực tế" và ảnh.
-- Các ảnh ca 11 và 12 không phân biệt được hết hạn do quá 5 phút với mã không tồn tại hoặc đã dùng, và chưa chứng minh máy chủ trả 410 hay hồ sơ không được cập nhật.
 - Log ca 10 (`docs/kiem_thu_otp_20261113.csv`) là tài khoản khác với live test, không gộp vào 33 lượt FAR/FRR.
-- Ảnh chỉ minh chứng các bước đã chụp, không chứng minh mọi phiên bản code đều được thử.
