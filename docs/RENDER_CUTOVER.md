@@ -40,3 +40,22 @@ Chuẩn bị ENV và nguồn commit trước, rồi triển khai một lượt c
 - Sao lưu PostgreSQL sau đợt kiểm tra. Nếu lỗi, ngừng ghi và sửa bản web dùng cùng DB; không quay về file mode để tiếp tục nhận dữ liệu thành hai bộ trạng thái.
 
 Các bước triển khai và kiểm tra trên vẫn chờ đúng quyền truy cập và bản sao runtime. Tài liệu này không xác nhận production đã được chuyển sang PostgreSQL.
+
+## Đợt bàn giao bổ sung ngày 14/11/2026
+
+Người dùng đã yêu cầu thực hiện bước 1 và 2 theo phạm vi dữ liệu hiện có. Đã nhận `participants.json` (15 mã) và `attempts.csv` (9 dòng: 4 verify, 5 OTP). CSV khớp theo trường với `docs/kiem_thu_otp_20261113.csv` trong cập nhật Thư c516c32; đây là log ca biên riêng, không nhập vào bộ 33 lượt live nghiên cứu. Không có backup account/profile; không kết luận trạng thái filesystem hiện tại đã mất chỉ từ việc thiếu file.
+
+Đã nhập bổ sung vào Neon bằng `scripts/import_handover_batch.py`, nguồn khóa hash và mặc định dry-run. Transaction chỉ ghi khi 601 mẫu còn đúng bản gốc và chưa có registry/account/log khác. Sau nhập: kg_samples=601, kg_documents=1, kg_attempts=9, kg_imports=2. Registry giữ nguyên timestamp P11/P12 sai định dạng; không sửa hồi cứu. Nhập lại không nhân đôi, export HTTP khớp; backup đầy đủ sau nhập đã restore thử trên PostgreSQL local và khớp. Kết quả công khai trong checkout nghiên cứu `results/neon_handover_validation.json`.
+
+Đã merge origin/thu-branch c516c32 vào nhánh storage để giữ hai commit mới của Thư; backend/model/UI không đổi qua merge. Kiểm tra lại Render CLI vẫn không thấy KeyGuard trong workspace hiện tại, chưa đổi ENV hoặc deploy.
+
+### Các thao tác cho chủ dịch vụ KeyGuard
+
+1. Mở [Render Dashboard](https://dashboard.render.com/), chọn đúng dịch vụ có URL `keyguard-keystroke-auth.onrender.com`. Tạm ngừng thu/test trong lượt chuyển. Nếu còn dữ liệu runtime khác cần giữ, xuất riêng trước mọi thay đổi; đợt bàn giao trên không khẳng định đầy đủ trạng thái hiện tại.
+2. Trên máy dự án, mở tệp riêng tư `.storage-test/render-keyguard.env`. Tệp đã chuẩn bị URL direct/TLS của Neon và khóa admin mới nhưng chưa áp dụng; không gửi nội dung vào chat/Git/ảnh. Người dùng quản lý việc cung cấp riêng tư cho chủ dịch vụ, không tự công khai hoặc gửi qua công cụ chat.
+3. Trong dịch vụ → **Environment** → **Add from .env**, thêm đúng ba biến trong tệp. Thay giá trị admin key cũ; giữ `KEYGUARD_VERIFY_LIMIT`, `PYTHON_VERSION` và các biến khác. Chọn **Save only**, chưa deploy build cũ với ENV mới. Render hỗ trợ tùy chọn này theo [tài liệu ENV chính thức](https://render.com/docs/configure-environment-variables).
+4. Trong **Settings** → **Build & Deploy** → **Branch**, chuyển sang `storage/postgres-local` đã chứa backend và cập nhật mới của Thư. Không chọn nhánh main nghiên cứu. Xác nhận Build vẫn cài requirements và Start dùng Gunicorn. Lưu cấu hình; nếu Render chưa tự triển khai thì dùng **Manual Deploy → Deploy latest commit**. Bản triển khai phải là commit mới nhất của nhánh storage, không phải build cũ 3bcd919/c516c32.
+5. Chờ Events báo **Live**, ghi commit SHA và thời điểm. Tài khoản/profile cũ chưa phục hồi trong Neon nên sẽ cần đăng ký lại theo phạm vi chuyển hiện có. Không nhầm dữ liệu gõ lịch sử với profile đăng nhập.
+6. Gửi trạng thái/commit deploy để đối chiếu (không gửi secret). Sau đó mới kiểm tra ghi bằng mã/tài khoản thử và restart Render để xác nhận dữ liệu còn trong DB. Chưa đánh dấu bước này hoàn thành từ kết quả local.
+
+Nếu không có quyền đổi ENV/Branch của KeyGuard, dừng ở bước chuẩn bị và yêu cầu chủ dịch vụ thực hiện. Không dùng quyền trên dịch vụ khác hoặc chỉ push thu-branch để thay thế việc cấu hình PostgreSQL.
