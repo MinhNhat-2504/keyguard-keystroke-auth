@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
-from flask import Flask, Response, jsonify, render_template, request
+from flask import Flask, Response, jsonify, render_template, request, g
 from werkzeug.exceptions import HTTPException
 
 ROOT = Path(__file__).resolve().parent
@@ -52,8 +52,17 @@ app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024  # 2 MB là quá đủ cho 20
 DATA_DIR = Path(os.environ.get("KEYGUARD_DATA_DIR") or ROOT / "data")
 COLLECTED_DIR = DATA_DIR / "collected"
 PROFILES_DIR = DATA_DIR / "profiles"
-for _d in (DATA_DIR, COLLECTED_DIR, PROFILES_DIR):
-    _d.mkdir(parents=True, exist_ok=True)
+STORAGE_BACKEND = os.environ.get('KEYGUARD_STORAGE', 'postgres' if os.environ.get('DATABASE_URL') else 'file')
+if STORAGE_BACKEND not in ('file', 'postgres'):
+    raise RuntimeError('KEYGUARD_STORAGE must be file or postgres')
+PG = None
+if STORAGE_BACKEND == 'postgres':
+    from pg_storage import PostgresStore
+    PG = PostgresStore(os.environ.get('DATABASE_URL'))
+    PG.check_schema()  # Explicit init, never silently initialize/import at web startup.
+else:
+    for _d in (DATA_DIR, COLLECTED_DIR, PROFILES_DIR):
+        _d.mkdir(parents=True, exist_ok=True)
 
 PARTICIPANTS_FILE = DATA_DIR / "participants.json"   # các mã ẩn danh đã cấp
 ACCOUNTS_FILE = DATA_DIR / "accounts.json"           # tên đăng nhập -> mã hồ sơ nội bộ
@@ -96,11 +105,44 @@ class ApiError(Exception):
         self.message, self.status, self.extra = message, status, extra
 
 
+@app.before_request
+def begin_storage_transaction():
+    if PG is not None and (request.path.startswith('/api/') or request.path.startswith('/admin/')):
+        transaction = PG.transaction()
+        transaction.__enter__()
+        g.storage_transaction = transaction
+
+
+@app.after_request
+def finish_storage_transaction(response):
+    transaction = g.pop('storage_transaction', None)
+    if transaction is not None:
+        if response.status_code >= 500:
+            error = RuntimeError('Request failed; roll back persistence')
+            transaction.__exit__(type(error), error, None)
+        else:
+            # Expected 401/429 OTP responses still persist attempts/challenge deletion.
+            transaction.__exit__(None, None, None)
+    return response
+
+
+@app.teardown_request
+def rollback_unfinished_transaction(error):
+    transaction = g.pop('storage_transaction', None)
+    if transaction is not None:
+        failure = error or RuntimeError('Request did not complete')
+        transaction.__exit__(type(failure), failure, failure.__traceback__)
+
+
 # ----------------------------------------------------------------------------------------
 # Lưu trữ: khóa file (chạy được trên Windows/Linux, nhiều worker) + ghi nguyên tử
 # ----------------------------------------------------------------------------------------
 @contextmanager
 def data_lock(timeout: float = 10.0):
+    if PG is not None:
+        with PG.transaction():
+            yield
+        return
     deadline = time.monotonic() + timeout
     while True:
         try:
@@ -124,6 +166,8 @@ def data_lock(timeout: float = 10.0):
 
 
 def read_json(path: Path, default):
+    if PG is not None:
+        return PG.get(str(path.relative_to(DATA_DIR)).replace('\\', '/'), default)
     try:
         with open(path, encoding="utf-8") as f:
             return json.load(f)
@@ -132,6 +176,9 @@ def read_json(path: Path, default):
 
 
 def write_json_atomic(path: Path, obj) -> None:
+    if PG is not None:
+        PG.put(str(path.relative_to(DATA_DIR)).replace('\\', '/'), obj)
+        return
     tmp = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
@@ -237,6 +284,8 @@ def collected_file(pid: str) -> Path:
 
 
 def read_records(pid: str) -> list[dict]:
+    if PG is not None:
+        return PG.records(pid)
     path = collected_file(pid)
     records = []
     if path.exists():
@@ -260,6 +309,8 @@ def session_counts(pid: str) -> dict[str, int]:
 
 def known_participant_ids(registry: dict) -> set[str]:
     ids = set(registry)
+    if PG is not None:
+        return ids | PG.participant_ids()
     for f in COLLECTED_DIR.glob("P*.jsonl"):
         if PARTICIPANT_RE.fullmatch(f.stem):
             ids.add(f.stem)
@@ -362,6 +413,9 @@ def device_class() -> str:
 def log_attempt(**row) -> None:
     """Thêm một dòng vào attempts.csv. Gọi NGOÀI data_lock (hàm tự lấy khóa). Lỗi ghi nhật ký không làm hỏng đăng nhập."""
     row = {"time": now_iso(), **row}
+    if PG is not None:
+        PG.append_attempt({field: str(row.get(field, '')) for field in ATTEMPT_FIELDS})
+        return  # A failed DB log rolls back the API transaction; do not hide it.
     try:
         with data_lock():
             new_file = not ATTEMPTS_FILE.exists()
@@ -450,8 +504,11 @@ def api_submit_sample():
             "collected_at": now_iso(),
             "events": events,
         }
-        with open(collected_file(pid), "a", encoding="utf-8") as f:
-            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        if PG is not None:
+            PG.append_sample(pid, record)
+        else:
+            with open(collected_file(pid), "a", encoding="utf-8") as f:
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
     log.info("Đã ghi mẫu %s phiên %s lần %s", pid, session, rep)
     return jsonify({"success": True, "message": "Đã lưu mẫu gõ thành công!", "rep": rep, "count": rep})
 
@@ -619,11 +676,25 @@ def admin_export():
     require_admin()
     buf = io.BytesIO()
     with data_lock(), zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
-        for f in sorted(COLLECTED_DIR.glob("P*.jsonl")):
-            z.write(f, f"collected/{f.name}")
-        for f in (ATTEMPTS_FILE, PARTICIPANTS_FILE):
-            if f.exists():
-                z.write(f, f.name)
+        if PG is not None:
+            for pid in sorted(PG.participant_ids()):
+                z.writestr(f'collected/{pid}.jsonl', ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in PG.records(pid)))
+            registry = PG.get('participants.json', None)
+            if registry is not None:
+                z.writestr('participants.json', json.dumps(registry, ensure_ascii=False, indent=2))
+            attempts = PG.attempts()
+            if attempts:
+                text = io.StringIO(newline='')
+                writer = csv.DictWriter(text, fieldnames=ATTEMPT_FIELDS, extrasaction='ignore')
+                writer.writeheader()
+                writer.writerows(attempts)
+                z.writestr('attempts.csv', text.getvalue())
+        else:
+            for f in sorted(COLLECTED_DIR.glob("P*.jsonl")):
+                z.write(f, f"collected/{f.name}")
+            for f in (ATTEMPTS_FILE, PARTICIPANTS_FILE):
+                if f.exists():
+                    z.write(f, f.name)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     return Response(buf.getvalue(), mimetype="application/zip",
                     headers={"Content-Disposition": f"attachment; filename=keyguard_data_{stamp}.zip"})
@@ -633,22 +704,25 @@ def admin_export():
 def admin_stats():
     require_admin()
     participants = {}
-    for f in sorted(COLLECTED_DIR.glob("P*.jsonl")):
-        recs = read_records(f.stem)
+    ids = sorted(PG.participant_ids()) if PG is not None else sorted(f.stem for f in COLLECTED_DIR.glob('P*.jsonl'))
+    for pid in ids:
+        recs = read_records(pid)
         days = sorted({str(r["collected_at"])[:10] for r in recs if r.get("collected_at")})
-        sessions = {k: v for k, v in session_counts(f.stem).items() if v}
-        participants[f.stem] = {"samples": len(recs), "sessions": sessions, "days": days}
+        sessions = {k: v for k, v in session_counts(pid).items() if v}
+        participants[pid] = {"samples": len(recs), "sessions": sessions, "days": days}
     attempts = {"total": 0, "by_role": {}}
-    if ATTEMPTS_FILE.exists():
+    rows = PG.attempts() if PG is not None else []
+    if PG is None and ATTEMPTS_FILE.exists():
         with open(ATTEMPTS_FILE, encoding="utf-8", newline="") as fh:
-            for row in csv.DictReader(fh):
-                if row["event"] != "verify":
-                    continue
-                attempts["total"] += 1
-                r = attempts["by_role"].setdefault(row["role"], {"verify": 0, "accepted": 0, "otp_required": 0})
-                r["verify"] += 1
-                r["accepted"] += int(row["accepted"] or 0)
-                r["otp_required"] += int(row["otp_required"] or 0)
+            rows = list(csv.DictReader(fh))
+    for row in rows:
+        if row['event'] != 'verify':
+            continue
+        attempts['total'] += 1
+        r = attempts['by_role'].setdefault(row['role'], {'verify': 0, 'accepted': 0, 'otp_required': 0})
+        r['verify'] += 1
+        r['accepted'] += int(row['accepted'] or 0)
+        r['otp_required'] += int(row['otp_required'] or 0)
     return jsonify({"success": True, "participants": participants, "attempts": attempts})
 
 

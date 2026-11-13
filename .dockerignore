@@ -1,0 +1,12 @@
+.git
+.env
+.env.*
+.venv
+venv
+data
+docs
+__pycache__
+*.pyc
+.storage-test
+*.private-backup.json
+PROJECT_CONTEXT.md

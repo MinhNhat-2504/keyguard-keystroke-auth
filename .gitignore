@@ -3,6 +3,8 @@ __pycache__/
 .venv/
 venv/
 .env
+.env.*
+!.env.example
 
 data/profiles/
 data/collected/
@@ -12,3 +14,6 @@ data/challenges.json
 data/.lock
 data/.*.tmp
 data/attempts.csv
+*.private-backup.json
+.storage-test/
+.neon
