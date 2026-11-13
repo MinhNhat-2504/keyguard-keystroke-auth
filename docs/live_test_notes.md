@@ -9,8 +9,9 @@
 | Nơi chạy web demo | Render (web chạy trên mạng), gói miễn phí, địa chỉ https://keyguard-keystroke-auth.onrender.com. |
 | Thiết bị của người tổ chức (chủ tài khoản) | Laptop Asus, Windows, trình duyệt Chrome (không ghi phiên bản). |
 | Thiết bị của kẻ gian | Laptop cá nhân của từng người tham gia, gồm các hãng Dell, HP và Asus, không ghi lại từng lượt gõ trên máy nào. Windows, trình duyệt Chrome. |
-| Mô hình và ngưỡng | `keyguard/` và `models/model_config.json` đồng bộ theo bản `main` của TV1 (commit `674dfdc`), ngưỡng tau = 0,2720094565. Cấu hình không đổi trong lúc thử. |
-| Nguồn dữ liệu | `docs/attempts.csv` do app tự ghi, chuyển thành `docs/live_test.csv` bằng `scripts/make_live_test.py` |
+| Mô hình và ngưỡng | `keyguard/` và `models/model_config.json` đồng bộ theo bản `main` của TV1 (commit `674dfdc`), ngưỡng tau = 0,2720094565. Cấu hình không đổi trong lúc thử, và `keyguard/` cùng `models/` vẫn giống hệt `main` ở commit `d6218af` (kiểm tra bằng `git diff`). |
+| Commit bàn giao | `d4a51f1` (mã nguồn và cấu hình không đổi từ commit này; các commit sau chỉ sửa tài liệu và ảnh) |
+| Nguồn dữ liệu | `docs/attempts_raw.csv` (xem mục 2b), chuyển thành `docs/live_test.csv` bằng `scripts/make_live_test.py` |
 
 ## 2. Cách tiến hành
 
@@ -18,8 +19,17 @@
 - **Kẻ gian (impostor):** 10 lượt, mỗi mã người thử đúng 1 lượt, gõ đúng chuỗi `.tie5Roanl` rồi Enter vào tài khoản trên, chọn vai "Tôi đóng vai kẻ gian".
 - **Mã người thử:** người thử tự nhập vào ô "Mã người thử" trên trang (T01 đến T10, giữ nguyên như đã nhập, không sửa dữ liệu). Mã người thử không theo thứ tự thời gian. Script đếm được 10 mã khác nhau.
 - Lượt gõ sai câu không được ghi log. Log lần này không có lượt nào ở chế độ "Dùng bình thường" (0 lượt bị loại khỏi thống kê).
+- Mã người thử là mã được ghi trên log, do người thử tự nhập. Nhóm không có cách kiểm chứng độc lập rằng 10 mã là 10 người khác nhau.
 - Kẻ gian không nhập OTP: mã OTP chỉ hiện ở console của máy chủ (mô phỏng tin nhắn gửi vào điện thoại chủ tài khoản), kẻ gian không xem được console nên không lấy được mã.
 - Hồ sơ tài khoản tự cập nhật mỗi khi lượt gõ được chấp nhận hoặc OTP đúng, nên hồ sơ của chủ có thể thay đổi nhẹ trong suốt buổi thử.
+
+## 2b. Nguồn gốc dữ liệu thử
+
+- File gốc app ghi ra là `attempts.csv` trên máy chủ Render. File này được tải về qua trang quản trị ngay sau buổi thử.
+- `docs/attempts_raw.csv` là bản sạch đã **qua trình soạn thảo (Excel)**, nên không phải nguyên bản byte-by-byte. Bản này có 38 dòng dữ liệu, không ngoặc kép, `confidence` dạng `0.xxxx`, xuống dòng kiểu CRLF.
+- Dòng cuối của file từng bị xóa nhầm khi chỉnh. Dòng này được **khôi phục bằng tay** theo bản sao còn lại (`attempt_id` `f108bdf6a8fe`, `confidence` 0.0156). 37 dòng còn lại khớp 100% với bản sao đã qua Excel.
+- Không có dòng nào bị sửa theo phỏng đoán: không sửa giờ, không điền `tester_id` bù, không đổi vai.
+- Kiểm tra lặp lại: chạy `python scripts/make_live_test.py docs/attempts_raw.csv -o docs/live_test_check2.csv` rồi so với `docs/live_test.csv` bằng `fc.exe`. Kết quả (13/11/2026): không có khác biệt, 33/33 dòng khớp.
 
 ## 3. Kết quả
 
@@ -31,10 +41,10 @@
 | FAR (kẻ gian được nhận ngay) | 0/10 = 0,0% |
 | FRR (chủ bị yêu cầu OTP) | 5/23 = 21,7% |
 | Chủ bị từ chối nhưng qua được OTP | 5/5 |
-| Kẻ gian qua được OTP | 0/10 (xem lưu ý đầu tiên bên dưới) |
+| Kẻ gian nhập OTP | Không áp dụng (kẻ gian không có OTP, xem lưu ý đầu tiên bên dưới) |
 
 Lưu ý khi đọc kết quả:
-- **Về OTP của kẻ gian:** khi nhịp gõ không khớp, mã OTP chỉ được gửi tới chủ tài khoản (trong demo là hiện ở console của máy chủ), kẻ gian không có mã này nên không thể nhập đúng. Vì vậy "0/10 qua được OTP" nghĩa là không có kẻ gian nào vượt qua được bước xác minh bổ sung. Đây không phải kết quả của việc kẻ gian đã thử đoán OTP rồi thất bại, vì không có lượt nhập OTP nào của kẻ gian trong log.
+- **Về OTP của kẻ gian:** khi nhịp gõ không khớp, mã OTP chỉ được gửi tới chủ tài khoản (trong demo là hiện ở console của máy chủ), kẻ gian không có mã này nên không thể nhập đúng. Đây là hệ quả của thiết kế demo, không phải kết quả thí nghiệm: không có lượt nhập OTP nào của kẻ gian trong log, nên không có số liệu về việc kẻ gian đoán OTP.
 - Mẫu nhỏ: FAR 0/10 có khoảng tin cậy 95% rộng (FAR thật có thể lên tới khoảng 28%), nên không chứng minh FAR bằng 0. FRR 5/23 có khoảng tin cậy 95% (Wilson) khoảng 10% đến 42%.
 
 ## 4. Ẩn danh dữ liệu
@@ -43,7 +53,8 @@ Log không lưu tên tài khoản (chỉ mã băm `account_ref`), không lưu m�
 
 ## 5. Hạn chế
 
-- Mẫu nhỏ: 10 lượt kẻ gian, mỗi mã chỉ 1 lượt.
+- Mẫu nhỏ: 10 lượt kẻ gian, mỗi mã chỉ 1 lượt. 10 mã là mã được ghi, không được kiểm chứng là 10 người độc lập.
+- `attempts_raw.csv` đã qua trình soạn thảo và có một dòng khôi phục bằng tay (xem mục 2b).
 - Một buổi thử, chưa kiểm tra chủ tài khoản đăng nhập ở các ngày khác nhau.
 - Thiết bị và điều kiện gõ chưa được kiểm soát chặt, có thể khác với bộ dữ liệu CMU.
 
