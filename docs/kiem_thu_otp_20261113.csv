@@ -1,0 +1,10 @@
+time,attempt_id,event,account_ref,role,tester_id,device,accepted,confidence,otp_required,otp_result
+2026-11-13T07:55:03+00:00,6c887935e3f2,verify,935c64e2,impostor,T01,desktop,0,0.0009,1,
+2026-11-13T07:56:08+00:00,fd4b0e529889,verify,935c64e2,genuine,,desktop,0,0.0000,1,
+2026-11-13T07:56:24+00:00,fd4b0e529889,otp,935c64e2,genuine,,desktop,,,,ok
+2026-11-13T07:56:33+00:00,460c6fbe36c7,verify,935c64e2,genuine,,desktop,0,0.4644,1,
+2026-11-13T07:57:20+00:00,460c6fbe36c7,otp,935c64e2,genuine,,desktop,,,,wrong
+2026-11-13T08:05:55+00:00,dc73be574b75,verify,935c64e2,genuine,,desktop,0,0.0143,1,
+2026-11-13T08:06:23+00:00,dc73be574b75,otp,935c64e2,genuine,,desktop,,,,wrong
+2026-11-13T08:06:27+00:00,dc73be574b75,otp,935c64e2,genuine,,desktop,,,,wrong
+2026-11-13T08:06:28+00:00,dc73be574b75,otp,935c64e2,genuine,,desktop,,,,locked
