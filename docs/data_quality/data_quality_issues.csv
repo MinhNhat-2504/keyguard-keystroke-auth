@@ -1,0 +1,21 @@
+participant,file,line,session,rep,code,category,severity,detail
+P01,P01.jsonl,1,2,1,THIEU_THOI_GIAN,CHUA_GHI_NHAN,info,dòng không có collected_at
+P01,P01.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,41/41 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P02,P02.jsonl,1,1,1,THIEU_THOI_GIAN,CHUA_GHI_NHAN,info,dòng không có collected_at
+P02,P02.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P03,P03.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P04,P04.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P05,P05.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P06,P06.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P07,P07.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P08,P08.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P09,P09.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P10,P10.jsonl,29,1,29,KHOA_TRUNG,LOI,error,"khóa (người,phiên,rep)=('P10', 1, 29) xuất hiện ở các dòng [29, 39]"
+P10,P10.jsonl,39,1,29,KHOA_TRUNG,LOI,error,"khóa (người,phiên,rep)=('P10', 1, 29) xuất hiện ở các dòng [29, 39]"
+P10,P10.jsonl,,1,,REP_KHONG_LIEN_TUC,LOI,warning,phiên 1 thiếu số lần gõ: [39]
+P10,P10.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P11,P11.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P12,P12.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P13,P13.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P14,P14.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)
+P15,P15.jsonl,,,,THIEU_THIET_BI,CHUA_GHI_NHAN,info,40/40 dòng không có trường mô tả thiết bị (device/device_class/user_agent/platform)

@@ -1,0 +1,31 @@
+test_1_all_error_groups_detected_with_expected_counts (__main__.DataQualityTests.test_1_all_error_groups_detected_with_expected_counts) ... ok
+test_2_raw_files_unchanged (__main__.DataQualityTests.test_2_raw_files_unchanged) ... ok
+test_3_not_recorded_is_separate_from_errors (__main__.DataQualityTests.test_3_not_recorded_is_separate_from_errors) ... ok
+test_4_exit_codes (__main__.DataQualityTests.test_4_exit_codes) ... ok
+test_5_refuses_report_inside_data_dir (__main__.DataQualityTests.test_5_refuses_report_inside_data_dir) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.050s
+
+OK
+Đã kiểm 1 file, 3 dòng hợp lệ về mặt JSON.
+Dữ liệu gốc không đổi (SHA-256 trước = sau): ĐÚNG
+Số vấn đề theo loại:
+  CHUA_GHI_NHAN/THIEU_THIET_BI: 1
+Lỗi mức error: 0, cảnh báo: 0
+Báo cáo: C:\Users\ASUS\AppData\Local\Temp\dq_test_vyv9z7bf\o1\data_quality_report.json và data_quality_issues.csv
+Đã kiểm 5 file, 14 dòng hợp lệ về mặt JSON.
+Dữ liệu gốc không đổi (SHA-256 trước = sau): ĐÚNG
+Số vấn đề theo loại:
+  CHUA_GHI_NHAN/THIEU_THIET_BI: 5
+  CHUA_GHI_NHAN/THIEU_THOI_GIAN: 1
+  LOI/JSON_KHONG_DOC_DUOC: 1
+  LOI/KHOA_TRUNG: 2
+  LOI/REP_KHONG_LIEN_TUC: 1
+  LOI/SAI_MA_NGUOI: 1
+  LOI/SU_KIEN_KHONG_HOP_LE: 3
+  LOI/THIEU_TRUONG: 1
+Lỗi mức error: 8, cảnh báo: 1
+Báo cáo: C:\Users\ASUS\AppData\Local\Temp\dq_test_vyv9z7bf\o2\data_quality_report.json và data_quality_issues.csv
+
+TỔNG KẾT: 5/5 ca đạt

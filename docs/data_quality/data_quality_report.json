@@ -1,0 +1,218 @@
+{
+  "data_dir": "collected",
+  "n_files": 15,
+  "n_records": 601,
+  "raw_unchanged": true,
+  "issue_counts": {
+    "CHUA_GHI_NHAN/THIEU_THIET_BI": 15,
+    "CHUA_GHI_NHAN/THIEU_THOI_GIAN": 2,
+    "LOI/KHOA_TRUNG": 2,
+    "LOI/REP_KHONG_LIEN_TUC": 1
+  },
+  "errors": 2,
+  "warnings": 1,
+  "per_participant": {
+    "P01": {
+      "records": 41,
+      "sessions": [
+        "1",
+        "2"
+      ],
+      "days": [
+        "2026-11-09"
+      ],
+      "records_without_time": 1,
+      "records_without_device": 41
+    },
+    "P02": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 1,
+      "records_without_device": 40
+    },
+    "P03": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-04"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P04": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-07"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P05": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P06": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P07": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P08": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P09": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-07"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P10": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-07",
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P11": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P12": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P13": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P14": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    },
+    "P15": {
+      "records": 40,
+      "sessions": [
+        "1"
+      ],
+      "days": [
+        "2026-11-10"
+      ],
+      "records_without_time": 0,
+      "records_without_device": 40
+    }
+  },
+  "sha256_before": {
+    "P01.jsonl": "016e5ec23735623073b594d593c9f33afae1f8534e2fb495ccd9da40b8fe3f6e",
+    "P02.jsonl": "518cba25128e61a15504dbb1a7f176e80a73dc86afb6eccd54fa095e883d2fff",
+    "P03.jsonl": "60130dd000b7b0292c4444a4cc6aaf2bd4c4855b3f63ba852ddb1312ae14949a",
+    "P04.jsonl": "c1ac7fe870cdf24f599608630dda83e8c2d7c4ac47662b12db38faae821b8014",
+    "P05.jsonl": "d26958513d5b795119fb30547279cc42efde6a213ab1ff00e3267e0618709790",
+    "P06.jsonl": "c2e32c4c8c997a5854060716c022f629507bc97156c0f2b70250b46fe0ee4e19",
+    "P07.jsonl": "367723987f7bd9b558d500a678ac01e8221a149f2452718e0c9bedb97891658f",
+    "P08.jsonl": "ea9ffb49b698193f9121b9b149ddf77346caca0b6bba94dfc179dc50f4ab3c43",
+    "P09.jsonl": "09587e4e43f20db98fb7fee9f58a4fd1f284d580e98f38631a93437de68fe5c2",
+    "P10.jsonl": "9a5339c0637f6d9ca03de23abf936f60457b1a33b8e1461cfa00c6729d8ad60b",
+    "P11.jsonl": "4bff9df0c09bf5ac9c2e5ab00d6af315900c9a7ee85dc612483bfeaf9df1594f",
+    "P12.jsonl": "3fb4a0c656f42b290e26fbe0eee4f9ae2ea8f45fcd236b5e209860594ccec1a6",
+    "P13.jsonl": "496ecd75929d62c613193c36ea3647e2a8eaa832eb6aa57425bec67b5af3ac2b",
+    "P14.jsonl": "b3ee83fb37773733f2789698fa48faf79ae5e1ae6f93ace90df6f533c1f1da87",
+    "P15.jsonl": "13fca58140fcbabc6f1c8b8113fd7a3dc50e6c304c3c683b0fa854a72626b876"
+  },
+  "sha256_after": {
+    "P01.jsonl": "016e5ec23735623073b594d593c9f33afae1f8534e2fb495ccd9da40b8fe3f6e",
+    "P02.jsonl": "518cba25128e61a15504dbb1a7f176e80a73dc86afb6eccd54fa095e883d2fff",
+    "P03.jsonl": "60130dd000b7b0292c4444a4cc6aaf2bd4c4855b3f63ba852ddb1312ae14949a",
+    "P04.jsonl": "c1ac7fe870cdf24f599608630dda83e8c2d7c4ac47662b12db38faae821b8014",
+    "P05.jsonl": "d26958513d5b795119fb30547279cc42efde6a213ab1ff00e3267e0618709790",
+    "P06.jsonl": "c2e32c4c8c997a5854060716c022f629507bc97156c0f2b70250b46fe0ee4e19",
+    "P07.jsonl": "367723987f7bd9b558d500a678ac01e8221a149f2452718e0c9bedb97891658f",
+    "P08.jsonl": "ea9ffb49b698193f9121b9b149ddf77346caca0b6bba94dfc179dc50f4ab3c43",
+    "P09.jsonl": "09587e4e43f20db98fb7fee9f58a4fd1f284d580e98f38631a93437de68fe5c2",
+    "P10.jsonl": "9a5339c0637f6d9ca03de23abf936f60457b1a33b8e1461cfa00c6729d8ad60b",
+    "P11.jsonl": "4bff9df0c09bf5ac9c2e5ab00d6af315900c9a7ee85dc612483bfeaf9df1594f",
+    "P12.jsonl": "3fb4a0c656f42b290e26fbe0eee4f9ae2ea8f45fcd236b5e209860594ccec1a6",
+    "P13.jsonl": "496ecd75929d62c613193c36ea3647e2a8eaa832eb6aa57425bec67b5af3ac2b",
+    "P14.jsonl": "b3ee83fb37773733f2789698fa48faf79ae5e1ae6f93ace90df6f533c1f1da87",
+    "P15.jsonl": "13fca58140fcbabc6f1c8b8113fd7a3dc50e6c304c3c683b0fa854a72626b876"
+  },
+  "note": "Nhóm CHUA_GHI_NHAN là thông tin không được thu, không phải lỗi; script không điền hay đoán giá trị."
+}

@@ -1,0 +1,9 @@
+Đã kiểm 15 file, 601 dòng hợp lệ về mặt JSON.
+Dữ liệu gốc không đổi (SHA-256 trước = sau): ĐÚNG
+Số vấn đề theo loại:
+  CHUA_GHI_NHAN/THIEU_THIET_BI: 15
+  CHUA_GHI_NHAN/THIEU_THOI_GIAN: 2
+  LOI/KHOA_TRUNG: 2
+  LOI/REP_KHONG_LIEN_TUC: 1
+Lỗi mức error: 2, cảnh báo: 1
+Báo cáo: D:\nam_3\hk1\HM và ứng dụng\BTL\code\docs\data_quality\data_quality_report.json và data_quality_issues.csv
