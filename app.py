@@ -40,6 +40,7 @@ from keyguard.features import (  # noqa: E402
     extract_features,
 )
 from keyguard.model import enroll, load_config, update, verify  # noqa: E402
+from collection_quality import device_code, event_issues, next_rep, request_code, sample_digest, find_replay  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("keyguard.web")
@@ -486,31 +487,80 @@ def api_submit_sample():
         raise ApiError(f"Phiên gõ phải từ 1 đến {MAX_SESSIONS}.", 400)
 
     try:
+        request_id = request_code(data.get('request_id'))
+    except ValueError:
+        raise ApiError("Mẫu cần mã yêu cầu hợp lệ. Vui lòng tải bản giao diện mới.",
+                       400, issues=['request_id_invalid'])
+
+    try:
+        device = device_code(data.get('device_id'))
+    except ValueError:
+        raise ApiError("Nhập mã thiết bị gồm 1–40 chữ cái không dấu, số, dấu gạch ngang hoặc gạch dưới.",
+                       400, issues=['device_id_invalid'])
+    issues = event_issues(data.get('events'))
+    if issues:
+        raise ApiError("Sự kiện phím thiếu hoặc không đúng thứ tự. Vui lòng gõ lại từ đầu.", 400, issues=issues)
+
+    try:
         events = validate_events(data.get("events"))
     except InvalidSampleError as e:
         raise ApiError(f"Lỗi nhịp gõ: {e}", 400)
 
+    for clean, original in zip(events, data['events']):
+        if original.get('code') is not None:
+            clean['code'] = original['code']
+    digest = sample_digest(session, device, events)
+
     with data_lock():
         if pid not in known_participant_ids(read_json(PARTICIPANTS_FILE, {})):
             raise ApiError("Mã người tham gia chưa được cấp.", 404)
-        count = session_counts(pid)[str(session)]
+        # Read file histories strictly here: a skipped broken line can hide a key collision.
+        try:
+            if PG is not None:
+                history = PG.records(pid)
+            else:
+                path = collected_file(pid)
+                history = [json.loads(line) for line in path.read_text(encoding='utf-8-sig').splitlines()
+                           if line.strip()] if path.exists() else []
+            rep, count = next_rep(history, pid, session)
+        except (ValueError, UnicodeError):
+            raise ApiError("Phiên cũ có dữ liệu cần đối chiếu. Chưa lưu thêm mẫu; liên hệ người phụ trách.",
+                           409, issues=['collection_history_needs_review'])
+        try:
+            prior = find_replay(history, request_id, digest)
+        except ValueError as e:
+            raise ApiError("Mã yêu cầu đã có dữ liệu khác hoặc cần đối chiếu. Chưa lưu thêm mẫu.",
+                           409, issues=[str(e)])
+        if prior is not None:
+            return jsonify({'success': True, 'message': 'Mẫu này đã được lưu, không ghi thêm.',
+                            'rep': prior['rep'], 'count': count, 'request_id': request_id, 'replayed': True})
         if count >= MAX_REPS:
             raise ApiError(f"Phiên {session} đã đủ {MAX_REPS} mẫu.", 409, count=count)
-        rep = count + 1  # server tự đánh số: không thể trùng (người, phiên, lần gõ)
         record = {
             "participant_id": pid,
             "session": session,
             "rep": rep,
             "collected_at": now_iso(),
+            "device_id": device,
+            "collection_schema_version": 3,
+            "request_id": request_id,
+            "request_payload_sha256": digest,
             "events": events,
         }
         if PG is not None:
             PG.append_sample(pid, record)
         else:
+            path = collected_file(pid)
+            separator = ''
+            if path.exists() and path.stat().st_size:
+                with path.open('rb') as existing:
+                    existing.seek(-1, 2)
+                    separator = '' if existing.read(1) == b'\n' else '\n'
             with open(collected_file(pid), "a", encoding="utf-8") as f:
-                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+                f.write(separator + json.dumps(record, ensure_ascii=False) + "\n")
     log.info("Đã ghi mẫu %s phiên %s lần %s", pid, session, rep)
-    return jsonify({"success": True, "message": "Đã lưu mẫu gõ thành công!", "rep": rep, "count": rep})
+    return jsonify({"success": True, "message": "Đã lưu mẫu gõ thành công!", "rep": rep,
+                    "count": count + 1, "request_id": request_id, "replayed": False})
 
 
 # ----------------------------------------------------------------------------------------

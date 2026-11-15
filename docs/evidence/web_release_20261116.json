@@ -1,0 +1,34 @@
+{
+  "release": "collector-request-id-v3-20261116",
+  "status": "local_tests_passed_not_deployed",
+  "git_index_runtime_snapshot_tested": true,
+  "linux_postgres": {
+    "tests": 44,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "xml_sha256": "73d0e86ed0b12f4ade0198c4b09c3cf929ebefac65a623c04982d139576002dd",
+  "hash_note": "Original evidence uses workspace byte hashes (some CRLF). Git-index hashes below use exact staged bytes; code equals workspace after LF normalization. Original evidence preserved.",
+  "git_index_sha256": {
+    "Dockerfile.storage": "04155817551ca306ec61aa2fe51c71714f161ec451d7d94e600b83ace74d6473",
+    "app.py": "f2a2b4a04e3c302c5e86db4a3a742bef125f07836c412084cbebff3fb7a7d213",
+    "collection_quality.py": "d25cd1a6ed9e7c61b209cc455938cc0c5de34d21f10305eb1601dfea7638e926",
+    "docs/COLLECTION_API_VALIDATION_20261115.md": "347d04f13083919573bd9696fa8542c7a4fd7fe3d3437bbbc89eda518f0a84b6",
+    "docs/COLLECTION_IDEMPOTENCY_20261115.md": "a63a4caed6c2b5e1681e7338fde218316b5de4474137f1989ff427dc82c7d77a",
+    "docs/WEB_RELEASE_CHECKLIST_20261116.md": "3af69b2f6e6c14ce4a2e60a740d64ca7e731ad21e3703c353fed26b3b1019752",
+    "docs/evidence/collection_idempotency_browser_checks_20261115.json": "57f30c1b952cc52bd3afbe1273b5539647b6a227c11cd7afff41f34c64a06886",
+    "docs/evidence/collection_idempotency_validation_20261115.json": "98529e2a338c4cec0074cec0e9fede2fb0dd8856511ae84729a9a0bfbab1d693",
+    "scripts/check_collection_browser.mjs": "0377e184238440181e32141137256d1702621b60487b45c2e093ea175842aad4",
+    "scripts/check_idempotency_browser.mjs": "bc9c1a2f3ea37a975f85d2ae78111cfa92d7e467386bfdc8ff5635056dcfdb26",
+    "static/pending-sample.js": "7973fc5c9ceb8764c0d963d249c717936f61d13cc89e61ad8eb15d2cedc26da0",
+    "static/readability.css": "97d2e358de7c068a2f64ea4b9d41adb6891267f5b8939de813f74c5c11ac8e5b",
+    "static/script.js": "930e554100ba5ad7a9bea70625c640c9773c4b54c58c08ea401bb2d7d500d04f",
+    "templates/index.html": "a32f13e87e8a1a2025c7a134088cacd593f7208dc15cc3a17c69e1c00ec9b1f4",
+    "templates/login.html": "9c12b4d1c7beeb9fec6e70293c01617de76b457e2d4a2a0b223dd46e36b367af",
+    "templates/register.html": "5cea12d610363fe23c9fcc2b1e1ac13536382c21ebc67f83c0d0b4fe91bba70f",
+    "tests/test_collection_api.py": "42d7207e0bd8dc6686fe89410feb106e577ae6c090d41496b8a671dc883f71d0",
+    "tests/test_postgres_storage.py": "e3fd5dbd392c4df05f5a81af869d5e4b95b263f14170af642e20fbd2a7f6dfec"
+  },
+  "production_access": false
+}

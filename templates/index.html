@@ -6,6 +6,7 @@
     <title>KeyGuard - Thu thập dữ liệu nhịp gõ</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='readability.css') }}">
 </head>
 <body data-phrase="{{ phrase }}" data-max-reps="{{ max_reps }}">
 <header class="site-header"><a class="site-brand" href="/">K<span>G</span> / KeyGuard</a><nav class="site-links" aria-label="Điều hướng chính"><a href="/" aria-current="page">Thu mẫu</a><a href="/register">Đăng ký</a><a href="/login">Đăng nhập</a></nav></header>
@@ -26,12 +27,18 @@
         <select id="sessionSelect"><option value="1">Phiên 1</option><option value="2">Phiên 2 · thu bổ sung</option><option value="3">Phiên 3 · thu bổ sung</option></select>
         <div id="progressInfo" role="status" aria-live="polite" style="margin-top:10px;"></div>
     </div>
+    <div class="info-card">
+        <label for="deviceInput">Mã thiết bị đang dùng</label>
+        <input type="text" id="deviceInput" placeholder="Ví dụ MAY01_BANPHIM01" maxlength="40" autocomplete="off" spellcheck="false" aria-describedby="deviceHelp">
+        <p id="deviceHelp">Tự đặt mã không chứa tên người. Dùng lại mã cho cùng máy và bàn phím; đổi mã khi đổi thiết bị. Mã được nhớ trên trình duyệt này.</p>
+    </div>
     <p>Hãy gõ chính xác câu mẫu bên dưới rồi nhấn <b>Enter</b>:</p>
     <div class="target-box">{{ phrase }}</div>
 
     <input type="text" id="targetInput" aria-label="Nhập chuỗi mẫu để thu dữ liệu" placeholder="Bấm vào đây và bắt đầu gõ..." autofocus autocomplete="off">
 
     <div class="status" id="statusMsg" role="status" aria-live="polite"></div>
+    <button id="retrySampleBtn" type="button" hidden>Gửi lại mẫu đang chờ</button>
 
     <div class="nav">
         <a href="/register">Đăng ký tài khoản demo</a> · <a href="/login">Đăng nhập demo</a>
@@ -41,5 +48,6 @@
 <aside class="side-guide" aria-label="Hướng dẫn"><h2>Các bước thực hiện</h2><ol><li><strong>Kiểm tra mã và phiên</strong>Dùng lại mã cũ khi quay lại. Chỉ tạo mã mới khi chuyển sang một người khác.</li><li><strong>Gõ theo nhịp tự nhiên</strong>Nhập đúng chuỗi mẫu, phân biệt chữ hoa và thường, rồi nhấn Enter.</li><li><strong>Theo dõi tiến độ</strong>Mỗi lần được lưu sẽ cập nhật số mẫu của phiên. Nếu kết nối gián đoạn, chờ hệ thống đồng bộ.</li></ol><p class="research-note">KeyGuard · Bài tập lớn Học máy ứng dụng. OTP trong phiên bản này được mô phỏng phục vụ nghiên cứu.</p></aside></div><footer class="page-footer">Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư<br>Giảng viên hướng dẫn: Nguyễn Thái Anh</footer></main>
 <script src="{{ url_for('static', filename='keycapture.js') }}"></script>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='pending-sample.js') }}"></script>
 </body>
 </html>

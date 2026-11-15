@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "real_chrome_and_local_flask": true,
+  "fetch_mocked": false,
+  "missing_device_did_not_write": true,
+  "real_key_events_saved": 22,
+  "device_and_participant_resume": true,
+  "widths": [
+    {
+      "width": 320,
+      "content": 320
+    },
+    {
+      "width": 390,
+      "content": 390
+    },
+    {
+      "width": 1440,
+      "content": 1425
+    }
+  ],
+  "runtime_exceptions": 0,
+  "automatic_retry_same_id": true,
+  "reload_after_lost_responses_did_not_duplicate": true,
+  "disconnect_before_send_manual_retry": true,
+  "pending_controls_locked": true,
+  "final_stored_samples": 5,
+  "client_transport_fault_injection": true,
+  "production_access": false
+}

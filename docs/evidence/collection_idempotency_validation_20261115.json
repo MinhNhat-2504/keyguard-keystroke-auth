@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "linux_postgres": {
+    "tests": 44,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "windows_file_tests": 13,
+  "simultaneous_same_request": 8,
+  "one_insert_for_simultaneous_retries": true,
+  "conflicting_payload_rejected": true,
+  "gunicorn_restart_replay_verified": true,
+  "postgres_insert_rollback_retry_verified": true,
+  "browser_actual_local_http": true,
+  "controlled_transport_fault_injection": true,
+  "independent_v4_preflight_samples": 5,
+  "local_pg_container_stopped": true,
+  "production_access": false,
+  "pushed_or_deployed": false,
+  "source_sha256": {
+    "app.py": "d0bab384039460129feeeb80844adb3ef5edc723dbb68fafc1917d9003533e4a",
+    "collection_quality.py": "d25cd1a6ed9e7c61b209cc455938cc0c5de34d21f10305eb1601dfea7638e926",
+    "static/script.js": "4581a0cd4344e22400d59e4b10fefe31082f973bee77b5a7eb4feb3a9a268764",
+    "static/pending-sample.js": "7973fc5c9ceb8764c0d963d249c717936f61d13cc89e61ad8eb15d2cedc26da0",
+    "templates/index.html": "d454b34c9c02234e5ea5bd7daea419088a686518c8504cf64523a5d9025b81e9",
+    "tests/test_postgres_storage.py": "b32001c2c7e93556434078aee87f5c2389851a2719c59d85892a461000f93fa4",
+    "tests/test_collection_api.py": "42d7207e0bd8dc6686fe89410feb106e577ae6c090d41496b8a671dc883f71d0",
+    "scripts/check_idempotency_browser.mjs": "526425efe35d835c60dbc97f2244869dae6c6d4c35f781387a3d71332cf83e94"
+  }
+}

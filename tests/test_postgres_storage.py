@@ -130,7 +130,7 @@ class PostgresIntegrationTest(unittest.TestCase):
         pid = ids[0]
         def submit(_):
             with self.web.app.test_client() as client:
-                response = client.post('/api/submit-sample', json={'participant_id': pid, 'session': 1, 'events': self.samples[0]})
+                response = client.post('/api/submit-sample', json={'participant_id': pid, 'session': 1, 'device_id': 'LOCAL_TEST_DEVICE', 'request_id': uuid.uuid4().hex, 'events': self.samples[0]})
                 self.assertEqual(response.status_code, 200)
                 return response.json['rep']
         with ThreadPoolExecutor(max_workers=8) as executor:
@@ -180,7 +180,7 @@ print('NEW_PROCESS_OTP_OK')
     def test_export_stats_exclude_profiles_names_challenge_hashes(self):
         self.enroll()
         pid = self.client.get('/api/get-id').json['participant_id']
-        self.client.post('/api/submit-sample', json={'participant_id': pid, 'session': 1, 'events': self.samples[0]})
+        self.client.post('/api/submit-sample', json={'participant_id': pid, 'session': 1, 'device_id': 'LOCAL_TEST_DEVICE', 'request_id': uuid.uuid4().hex, 'events': self.samples[0]})
         self.client.post('/api/verify', json={'username': 'test', 'events': self.rejected(), 'role': 'genuine'})
         self.assertEqual(self.client.get('/admin/export').status_code, 404)
         export = self.client.get('/admin/export', headers={'X-Admin-Key': 'local-test-admin'})
@@ -198,7 +198,7 @@ print('NEW_PROCESS_OTP_OK')
     def test_invalid_sample_unknown_id_and_bool_session_do_not_write(self):
         pid = self.client.get('/api/get-id').json['participant_id']
         for participant, session, events in [(pid, True, self.samples[0]), ('P99', 1, self.samples[0]), (pid, 1, [])]:
-            result = self.client.post('/api/submit-sample', json={'participant_id': participant, 'session': session, 'events': events})
+            result = self.client.post('/api/submit-sample', json={'participant_id': participant, 'session': session, 'device_id': 'LOCAL_TEST_DEVICE', 'request_id': uuid.uuid4().hex, 'events': events})
             self.assertIn(result.status_code, (400, 404))
         self.assertEqual(self.store.summary()['kg_samples'], 0)
 
@@ -281,7 +281,7 @@ print('NEW_PROCESS_OTP_OK')
             client = web.app.test_client()
             self.assertIsNone(web.PG)
             pid = client.get('/api/get-id').json['participant_id']
-            response = client.post('/api/submit-sample', json={'participant_id': pid, 'session': 1, 'events': self.samples[0]})
+            response = client.post('/api/submit-sample', json={'participant_id': pid, 'session': 1, 'device_id': 'LOCAL_TEST_DEVICE', 'request_id': uuid.uuid4().hex, 'events': self.samples[0]})
             self.assertEqual(response.status_code, 200)
             self.assertTrue((self.data_dir / 'collected' / (pid + '.jsonl')).is_file())
             self.assertEqual(client.get('/api/participant/' + pid).json['sessions']['1'], 1)
@@ -335,12 +335,20 @@ print('NEW_PROCESS_OTP_OK')
             self.assertEqual(self.count(pid), 21)
             challenge = request('/api/verify', {'username': 'HttpTest', 'events': self.rejected()})[1]
             participant = request('/api/get-id')[1]['participant_id']
-            self.assertEqual(request('/api/submit-sample', {'participant_id': participant, 'session': 1, 'events': self.samples[0]})[0], 200)
+            sample_request = {'participant_id': participant, 'session': 1, 'device_id': 'LOCAL_TEST_DEVICE', 'request_id': uuid.uuid4().hex, 'events': self.samples[0]}
+            self.assertEqual(request('/api/submit-sample', sample_request)[0], 200)
             stop()
             self.assertFalse(self.data_dir.exists())
             start()
             self.assertFalse(request('/api/check-username?username=HttpTest')[1]['available'])
             self.assertEqual(request('/api/participant/' + participant)[1]['sessions']['1'], 1)
+            stored = self.store.records(participant)[0]
+            self.assertEqual(stored['device_id'], 'LOCAL_TEST_DEVICE')
+            self.assertEqual(stored['collection_schema_version'], 3)
+            replay = request('/api/submit-sample', sample_request)
+            self.assertEqual(replay[0], 200)
+            self.assertTrue(replay[1]['replayed'])
+            self.assertEqual(len(self.store.records(participant)), 1)
             self.assertEqual(request('/api/verify-otp', {'challenge_id': challenge['challenge_id'], 'otp': challenge['demo_otp']})[0], 200)
             self.assertEqual(self.count(pid), 22)
             self.assertEqual(request('/api/verify-otp', {'challenge_id': challenge['challenge_id'], 'otp': challenge['demo_otp']})[0], 410)
