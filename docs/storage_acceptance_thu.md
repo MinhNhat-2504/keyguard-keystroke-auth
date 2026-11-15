@@ -202,7 +202,7 @@ Mã `P01` dưới đây là mã thử trên database local, không liên quan đ
 
 ### 5.1. Trước restart
 
-* Trên trang collector (cổng `53941`, lấy từ lệnh `docker compose port web 8000`), tôi gõ 3 lượt cho mã `P01`, phiên 1. Trang báo `"Phiên 1: đã có 3/40 mẫu"` (ảnh `docs/screenshots/b2_collector_truoc.jpg`; ảnh chỉ chụp phần trang, không có thanh địa chỉ).
+* Trên trang collector (cổng `53941`, lấy từ lệnh `docker compose port web 8000`), tôi gõ 3 lượt cho mã `P01`, phiên 1. Trang báo `"Phiên 1: đã có 3/40 mẫu"` (ảnh `docs/screenshots/bb2_samples_truoc.png`; ảnh chỉ chụp phần trang, không có thanh địa chỉ).
 * Kiểm tra trạng thái database (`status`):
 
 ```powershell
@@ -234,7 +234,7 @@ docker compose -f compose.storage.yml port web 8000
 
 ### 5.3. Sau restart
 
-* Mở trang ở cổng mới (`62354`), trang tự hiện mã `P02`; tôi dùng ô `"Mã đã có"` quay lại `P01` và thấy `"đã có 3/40 mẫu"` (ảnh `docs/screenshots/b2_collector_sau.jpg`).
+* Mở trang ở cổng mới (`62354`), trang tự hiện mã `P02`; tôi dùng ô `"Mã đã có"` quay lại `P01` và thấy `"đã có 3/40 mẫu"` (ảnh `docs/screenshots/b2_samples_sau.png).
 * Kiểm tra lại `status` (cùng lệnh như trước):
 
 ```json
