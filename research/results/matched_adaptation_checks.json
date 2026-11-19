@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "artifact reconciliation, not a new scoring run or model test suite",
+  "freeze_sha256": "19ebea4bfce4ce22ab99666c36e28f0dd7f57e8ef0465080e564a2e6a3e3f4c3",
+  "results_sha256": "8bc3c63be6e7783720f58748e94bf44db655e82499d70916613c665e8a05dbaf",
+  "frozen_inputs_code_environment_and_historical_artifacts_unchanged": true,
+  "chronology_verified": true,
+  "csv_rows": {
+    "accounts": 96,
+    "pairs": 2532,
+    "deltas": 48
+  },
+  "keyrecs_thresholds_pooled_and_account_counts_match_historical": true,
+  "decisions": {
+    "CMU": "descriptive_support",
+    "KeyRecs fixed-text": "tradeoff"
+  },
+  "both_sources_descriptively_support": false
+}

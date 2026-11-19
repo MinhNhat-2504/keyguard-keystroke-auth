@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-13",
+  "variants": 24,
+  "comparison_rows": 72,
+  "raw_file_hashes_verified": 15,
+  "model_config_unchanged": true,
+  "report_pdf_pages": 34,
+  "report_nonblank": true,
+  "cover_title_correct": true,
+  "authors_ids_supervisor_columns_aligned": true,
+  "short_report_pdf_pages": 6,
+  "short_report_columns": 2,
+  "short_reports_preservation": "Generator asserted equal before/after SHA-256 on every build",
+  "short_report_sha256": {
+    "KeyGuard_Report.docx": "535e895168674cbad1c449e9fef1fba8037ddfbe972e75199048ed4244627067",
+    "KeyGuard_Report.pdf": "784a9fb3705a4edb51fa0455a6ff30f4de18228b08d8d3244bee8e842439301c"
+  },
+  "diagnostics": {
+    "csv_rows": {
+      "research_account_errors.csv": 720,
+      "research_pair_errors.csv": 2880,
+      "research_threshold_jackknife.csv": 720
+    },
+    "policies_reconciled": 144,
+    "original_research_summary_hash_verified": true
+  },
+  "python_checks": {
+    "passed": 50,
+    "subtests_passed": 4,
+    "scope": "external/soft_weight/stability/session_adaptation/enrollment/contamination/diagnostics/research/model/collected/live_evidence/features/simulation"
+  },
+  "enrollment_update_validation": "results/enrollment_update_validation.json",
+  "stability_adaptation_validation": "results/stability_adaptation_validation.json",
+  "external_validation_checks": "results/external_validation_checks.json",
+  "full_sklearn_suite_rerun": false,
+  "reason": "Existing Application Control DLL restriction; no sklearn model called by new experiments"
+}

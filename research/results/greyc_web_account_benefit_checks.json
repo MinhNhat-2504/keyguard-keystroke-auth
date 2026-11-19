@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "accounts_checked": 21,
+  "source_csv_rows_checked": 42,
+  "chronology_verified": true,
+  "macro_pooled_counts_grid_quantiles_verified": true,
+  "primary_met": false,
+  "broad_benefit_met": false,
+  "protected_artifacts_unchanged": true,
+  "no_scoring": true,
+  "result_sha256": "0dcd7b4a38ce0d336af1268c743a7fe56da77ce382e12d3a58548815ac2c9e82",
+  "deltas_sha256": "a21f056571b8c556c5778b76e0e9641ba741fcb6e0ec495477f77c6eaf12cc66"
+}

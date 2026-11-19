@@ -1,0 +1,97 @@
+dataset,arm,participant_id,genuine_trials,genuine_rejected,impostor_trials,impostor_accepted,far,frr
+CMU,baseline,s002,50,19,140,1,0.007142857142857143,0.38
+CMU,baseline,s003,50,33,140,10,0.07142857142857142,0.66
+CMU,baseline,s004,50,33,140,11,0.07857142857142857,0.66
+CMU,baseline,s010,50,9,140,1,0.007142857142857143,0.18
+CMU,baseline,s012,50,50,140,5,0.03571428571428571,1.0
+CMU,baseline,s016,50,14,140,0,0.0,0.28
+CMU,baseline,s017,50,36,140,0,0.0,0.72
+CMU,baseline,s018,50,17,140,41,0.29285714285714287,0.34
+CMU,baseline,s019,50,33,140,1,0.007142857142857143,0.66
+CMU,baseline,s025,50,16,140,0,0.0,0.32
+CMU,baseline,s028,50,31,140,0,0.0,0.62
+CMU,baseline,s039,50,31,140,0,0.0,0.62
+CMU,baseline,s041,50,36,140,26,0.18571428571428572,0.72
+CMU,baseline,s042,50,43,140,0,0.0,0.86
+CMU,baseline,s056,50,15,140,20,0.14285714285714285,0.3
+CMU,shrink25,s002,50,23,140,1,0.007142857142857143,0.46
+CMU,shrink25,s003,50,34,140,9,0.06428571428571428,0.68
+CMU,shrink25,s004,50,36,140,8,0.05714285714285714,0.72
+CMU,shrink25,s010,50,10,140,1,0.007142857142857143,0.2
+CMU,shrink25,s012,50,50,140,4,0.02857142857142857,1.0
+CMU,shrink25,s016,50,14,140,0,0.0,0.28
+CMU,shrink25,s017,50,37,140,0,0.0,0.74
+CMU,shrink25,s018,50,16,140,47,0.3357142857142857,0.32
+CMU,shrink25,s019,50,35,140,1,0.007142857142857143,0.7
+CMU,shrink25,s025,50,20,140,0,0.0,0.4
+CMU,shrink25,s028,50,23,140,0,0.0,0.46
+CMU,shrink25,s039,50,33,140,0,0.0,0.66
+CMU,shrink25,s041,50,32,140,27,0.19285714285714287,0.64
+CMU,shrink25,s042,50,43,140,0,0.0,0.86
+CMU,shrink25,s056,50,16,140,20,0.14285714285714285,0.32
+KeyRecs fixed-text,baseline,p007,100,100,320,5,0.015625,1.0
+KeyRecs fixed-text,baseline,p009,100,99,320,18,0.05625,0.99
+KeyRecs fixed-text,baseline,p012,99,26,320,85,0.265625,0.26262626262626265
+KeyRecs fixed-text,baseline,p013,100,54,320,63,0.196875,0.54
+KeyRecs fixed-text,baseline,p014,100,8,320,57,0.178125,0.08
+KeyRecs fixed-text,baseline,p015,100,45,320,62,0.19375,0.45
+KeyRecs fixed-text,baseline,p017,100,24,320,27,0.084375,0.24
+KeyRecs fixed-text,baseline,p020,107,60,320,70,0.21875,0.5607476635514018
+KeyRecs fixed-text,baseline,p023,100,98,320,5,0.015625,0.98
+KeyRecs fixed-text,baseline,p031,100,36,320,64,0.2,0.36
+KeyRecs fixed-text,baseline,p032,100,100,320,0,0.0,1.0
+KeyRecs fixed-text,baseline,p035,99,99,320,3,0.009375,1.0
+KeyRecs fixed-text,baseline,p036,100,93,320,27,0.084375,0.93
+KeyRecs fixed-text,baseline,p037,100,12,320,36,0.1125,0.12
+KeyRecs fixed-text,baseline,p042,99,97,320,33,0.103125,0.9797979797979798
+KeyRecs fixed-text,baseline,p045,100,91,320,21,0.065625,0.91
+KeyRecs fixed-text,baseline,p048,100,95,320,43,0.134375,0.95
+KeyRecs fixed-text,baseline,p050,100,100,320,0,0.0,1.0
+KeyRecs fixed-text,baseline,p054,99,89,320,17,0.053125,0.898989898989899
+KeyRecs fixed-text,baseline,p055,100,98,320,2,0.00625,0.98
+KeyRecs fixed-text,baseline,p059,100,88,320,12,0.0375,0.88
+KeyRecs fixed-text,baseline,p065,100,96,320,13,0.040625,0.96
+KeyRecs fixed-text,baseline,p066,100,69,320,16,0.05,0.69
+KeyRecs fixed-text,baseline,p067,100,9,320,95,0.296875,0.09
+KeyRecs fixed-text,baseline,p068,100,95,320,3,0.009375,0.95
+KeyRecs fixed-text,baseline,p072,100,68,320,73,0.228125,0.68
+KeyRecs fixed-text,baseline,p075,100,98,320,2,0.00625,0.98
+KeyRecs fixed-text,baseline,p078,100,96,320,6,0.01875,0.96
+KeyRecs fixed-text,baseline,p082,99,93,320,2,0.00625,0.9393939393939394
+KeyRecs fixed-text,baseline,p085,99,93,320,1,0.003125,0.9393939393939394
+KeyRecs fixed-text,baseline,p088,100,95,320,19,0.059375,0.95
+KeyRecs fixed-text,baseline,p090,100,63,320,21,0.065625,0.63
+KeyRecs fixed-text,baseline,p099,100,63,320,8,0.025,0.63
+KeyRecs fixed-text,shrink25,p007,100,100,320,5,0.015625,1.0
+KeyRecs fixed-text,shrink25,p009,100,100,320,8,0.025,1.0
+KeyRecs fixed-text,shrink25,p012,99,32,320,71,0.221875,0.32323232323232326
+KeyRecs fixed-text,shrink25,p013,100,56,320,69,0.215625,0.56
+KeyRecs fixed-text,shrink25,p014,100,8,320,61,0.190625,0.08
+KeyRecs fixed-text,shrink25,p015,100,48,320,57,0.178125,0.48
+KeyRecs fixed-text,shrink25,p017,100,25,320,29,0.090625,0.25
+KeyRecs fixed-text,shrink25,p020,107,71,320,62,0.19375,0.6635514018691588
+KeyRecs fixed-text,shrink25,p023,100,98,320,7,0.021875,0.98
+KeyRecs fixed-text,shrink25,p031,100,36,320,68,0.2125,0.36
+KeyRecs fixed-text,shrink25,p032,100,100,320,0,0.0,1.0
+KeyRecs fixed-text,shrink25,p035,99,99,320,3,0.009375,1.0
+KeyRecs fixed-text,shrink25,p036,100,93,320,28,0.0875,0.93
+KeyRecs fixed-text,shrink25,p037,100,11,320,35,0.109375,0.11
+KeyRecs fixed-text,shrink25,p042,99,97,320,25,0.078125,0.9797979797979798
+KeyRecs fixed-text,shrink25,p045,100,92,320,20,0.0625,0.92
+KeyRecs fixed-text,shrink25,p048,100,96,320,35,0.109375,0.96
+KeyRecs fixed-text,shrink25,p050,100,100,320,0,0.0,1.0
+KeyRecs fixed-text,shrink25,p054,99,86,320,21,0.065625,0.8686868686868687
+KeyRecs fixed-text,shrink25,p055,100,96,320,2,0.00625,0.96
+KeyRecs fixed-text,shrink25,p059,100,76,320,29,0.090625,0.76
+KeyRecs fixed-text,shrink25,p065,100,96,320,12,0.0375,0.96
+KeyRecs fixed-text,shrink25,p066,100,69,320,17,0.053125,0.69
+KeyRecs fixed-text,shrink25,p067,100,9,320,106,0.33125,0.09
+KeyRecs fixed-text,shrink25,p068,100,93,320,6,0.01875,0.93
+KeyRecs fixed-text,shrink25,p072,100,66,320,74,0.23125,0.66
+KeyRecs fixed-text,shrink25,p075,100,98,320,2,0.00625,0.98
+KeyRecs fixed-text,shrink25,p078,100,97,320,8,0.025,0.97
+KeyRecs fixed-text,shrink25,p082,99,62,320,7,0.021875,0.6262626262626263
+KeyRecs fixed-text,shrink25,p085,99,94,320,1,0.003125,0.9494949494949495
+KeyRecs fixed-text,shrink25,p088,100,93,320,21,0.065625,0.93
+KeyRecs fixed-text,shrink25,p090,100,72,320,15,0.046875,0.72
+KeyRecs fixed-text,shrink25,p099,100,46,320,9,0.028125,0.46

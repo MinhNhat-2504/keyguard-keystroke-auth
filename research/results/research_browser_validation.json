@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-13",
+  "browser": "Chrome headless",
+  "variant_fold_checks": 72,
+  "diagnostic_policy_checks": 144,
+  "enrollment_account_checks": 90,
+  "paired_policy_checks": 64,
+  "stability_subject_checks": 600,
+  "adaptation_partition_checks": 6,
+  "external_account_checks": 132,
+  "diagnostic_account_selection": true,
+  "slider_endpoints": 2,
+  "reference_threshold": true,
+  "table_navigation": true,
+  "mobile": {
+    "width": 390,
+    "content": 390,
+    "rows": 24
+  },
+  "download_rows": 24,
+  "console_exceptions": 0
+}

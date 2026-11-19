@@ -1,0 +1,10 @@
+/* Small presentation changes; capture, enrollment and OTP logic stay intact. */
+.site-links a, .hint, summary, .link, .nav { font-size: 14px; line-height: 1.6; }
+.page-footer, .eyebrow { font-size: 13px; }
+button { font-size: 16px; min-height: 44px; }
+.result, .status { font-size: 15px; overflow-wrap: anywhere; }
+@media (max-width:420px) {
+  .site-header { padding: 14px 16px; }
+  .site-links { gap: 4px; }
+  .site-links a { padding: 8px; }
+}

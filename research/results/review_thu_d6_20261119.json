@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-19",
+  "branch": "thu-branch",
+  "commit": "004bf1d847791fdd59126efbeda64755222fd0c8",
+  "previous_commit": "ef48eb4d50f6142c35964001cc0c967151a228b4",
+  "changed_files": [
+    "docs/render_cutover_thu.md",
+    "docs/screenshots/B2_render_services.png",
+    "docs/screenshots/C2_C4_events_branch_updated_b0bd22e_live.png",
+    "docs/screenshots/C4_render_deploys_list_full_SHA_b0bd22e.png",
+    "docs/screenshots/D1_payload_P16_MAY01_request_f69882c2.png",
+    "docs/screenshots/D1_response_rep1_replayed_false.png",
+    "docs/screenshots/D2a_payload_mau3_request_5b68d3d7.png",
+    "docs/screenshots/D2a_response_gui_lai_replayed_true.png",
+    "docs/screenshots/D2a_response_mau3_replayed_false.png",
+    "docs/screenshots/D6_dang_nhap_sau_doi_credential.png",
+    "docs/screenshots/D6_events_doi_credential.png",
+    "docs/screenshots/Su_co_deploy_som_e396685_19h36.png"
+  ],
+  "changed_source_sha256": {
+    "docs/render_cutover_thu.md": "ac771ce8711ddb6d3d5c9e4d0a169865c7b99243c95db2d0040ae8887a362d62",
+    "docs/screenshots/B2_render_services.png": "ce91c1458fb57f320eff04652807414bb66a98065cd52f6edea5f559b0bab5d1",
+    "docs/screenshots/C2_C4_events_branch_updated_b0bd22e_live.png": "6d9de2fe050f02d19f7cffe59ae59b4c4652dee2d045821ca34a15c192b8d591",
+    "docs/screenshots/C4_render_deploys_list_full_SHA_b0bd22e.png": "bf0ed6cd4f8c29af339f70cf0c7203225daf94c676341faf5422a2861c953acf",
+    "docs/screenshots/D1_payload_P16_MAY01_request_f69882c2.png": "8fae69a6fe29e4007a9a10400ede402f3c16e8bcda81dcc44dcb462335952c6d",
+    "docs/screenshots/D1_response_rep1_replayed_false.png": "b650216eef5fd6c5d4a5a0346964a9f6c276d4fb9fa6a9f66f20a68cd0325992",
+    "docs/screenshots/D2a_payload_mau3_request_5b68d3d7.png": "9aae68062358679e8c5d67e4f0728464ea80e78f7e1dc0e1d208e5bc96071ca4",
+    "docs/screenshots/D2a_response_gui_lai_replayed_true.png": "2886488022196b8ba6c53e0108c77b05498ef2cd5f7f973049c5662944db37a2",
+    "docs/screenshots/D2a_response_mau3_replayed_false.png": "835d99e99f0490385f8f2a656eebcc4fcedfc4461b9567b56c05f2586037ebbc",
+    "docs/screenshots/D6_dang_nhap_sau_doi_credential.png": "9b2a7062d9bdcc5328433e8e2227d45dfc1ccc1a510789b36b4a1e750cbfe6e0",
+    "docs/screenshots/D6_events_doi_credential.png": "223ca9e0a0c3684c0c25d6b0b68bdab36f94b9b79f910a9431843ebf766e1119",
+    "docs/screenshots/Su_co_deploy_som_e396685_19h36.png": "9c2c165cf65dd4890dbdc225c132fed637ea507d76245fa47a23216fd515c878"
+  },
+  "runtime_tests_data_unchanged": true,
+  "tests_rerun": false,
+  "photos_visually_reviewed": 11,
+  "missing_evidence_files_delivered": true,
+  "full_deployment_commit_in_delivered_image": "b0bd22e13fd4f1c56ca2e638936daaa5f0767e39",
+  "deployment_environment_update_image_local_time": "2026-11-19 16:36",
+  "deployment_live_image_local_time": "2026-11-19 16:37",
+  "post_change_test_login_image": "successful",
+  "credential_rotation": {
+    "neon_owner_password_reset_independently_completed": true,
+    "render_database_url_admin_key_updated": "operator-reported, supported by environment-deploy/login images",
+    "old_admin_key_http_status": 404,
+    "new_admin_key_not_received_in_private_local_file": true,
+    "screenshot_shared_in_chat_contains_credentials": true,
+    "credentials_published_in_reviewed_repo_text": false,
+    "read_only_checks": [
+      {
+        "path": "/",
+        "status": 200,
+        "old_admin_key_used": false,
+        "body_sha256": "638ba89eba5ab02430ad25c04925dc74953080529c4cf8480325f48716332193"
+      },
+      {
+        "path": "/static/pending-sample.js",
+        "status": 200,
+        "old_admin_key_used": false,
+        "body_sha256": "7973fc5c9ceb8764c0d963d249c717936f61d13cc89e61ad8eb15d2cedc26da0"
+      },
+      {
+        "path": "/static/readability.css",
+        "status": 200,
+        "old_admin_key_used": false,
+        "body_sha256": "97d2e358de7c068a2f64ea4b9d41adb6891267f5b8939de813f74c5c11ac8e5b"
+      },
+      {
+        "path": "/admin/stats",
+        "status": 404,
+        "old_admin_key_used": true,
+        "body_sha256": "957f440e24ff84d2bb45658438855b9b0c4d6c8599e24827d9ad47c0d2ea76ed"
+      }
+    ]
+  },
+  "D1_D5": "accepted_with_previously_recorded_limits",
+  "D6": "accepted_with_documented_evidence_limits",
+  "historical_process_limits": "B3 unsigned pending-sample confirmation remains unchecked; early deploy disclosed; do not recreate past evidence",
+  "new_numeric_score": false,
+  "prior_rubric_thu_score": "50/50",
+  "report_package": "Existing prepared ZIP/report snapshots unchanged; do not claim their older D4/D6 text is updated",
+  "production_writes": false,
+  "collection_reopening": "Owner decision; not required for file submission",
+  "new_shared_screenshot": "Credential handling follow-up before continued operation; does not negate prior rotation evidence",
+  "new_D1_D2a_photo_ids_match_private_backup": true
+}

@@ -1,0 +1,11 @@
+{
+  "completed_at_utc": "2026-11-15T07:14:06.164770+00:00",
+  "exit_code": 0,
+  "stdout": ".....................                                                    [100%]\n21 passed in 0.53s\n",
+  "stderr": "",
+  "test_files": [
+    "tests/test_account_benefit_summary.py",
+    "tests/test_greyc_web_adapter.py",
+    "tests/test_dispersion_shrinkage.py"
+  ]
+}

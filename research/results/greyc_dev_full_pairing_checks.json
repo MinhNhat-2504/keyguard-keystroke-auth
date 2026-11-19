@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "captures_independently_verified": 4405,
+  "dev_identities": 42,
+  "permutation_validation_without_matcher": true,
+  "resolved": 4404,
+  "unresolved": 1,
+  "exact_source_match": 4403,
+  "mismatch": 1,
+  "protected_unchanged": true,
+  "source_result_sha256": "9bab9c19bead547e02207ed7d91691bd3a8baad0072c93efe0b4d4e2461a10c5",
+  "no_model_scoring": true
+}

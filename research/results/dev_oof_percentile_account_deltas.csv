@@ -1,0 +1,15 @@
+participant_id,delta_far_fraction,delta_frr_fraction,guarded_benefit
+user_004,0,0,False
+user_011,4/65,-1/10,False
+user_021,0,0,False
+user_026,0,5/78,False
+user_033,0,3/200,False
+user_039,-1/65,0,False
+user_046,1/130,-1/16,False
+user_052,8/65,-23/88,False
+user_060,-1/130,0,False
+user_067,-1/130,1/10,False
+user_078,0,-3/220,True
+user_089,0,-1/20,True
+user_111,0,0,False
+user_117,-3/130,1/10,False

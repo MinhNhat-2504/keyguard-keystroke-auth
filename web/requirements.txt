@@ -1,0 +1,6 @@
+flask
+numpy
+pandas
+scikit-learn
+gunicorn
+psycopg[binary]==3.3.9

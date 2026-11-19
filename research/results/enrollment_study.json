@@ -1,0 +1,2640 @@
+{
+  "date": "2026-11-13",
+  "protocol": {
+    "samples": 597,
+    "excluded": 4,
+    "enrollment": 20,
+    "profile": "static",
+    "source_research_sha256": "d4b1b68df1f7ee237b5318cf936af781f8e2ac9612ac47aebe0cb67681b7bba4",
+    "code_sha256": "4e6ec0c377fcf0960c3e1cd73a91db0112a2afd4a87eeccf039023bb0a6423d7",
+    "config_sha256": "4030822013469e91917c137b569499c68b9cae5cb91661f50bb04c9037fceb61",
+    "predeclared_quality_rule": "row median robust deviations > median + 3 robust sigma, remove <=20%",
+    "cv_quality_fitted_inside_training_fold": true,
+    "score_cv": "all 20 held-out enrollment scores, including flagged samples",
+    "calibrations": [
+      "mean/std",
+      "median/1.4826 MAD",
+      "median/IQR divided by 1.349"
+    ],
+    "limitations": [
+      "exploratory on previously inspected data",
+      "predominantly one session",
+      "no account-specific test-derived rules",
+      "no config changes"
+    ]
+  },
+  "selection_by_fold": [
+    {
+      "fold": 1,
+      "dev_ids": [
+        "P02",
+        "P03",
+        "P05",
+        "P06",
+        "P09",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15"
+      ],
+      "test_ids": [
+        "P01",
+        "P04",
+        "P07",
+        "P08",
+        "P10"
+      ],
+      "selected_variant": "keep_all__mean_std",
+      "inner_ranking": [
+        {
+          "variant": "keep_all__mean_std",
+          "inner_balanced_error": 0.25478535353535353
+        },
+        {
+          "variant": "keep_all__median_mad",
+          "inner_balanced_error": 0.26228535353535354
+        },
+        {
+          "variant": "robust_filter__mean_std",
+          "inner_balanced_error": 0.2661363636363636
+        },
+        {
+          "variant": "keep_all__median_iqr",
+          "inner_balanced_error": 0.2773358585858586
+        },
+        {
+          "variant": "robust_filter__median_mad",
+          "inner_balanced_error": 0.29746212121212123
+        },
+        {
+          "variant": "robust_filter__median_iqr",
+          "inner_balanced_error": 0.3012373737373737
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "dev_ids": [
+        "P01",
+        "P02",
+        "P04",
+        "P05",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P13",
+        "P14"
+      ],
+      "test_ids": [
+        "P03",
+        "P06",
+        "P11",
+        "P12",
+        "P15"
+      ],
+      "selected_variant": "robust_filter__median_iqr",
+      "inner_ranking": [
+        {
+          "variant": "robust_filter__median_iqr",
+          "inner_balanced_error": 0.32697381983096274
+        },
+        {
+          "variant": "robust_filter__median_mad",
+          "inner_balanced_error": 0.33067176870748294
+        },
+        {
+          "variant": "robust_filter__mean_std",
+          "inner_balanced_error": 0.34819753659039376
+        },
+        {
+          "variant": "keep_all__mean_std",
+          "inner_balanced_error": 0.36314600082457227
+        },
+        {
+          "variant": "keep_all__median_mad",
+          "inner_balanced_error": 0.3746495567924139
+        },
+        {
+          "variant": "keep_all__median_iqr",
+          "inner_balanced_error": 0.382250566893424
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "dev_ids": [
+        "P01",
+        "P03",
+        "P04",
+        "P06",
+        "P07",
+        "P08",
+        "P10",
+        "P11",
+        "P12",
+        "P15"
+      ],
+      "test_ids": [
+        "P02",
+        "P05",
+        "P09",
+        "P13",
+        "P14"
+      ],
+      "selected_variant": "robust_filter__mean_std",
+      "inner_ranking": [
+        {
+          "variant": "robust_filter__mean_std",
+          "inner_balanced_error": 0.3240561224489796
+        },
+        {
+          "variant": "keep_all__mean_std",
+          "inner_balanced_error": 0.33724489795918366
+        },
+        {
+          "variant": "robust_filter__median_mad",
+          "inner_balanced_error": 0.3430612244897959
+        },
+        {
+          "variant": "robust_filter__median_iqr",
+          "inner_balanced_error": 0.34566326530612246
+        },
+        {
+          "variant": "keep_all__median_iqr",
+          "inner_balanced_error": 0.36859693877551025
+        },
+        {
+          "variant": "keep_all__median_mad",
+          "inner_balanced_error": 0.37234693877551023
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "keep_all__mean_std",
+      "quality": "keep_all",
+      "calibration": "mean_std",
+      "folds": [
+        {
+          "fold": 1,
+          "threshold": -0.4038474153525801,
+          "dev": {
+            "genuine_trials": 199,
+            "genuine_rejected": 100,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.5025125628140703
+          },
+          "test": {
+            "genuine_trials": 98,
+            "genuine_rejected": 44,
+            "impostor_trials": 200,
+            "impostor_accepted": 38,
+            "far": 0.19,
+            "frr": 0.4489795918367347
+          },
+          "eer": 0.26530612244897955,
+          "auc": 0.8157142857142857,
+          "accounts": [
+            {
+              "participant_id": "P01",
+              "genuine_trials": 20,
+              "genuine_rejected": 1,
+              "impostor_trials": 40,
+              "impostor_accepted": 8,
+              "far": 0.2,
+              "frr": 0.05
+            },
+            {
+              "participant_id": "P04",
+              "genuine_trials": 20,
+              "genuine_rejected": 11,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.55
+            },
+            {
+              "participant_id": "P07",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P08",
+              "genuine_trials": 20,
+              "genuine_rejected": 14,
+              "impostor_trials": 40,
+              "impostor_accepted": 4,
+              "far": 0.1,
+              "frr": 0.7
+            },
+            {
+              "participant_id": "P10",
+              "genuine_trials": 18,
+              "genuine_rejected": 10,
+              "impostor_trials": 40,
+              "impostor_accepted": 24,
+              "far": 0.6,
+              "frr": 0.5555555555555556
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "threshold": -0.6560537656197774,
+          "dev": {
+            "genuine_trials": 197,
+            "genuine_rejected": 149,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.7563451776649747
+          },
+          "test": {
+            "genuine_trials": 100,
+            "genuine_rejected": 64,
+            "impostor_trials": 200,
+            "impostor_accepted": 5,
+            "far": 0.025,
+            "frr": 0.64
+          },
+          "eer": 0.185,
+          "auc": 0.8899999999999999,
+          "accounts": [
+            {
+              "participant_id": "P03",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P06",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.65
+            },
+            {
+              "participant_id": "P11",
+              "genuine_trials": 20,
+              "genuine_rejected": 11,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.55
+            },
+            {
+              "participant_id": "P12",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P15",
+              "genuine_trials": 20,
+              "genuine_rejected": 2,
+              "impostor_trials": 40,
+              "impostor_accepted": 4,
+              "far": 0.1,
+              "frr": 0.1
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "threshold": -0.6651565245311001,
+          "dev": {
+            "genuine_trials": 198,
+            "genuine_rejected": 131,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.6616161616161617
+          },
+          "test": {
+            "genuine_trials": 99,
+            "genuine_rejected": 85,
+            "impostor_trials": 200,
+            "impostor_accepted": 3,
+            "far": 0.015,
+            "frr": 0.8585858585858586
+          },
+          "eer": 0.27,
+          "auc": 0.8268686868686869,
+          "accounts": [
+            {
+              "participant_id": "P02",
+              "genuine_trials": 19,
+              "genuine_rejected": 17,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.8947368421052632
+            },
+            {
+              "participant_id": "P05",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P09",
+              "genuine_trials": 20,
+              "genuine_rejected": 20,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 1.0
+            },
+            {
+              "participant_id": "P13",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P14",
+              "genuine_trials": 20,
+              "genuine_rejected": 14,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.7
+            }
+          ]
+        }
+      ],
+      "overall": {
+        "genuine_trials": 297,
+        "genuine_rejected": 193,
+        "impostor_trials": 600,
+        "impostor_accepted": 46,
+        "far": 0.07666666666666666,
+        "frr": 0.6498316498316499
+      },
+      "mean_eer": 0.2401020408163265,
+      "mean_auc": 0.8441943241943242
+    },
+    {
+      "id": "keep_all__median_mad",
+      "quality": "keep_all",
+      "calibration": "median_mad",
+      "folds": [
+        {
+          "fold": 1,
+          "threshold": -0.24538576485208882,
+          "dev": {
+            "genuine_trials": 199,
+            "genuine_rejected": 101,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.507537688442211
+          },
+          "test": {
+            "genuine_trials": 98,
+            "genuine_rejected": 52,
+            "impostor_trials": 200,
+            "impostor_accepted": 31,
+            "far": 0.155,
+            "frr": 0.5306122448979592
+          },
+          "eer": 0.265,
+          "auc": 0.8071938775510203,
+          "accounts": [
+            {
+              "participant_id": "P01",
+              "genuine_trials": 20,
+              "genuine_rejected": 4,
+              "impostor_trials": 40,
+              "impostor_accepted": 8,
+              "far": 0.2,
+              "frr": 0.2
+            },
+            {
+              "participant_id": "P04",
+              "genuine_trials": 20,
+              "genuine_rejected": 14,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.7
+            },
+            {
+              "participant_id": "P07",
+              "genuine_trials": 20,
+              "genuine_rejected": 7,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.35
+            },
+            {
+              "participant_id": "P08",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 4,
+              "far": 0.1,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P10",
+              "genuine_trials": 18,
+              "genuine_rejected": 12,
+              "impostor_trials": 40,
+              "impostor_accepted": 18,
+              "far": 0.45,
+              "frr": 0.6666666666666666
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "threshold": -0.6649938472594152,
+          "dev": {
+            "genuine_trials": 197,
+            "genuine_rejected": 154,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.7817258883248731
+          },
+          "test": {
+            "genuine_trials": 100,
+            "genuine_rejected": 70,
+            "impostor_trials": 200,
+            "impostor_accepted": 5,
+            "far": 0.025,
+            "frr": 0.7
+          },
+          "eer": 0.205,
+          "auc": 0.8673,
+          "accounts": [
+            {
+              "participant_id": "P03",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P06",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.65
+            },
+            {
+              "participant_id": "P11",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P12",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P15",
+              "genuine_trials": 20,
+              "genuine_rejected": 5,
+              "impostor_trials": 40,
+              "impostor_accepted": 4,
+              "far": 0.1,
+              "frr": 0.25
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "threshold": -0.6471060762048185,
+          "dev": {
+            "genuine_trials": 198,
+            "genuine_rejected": 144,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.7272727272727273
+          },
+          "test": {
+            "genuine_trials": 99,
+            "genuine_rejected": 77,
+            "impostor_trials": 200,
+            "impostor_accepted": 3,
+            "far": 0.015,
+            "frr": 0.7777777777777778
+          },
+          "eer": 0.26262626262626265,
+          "auc": 0.8183333333333334,
+          "accounts": [
+            {
+              "participant_id": "P02",
+              "genuine_trials": 19,
+              "genuine_rejected": 16,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.8421052631578947
+            },
+            {
+              "participant_id": "P05",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P09",
+              "genuine_trials": 20,
+              "genuine_rejected": 17,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.85
+            },
+            {
+              "participant_id": "P13",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P14",
+              "genuine_trials": 20,
+              "genuine_rejected": 14,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.7
+            }
+          ]
+        }
+      ],
+      "overall": {
+        "genuine_trials": 297,
+        "genuine_rejected": 199,
+        "impostor_trials": 600,
+        "impostor_accepted": 39,
+        "far": 0.065,
+        "frr": 0.67003367003367
+      },
+      "mean_eer": 0.2442087542087542,
+      "mean_auc": 0.8309424036281179
+    },
+    {
+      "id": "keep_all__median_iqr",
+      "quality": "keep_all",
+      "calibration": "median_iqr",
+      "folds": [
+        {
+          "fold": 1,
+          "threshold": -0.24840485698618142,
+          "dev": {
+            "genuine_trials": 199,
+            "genuine_rejected": 110,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.5527638190954773
+          },
+          "test": {
+            "genuine_trials": 98,
+            "genuine_rejected": 56,
+            "impostor_trials": 200,
+            "impostor_accepted": 25,
+            "far": 0.125,
+            "frr": 0.5714285714285714
+          },
+          "eer": 0.275,
+          "auc": 0.816173469387755,
+          "accounts": [
+            {
+              "participant_id": "P01",
+              "genuine_trials": 20,
+              "genuine_rejected": 6,
+              "impostor_trials": 40,
+              "impostor_accepted": 7,
+              "far": 0.175,
+              "frr": 0.3
+            },
+            {
+              "participant_id": "P04",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P07",
+              "genuine_trials": 20,
+              "genuine_rejected": 7,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.35
+            },
+            {
+              "participant_id": "P08",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 4,
+              "far": 0.1,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P10",
+              "genuine_trials": 18,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 13,
+              "far": 0.325,
+              "frr": 0.7222222222222222
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "threshold": -0.5083768046973838,
+          "dev": {
+            "genuine_trials": 197,
+            "genuine_rejected": 154,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.7817258883248731
+          },
+          "test": {
+            "genuine_trials": 100,
+            "genuine_rejected": 62,
+            "impostor_trials": 200,
+            "impostor_accepted": 6,
+            "far": 0.03,
+            "frr": 0.62
+          },
+          "eer": 0.2,
+          "auc": 0.8726999999999999,
+          "accounts": [
+            {
+              "participant_id": "P03",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P06",
+              "genuine_trials": 20,
+              "genuine_rejected": 11,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.55
+            },
+            {
+              "participant_id": "P11",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.65
+            },
+            {
+              "participant_id": "P12",
+              "genuine_trials": 20,
+              "genuine_rejected": 17,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.85
+            },
+            {
+              "participant_id": "P15",
+              "genuine_trials": 20,
+              "genuine_rejected": 2,
+              "impostor_trials": 40,
+              "impostor_accepted": 5,
+              "far": 0.125,
+              "frr": 0.1
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "threshold": -0.5568788452381565,
+          "dev": {
+            "genuine_trials": 198,
+            "genuine_rejected": 142,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.7171717171717171
+          },
+          "test": {
+            "genuine_trials": 99,
+            "genuine_rejected": 85,
+            "impostor_trials": 200,
+            "impostor_accepted": 2,
+            "far": 0.01,
+            "frr": 0.8585858585858586
+          },
+          "eer": 0.2727272727272727,
+          "auc": 0.8259090909090909,
+          "accounts": [
+            {
+              "participant_id": "P02",
+              "genuine_trials": 19,
+              "genuine_rejected": 16,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.8421052631578947
+            },
+            {
+              "participant_id": "P05",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P09",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P13",
+              "genuine_trials": 20,
+              "genuine_rejected": 16,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.8
+            },
+            {
+              "participant_id": "P14",
+              "genuine_trials": 20,
+              "genuine_rejected": 16,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.8
+            }
+          ]
+        }
+      ],
+      "overall": {
+        "genuine_trials": 297,
+        "genuine_rejected": 203,
+        "impostor_trials": 600,
+        "impostor_accepted": 33,
+        "far": 0.055,
+        "frr": 0.6835016835016835
+      },
+      "mean_eer": 0.24924242424242427,
+      "mean_auc": 0.8382608534322818
+    },
+    {
+      "id": "robust_filter__mean_std",
+      "quality": "robust_filter",
+      "calibration": "mean_std",
+      "folds": [
+        {
+          "fold": 1,
+          "threshold": -0.4305843582365451,
+          "dev": {
+            "genuine_trials": 199,
+            "genuine_rejected": 104,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.5226130653266332
+          },
+          "test": {
+            "genuine_trials": 98,
+            "genuine_rejected": 45,
+            "impostor_trials": 200,
+            "impostor_accepted": 24,
+            "far": 0.12,
+            "frr": 0.45918367346938777
+          },
+          "eer": 0.285,
+          "auc": 0.8306632653061226,
+          "accounts": [
+            {
+              "participant_id": "P01",
+              "genuine_trials": 20,
+              "genuine_rejected": 1,
+              "impostor_trials": 40,
+              "impostor_accepted": 8,
+              "far": 0.2,
+              "frr": 0.05
+            },
+            {
+              "participant_id": "P04",
+              "genuine_trials": 20,
+              "genuine_rejected": 10,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.5
+            },
+            {
+              "participant_id": "P07",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P08",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 6,
+              "far": 0.15,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P10",
+              "genuine_trials": 18,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 9,
+              "far": 0.225,
+              "frr": 1.0
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "threshold": -0.5984947449297046,
+          "dev": {
+            "genuine_trials": 197,
+            "genuine_rejected": 142,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.7208121827411168
+          },
+          "test": {
+            "genuine_trials": 100,
+            "genuine_rejected": 59,
+            "impostor_trials": 200,
+            "impostor_accepted": 8,
+            "far": 0.04,
+            "frr": 0.59
+          },
+          "eer": 0.18999999999999995,
+          "auc": 0.878,
+          "accounts": [
+            {
+              "participant_id": "P03",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P06",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.65
+            },
+            {
+              "participant_id": "P11",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 3,
+              "far": 0.075,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P12",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P15",
+              "genuine_trials": 20,
+              "genuine_rejected": 2,
+              "impostor_trials": 40,
+              "impostor_accepted": 5,
+              "far": 0.125,
+              "frr": 0.1
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "threshold": -0.5884072107670463,
+          "dev": {
+            "genuine_trials": 198,
+            "genuine_rejected": 121,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.6111111111111112
+          },
+          "test": {
+            "genuine_trials": 99,
+            "genuine_rejected": 78,
+            "impostor_trials": 200,
+            "impostor_accepted": 4,
+            "far": 0.02,
+            "frr": 0.7878787878787878
+          },
+          "eer": 0.27,
+          "auc": 0.8147474747474748,
+          "accounts": [
+            {
+              "participant_id": "P02",
+              "genuine_trials": 19,
+              "genuine_rejected": 16,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.8421052631578947
+            },
+            {
+              "participant_id": "P05",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.65
+            },
+            {
+              "participant_id": "P09",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P13",
+              "genuine_trials": 20,
+              "genuine_rejected": 17,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.85
+            },
+            {
+              "participant_id": "P14",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.65
+            }
+          ]
+        }
+      ],
+      "overall": {
+        "genuine_trials": 297,
+        "genuine_rejected": 182,
+        "impostor_trials": 600,
+        "impostor_accepted": 36,
+        "far": 0.06,
+        "frr": 0.6127946127946128
+      },
+      "mean_eer": 0.2483333333333333,
+      "mean_auc": 0.8411369133511991
+    },
+    {
+      "id": "robust_filter__median_mad",
+      "quality": "robust_filter",
+      "calibration": "median_mad",
+      "folds": [
+        {
+          "fold": 1,
+          "threshold": -0.3205347079190172,
+          "dev": {
+            "genuine_trials": 199,
+            "genuine_rejected": 110,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.5527638190954773
+          },
+          "test": {
+            "genuine_trials": 98,
+            "genuine_rejected": 50,
+            "impostor_trials": 200,
+            "impostor_accepted": 14,
+            "far": 0.07,
+            "frr": 0.5102040816326531
+          },
+          "eer": 0.24489795918367352,
+          "auc": 0.7678061224489795,
+          "accounts": [
+            {
+              "participant_id": "P01",
+              "genuine_trials": 20,
+              "genuine_rejected": 6,
+              "impostor_trials": 40,
+              "impostor_accepted": 7,
+              "far": 0.175,
+              "frr": 0.3
+            },
+            {
+              "participant_id": "P04",
+              "genuine_trials": 20,
+              "genuine_rejected": 10,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.5
+            },
+            {
+              "participant_id": "P07",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P08",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 6,
+              "far": 0.15,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P10",
+              "genuine_trials": 18,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 1.0
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "threshold": -0.5597881556386382,
+          "dev": {
+            "genuine_trials": 197,
+            "genuine_rejected": 136,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.6903553299492385
+          },
+          "test": {
+            "genuine_trials": 100,
+            "genuine_rejected": 62,
+            "impostor_trials": 200,
+            "impostor_accepted": 6,
+            "far": 0.03,
+            "frr": 0.62
+          },
+          "eer": 0.21999999999999997,
+          "auc": 0.8553,
+          "accounts": [
+            {
+              "participant_id": "P03",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P06",
+              "genuine_trials": 20,
+              "genuine_rejected": 13,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.65
+            },
+            {
+              "participant_id": "P11",
+              "genuine_trials": 20,
+              "genuine_rejected": 10,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.5
+            },
+            {
+              "participant_id": "P12",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P15",
+              "genuine_trials": 20,
+              "genuine_rejected": 2,
+              "impostor_trials": 40,
+              "impostor_accepted": 5,
+              "far": 0.125,
+              "frr": 0.1
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "threshold": -0.4883695547984278,
+          "dev": {
+            "genuine_trials": 198,
+            "genuine_rejected": 121,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.6111111111111112
+          },
+          "test": {
+            "genuine_trials": 99,
+            "genuine_rejected": 63,
+            "impostor_trials": 200,
+            "impostor_accepted": 5,
+            "far": 0.025,
+            "frr": 0.6363636363636364
+          },
+          "eer": 0.2828282828282829,
+          "auc": 0.8072727272727273,
+          "accounts": [
+            {
+              "participant_id": "P02",
+              "genuine_trials": 19,
+              "genuine_rejected": 9,
+              "impostor_trials": 40,
+              "impostor_accepted": 3,
+              "far": 0.075,
+              "frr": 0.47368421052631576
+            },
+            {
+              "participant_id": "P05",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P09",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P13",
+              "genuine_trials": 20,
+              "genuine_rejected": 9,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.45
+            },
+            {
+              "participant_id": "P14",
+              "genuine_trials": 20,
+              "genuine_rejected": 12,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.6
+            }
+          ]
+        }
+      ],
+      "overall": {
+        "genuine_trials": 297,
+        "genuine_rejected": 175,
+        "impostor_trials": 600,
+        "impostor_accepted": 25,
+        "far": 0.041666666666666664,
+        "frr": 0.5892255892255892
+      },
+      "mean_eer": 0.24924208067065212,
+      "mean_auc": 0.8101262832405688
+    },
+    {
+      "id": "robust_filter__median_iqr",
+      "quality": "robust_filter",
+      "calibration": "median_iqr",
+      "folds": [
+        {
+          "fold": 1,
+          "threshold": -0.3150643127510748,
+          "dev": {
+            "genuine_trials": 199,
+            "genuine_rejected": 115,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.5778894472361809
+          },
+          "test": {
+            "genuine_trials": 98,
+            "genuine_rejected": 53,
+            "impostor_trials": 200,
+            "impostor_accepted": 13,
+            "far": 0.065,
+            "frr": 0.5408163265306123
+          },
+          "eer": 0.26530612244897955,
+          "auc": 0.84,
+          "accounts": [
+            {
+              "participant_id": "P01",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 7,
+              "far": 0.175,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P04",
+              "genuine_trials": 20,
+              "genuine_rejected": 10,
+              "impostor_trials": 40,
+              "impostor_accepted": 1,
+              "far": 0.025,
+              "frr": 0.5
+            },
+            {
+              "participant_id": "P07",
+              "genuine_trials": 20,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.4
+            },
+            {
+              "participant_id": "P08",
+              "genuine_trials": 20,
+              "genuine_rejected": 9,
+              "impostor_trials": 40,
+              "impostor_accepted": 5,
+              "far": 0.125,
+              "frr": 0.45
+            },
+            {
+              "participant_id": "P10",
+              "genuine_trials": 18,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 1.0
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "threshold": -0.38905056348708156,
+          "dev": {
+            "genuine_trials": 197,
+            "genuine_rejected": 125,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.6345177664974619
+          },
+          "test": {
+            "genuine_trials": 100,
+            "genuine_rejected": 58,
+            "impostor_trials": 200,
+            "impostor_accepted": 10,
+            "far": 0.05,
+            "frr": 0.58
+          },
+          "eer": 0.20999999999999996,
+          "auc": 0.8599999999999999,
+          "accounts": [
+            {
+              "participant_id": "P03",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P06",
+              "genuine_trials": 20,
+              "genuine_rejected": 11,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.55
+            },
+            {
+              "participant_id": "P11",
+              "genuine_trials": 20,
+              "genuine_rejected": 9,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.45
+            },
+            {
+              "participant_id": "P12",
+              "genuine_trials": 20,
+              "genuine_rejected": 18,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.9
+            },
+            {
+              "participant_id": "P15",
+              "genuine_trials": 20,
+              "genuine_rejected": 1,
+              "impostor_trials": 40,
+              "impostor_accepted": 8,
+              "far": 0.2,
+              "frr": 0.05
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "threshold": -0.4570705231366306,
+          "dev": {
+            "genuine_trials": 198,
+            "genuine_rejected": 128,
+            "impostor_trials": 900,
+            "impostor_accepted": 45,
+            "far": 0.05,
+            "frr": 0.6464646464646465
+          },
+          "test": {
+            "genuine_trials": 99,
+            "genuine_rejected": 67,
+            "impostor_trials": 200,
+            "impostor_accepted": 6,
+            "far": 0.03,
+            "frr": 0.6767676767676768
+          },
+          "eer": 0.2727272727272727,
+          "auc": 0.8194949494949495,
+          "accounts": [
+            {
+              "participant_id": "P02",
+              "genuine_trials": 19,
+              "genuine_rejected": 8,
+              "impostor_trials": 40,
+              "impostor_accepted": 4,
+              "far": 0.1,
+              "frr": 0.42105263157894735
+            },
+            {
+              "participant_id": "P05",
+              "genuine_trials": 20,
+              "genuine_rejected": 15,
+              "impostor_trials": 40,
+              "impostor_accepted": 2,
+              "far": 0.05,
+              "frr": 0.75
+            },
+            {
+              "participant_id": "P09",
+              "genuine_trials": 20,
+              "genuine_rejected": 19,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.95
+            },
+            {
+              "participant_id": "P13",
+              "genuine_trials": 20,
+              "genuine_rejected": 9,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.45
+            },
+            {
+              "participant_id": "P14",
+              "genuine_trials": 20,
+              "genuine_rejected": 16,
+              "impostor_trials": 40,
+              "impostor_accepted": 0,
+              "far": 0.0,
+              "frr": 0.8
+            }
+          ]
+        }
+      ],
+      "overall": {
+        "genuine_trials": 297,
+        "genuine_rejected": 178,
+        "impostor_trials": 600,
+        "impostor_accepted": 29,
+        "far": 0.04833333333333333,
+        "frr": 0.5993265993265994
+      },
+      "mean_eer": 0.24934446505875074,
+      "mean_auc": 0.8398316498316497
+    }
+  ],
+  "enrollment_diagnostics": [
+    {
+      "participant_id": "P01",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 38.35301664309735,
+      "score_scale": 15.00758091063862,
+      "cv_score_min": 20.9748756688299,
+      "cv_score_max": 76.26313625678654
+    },
+    {
+      "participant_id": "P02",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 39.62985051542467,
+      "score_scale": 23.157177557506056,
+      "cv_score_min": 18.980253700102388,
+      "cv_score_max": 120.22478565855471
+    },
+    {
+      "participant_id": "P03",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 52.361416357836944,
+      "score_scale": 46.769754348401655,
+      "cv_score_min": 23.461002860857615,
+      "cv_score_max": 222.42046740457897
+    },
+    {
+      "participant_id": "P04",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 42.57441265482997,
+      "score_scale": 18.649956121822992,
+      "cv_score_min": 21.922901694998608,
+      "cv_score_max": 91.86166380197814
+    },
+    {
+      "participant_id": "P05",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 36.28321094120558,
+      "score_scale": 11.539940664278589,
+      "cv_score_min": 19.003502411599936,
+      "cv_score_max": 65.04059481297304
+    },
+    {
+      "participant_id": "P06",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 36.05351827520455,
+      "score_scale": 13.581695984392843,
+      "cv_score_min": 21.240059146607788,
+      "cv_score_max": 79.95472374976521
+    },
+    {
+      "participant_id": "P07",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 35.678526039418486,
+      "score_scale": 17.76522844317402,
+      "cv_score_min": 17.869563234973278,
+      "cv_score_max": 94.85499204591754
+    },
+    {
+      "participant_id": "P08",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 38.14883317593508,
+      "score_scale": 20.82413223320243,
+      "cv_score_min": 19.737999024988497,
+      "cv_score_max": 111.58144819994924
+    },
+    {
+      "participant_id": "P09",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 42.66238875686458,
+      "score_scale": 36.44107019075391,
+      "cv_score_min": 20.74691791417029,
+      "cv_score_max": 187.2273052154393
+    },
+    {
+      "participant_id": "P10",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 45.25300305846973,
+      "score_scale": 30.245469535052134,
+      "cv_score_min": 22.15369573025714,
+      "cv_score_max": 119.06794931351153
+    },
+    {
+      "participant_id": "P11",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 38.76596370846377,
+      "score_scale": 22.26439574254891,
+      "cv_score_min": 13.275027205519619,
+      "cv_score_max": 108.7871029835683
+    },
+    {
+      "participant_id": "P12",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 38.99186500841868,
+      "score_scale": 21.386912475625525,
+      "cv_score_min": 21.29606566826069,
+      "cv_score_max": 124.06504585655408
+    },
+    {
+      "participant_id": "P13",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 45.32962414538248,
+      "score_scale": 36.21841521043039,
+      "cv_score_min": 23.6217422938573,
+      "cv_score_max": 192.1397674218229
+    },
+    {
+      "participant_id": "P14",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 36.639839214378846,
+      "score_scale": 13.631763890568665,
+      "cv_score_min": 18.451884477420965,
+      "cv_score_max": 80.1036134070927
+    },
+    {
+      "participant_id": "P15",
+      "variant": "keep_all__mean_std",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 38.51073028907736,
+      "score_scale": 15.866051431184887,
+      "cv_score_min": 23.601648493137795,
+      "cv_score_max": 90.71101354944436
+    },
+    {
+      "participant_id": "P01",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.270743494791844,
+      "score_scale": 10.672734448774257,
+      "cv_score_min": 20.9748756688299,
+      "cv_score_max": 76.26313625678654
+    },
+    {
+      "participant_id": "P02",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.67398270600364,
+      "score_scale": 9.155478567622296,
+      "cv_score_min": 18.980253700102388,
+      "cv_score_max": 120.22478565855471
+    },
+    {
+      "participant_id": "P03",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.66258660235854,
+      "score_scale": 11.724087217175137,
+      "cv_score_min": 23.461002860857615,
+      "cv_score_max": 222.42046740457897
+    },
+    {
+      "participant_id": "P04",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 35.32436183563266,
+      "score_scale": 17.53216031037698,
+      "cv_score_min": 21.922901694998608,
+      "cv_score_max": 91.86166380197814
+    },
+    {
+      "participant_id": "P05",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.556667556249096,
+      "score_scale": 7.441778326389503,
+      "cv_score_min": 19.003502411599936,
+      "cv_score_max": 65.04059481297304
+    },
+    {
+      "participant_id": "P06",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 33.237579972585145,
+      "score_scale": 9.26489373103899,
+      "cv_score_min": 21.240059146607788,
+      "cv_score_max": 79.95472374976521
+    },
+    {
+      "participant_id": "P07",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 31.684083388234107,
+      "score_scale": 11.143779586928552,
+      "cv_score_min": 17.869563234973278,
+      "cv_score_max": 94.85499204591754
+    },
+    {
+      "participant_id": "P08",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 30.858748246248037,
+      "score_scale": 7.151863201949241,
+      "cv_score_min": 19.737999024988497,
+      "cv_score_max": 111.58144819994924
+    },
+    {
+      "participant_id": "P09",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 29.80732070658095,
+      "score_scale": 6.979158449057027,
+      "cv_score_min": 20.74691791417029,
+      "cv_score_max": 187.2273052154393
+    },
+    {
+      "participant_id": "P10",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 31.447194676261496,
+      "score_scale": 7.9331806518640935,
+      "cv_score_min": 22.15369573025714,
+      "cv_score_max": 119.06794931351153
+    },
+    {
+      "participant_id": "P11",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.76897822569746,
+      "score_scale": 16.733393402972606,
+      "cv_score_min": 13.275027205519619,
+      "cv_score_max": 108.7871029835683
+    },
+    {
+      "participant_id": "P12",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 34.507096306498624,
+      "score_scale": 11.204590494867963,
+      "cv_score_min": 21.29606566826069,
+      "cv_score_max": 124.06504585655408
+    },
+    {
+      "participant_id": "P13",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 34.775095865338024,
+      "score_scale": 12.50748580770078,
+      "cv_score_min": 23.6217422938573,
+      "cv_score_max": 192.1397674218229
+    },
+    {
+      "participant_id": "P14",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 31.420376724134975,
+      "score_scale": 5.421346826856692,
+      "cv_score_min": 18.451884477420965,
+      "cv_score_max": 80.1036134070927
+    },
+    {
+      "participant_id": "P15",
+      "variant": "keep_all__median_mad",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 35.53842903958305,
+      "score_scale": 13.033908216883848,
+      "cv_score_min": 23.601648493137795,
+      "cv_score_max": 90.71101354944436
+    },
+    {
+      "participant_id": "P01",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.270743494791844,
+      "score_scale": 12.753686242882816,
+      "cv_score_min": 20.9748756688299,
+      "cv_score_max": 76.26313625678654
+    },
+    {
+      "participant_id": "P02",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.67398270600364,
+      "score_scale": 9.0442036365975,
+      "cv_score_min": 18.980253700102388,
+      "cv_score_max": 120.22478565855471
+    },
+    {
+      "participant_id": "P03",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.66258660235854,
+      "score_scale": 20.904724476176234,
+      "cv_score_min": 23.461002860857615,
+      "cv_score_max": 222.42046740457897
+    },
+    {
+      "participant_id": "P04",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 35.32436183563266,
+      "score_scale": 19.20056944067631,
+      "cv_score_min": 21.922901694998608,
+      "cv_score_max": 91.86166380197814
+    },
+    {
+      "participant_id": "P05",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.556667556249096,
+      "score_scale": 11.52953971764263,
+      "cv_score_min": 19.003502411599936,
+      "cv_score_max": 65.04059481297304
+    },
+    {
+      "participant_id": "P06",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 33.237579972585145,
+      "score_scale": 9.129569622327173,
+      "cv_score_min": 21.240059146607788,
+      "cv_score_max": 79.95472374976521
+    },
+    {
+      "participant_id": "P07",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 31.684083388234107,
+      "score_scale": 10.776662151416259,
+      "cv_score_min": 17.869563234973278,
+      "cv_score_max": 94.85499204591754
+    },
+    {
+      "participant_id": "P08",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 30.858748246248037,
+      "score_scale": 7.101280990143936,
+      "cv_score_min": 19.737999024988497,
+      "cv_score_max": 111.58144819994924
+    },
+    {
+      "participant_id": "P09",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 29.80732070658095,
+      "score_scale": 11.141665483940644,
+      "cv_score_min": 20.74691791417029,
+      "cv_score_max": 187.2273052154393
+    },
+    {
+      "participant_id": "P10",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 31.447194676261496,
+      "score_scale": 12.333491896759927,
+      "cv_score_min": 22.15369573025714,
+      "cv_score_max": 119.06794931351153
+    },
+    {
+      "participant_id": "P11",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 32.76897822569746,
+      "score_scale": 18.48102937206631,
+      "cv_score_min": 13.275027205519619,
+      "cv_score_max": 108.7871029835683
+    },
+    {
+      "participant_id": "P12",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 34.507096306498624,
+      "score_scale": 12.529424284776791,
+      "cv_score_min": 21.29606566826069,
+      "cv_score_max": 124.06504585655408
+    },
+    {
+      "participant_id": "P13",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 34.775095865338024,
+      "score_scale": 16.778623407025712,
+      "cv_score_min": 23.6217422938573,
+      "cv_score_max": 192.1397674218229
+    },
+    {
+      "participant_id": "P14",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 31.420376724134975,
+      "score_scale": 10.392307638699254,
+      "cv_score_min": 18.451884477420965,
+      "cv_score_max": 80.1036134070927
+    },
+    {
+      "participant_id": "P15",
+      "variant": "keep_all__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 20,
+      "removed_positions_1based": [],
+      "score_center": 35.53842903958305,
+      "score_scale": 11.711943158037236,
+      "cv_score_min": 23.601648493137795,
+      "cv_score_max": 90.71101354944436
+    },
+    {
+      "participant_id": "P01",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        15
+      ],
+      "score_center": 41.37630429115098,
+      "score_scale": 17.186026576963908,
+      "cv_score_min": 20.9748756688299,
+      "cv_score_max": 84.6619789466649
+    },
+    {
+      "participant_id": "P02",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        6
+      ],
+      "score_center": 41.61758273194825,
+      "score_scale": 22.60210472317654,
+      "cv_score_min": 19.704376512593083,
+      "cv_score_max": 120.22478565855471
+    },
+    {
+      "participant_id": "P03",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 18,
+      "removed_positions_1based": [
+        1,
+        3
+      ],
+      "score_center": 59.669086990531966,
+      "score_scale": 51.12272871758645,
+      "cv_score_min": 22.985637919635103,
+      "cv_score_max": 240.4361625784038
+    },
+    {
+      "participant_id": "P04",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 18,
+      "removed_positions_1based": [
+        7,
+        8
+      ],
+      "score_center": 45.357396125570254,
+      "score_scale": 21.668580200885287,
+      "cv_score_min": 21.13750160176958,
+      "cv_score_max": 101.38103229452986
+    },
+    {
+      "participant_id": "P05",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 38.55212428630643,
+      "score_scale": 12.595740759780437,
+      "cv_score_min": 22.224960530721955,
+      "cv_score_max": 67.43808639366243
+    },
+    {
+      "participant_id": "P06",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        4
+      ],
+      "score_center": 36.913551097867085,
+      "score_scale": 14.474018288312262,
+      "cv_score_min": 21.240059146607788,
+      "cv_score_max": 84.8874712625123
+    },
+    {
+      "participant_id": "P07",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 39.00310190726504,
+      "score_scale": 19.157459058102873,
+      "cv_score_min": 18.40693656358627,
+      "cv_score_max": 94.85499204591754
+    },
+    {
+      "participant_id": "P08",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 43.340193058173085,
+      "score_scale": 21.132832125276785,
+      "cv_score_min": 18.718189658439357,
+      "cv_score_max": 111.58144819994924
+    },
+    {
+      "participant_id": "P09",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 45.853875227030166,
+      "score_scale": 35.732644196944385,
+      "cv_score_min": 20.74691791417029,
+      "cv_score_max": 183.8930302171654
+    },
+    {
+      "participant_id": "P10",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 16,
+      "removed_positions_1based": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "score_center": 102.02828033767398,
+      "score_scale": 121.82856912300639,
+      "cv_score_min": 19.866690675178543,
+      "cv_score_max": 381.1914910611425
+    },
+    {
+      "participant_id": "P11",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        7
+      ],
+      "score_center": 42.22220040636615,
+      "score_scale": 23.377264781433738,
+      "cv_score_min": 14.131508112242614,
+      "cv_score_max": 108.7871029835683
+    },
+    {
+      "participant_id": "P12",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 17,
+      "removed_positions_1based": [
+        2,
+        8,
+        20
+      ],
+      "score_center": 41.129372794422956,
+      "score_scale": 21.80171482557805,
+      "cv_score_min": 22.128644821110928,
+      "cv_score_max": 124.73527687848254
+    },
+    {
+      "participant_id": "P13",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        6
+      ],
+      "score_center": 47.03786325672253,
+      "score_scale": 35.67321187522922,
+      "cv_score_min": 27.093133555919472,
+      "cv_score_max": 192.1397674218229
+    },
+    {
+      "participant_id": "P14",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        20
+      ],
+      "score_center": 37.84981217191035,
+      "score_scale": 13.569331662492909,
+      "cv_score_min": 19.559324140662984,
+      "cv_score_max": 80.1036134070927
+    },
+    {
+      "participant_id": "P15",
+      "variant": "robust_filter__mean_std",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        3
+      ],
+      "score_center": 39.33202486774816,
+      "score_scale": 15.540008713008703,
+      "cv_score_min": 24.458706142761457,
+      "cv_score_max": 90.71101354944436
+    },
+    {
+      "participant_id": "P01",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        15
+      ],
+      "score_center": 35.23242906345462,
+      "score_scale": 13.019867389083597,
+      "cv_score_min": 20.9748756688299,
+      "cv_score_max": 84.6619789466649
+    },
+    {
+      "participant_id": "P02",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        6
+      ],
+      "score_center": 37.300895990786444,
+      "score_scale": 11.482118757692655,
+      "cv_score_min": 19.704376512593083,
+      "cv_score_max": 120.22478565855471
+    },
+    {
+      "participant_id": "P03",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 18,
+      "removed_positions_1based": [
+        1,
+        3
+      ],
+      "score_center": 34.682882725427795,
+      "score_scale": 16.472331809800764,
+      "cv_score_min": 22.985637919635103,
+      "cv_score_max": 240.4361625784038
+    },
+    {
+      "participant_id": "P04",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 18,
+      "removed_positions_1based": [
+        7,
+        8
+      ],
+      "score_center": 41.18464465750546,
+      "score_scale": 19.86081751933946,
+      "cv_score_min": 21.13750160176958,
+      "cv_score_max": 101.38103229452986
+    },
+    {
+      "participant_id": "P05",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 34.43796053490583,
+      "score_scale": 8.834409892702555,
+      "cv_score_min": 22.224960530721955,
+      "cv_score_max": 67.43808639366243
+    },
+    {
+      "participant_id": "P06",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        4
+      ],
+      "score_center": 34.08875828999972,
+      "score_scale": 9.732525880507545,
+      "cv_score_min": 21.240059146607788,
+      "cv_score_max": 84.8874712625123
+    },
+    {
+      "participant_id": "P07",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 34.28503330612439,
+      "score_scale": 12.935702693617525,
+      "cv_score_min": 18.40693656358627,
+      "cv_score_max": 94.85499204591754
+    },
+    {
+      "participant_id": "P08",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 36.55575630261502,
+      "score_scale": 8.920008380497402,
+      "cv_score_min": 18.718189658439357,
+      "cv_score_max": 111.58144819994924
+    },
+    {
+      "participant_id": "P09",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 32.95165395006367,
+      "score_scale": 9.49635018778702,
+      "cv_score_min": 20.74691791417029,
+      "cv_score_max": 183.8930302171654
+    },
+    {
+      "participant_id": "P10",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 16,
+      "removed_positions_1based": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "score_center": 29.37184926990273,
+      "score_scale": 11.502378550084488,
+      "cv_score_min": 19.866690675178543,
+      "cv_score_max": 381.1914910611425
+    },
+    {
+      "participant_id": "P11",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        7
+      ],
+      "score_center": 35.14247951235993,
+      "score_scale": 16.34405181090407,
+      "cv_score_min": 14.131508112242614,
+      "cv_score_max": 108.7871029835683
+    },
+    {
+      "participant_id": "P12",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 17,
+      "removed_positions_1based": [
+        2,
+        8,
+        20
+      ],
+      "score_center": 36.03236863706134,
+      "score_scale": 11.64056898864691,
+      "cv_score_min": 22.128644821110928,
+      "cv_score_max": 124.73527687848254
+    },
+    {
+      "participant_id": "P13",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        6
+      ],
+      "score_center": 36.45763792550174,
+      "score_scale": 12.82232168752278,
+      "cv_score_min": 27.093133555919472,
+      "cv_score_max": 192.1397674218229
+    },
+    {
+      "participant_id": "P14",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        20
+      ],
+      "score_center": 33.582280064201754,
+      "score_scale": 6.769020076635286,
+      "cv_score_min": 19.559324140662984,
+      "cv_score_max": 80.1036134070927
+    },
+    {
+      "participant_id": "P15",
+      "variant": "robust_filter__median_mad",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        3
+      ],
+      "score_center": 36.83346674520013,
+      "score_scale": 10.929641796868154,
+      "cv_score_min": 24.458706142761457,
+      "cv_score_max": 90.71101354944436
+    },
+    {
+      "participant_id": "P01",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        15
+      ],
+      "score_center": 35.23242906345462,
+      "score_scale": 15.96844458748222,
+      "cv_score_min": 20.9748756688299,
+      "cv_score_max": 84.6619789466649
+    },
+    {
+      "participant_id": "P02",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        6
+      ],
+      "score_center": 37.300895990786444,
+      "score_scale": 8.1302510166245,
+      "cv_score_min": 19.704376512593083,
+      "cv_score_max": 120.22478565855471
+    },
+    {
+      "participant_id": "P03",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 18,
+      "removed_positions_1based": [
+        1,
+        3
+      ],
+      "score_center": 34.682882725427795,
+      "score_scale": 36.50257835673166,
+      "cv_score_min": 22.985637919635103,
+      "cv_score_max": 240.4361625784038
+    },
+    {
+      "participant_id": "P04",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 18,
+      "removed_positions_1based": [
+        7,
+        8
+      ],
+      "score_center": 41.18464465750546,
+      "score_scale": 20.418056747463634,
+      "cv_score_min": 21.13750160176958,
+      "cv_score_max": 101.38103229452986
+    },
+    {
+      "participant_id": "P05",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 34.43796053490583,
+      "score_scale": 10.905789694333727,
+      "cv_score_min": 22.224960530721955,
+      "cv_score_max": 67.43808639366243
+    },
+    {
+      "participant_id": "P06",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        4
+      ],
+      "score_center": 34.08875828999972,
+      "score_scale": 8.890707413685751,
+      "cv_score_min": 21.240059146607788,
+      "cv_score_max": 84.8874712625123
+    },
+    {
+      "participant_id": "P07",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 34.28503330612439,
+      "score_scale": 13.598382323618123,
+      "cv_score_min": 18.40693656358627,
+      "cv_score_max": 94.85499204591754
+    },
+    {
+      "participant_id": "P08",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 36.55575630261502,
+      "score_scale": 10.807544290097649,
+      "cv_score_min": 18.718189658439357,
+      "cv_score_max": 111.58144819994924
+    },
+    {
+      "participant_id": "P09",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        1
+      ],
+      "score_center": 32.95165395006367,
+      "score_scale": 16.757697855186606,
+      "cv_score_min": 20.74691791417029,
+      "cv_score_max": 183.8930302171654
+    },
+    {
+      "participant_id": "P10",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 16,
+      "removed_positions_1based": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "score_center": 29.37184926990273,
+      "score_scale": 66.73146642536723,
+      "cv_score_min": 19.866690675178543,
+      "cv_score_max": 381.1914910611425
+    },
+    {
+      "participant_id": "P11",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        7
+      ],
+      "score_center": 35.14247951235993,
+      "score_scale": 20.06981208273722,
+      "cv_score_min": 14.131508112242614,
+      "cv_score_max": 108.7871029835683
+    },
+    {
+      "participant_id": "P12",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 17,
+      "removed_positions_1based": [
+        2,
+        8,
+        20
+      ],
+      "score_center": 36.03236863706134,
+      "score_scale": 13.00266501629751,
+      "cv_score_min": 22.128644821110928,
+      "cv_score_max": 124.73527687848254
+    },
+    {
+      "participant_id": "P13",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        6
+      ],
+      "score_center": 36.45763792550174,
+      "score_scale": 15.499684588616308,
+      "cv_score_min": 27.093133555919472,
+      "cv_score_max": 192.1397674218229
+    },
+    {
+      "participant_id": "P14",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        20
+      ],
+      "score_center": 33.582280064201754,
+      "score_scale": 11.983591077542721,
+      "cv_score_min": 19.559324140662984,
+      "cv_score_max": 80.1036134070927
+    },
+    {
+      "participant_id": "P15",
+      "variant": "robust_filter__median_iqr",
+      "enrollment_rows": 20,
+      "kept": 19,
+      "removed_positions_1based": [
+        3
+      ],
+      "score_center": 36.83346674520013,
+      "score_scale": 10.104648087566014,
+      "cv_score_min": 24.458706142761457,
+      "cv_score_max": 90.71101354944436
+    }
+  ],
+  "nested_selected": {
+    "genuine_trials": 297,
+    "genuine_rejected": 180,
+    "impostor_trials": 600,
+    "impostor_accepted": 52,
+    "far": 0.08666666666666667,
+    "frr": 0.6060606060606061
+  },
+  "baseline": {
+    "genuine_trials": 297,
+    "genuine_rejected": 193,
+    "impostor_trials": 600,
+    "impostor_accepted": 46,
+    "far": 0.07666666666666666,
+    "frr": 0.6498316498316499
+  }
+}

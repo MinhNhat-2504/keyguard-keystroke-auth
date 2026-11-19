@@ -1,0 +1,10 @@
+{
+  "locked_at_utc": "2026-11-15T07:06:02.577232+00:00",
+  "protocol": "docs/ACCOUNT_BENEFIT_EXTERNAL_PROTOCOL.md",
+  "protocol_sha256": "6dc0d6b1a0b0c140f450ca315dee75331212171426d637d7cd416a8f8cf25fbc",
+  "phase": "before_new_source_download_audit_and_scoring",
+  "method": "baseline_vs_shrink25_only",
+  "primary": "delta_macro_frr<0 and delta_macro_far<=0",
+  "broad_benefit": "primary and count(delta_frr<0 and delta_far<=0)>N/2",
+  "scoring_started": false
+}

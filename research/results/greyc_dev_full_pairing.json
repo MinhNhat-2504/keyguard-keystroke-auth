@@ -1,0 +1,504 @@
+{
+  "completed_at_utc": "2026-11-15T14:54:41.858769+00:00",
+  "started_sha256": "5dfc57b76c9db2404ec7358852cef21be15aa144ce302c261a306efa7d87d7d3",
+  "n_dev": 42,
+  "captures": 4405,
+  "resolved": 4404,
+  "unresolved": 1,
+  "source_vectors_exact_match": 4403,
+  "source_vector_mismatch": 1,
+  "modifier_captures": 4,
+  "release_order_changed": 1,
+  "issue_counts": {
+    "unbalanced": 1
+  },
+  "per_vector_mismatch": {
+    "p_pp.txt": 0,
+    "p_pr.txt": 1,
+    "p_rp.txt": 1,
+    "p_rr.txt": 1
+  },
+  "cohorts": [
+    {
+      "cohort": "enrollment",
+      "captures": 840,
+      "resolved": 840,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 1
+    },
+    {
+      "cohort": "later_dev",
+      "captures": 3565,
+      "resolved": 3564,
+      "unresolved": 1,
+      "vector_mismatch": 1,
+      "modifier_captures": 3
+    }
+  ],
+  "accounts": [
+    {
+      "participant_id": "user_001",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_002",
+      "captures": 219,
+      "resolved": 219,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_004",
+      "captures": 223,
+      "resolved": 223,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_005",
+      "captures": 89,
+      "resolved": 89,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 1
+    },
+    {
+      "participant_id": "user_007",
+      "captures": 40,
+      "resolved": 40,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_011",
+      "captures": 40,
+      "resolved": 40,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_016",
+      "captures": 50,
+      "resolved": 50,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_019",
+      "captures": 202,
+      "resolved": 202,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_021",
+      "captures": 109,
+      "resolved": 109,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_022",
+      "captures": 92,
+      "resolved": 92,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_025",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_026",
+      "captures": 98,
+      "resolved": 98,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_030",
+      "captures": 370,
+      "resolved": 370,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_031",
+      "captures": 86,
+      "resolved": 86,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_033",
+      "captures": 220,
+      "resolved": 220,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_034",
+      "captures": 59,
+      "resolved": 59,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_037",
+      "captures": 137,
+      "resolved": 137,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 2
+    },
+    {
+      "participant_id": "user_039",
+      "captures": 75,
+      "resolved": 75,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_041",
+      "captures": 261,
+      "resolved": 261,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_044",
+      "captures": 78,
+      "resolved": 78,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_046",
+      "captures": 132,
+      "resolved": 132,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_047",
+      "captures": 109,
+      "resolved": 109,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_050",
+      "captures": 100,
+      "resolved": 100,
+      "unresolved": 0,
+      "vector_mismatch": 1,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_052",
+      "captures": 108,
+      "resolved": 108,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 1
+    },
+    {
+      "participant_id": "user_055",
+      "captures": 39,
+      "resolved": 39,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_057",
+      "captures": 153,
+      "resolved": 153,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_060",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_062",
+      "captures": 118,
+      "resolved": 118,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_065",
+      "captures": 118,
+      "resolved": 118,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_067",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_069",
+      "captures": 35,
+      "resolved": 35,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_075",
+      "captures": 117,
+      "resolved": 117,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_078",
+      "captures": 240,
+      "resolved": 240,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_084",
+      "captures": 69,
+      "resolved": 69,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_087",
+      "captures": 218,
+      "resolved": 218,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_089",
+      "captures": 40,
+      "resolved": 40,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_102",
+      "captures": 30,
+      "resolved": 29,
+      "unresolved": 1,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_104",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_111",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_112",
+      "captures": 68,
+      "resolved": 68,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_116",
+      "captures": 53,
+      "resolved": 53,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    },
+    {
+      "participant_id": "user_117",
+      "captures": 30,
+      "resolved": 30,
+      "unresolved": 0,
+      "vector_mismatch": 0,
+      "modifier_captures": 0
+    }
+  ],
+  "notable_cases": [
+    {
+      "case": 512,
+      "participant_id": "user_005",
+      "cohort": "later_dev",
+      "status": "resolved",
+      "paired_keys": 6,
+      "modifier_events": 1,
+      "source_vector_comparable": true,
+      "all_vectors_match": true,
+      "release_order_changed": false,
+      "issues": "",
+      "p_pp_match": true,
+      "p_pr_match": true,
+      "p_rp_match": true,
+      "p_rr_match": true,
+      "p_pp_max_abs_delta_ms": 0.0,
+      "p_pr_max_abs_delta_ms": 0.0,
+      "p_rp_max_abs_delta_ms": 0.0,
+      "p_rr_max_abs_delta_ms": 0.0
+    },
+    {
+      "case": 1961,
+      "participant_id": "user_037",
+      "cohort": "enrollment",
+      "status": "resolved",
+      "paired_keys": 6,
+      "modifier_events": 1,
+      "source_vector_comparable": true,
+      "all_vectors_match": true,
+      "release_order_changed": false,
+      "issues": "",
+      "p_pp_match": true,
+      "p_pr_match": true,
+      "p_rp_match": true,
+      "p_rr_match": true,
+      "p_pp_max_abs_delta_ms": 0.0,
+      "p_pr_max_abs_delta_ms": 0.0,
+      "p_rp_max_abs_delta_ms": 0.0,
+      "p_rr_max_abs_delta_ms": 0.0
+    },
+    {
+      "case": 2002,
+      "participant_id": "user_037",
+      "cohort": "later_dev",
+      "status": "resolved",
+      "paired_keys": 6,
+      "modifier_events": 1,
+      "source_vector_comparable": true,
+      "all_vectors_match": true,
+      "release_order_changed": false,
+      "issues": "",
+      "p_pp_match": true,
+      "p_pr_match": true,
+      "p_rp_match": true,
+      "p_rr_match": true,
+      "p_pp_max_abs_delta_ms": 0.0,
+      "p_pr_max_abs_delta_ms": 0.0,
+      "p_rp_max_abs_delta_ms": 0.0,
+      "p_rr_max_abs_delta_ms": 0.0
+    },
+    {
+      "case": 2778,
+      "participant_id": "user_050",
+      "cohort": "later_dev",
+      "status": "resolved",
+      "paired_keys": 6,
+      "modifier_events": 0,
+      "source_vector_comparable": true,
+      "all_vectors_match": false,
+      "release_order_changed": true,
+      "issues": "",
+      "p_pp_match": true,
+      "p_pr_match": false,
+      "p_rp_match": false,
+      "p_rr_match": false,
+      "p_pp_max_abs_delta_ms": 0.0,
+      "p_pr_max_abs_delta_ms": 1.0,
+      "p_rp_max_abs_delta_ms": 1.0,
+      "p_rr_max_abs_delta_ms": 2.0
+    },
+    {
+      "case": 2924,
+      "participant_id": "user_052",
+      "cohort": "later_dev",
+      "status": "resolved",
+      "paired_keys": 6,
+      "modifier_events": 1,
+      "source_vector_comparable": true,
+      "all_vectors_match": true,
+      "release_order_changed": false,
+      "issues": "",
+      "p_pp_match": true,
+      "p_pr_match": true,
+      "p_rp_match": true,
+      "p_rr_match": true,
+      "p_pp_max_abs_delta_ms": 0.0,
+      "p_pr_max_abs_delta_ms": 0.0,
+      "p_rp_max_abs_delta_ms": 0.0,
+      "p_rr_max_abs_delta_ms": 0.0
+    },
+    {
+      "case": 4193,
+      "participant_id": "user_102",
+      "cohort": "later_dev",
+      "status": "unresolved",
+      "paired_keys": 6,
+      "modifier_events": 0,
+      "source_vector_comparable": false,
+      "all_vectors_match": null,
+      "release_order_changed": false,
+      "issues": "unbalanced:255",
+      "p_pp_match": null,
+      "p_pr_match": null,
+      "p_rp_match": null,
+      "p_rr_match": null,
+      "p_pp_max_abs_delta_ms": null,
+      "p_pr_max_abs_delta_ms": null,
+      "p_rp_max_abs_delta_ms": null,
+      "p_rr_max_abs_delta_ms": null
+    }
+  ],
+  "private_sha256": "c2091139fad607d1dd6b459fef5601631e7eea68e558e6fd5d71518780ad26ba",
+  "protected_unchanged": true,
+  "test_used": false,
+  "scoring_or_threshold_selection": false,
+  "raw_or_adapter_modified": false
+}

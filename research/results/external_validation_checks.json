@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-13",
+  "source": "KeyRecs fixed-text Zenodo7886743 CC BY4.0",
+  "freeze_sha256": "be80e8833994e388d27a814aa4e525a7bf29cef09308ed5286caa7c3e4e9288a",
+  "frozen_before_first_evaluation": true,
+  "frozen_code_unchanged": true,
+  "raw_checksum_verified": true,
+  "production_config_unchanged": true,
+  "dev_id_count": 66,
+  "test_id_count": 33,
+  "feature_count": 47,
+  "genuine_test_trials": 3301,
+  "impostor_test_trials": 10560,
+  "csv_rows": {
+    "external_comparison.csv": 9,
+    "external_account_errors.csv": 297,
+    "external_adaptation.csv": 99
+  },
+  "exact_reproduction_checked": true,
+  "python_tests_passed": 50,
+  "subtests_passed": 4,
+  "new_tests": 5,
+  "full_sklearn_suite_rerun": false,
+  "environment": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6"
+  },
+  "interpretation": "external-source verification, not public preregistration; no claim of strong significance or direct CMU tau transfer"
+}

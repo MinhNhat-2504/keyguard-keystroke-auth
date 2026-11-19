@@ -1,0 +1,35 @@
+{
+  "completed_at_utc": "2026-11-14T17:48:54.083861+00:00",
+  "freeze_sha256": "383c001ebc55e7b9e223806c7ec1e068db23c6a86afb65fb768edc7994fc95fb",
+  "scope": "DEV first20 S1 only; no test or candidate scores",
+  "datasets": [
+    {
+      "dataset": "CMU",
+      "dev_accounts": 36,
+      "profile_feature_cells": 1116,
+      "floor_cells": 0,
+      "mad_prior_ratio_below_point1": 0,
+      "largest_dev_oof_contribution_feature_indices": [
+        24,
+        8,
+        7,
+        28,
+        12
+      ]
+    },
+    {
+      "dataset": "KeyRecs fixed-text",
+      "dev_accounts": 66,
+      "profile_feature_cells": 3102,
+      "floor_cells": 0,
+      "mad_prior_ratio_below_point1": 8,
+      "largest_dev_oof_contribution_feature_indices": [
+        10,
+        40,
+        35,
+        16,
+        17
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-13",
+  "variants": 6,
+  "enrollment_accounts": 90,
+  "paired_subjects": 15,
+  "paired_policy_arms": 120,
+  "csv_rows": {
+    "enrollment_comparison.csv": 18,
+    "contamination_checkpoints.csv": 600
+  },
+  "original_research_unchanged": true,
+  "config_unchanged": true,
+  "cmu_hash_verified": true,
+  "cv_selection_ids_verified": true,
+  "python_tests_passed": 36,
+  "subtests_passed": 4,
+  "new_tests": 8,
+  "full_sklearn_suite_rerun": false
+}

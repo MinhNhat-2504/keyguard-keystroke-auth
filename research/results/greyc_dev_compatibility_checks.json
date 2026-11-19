@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "dev_accounts": 42,
+  "captures": 4405,
+  "raw_formula_comparable_captures": 4400,
+  "unresolved_raw_alignment_captures": 5,
+  "raw_code_order_mismatches": 6,
+  "ua_totals": {
+    "seen_enrollment_ua": {
+      "trials": 791,
+      "rejected": 562,
+      "pooled_frr": 0.7104930467762326
+    },
+    "unseen_enrollment_ua": {
+      "trials": 2774,
+      "rejected": 2215,
+      "pooled_frr": 0.7984859408795962
+    },
+    "unknown": {
+      "trials": 0,
+      "rejected": 0,
+      "pooled_frr": null
+    }
+  },
+  "paired_accounts": 22,
+  "paired_delta_frr_fraction": "116960226715113368507/938438511605902707400",
+  "protected_unchanged": true,
+  "no_test_scoring_or_threshold_selection": true,
+  "source_audit_sha256": "dac00e5ff0dc0a80c02c903d27c3fd0b4ecf78d95cb0e3815048e548f021363e",
+  "synthetic_tests_passed": 4
+}

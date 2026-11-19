@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "comparisons": 5,
+  "metrics": 30,
+  "independent_scipy_paired_bootstrap": true,
+  "source_sha256": "4d92bf49b1cef91bc385c2e8584495af98ac7efe5aae596b90017f1e6106c180",
+  "not_population_coverage_proof": true
+}

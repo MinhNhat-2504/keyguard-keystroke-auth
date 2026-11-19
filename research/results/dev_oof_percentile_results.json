@@ -1,0 +1,506 @@
+{
+  "completed_at_utc": "2026-11-15T14:10:20.982559+00:00",
+  "freeze_sha256": "a625ffa1ea9a5224ab2198ab890d5d9d2b7c9721d2302ac52fd8e20d0d61e786",
+  "scope": "Development on previously viewed DEV, not independent validation",
+  "arms": [
+    {
+      "method": "baseline",
+      "threshold": -0.49857310343019434,
+      "calibration_impostor_trials": 7560,
+      "calibration_impostor_accepted": 378,
+      "accounts": [
+        {
+          "participant_id": "user_004",
+          "genuine_trials": 203,
+          "genuine_rejected": 195,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_011",
+          "genuine_trials": 20,
+          "genuine_rejected": 20,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_021",
+          "genuine_trials": 89,
+          "genuine_rejected": 73,
+          "impostor_trials": 130,
+          "impostor_accepted": 1
+        },
+        {
+          "participant_id": "user_026",
+          "genuine_trials": 78,
+          "genuine_rejected": 68,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_033",
+          "genuine_trials": 200,
+          "genuine_rejected": 184,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_039",
+          "genuine_trials": 55,
+          "genuine_rejected": 50,
+          "impostor_trials": 130,
+          "impostor_accepted": 10
+        },
+        {
+          "participant_id": "user_046",
+          "genuine_trials": 112,
+          "genuine_rejected": 93,
+          "impostor_trials": 130,
+          "impostor_accepted": 2
+        },
+        {
+          "participant_id": "user_052",
+          "genuine_trials": 88,
+          "genuine_rejected": 61,
+          "impostor_trials": 130,
+          "impostor_accepted": 22
+        },
+        {
+          "participant_id": "user_060",
+          "genuine_trials": 10,
+          "genuine_rejected": 8,
+          "impostor_trials": 130,
+          "impostor_accepted": 3
+        },
+        {
+          "participant_id": "user_067",
+          "genuine_trials": 10,
+          "genuine_rejected": 8,
+          "impostor_trials": 130,
+          "impostor_accepted": 6
+        },
+        {
+          "participant_id": "user_078",
+          "genuine_trials": 220,
+          "genuine_rejected": 145,
+          "impostor_trials": 130,
+          "impostor_accepted": 2
+        },
+        {
+          "participant_id": "user_089",
+          "genuine_trials": 20,
+          "genuine_rejected": 14,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_111",
+          "genuine_trials": 10,
+          "genuine_rejected": 3,
+          "impostor_trials": 130,
+          "impostor_accepted": 7
+        },
+        {
+          "participant_id": "user_117",
+          "genuine_trials": 10,
+          "genuine_rejected": 1,
+          "impostor_trials": 130,
+          "impostor_accepted": 3
+        }
+      ]
+    },
+    {
+      "method": "oof_percentile",
+      "threshold": 0.3571428571428571,
+      "calibration_impostor_trials": 7560,
+      "calibration_impostor_accepted": 296,
+      "accounts": [
+        {
+          "participant_id": "user_004",
+          "genuine_trials": 203,
+          "genuine_rejected": 195,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_011",
+          "genuine_trials": 20,
+          "genuine_rejected": 18,
+          "impostor_trials": 130,
+          "impostor_accepted": 8
+        },
+        {
+          "participant_id": "user_021",
+          "genuine_trials": 89,
+          "genuine_rejected": 73,
+          "impostor_trials": 130,
+          "impostor_accepted": 1
+        },
+        {
+          "participant_id": "user_026",
+          "genuine_trials": 78,
+          "genuine_rejected": 73,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_033",
+          "genuine_trials": 200,
+          "genuine_rejected": 187,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_039",
+          "genuine_trials": 55,
+          "genuine_rejected": 50,
+          "impostor_trials": 130,
+          "impostor_accepted": 8
+        },
+        {
+          "participant_id": "user_046",
+          "genuine_trials": 112,
+          "genuine_rejected": 86,
+          "impostor_trials": 130,
+          "impostor_accepted": 3
+        },
+        {
+          "participant_id": "user_052",
+          "genuine_trials": 88,
+          "genuine_rejected": 38,
+          "impostor_trials": 130,
+          "impostor_accepted": 38
+        },
+        {
+          "participant_id": "user_060",
+          "genuine_trials": 10,
+          "genuine_rejected": 8,
+          "impostor_trials": 130,
+          "impostor_accepted": 2
+        },
+        {
+          "participant_id": "user_067",
+          "genuine_trials": 10,
+          "genuine_rejected": 9,
+          "impostor_trials": 130,
+          "impostor_accepted": 5
+        },
+        {
+          "participant_id": "user_078",
+          "genuine_trials": 220,
+          "genuine_rejected": 142,
+          "impostor_trials": 130,
+          "impostor_accepted": 2
+        },
+        {
+          "participant_id": "user_089",
+          "genuine_trials": 20,
+          "genuine_rejected": 13,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        },
+        {
+          "participant_id": "user_111",
+          "genuine_trials": 10,
+          "genuine_rejected": 3,
+          "impostor_trials": 130,
+          "impostor_accepted": 7
+        },
+        {
+          "participant_id": "user_117",
+          "genuine_trials": 10,
+          "genuine_rejected": 2,
+          "impostor_trials": 130,
+          "impostor_accepted": 0
+        }
+      ]
+    }
+  ],
+  "account_benefit": {
+    "n_targets": 14,
+    "delta_macro": {
+      "far": {
+        "fraction": "9/910",
+        "value": 0.00989010989010989
+      },
+      "frr": {
+        "fraction": "-3251/218400",
+        "value": -0.014885531135531135
+      }
+    },
+    "pooled": {
+      "baseline": {
+        "far": {
+          "fraction": "2/65",
+          "value": 0.03076923076923077
+        },
+        "frr": {
+          "fraction": "923/1125",
+          "value": 0.8204444444444444
+        }
+      },
+      "candidate": {
+        "far": {
+          "fraction": "37/910",
+          "value": 0.04065934065934066
+        },
+        "frr": {
+          "fraction": "299/375",
+          "value": 0.7973333333333333
+        }
+      }
+    },
+    "sign_grid_far_rows_frr_columns": {
+      "negative": {
+        "negative": 0,
+        "zero": 2,
+        "positive": 2
+      },
+      "zero": {
+        "negative": 2,
+        "zero": 3,
+        "positive": 2
+      },
+      "positive": {
+        "negative": 3,
+        "zero": 0,
+        "positive": 0
+      }
+    },
+    "guarded_frr_benefit_count": 2,
+    "any_error_increased_count": 7,
+    "primary_met": false,
+    "broad_benefit_met": false,
+    "distribution_nearest_rank": {
+      "far": {
+        "min": {
+          "fraction": "-3/130",
+          "value": -0.023076923076923078
+        },
+        "q25": {
+          "fraction": "-1/130",
+          "value": -0.007692307692307693
+        },
+        "median": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "q75": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "max": {
+          "fraction": "8/65",
+          "value": 0.12307692307692308
+        }
+      },
+      "frr": {
+        "min": {
+          "fraction": "-23/88",
+          "value": -0.26136363636363635
+        },
+        "q25": {
+          "fraction": "-1/20",
+          "value": -0.05
+        },
+        "median": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "q75": {
+          "fraction": "3/200",
+          "value": 0.015
+        },
+        "max": {
+          "fraction": "1/10",
+          "value": 0.1
+        }
+      }
+    },
+    "accounts": [
+      {
+        "participant_id": "user_004",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_011",
+        "delta_far": {
+          "fraction": "4/65",
+          "value": 0.06153846153846154
+        },
+        "delta_frr": {
+          "fraction": "-1/10",
+          "value": -0.1
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      },
+      {
+        "participant_id": "user_021",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_026",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "5/78",
+          "value": 0.0641025641025641
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      },
+      {
+        "participant_id": "user_033",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "3/200",
+          "value": 0.015
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      },
+      {
+        "participant_id": "user_039",
+        "delta_far": {
+          "fraction": "-1/65",
+          "value": -0.015384615384615385
+        },
+        "delta_frr": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_046",
+        "delta_far": {
+          "fraction": "1/130",
+          "value": 0.007692307692307693
+        },
+        "delta_frr": {
+          "fraction": "-1/16",
+          "value": -0.0625
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      },
+      {
+        "participant_id": "user_052",
+        "delta_far": {
+          "fraction": "8/65",
+          "value": 0.12307692307692308
+        },
+        "delta_frr": {
+          "fraction": "-23/88",
+          "value": -0.26136363636363635
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      },
+      {
+        "participant_id": "user_060",
+        "delta_far": {
+          "fraction": "-1/130",
+          "value": -0.007692307692307693
+        },
+        "delta_frr": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_067",
+        "delta_far": {
+          "fraction": "-1/130",
+          "value": -0.007692307692307693
+        },
+        "delta_frr": {
+          "fraction": "1/10",
+          "value": 0.1
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      },
+      {
+        "participant_id": "user_078",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "-3/220",
+          "value": -0.013636363636363636
+        },
+        "guarded_frr_benefit": true,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_089",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "-1/20",
+          "value": -0.05
+        },
+        "guarded_frr_benefit": true,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_111",
+        "delta_far": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "delta_frr": {
+          "fraction": "0",
+          "value": 0.0
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": false
+      },
+      {
+        "participant_id": "user_117",
+        "delta_far": {
+          "fraction": "-3/130",
+          "value": -0.023076923076923078
+        },
+        "delta_frr": {
+          "fraction": "1/10",
+          "value": 0.1
+        },
+        "guarded_frr_benefit": false,
+        "any_error_increased": true
+      }
+    ]
+  },
+  "original_test_used": false
+}

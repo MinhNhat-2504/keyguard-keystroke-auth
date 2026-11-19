@@ -1,0 +1,796 @@
+{
+  "schema_version": 1,
+  "state": "frozen_before_first_evaluation",
+  "date": "2026-11-13",
+  "frozen_at_utc": "2026-11-13T06:47:54.002973+00:00",
+  "dataset": {
+    "name": "KeyRecs fixed-text",
+    "record": "https://zenodo.org/records/7886743",
+    "article": "https://doi.org/10.1016/j.dib.2023.109509",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "authors": [
+      "Tiago Dias",
+      "João Vitorino",
+      "Eva Maia",
+      "Orlando Sousa",
+      "Isabel Praça"
+    ],
+    "file": "data/raw/keyrecs/fixed-text.csv",
+    "md5": "f3c2ef3a42625f4df7183ea36d4543db",
+    "sha256": "d4943e94c6c05ec871bd1d1e9fb424ea36c9063058a36930e3700d0683bd89e9"
+  },
+  "audit": {
+    "raw_rows": 19772,
+    "retained_rows": 19772,
+    "excluded": [],
+    "participant_count": 99,
+    "eligible_ids": [
+      "p001",
+      "p002",
+      "p003",
+      "p004",
+      "p005",
+      "p006",
+      "p007",
+      "p008",
+      "p009",
+      "p010",
+      "p011",
+      "p012",
+      "p013",
+      "p014",
+      "p015",
+      "p016",
+      "p017",
+      "p018",
+      "p019",
+      "p020",
+      "p021",
+      "p022",
+      "p023",
+      "p024",
+      "p025",
+      "p026",
+      "p027",
+      "p028",
+      "p029",
+      "p030",
+      "p031",
+      "p032",
+      "p033",
+      "p034",
+      "p035",
+      "p036",
+      "p037",
+      "p038",
+      "p039",
+      "p040",
+      "p041",
+      "p042",
+      "p043",
+      "p044",
+      "p045",
+      "p046",
+      "p047",
+      "p048",
+      "p049",
+      "p050",
+      "p051",
+      "p052",
+      "p053",
+      "p054",
+      "p055",
+      "p056",
+      "p057",
+      "p058",
+      "p059",
+      "p060",
+      "p061",
+      "p062",
+      "p063",
+      "p064",
+      "p065",
+      "p066",
+      "p067",
+      "p068",
+      "p069",
+      "p070",
+      "p071",
+      "p072",
+      "p073",
+      "p074",
+      "p075",
+      "p076",
+      "p077",
+      "p078",
+      "p079",
+      "p080",
+      "p081",
+      "p082",
+      "p083",
+      "p084",
+      "p085",
+      "p086",
+      "p087",
+      "p088",
+      "p089",
+      "p090",
+      "p091",
+      "p092",
+      "p093",
+      "p094",
+      "p095",
+      "p097",
+      "p098",
+      "p099",
+      "p100"
+    ],
+    "ineligible_ids": [],
+    "feature_count": 47,
+    "raw_feature_names": [
+      "DU.v.v",
+      "DD.v.p",
+      "DU.v.p",
+      "UD.v.p",
+      "UU.v.p",
+      "DU.p.p",
+      "DD.p.w",
+      "DU.p.w",
+      "UD.p.w",
+      "UU.p.w",
+      "DU.w.w",
+      "DD.w.j",
+      "DU.w.j",
+      "UD.w.j",
+      "UU.w.j",
+      "DU.j.j",
+      "DD.j.k",
+      "DU.j.k",
+      "UD.j.k",
+      "UU.j.k",
+      "DU.k.k",
+      "DD.k.e",
+      "DU.k.e",
+      "UD.k.e",
+      "UU.k.e",
+      "DU.e.e",
+      "DD.e.u",
+      "DU.e.u",
+      "UD.e.u",
+      "UU.e.u",
+      "DU.u.u",
+      "DD.u.r",
+      "DU.u.r",
+      "UD.u.r",
+      "UU.u.r",
+      "DU.r.r",
+      "DD.r.k",
+      "DU.r.k",
+      "UD.r.k",
+      "UU.r.k",
+      "DU.k.k",
+      "DD.k.b",
+      "DU.k.b",
+      "UD.k.b",
+      "UU.k.b",
+      "DU.b.b",
+      "total time"
+    ],
+    "feature_names": [
+      "DU.v.v",
+      "DD.v.p",
+      "DU.v.p",
+      "UD.v.p",
+      "UU.v.p",
+      "DU.p.p",
+      "DD.p.w",
+      "DU.p.w",
+      "UD.p.w",
+      "UU.p.w",
+      "DU.w.w",
+      "DD.w.j",
+      "DU.w.j",
+      "UD.w.j",
+      "UU.w.j",
+      "DU.j.j",
+      "DD.j.k",
+      "DU.j.k",
+      "UD.j.k",
+      "UU.j.k",
+      "DU.k.k",
+      "DD.k.e",
+      "DU.k.e",
+      "UD.k.e",
+      "UU.k.e",
+      "DU.e.e",
+      "DD.e.u",
+      "DU.e.u",
+      "UD.e.u",
+      "UU.e.u",
+      "DU.u.u",
+      "DD.u.r",
+      "DU.u.r",
+      "UD.u.r",
+      "UU.u.r",
+      "DU.r.r",
+      "DD.r.k",
+      "DU.r.k",
+      "UD.r.k",
+      "UU.r.k",
+      "DU.k.k__occ2",
+      "DD.k.b",
+      "DU.k.b",
+      "UD.k.b",
+      "UU.k.b",
+      "DU.b.b",
+      "total time"
+    ],
+    "header_duplicate_names": {
+      "DU.k.k": 2
+    },
+    "session_rows": {
+      "1": 9878,
+      "2": 9894
+    },
+    "eligible_session_counts": {
+      "p001": {
+        "1": 100,
+        "2": 100
+      },
+      "p002": {
+        "1": 100,
+        "2": 100
+      },
+      "p003": {
+        "1": 100,
+        "2": 100
+      },
+      "p004": {
+        "1": 100,
+        "2": 100
+      },
+      "p005": {
+        "1": 100,
+        "2": 100
+      },
+      "p006": {
+        "1": 100,
+        "2": 100
+      },
+      "p007": {
+        "1": 100,
+        "2": 100
+      },
+      "p008": {
+        "1": 100,
+        "2": 100
+      },
+      "p009": {
+        "1": 99,
+        "2": 100
+      },
+      "p010": {
+        "1": 100,
+        "2": 100
+      },
+      "p011": {
+        "1": 100,
+        "2": 100
+      },
+      "p012": {
+        "1": 100,
+        "2": 99
+      },
+      "p013": {
+        "1": 99,
+        "2": 100
+      },
+      "p014": {
+        "1": 100,
+        "2": 100
+      },
+      "p015": {
+        "1": 100,
+        "2": 100
+      },
+      "p016": {
+        "1": 100,
+        "2": 100
+      },
+      "p017": {
+        "1": 100,
+        "2": 100
+      },
+      "p018": {
+        "1": 100,
+        "2": 100
+      },
+      "p019": {
+        "1": 100,
+        "2": 100
+      },
+      "p020": {
+        "1": 100,
+        "2": 107
+      },
+      "p021": {
+        "1": 100,
+        "2": 100
+      },
+      "p022": {
+        "1": 100,
+        "2": 100
+      },
+      "p023": {
+        "1": 100,
+        "2": 100
+      },
+      "p024": {
+        "1": 100,
+        "2": 100
+      },
+      "p025": {
+        "1": 100,
+        "2": 100
+      },
+      "p026": {
+        "1": 95,
+        "2": 99
+      },
+      "p027": {
+        "1": 100,
+        "2": 100
+      },
+      "p028": {
+        "1": 100,
+        "2": 100
+      },
+      "p029": {
+        "1": 100,
+        "2": 100
+      },
+      "p030": {
+        "1": 100,
+        "2": 100
+      },
+      "p031": {
+        "1": 100,
+        "2": 100
+      },
+      "p032": {
+        "1": 100,
+        "2": 100
+      },
+      "p033": {
+        "1": 100,
+        "2": 100
+      },
+      "p034": {
+        "1": 100,
+        "2": 100
+      },
+      "p035": {
+        "1": 100,
+        "2": 99
+      },
+      "p036": {
+        "1": 100,
+        "2": 100
+      },
+      "p037": {
+        "1": 100,
+        "2": 100
+      },
+      "p038": {
+        "1": 100,
+        "2": 100
+      },
+      "p039": {
+        "1": 100,
+        "2": 100
+      },
+      "p040": {
+        "1": 100,
+        "2": 100
+      },
+      "p041": {
+        "1": 100,
+        "2": 100
+      },
+      "p042": {
+        "1": 99,
+        "2": 99
+      },
+      "p043": {
+        "1": 100,
+        "2": 100
+      },
+      "p044": {
+        "1": 100,
+        "2": 100
+      },
+      "p045": {
+        "1": 100,
+        "2": 100
+      },
+      "p046": {
+        "1": 100,
+        "2": 100
+      },
+      "p047": {
+        "1": 100,
+        "2": 99
+      },
+      "p048": {
+        "1": 100,
+        "2": 100
+      },
+      "p049": {
+        "1": 100,
+        "2": 100
+      },
+      "p050": {
+        "1": 97,
+        "2": 100
+      },
+      "p051": {
+        "1": 100,
+        "2": 99
+      },
+      "p052": {
+        "1": 100,
+        "2": 100
+      },
+      "p053": {
+        "1": 100,
+        "2": 99
+      },
+      "p054": {
+        "1": 98,
+        "2": 99
+      },
+      "p055": {
+        "1": 100,
+        "2": 100
+      },
+      "p056": {
+        "1": 100,
+        "2": 100
+      },
+      "p057": {
+        "1": 100,
+        "2": 100
+      },
+      "p058": {
+        "1": 100,
+        "2": 100
+      },
+      "p059": {
+        "1": 100,
+        "2": 100
+      },
+      "p060": {
+        "1": 100,
+        "2": 100
+      },
+      "p061": {
+        "1": 100,
+        "2": 100
+      },
+      "p062": {
+        "1": 100,
+        "2": 100
+      },
+      "p063": {
+        "1": 100,
+        "2": 100
+      },
+      "p064": {
+        "1": 100,
+        "2": 100
+      },
+      "p065": {
+        "1": 99,
+        "2": 100
+      },
+      "p066": {
+        "1": 100,
+        "2": 100
+      },
+      "p067": {
+        "1": 99,
+        "2": 100
+      },
+      "p068": {
+        "1": 100,
+        "2": 100
+      },
+      "p069": {
+        "1": 100,
+        "2": 100
+      },
+      "p070": {
+        "1": 100,
+        "2": 100
+      },
+      "p071": {
+        "1": 100,
+        "2": 100
+      },
+      "p072": {
+        "1": 99,
+        "2": 100
+      },
+      "p073": {
+        "1": 100,
+        "2": 98
+      },
+      "p074": {
+        "1": 100,
+        "2": 100
+      },
+      "p075": {
+        "1": 100,
+        "2": 100
+      },
+      "p076": {
+        "1": 100,
+        "2": 100
+      },
+      "p077": {
+        "1": 100,
+        "2": 100
+      },
+      "p078": {
+        "1": 99,
+        "2": 100
+      },
+      "p079": {
+        "1": 100,
+        "2": 100
+      },
+      "p080": {
+        "1": 100,
+        "2": 100
+      },
+      "p081": {
+        "1": 100,
+        "2": 101
+      },
+      "p082": {
+        "1": 100,
+        "2": 99
+      },
+      "p083": {
+        "1": 100,
+        "2": 100
+      },
+      "p084": {
+        "1": 100,
+        "2": 100
+      },
+      "p085": {
+        "1": 99,
+        "2": 99
+      },
+      "p086": {
+        "1": 100,
+        "2": 100
+      },
+      "p087": {
+        "1": 98,
+        "2": 100
+      },
+      "p088": {
+        "1": 100,
+        "2": 100
+      },
+      "p089": {
+        "1": 100,
+        "2": 99
+      },
+      "p090": {
+        "1": 100,
+        "2": 100
+      },
+      "p091": {
+        "1": 100,
+        "2": 100
+      },
+      "p092": {
+        "1": 99,
+        "2": 99
+      },
+      "p093": {
+        "1": 100,
+        "2": 100
+      },
+      "p094": {
+        "1": 100,
+        "2": 100
+      },
+      "p095": {
+        "1": 100,
+        "2": 100
+      },
+      "p097": {
+        "1": 100,
+        "2": 100
+      },
+      "p098": {
+        "1": 100,
+        "2": 100
+      },
+      "p099": {
+        "1": 99,
+        "2": 100
+      },
+      "p100": {
+        "1": 100,
+        "2": 100
+      }
+    }
+  },
+  "dev_ids": [
+    "p001",
+    "p002",
+    "p003",
+    "p004",
+    "p005",
+    "p006",
+    "p008",
+    "p010",
+    "p011",
+    "p016",
+    "p018",
+    "p019",
+    "p021",
+    "p022",
+    "p024",
+    "p025",
+    "p026",
+    "p027",
+    "p028",
+    "p029",
+    "p030",
+    "p033",
+    "p034",
+    "p038",
+    "p039",
+    "p040",
+    "p041",
+    "p043",
+    "p044",
+    "p046",
+    "p047",
+    "p049",
+    "p051",
+    "p052",
+    "p053",
+    "p056",
+    "p057",
+    "p058",
+    "p060",
+    "p061",
+    "p062",
+    "p063",
+    "p064",
+    "p069",
+    "p070",
+    "p071",
+    "p073",
+    "p074",
+    "p076",
+    "p077",
+    "p079",
+    "p080",
+    "p081",
+    "p083",
+    "p084",
+    "p086",
+    "p087",
+    "p089",
+    "p091",
+    "p092",
+    "p093",
+    "p094",
+    "p095",
+    "p097",
+    "p098",
+    "p100"
+  ],
+  "test_ids": [
+    "p007",
+    "p009",
+    "p012",
+    "p013",
+    "p014",
+    "p015",
+    "p017",
+    "p020",
+    "p023",
+    "p031",
+    "p032",
+    "p035",
+    "p036",
+    "p037",
+    "p042",
+    "p045",
+    "p048",
+    "p050",
+    "p054",
+    "p055",
+    "p059",
+    "p065",
+    "p066",
+    "p067",
+    "p068",
+    "p072",
+    "p075",
+    "p078",
+    "p082",
+    "p085",
+    "p088",
+    "p090",
+    "p099"
+  ],
+  "seed": 42,
+  "schema_clarification_before_scoring": "46 digraph timing columns plus total time; retain all47 timing descriptors. Repeated DU.k.k preserved by position, second named __occ2.",
+  "families": {
+    "baseline": [
+      "keep_all__mean_std"
+    ],
+    "hard_selected": [
+      "hard_filter__mean_std",
+      "hard_filter__median_mad",
+      "hard_filter__median_iqr"
+    ],
+    "soft_selected": [
+      "soft_weight__mean_std",
+      "soft_weight__median_mad",
+      "soft_weight__median_iqr"
+    ],
+    "all_selected": [
+      "keep_all__mean_std",
+      "keep_all__median_mad",
+      "keep_all__median_iqr",
+      "hard_filter__mean_std",
+      "hard_filter__median_mad",
+      "hard_filter__median_iqr",
+      "soft_weight__mean_std",
+      "soft_weight__median_mad",
+      "soft_weight__median_iqr"
+    ]
+  },
+  "external_dev_use": "session1 only, enroll20 then remaining genuine; impostors first5+last5 same partition session1",
+  "external_test_use": "session2 only for genuine and first5+last5 impostors of same test partition; enroll20 session1",
+  "adaptation": {
+    "methods": [
+      "static",
+      "window50",
+      "decay20"
+    ],
+    "dev_threshold": "probe session1 immediately after20 enrollment",
+    "test": "warmup remaining session1 verified genuine, score/update session2; probe at session2 start",
+    "oracle_updates": true,
+    "half_life": 20,
+    "window": 50
+  },
+  "primary_comparison": "soft_selected versus baseline, report FAR/FRR and macro per-account EER/AUC, no universal win if any metric worse",
+  "no_model_scores_in_audit": true,
+  "no_public_preregistration_claim": true,
+  "code_hashes": {
+    "keyguard/external_validation.py": "3e897f9cc4f17133700e3813cf5da104589112ade9e1b41b6806c010bbd666a1",
+    "keyguard/soft_weighting.py": "64c197de80a50f903c398df37fdbadc9f009421a37c2612c484cdc3e7a74fc49",
+    "keyguard/enrollment_study.py": "4e6ec0c377fcf0960c3e1cd73a91db0112a2afd4a87eeccf039023bb0a6423d7",
+    "keyguard/session_adaptation.py": "59f7d06d483acf6ad26c0cf1e9253e7021c909875734b1feaa42d870dc0d6b39",
+    "keyguard/detectors.py": "120273b2b450921c169804ec5c4da897b96e274699a742eaed27f36b1299015a",
+    "keyguard/evaluation.py": "ff46e23c89460e168ad5b9cf3e2b381de63000dfd94620efe07f7f822bce28c4",
+    "keyguard/model.py": "fe8155899f7cb2119198dbf75c0489f7191fffbb555d888def949d54fa670011",
+    "keyguard/research.py": "8c2cc785051692aa317513724340a590ac7ca175ca7b2559c51e10113486c451",
+    "scripts/run_external_validation.py": "95afeb4177a435e0c75948f97d3c8943ed8d214867b99ce813e259f85ba91b33",
+    "docs/EXTERNAL_VALIDATION_PROTOCOL.md": "abec28a4faf3ce99ff32194483f85c0101abd3f6ad0a3e8929c83449a6d88f35"
+  },
+  "production_config_sha256": "4030822013469e91917c137b569499c68b9cae5cb91661f50bb04c9037fceb61"
+}

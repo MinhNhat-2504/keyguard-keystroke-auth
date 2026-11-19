@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.env
+.storage-test/
+*.private-backup.json
+local-test-data/
+research/data/collected/
+consent/

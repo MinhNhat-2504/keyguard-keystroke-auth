@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-13",
+  "repeated_seeds": 10,
+  "outer_folds": 30,
+  "inner_folds": 2,
+  "variants": 9,
+  "enrollment_diagnostics": 135,
+  "csv_rows": {
+    "stability_comparison.csv": 270,
+    "stability_account_errors.csv": 1350,
+    "session_adaptation.csv": 48
+  },
+  "paired_ids_separated": true,
+  "soft_weights_positive": true,
+  "source_config_previous_study_hashes_verified": true,
+  "session_methods": 3,
+  "cmu_subjects": 51,
+  "python_tests_passed": 45,
+  "subtests_passed": 4,
+  "new_tests": 9,
+  "full_sklearn_suite_rerun": false,
+  "interpretation": "dependent repeated splits, no confidence intervals or 150 independent people"
+}

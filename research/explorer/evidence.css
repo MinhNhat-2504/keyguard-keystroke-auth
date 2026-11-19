@@ -1,0 +1,11 @@
+.evidence-glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.evidence-glossary p { background: #f5f8fa; padding: 12px; margin: 0; border-radius: 6px; }
+#evidence-protocols details { border-top: 1px solid #dce5eb; padding: 10px 0; }
+#panel-evidence td { vertical-align: top; }
+#evidence-table td:last-child { min-width: 190px; max-width: 300px; }
+#panel-evidence .single-group tr > :first-child { display: none; }
+#panel-evidence td details p { white-space: normal; overflow-wrap: anywhere; }
+#panel-evidence .table-scroll { margin-bottom: 14px; }
+#panel-evidence .notice { overflow-wrap: anywhere; }
+#panel-evidence h3 { margin-top: 28px; }
+@media(max-width:600px) { .evidence-glossary { grid-template-columns: 1fr; } }

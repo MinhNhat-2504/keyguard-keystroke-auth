@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyGuard - Đăng nhập xác thực nhịp gõ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='readability.css') }}">
+</head>
+<body data-phrase="{{ phrase }}">
+<header class="site-header"><a class="site-brand" href="/">K<span>G</span> / KeyGuard</a><nav class="site-links" aria-label="Điều hướng chính"><a href="/">Thu mẫu</a><a href="/register">Đăng ký</a><a href="/login" aria-current="page">Đăng nhập</a></nav></header>
+<main class="page-shell"><div class="page-intro"><div class="eyebrow">Xác thực tài khoản</div><h1>Đăng nhập bằng nhịp gõ</h1><p>Nhập tên tài khoản, gõ chuỗi mẫu và nhấn Enter. Hệ thống có thể yêu cầu xác minh bổ sung.</p></div><div class="workspace">
+
+<div class="card">
+    <h2>Thông tin xác thực</h2>
+    <label for="username">Tên tài khoản:</label>
+    <input type="text" id="username" placeholder="Nhập tên đăng nhập..." maxlength="50" autocomplete="off">
+
+    <details class="test-opts" id="testOpts" hidden>
+        <summary>Tùy chọn khi thử nghiệm</summary>
+        <label for="role">Vai trò của bạn khi thử:</label>
+        <select id="role">
+            <option value="unspecified">Dùng bình thường</option>
+            <option value="genuine">Tôi là chủ tài khoản</option>
+            <option value="impostor">Tôi đóng vai kẻ gian</option>
+        </select>
+        <label for="testerId">Mã người thử (bắt buộc với vai kẻ gian, ví dụ T01):</label>
+        <input type="text" id="testerId" placeholder="Ví dụ T01 (chữ, số, - hoặc _)" maxlength="20" autocomplete="off">
+    </details>
+
+    <label for="typingInput" style="margin-top: 20px;">Gõ chuỗi xác thực rồi nhấn Enter:</label>
+    <div class="target-text">{{ phrase }}</div>
+
+    <input type="text" id="typingInput" aria-label="Nhập chuỗi xác thực" placeholder="Gõ chuỗi mẫu rồi nhấn Enter" autocomplete="off">
+
+    <div id="resultBox" class="result" role="status" aria-live="polite"></div>
+
+    <div id="otpBox" class="otp-box" role="region" aria-label="Xác minh OTP">
+        <div class="sms" id="smsBox"></div>
+        <label for="otpInput" style="margin-top: 10px;">Nhập mã OTP:</label>
+        <input type="text" id="otpInput" placeholder="6 chữ số" inputmode="numeric" maxlength="6" autocomplete="off">
+        <button id="otpBtn">Xác nhận OTP</button>
+    </div>
+
+    <div class="link">
+        <a href="/register">Chưa có tài khoản? Đăng ký nhịp gõ ngay</a>
+        <br><br>
+        <a href="/">Trang thu thập dữ liệu</a>
+    </div>
+</div>
+<aside class="side-guide" aria-label="Hướng dẫn"><h2>Các bước thực hiện</h2><ol><li><strong>Nhập tên tài khoản</strong>Sử dụng tài khoản đã đăng ký hồ sơ nhịp gõ.</li><li><strong>Gõ chuỗi xác thực</strong>Gõ đúng chuỗi bên dưới theo nhịp tự nhiên, sau đó nhấn Enter.</li><li><strong>Xác minh khi được yêu cầu</strong>Nếu xuất hiện ô OTP, nhập mã theo hướng dẫn để hoàn tất.</li></ol><p class="research-note">KeyGuard · Bài tập lớn Học máy ứng dụng. OTP trong phiên bản này được mô phỏng phục vụ nghiên cứu.</p></aside></div><footer class="page-footer">Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư<br>Giảng viên hướng dẫn: Nguyễn Thái Anh</footer></main>
+<script src="{{ url_for('static', filename='keycapture.js') }}"></script>
+<script>
+    const TARGET_STRING = document.body.dataset.phrase;
+    const $ = (id) => document.getElementById(id);
+    let challengeId = null;
+    let capture = null;
+
+    function showResult(kind, html, isText) {
+        const box = $("resultBox");
+        box.style.display = "block";
+        box.className = "result " + kind;
+        if (isText) box.innerText = html; else box.innerHTML = html;
+    }
+
+    function confidenceLine(c) {
+        return (typeof c === "number" && isFinite(c)) ? `<br>Điểm tin cậy: ${(c * 100).toFixed(1)}%` : "";
+    }
+
+    function esc(s) {
+        const d = document.createElement("div");
+        d.innerText = String(s);
+        return d.innerHTML;
+    }
+
+    function hideOtp() {
+        challengeId = null;
+        $("otpBox").style.display = "none";
+        $("otpInput").value = "";
+    }
+
+    async function onSample(events, err) {
+        hideOtp();
+        if (err) { showResult("danger", "❌ " + err, true); return; }
+        const username = $("username").value.trim();
+        if (!username) {
+            showResult("danger", "❌ Vui lòng nhập tên tài khoản trước khi gõ!", true);
+            return;
+        }
+        const testerId = $("testerId").value.trim();
+        if ($("role").value === "impostor" && !testerId) {
+            showResult("danger", "❌ Vai kẻ gian cần có mã người thử (ví dụ T01).", true);
+            return;
+        }
+        if (testerId && !/^[A-Za-z0-9_-]{1,20}$/.test(testerId)) {
+            showResult("danger", "❌ Mã người thử chỉ gồm chữ không dấu, số, dấu - hoặc _ (tối đa 20 ký tự).", true);
+            return;
+        }
+
+        capture.lock();
+        try {
+            const response = await fetch('/api/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username, events: events, role: $("role").value, tester_id: testerId })
+            });
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                showResult("danger", "❌ " + esc(result.message || "Đăng nhập thất bại."));
+            } else if (result.accepted) {
+                showResult("success", `✅ ${esc(result.message)}${confidenceLine(result.confidence)}`);
+            } else {
+                showResult("danger", `❌ ${esc(result.message)}${confidenceLine(result.confidence)}`);
+                if (result.otp_required) {
+                    challengeId = result.challenge_id;
+                    $("smsBox").innerHTML = result.demo_otp
+                        ? `📱 <b>Tin nhắn giả lập:</b> mã OTP của bạn là <b>${esc(result.demo_otp)}</b> (hiệu lực ${Math.round(result.otp_ttl_seconds / 60)} phút)`
+                        : "📱 Mã OTP đã được gửi (mô phỏng: OTP được in ở console của server).";
+                    $("otpBox").style.display = "block";
+                    // Chế độ demo (server bật KEYGUARD_SHOW_OTP=1): tự điền OTP vào ô, người dùng chỉ cần bấm Xác nhận.
+                    if (result.demo_otp) $("otpInput").value = result.demo_otp;
+                }
+            }
+        } catch (e) {
+            showResult("danger", "❌ Không thể kết nối đến server. Vui lòng thử lại.", true);
+        }
+        capture.unlock(!challengeId);
+        if (challengeId) $("otpInput").focus();
+    }
+
+    let otpInFlight = false;   // đang chờ server trả lời OTP: không cho gửi thêm
+
+    async function submitOtp() {
+        if (otpInFlight) return;                       // Enter giữ / bấm nhiều lần chỉ tạo một request
+        const otp = $("otpInput").value.trim();
+        const myChallenge = challengeId;
+        if (!myChallenge) return;
+        if (!/^\d{6}$/.test(otp)) { showResult("danger", "❌ OTP gồm 6 chữ số.", true); return; }
+        otpInFlight = true;
+        $("otpBtn").disabled = true;
+        $("otpInput").disabled = true;
+        capture.lock();                                // không cho gõ lại (tạo OTP mới) khi đang xác minh
+        try {
+            const response = await fetch('/api/verify-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ challenge_id: myChallenge, otp: otp })
+            });
+            const result = await response.json();
+            if (myChallenge !== challengeId) return;   // không còn là thử thách hiện tại: bỏ phản hồi
+            if (response.ok && result.success) {
+                hideOtp();
+                showResult("success", "✅ " + esc(result.message));
+            } else {
+                showResult("danger", "❌ " + esc(result.message || "Xác minh OTP thất bại."));
+                if (response.status !== 401) hideOtp();   // hết hạn / quá số lần: phải gõ lại để nhận OTP mới
+                else $("otpInput").value = "";
+            }
+        } catch (e) {
+            showResult("danger", "❌ Không thể kết nối đến server. Vui lòng thử lại.", true);
+        } finally {
+            otpInFlight = false;
+            $("otpBtn").disabled = false;
+            $("otpInput").disabled = false;
+            capture.unlock(false);
+            if (challengeId) $("otpInput").focus();
+        }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        // Mục chọn vai trò chỉ hiện khi mở /login?test=1 (dùng cho đợt thử nghiệm); người dùng thường không thấy.
+        if (new URLSearchParams(location.search).has("test")) {
+            $("testOpts").hidden = false;
+            $("testOpts").open = true;   // mở sẵn để không bỏ sót ô mã người thử
+        }
+        capture = attachKeyCapture($("typingInput"), TARGET_STRING, onSample);
+        $("otpBtn").addEventListener("click", submitOtp);
+        $("otpInput").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.repeat) submitOtp(); });
+    });
+</script>
+</body>
+</html>

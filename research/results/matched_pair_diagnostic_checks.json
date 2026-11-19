@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "post-hoc stored-artifact arithmetic, no fitting or threshold selection",
+  "pair_count": 1056,
+  "probe_count": 10560,
+  "test_identities": 33,
+  "decisions_reproduced": {
+    "window50_accepted": 439,
+    "decay20_accepted": 451
+  },
+  "transitions": {
+    "new_false_accept": 50,
+    "recovered_rejection": 38,
+    "accepted_both": 401,
+    "rejected_both": 10071
+  },
+  "thresholds_unchanged": {
+    "window50": -0.3582252078262172,
+    "decay20": -0.35492309501165314
+  },
+  "original_artifacts_and_frozen_code_verified": true,
+  "synthetic_tests_passed": 5,
+  "diagnostics_sha256": "98d86ffd459973eb36d2e8f4b8d0b1b698149a7036f203bd0ae6ce00365c2e52",
+  "tests_sha256": "eb60975591d364a008ce227dd300166947f1490b5cb153e4bfb5f78f96e30fe1",
+  "test_report_sha256": "19444a06c3279aa2e88fc97e9cb3826cacf64e2d69be9bcf2e3e012ecd6ff947",
+  "local_probe_scores_sha256": "bc1e3309867ac648e9ed347f24f46777d5a994751de746e99757f38dd247339a",
+  "local_profiles_sha256": "eb0f56dc346082845964f0736cebe6501edeb2c5836306df93ecffb76b156f7f"
+}

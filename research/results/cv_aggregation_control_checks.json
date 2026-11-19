@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "scope": "stored artifact arithmetic, no fitting/new experiment",
+  "freeze_sha256": "5718fe6c245378aa83b57ad08766dcdb2935449afb7b27fddb01f44d17f783dd",
+  "results_sha256": "cf1be383b5073f21847919efb84c1def93d604d70a8fa207e0734c37e006c403",
+  "chronology_verified": true,
+  "fixed_thresholds_unchanged": true,
+  "baseline_reproduces_prior_decay20_both_sources": true,
+  "historical_artifacts_and_both_report_sets_unchanged": true,
+  "csv_rows": {
+    "accounts": 96,
+    "pairs": 2532,
+    "deltas": 48,
+    "transitions": 1266
+  },
+  "decisions": {
+    "CMU": "tradeoff",
+    "KeyRecs fixed-text": "not_supported"
+  },
+  "transitions": {
+    "CMU": {
+      "new_false_accept": 0,
+      "recovered_rejection": 19,
+      "accepted_both": 43,
+      "rejected_both": 2038
+    },
+    "KeyRecs fixed-text": {
+      "new_false_accept": 96,
+      "recovered_rejection": 32,
+      "accepted_both": 419,
+      "rejected_both": 10013
+    }
+  },
+  "both_sources_descriptively_support": false
+}

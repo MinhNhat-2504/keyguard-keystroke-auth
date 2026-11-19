@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "exception_cases_independently_verified": 6,
+  "algorithm": "enumerate valid same-code pairings; compare to matcher",
+  "resolved": 5,
+  "unresolved": 1,
+  "all_source_vectors_match_after_shift_separation": 4,
+  "source_vs_key_aligned_vector_mismatch_cases": 1,
+  "unknown_code_255_cases": 1,
+  "protected_unchanged": true,
+  "no_model_rescoring": true,
+  "source_result_sha256": "03b5816b2cf87f2f0d83b66271016bba8b3e3a745e23c07ab2bd58b1b14551d8"
+}

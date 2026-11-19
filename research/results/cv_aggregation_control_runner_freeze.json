@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "state": "frozen_after_synthetic_tests_before_real_candidate_scoring",
+  "frozen_at_utc": "2026-11-13T09:16:11.072084+00:00",
+  "plan_sha256": "c3c2ffd0d3e58c62eec7b4c8d6f13228b4b4f0dbbee7b2feceeac828fe1caa17",
+  "protocol_sha256": "876171feca856b9479026e3be76bac12361076291cb37adacd0fe09ac83fbe3a",
+  "code_sha256": {
+    "keyguard/__init__.py": "6a33eb7b405edccf798ff22bcb9393999a7f862de11a0823f8911bc5030195bf",
+    "keyguard/collected.py": "1b12a93ccb9ae314ae322ed34e8fa61f93449f55ca912d5c05a1a8e5e87f9193",
+    "keyguard/contamination.py": "3484188ce79b43537c7b9d5bbbda5081cbebd3a8e1f3dfff7e049c94003dc803",
+    "keyguard/detectors.py": "120273b2b450921c169804ec5c4da897b96e274699a742eaed27f36b1299015a",
+    "keyguard/diagnostics.py": "3462fa97612e45ea98e12bb8708fb4c5b74ad4e11f4bf6970048acc13e0be5b1",
+    "keyguard/enrollment_study.py": "4e6ec0c377fcf0960c3e1cd73a91db0112a2afd4a87eeccf039023bb0a6423d7",
+    "keyguard/evaluation.py": "ff46e23c89460e168ad5b9cf3e2b381de63000dfd94620efe07f7f822bce28c4",
+    "keyguard/external_validation.py": "3e897f9cc4f17133700e3813cf5da104589112ade9e1b41b6806c010bbd666a1",
+    "keyguard/features.py": "1bc4a018e6bf4320b545026d08eb65f58cc439a7ebd01c65ee90d4d5102b1ed2",
+    "keyguard/matched_adaptation.py": "c366cd80bdd92e17d3136a2fd2de18a90e6aa3bbe0d3e502415df7dae87c09e6",
+    "keyguard/model.py": "fe8155899f7cb2119198dbf75c0489f7191fffbb555d888def949d54fa670011",
+    "keyguard/research.py": "8c2cc785051692aa317513724340a590ac7ca175ca7b2559c51e10113486c451",
+    "keyguard/session_adaptation.py": "59f7d06d483acf6ad26c0cf1e9253e7021c909875734b1feaa42d870dc0d6b39",
+    "keyguard/simulation.py": "7b44555d083b671f670afff05f487324b6527d00da6bdf2ce6386e79310b2136",
+    "keyguard/soft_weighting.py": "64c197de80a50f903c398df37fdbadc9f009421a37c2612c484cdc3e7a74fc49",
+    "scripts/cv_aggregation_core.py": "81f89a2dc8a228c331b1a3351eb12f2cf17de05bb97acd73e16426659eb0a562",
+    "scripts/run_cv_aggregation_control.py": "3756711c6e31ad41ccad5218f6a63f3c026637b2c1f5e2b36004fe2747536b1d",
+    "scripts/run_matched_adaptation.py": "4b0178ca76f57a596d5dd42f2118046a88193ad10baf600d1f2905f3ce0caf7e",
+    "tests/test_cv_aggregation_control.py": "6a3445d25edee1a0374f5c3478513fc3765fc403cf7c5c97b32cafd31043737e",
+    "tests/test_matched_adaptation.py": "4de4d9a9bf9da666b8a8ecace1f76360ec679032c180504203355de8fac4844b"
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "implementation": "CPython",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "pytest": "9.1.1"
+    }
+  },
+  "synthetic_tests": {
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "file": "results/cv_aggregation_control_synthetic_tests.xml",
+    "sha256": "af265f1f4f1b446ae2174d1fab49b4c200a037842a331b2d98cf7a3a84d37a8a"
+  },
+  "raw_sha256": {
+    "data/raw/DSL-StrongPasswordData.csv": "b11d23538b1865fa6ecf4e8b78567caa312e9c1027604bb022fcc6ad7eaa7a33",
+    "data/raw/keyrecs/fixed-text.csv": "d4943e94c6c05ec871bd1d1e9fb424ea36c9063058a36930e3700d0683bd89e9"
+  },
+  "thresholds": {
+    "CMU": -0.09327790626776133,
+    "KeyRecs fixed-text": -0.35492309501165314
+  },
+  "real_candidate_scores_computed_at_freeze": false,
+  "interpretation": "Internal traceability on previously viewed data, not public preregistration"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "dev_accounts_independently_recomputed": 42,
+  "later_dev_trials": 3565,
+  "oof_and_full_profile_recomputed_from_dev_arrays": true,
+  "fixed_impostor_calibration_reproduced": true,
+  "protected_unchanged": true,
+  "test_profiles_or_scores_evaluated": false,
+  "threshold_selection_performed": false,
+  "diagnostic_result_sha256": "ff00961ab5daf5deabe6a63e45288a64bcea161fa60a945a1b8c7ca759c842d9"
+}

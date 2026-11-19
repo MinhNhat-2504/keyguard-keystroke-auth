@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "file": "report/preview/greyc-web-source-20261115/source-page.html",
+      "source_url": "https://www.labri.fr/perso/rgiot/resources/webgreycdb/",
+      "final_url": "https://www.labri.fr/perso/rgiot/resources/webgreycdb/",
+      "bytes": 11281,
+      "sha256": "8133a304b6bbf8b04cde87bf8adb006084b319585fbbc4a6a1ae1fd92790dbe8",
+      "downloaded_at_utc": "2026-11-15T07:09:51.152516+00:00"
+    },
+    {
+      "file": "report/preview/greyc-web-source-20261115/webkeystroke.tar.gz",
+      "source_url": "https://www.labri.fr/perso/rgiot/pub/webkeystroke.tar.gz",
+      "final_url": "https://www.labri.fr/perso/rgiot/pub/webkeystroke.tar.gz",
+      "bytes": 22156412,
+      "sha256": "f0bb627247483118edddd14f99de38554c6c6bf7d70a5cf6f9fee6f033f2e646",
+      "downloaded_at_utc": "2026-11-15T07:10:17.622490+00:00"
+    }
+  ],
+  "scoring_performed": false,
+  "reason": "GREYC2009 SQLite403; author-provided GREYC-Web2012 common-passphrase alternative; raw stays private"
+}

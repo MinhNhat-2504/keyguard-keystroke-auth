@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-15",
+  "status": "passed",
+  "chronology_verified": true,
+  "account_csv_rows": 96,
+  "diagnostic_cells": 4218,
+  "arithmetic_and_macro_verified": true,
+  "baseline_keyrecs_static_reproduced": true,
+  "both_sources_support": false,
+  "protected_files_unchanged": true,
+  "scope": "Stored artifact checks; no scoring or configuration change"
+}

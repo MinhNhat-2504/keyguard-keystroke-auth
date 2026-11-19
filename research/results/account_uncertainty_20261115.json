@@ -1,0 +1,209 @@
+{
+  "scope": "Retrospective conditional target-account descriptive intervals; not new validation",
+  "seed": 20261115,
+  "replicates": 20000,
+  "nominal_percentile_interval": 95,
+  "unit": "percentage points",
+  "cross_account_impostor_dependence_modelled": false,
+  "thresholds_or_original_gates_changed": false,
+  "source_sha256": {
+    "results/dispersion_shrinkage_accounts.csv": "ea2d5514e787ddb9ed64e9de358166b46a285f52b65433ec763d6cfd75412cae",
+    "results/greyc_web_account_benefit_accounts.csv": "94c95a7fba1c1bf2084096515921d9cb2db5ca5f847e2850a403b63ec1ed49d1",
+    "results/covariance_control_accounts.csv": "676cb59de42b7351aa83221c6f6ba4c179556d29886c2357f1183b4cec5bdf56",
+    "results/dev_oof_percentile_results.json": "e03c95512344979f4f0e668732a1bc836f5aa19f7171ca381949dd57dc3098a1",
+    "docs/ACCOUNT_UNCERTAINTY_PLAN_20261115.md": "cd85fd389fb03210a9014377612adb28a0dc20ab2074d1b6a182a6354ccc62c6",
+    "scripts/account_uncertainty.py": "8e04c170e1f104eddddd9271a664a2c9fd88b62007da31495c652ff84125cf13"
+  },
+  "comparisons": [
+    {
+      "comparison": "CMU shrink25",
+      "control": "baseline",
+      "candidate": "shrink25",
+      "accounts": 15,
+      "metrics": {
+        "control_far": {
+          "estimate_pp": 5.523809523809523,
+          "lower_pp": 1.7619047619047614,
+          "upper_pp": 10.285714285714285
+        },
+        "control_frr": {
+          "estimate_pp": 55.46666666666666,
+          "lower_pp": 43.86666666666667,
+          "upper_pp": 67.06666666666668
+        },
+        "candidate_far": {
+          "estimate_pp": 5.619047619047619,
+          "lower_pp": 1.5714285714285716,
+          "upper_pp": 10.95238095238095
+        },
+        "candidate_frr": {
+          "estimate_pp": 56.26666666666667,
+          "lower_pp": 45.06666666666666,
+          "upper_pp": 67.60000000000002
+        },
+        "delta_far": {
+          "estimate_pp": 0.09523809523809579,
+          "lower_pp": -0.4761904761904756,
+          "upper_pp": 0.8095238095238084
+        },
+        "delta_frr": {
+          "estimate_pp": 0.8000000000000114,
+          "lower_pp": -2.5333333333333314,
+          "upper_pp": 3.4666666666666757
+        }
+      }
+    },
+    {
+      "comparison": "KeyRecs shrink25",
+      "control": "baseline",
+      "candidate": "shrink25",
+      "accounts": 33,
+      "metrics": {
+        "control_far": {
+          "estimate_pp": 8.607954545454543,
+          "lower_pp": 5.81439393939394,
+          "upper_pp": 11.666666666666666
+        },
+        "control_frr": {
+          "estimate_pp": 74.2756051022831,
+          "lower_pp": 63.376252470899864,
+          "upper_pp": 84.06044901006668
+        },
+        "candidate_far": {
+          "estimate_pp": 8.645833333333332,
+          "lower_pp": 5.899621212121212,
+          "upper_pp": 11.714015151515152
+        },
+        "candidate_frr": {
+          "estimate_pp": 73.18492772528455,
+          "lower_pp": 62.66149644276238,
+          "upper_pp": 82.7545990205081
+        },
+        "delta_far": {
+          "estimate_pp": 0.037878787878788955,
+          "lower_pp": -0.5681818181818166,
+          "upper_pp": 0.6536458333333168
+        },
+        "delta_frr": {
+          "estimate_pp": -1.090677376998542,
+          "lower_pp": -3.7189160795150618,
+          "upper_pp": 0.9925567627564154
+        }
+      }
+    },
+    {
+      "comparison": "GREYC shrink25",
+      "control": "baseline",
+      "candidate": "shrink25",
+      "accounts": 21,
+      "metrics": {
+        "control_far": {
+          "estimate_pp": 2.238095238095238,
+          "lower_pp": 0.8095238095238096,
+          "upper_pp": 3.9761904761904763
+        },
+        "control_frr": {
+          "estimate_pp": 78.06211628378169,
+          "lower_pp": 68.88256382966932,
+          "upper_pp": 86.31427753470449
+        },
+        "candidate_far": {
+          "estimate_pp": 2.3333333333333335,
+          "lower_pp": 0.7857142857142859,
+          "upper_pp": 4.30952380952381
+        },
+        "candidate_frr": {
+          "estimate_pp": 78.3388707827231,
+          "lower_pp": 68.88604287522699,
+          "upper_pp": 86.59461602949573
+        },
+        "delta_far": {
+          "estimate_pp": 0.09523809523809534,
+          "lower_pp": -0.40476190476190466,
+          "upper_pp": 0.7380952380952381
+        },
+        "delta_frr": {
+          "estimate_pp": 0.2767544989414148,
+          "lower_pp": -0.9724634218314435,
+          "upper_pp": 1.5229015478986625
+        }
+      }
+    },
+    {
+      "comparison": "GREYC DEV percentile",
+      "control": "baseline",
+      "candidate": "oof_percentile",
+      "accounts": 14,
+      "metrics": {
+        "control_far": {
+          "estimate_pp": 3.076923076923078,
+          "lower_pp": 1.098901098901099,
+          "upper_pp": 5.714285714285714
+        },
+        "control_frr": {
+          "estimate_pp": 74.03093930801215,
+          "lower_pp": 60.0355970273707,
+          "upper_pp": 85.35751004866796
+        },
+        "candidate_far": {
+          "estimate_pp": 4.065934065934066,
+          "lower_pp": 1.208791208791209,
+          "upper_pp": 8.461538461538463
+        },
+        "candidate_frr": {
+          "estimate_pp": 72.54238619445903,
+          "lower_pp": 59.0497286570047,
+          "upper_pp": 84.07615778796487
+        },
+        "delta_far": {
+          "estimate_pp": 0.9890109890109877,
+          "lower_pp": -0.5494505494505497,
+          "upper_pp": 3.1318681318681323
+        },
+        "delta_frr": {
+          "estimate_pp": -1.4885531135531238,
+          "lower_pp": -6.396223568098566,
+          "upper_pp": 2.7079587079587157
+        }
+      }
+    },
+    {
+      "comparison": "GREYC DEV covariance",
+      "control": "diag_lw",
+      "candidate": "full_lw",
+      "accounts": 14,
+      "metrics": {
+        "control_far": {
+          "estimate_pp": 2.1428571428571432,
+          "lower_pp": 0.8241758241758242,
+          "upper_pp": 3.626373626373626
+        },
+        "control_frr": {
+          "estimate_pp": 69.14542006535002,
+          "lower_pp": 54.25762265820607,
+          "upper_pp": 82.24120828163781
+        },
+        "candidate_far": {
+          "estimate_pp": 2.9670329670329667,
+          "lower_pp": 1.208791208791209,
+          "upper_pp": 4.945054945054945
+        },
+        "candidate_frr": {
+          "estimate_pp": 68.7368604924162,
+          "lower_pp": 55.703856381379445,
+          "upper_pp": 80.08867039741267
+        },
+        "delta_far": {
+          "estimate_pp": 0.8241758241758235,
+          "lower_pp": 0.16483516483516492,
+          "upper_pp": 1.593406593406594
+        },
+        "delta_frr": {
+          "estimate_pp": -0.40855957293382517,
+          "lower_pp": -4.8594003539632915,
+          "upper_pp": 6.5528261762867634
+        }
+      }
+    }
+  ]
+}

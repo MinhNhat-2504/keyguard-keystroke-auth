@@ -1,0 +1,16 @@
+ua_status,browser_family,os_family,trials,rejected,n_accounts,pooled_frr
+seen_enrollment_ua,Chrome,Windows,44,34,4,0.7727272727272727
+seen_enrollment_ua,Firefox,Windows,407,256,15,0.628992628992629
+seen_enrollment_ua,Firefox,macOS,10,10,1,1.0
+seen_enrollment_ua,IE,Windows,130,103,3,0.7923076923076923
+seen_enrollment_ua,Other,Windows,82,71,2,0.8658536585365854
+seen_enrollment_ua,Safari,macOS,118,88,3,0.7457627118644068
+unseen_enrollment_ua,Chrome,Linux,10,1,1,0.1
+unseen_enrollment_ua,Chrome,Windows,371,295,6,0.7951482479784366
+unseen_enrollment_ua,Chrome,macOS,10,10,1,1.0
+unseen_enrollment_ua,Firefox,Linux,1,1,1,1.0
+unseen_enrollment_ua,Firefox,Windows,1983,1622,27,0.8179525970751387
+unseen_enrollment_ua,Firefox,macOS,10,8,1,0.8
+unseen_enrollment_ua,IE,Windows,217,128,5,0.5898617511520737
+unseen_enrollment_ua,Other,Windows,10,10,1,1.0
+unseen_enrollment_ua,Safari,macOS,162,140,3,0.8641975308641975

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "synthetic_tests_passed": 9,
+  "accounts_checked_per_arm": 14,
+  "arms": 3,
+  "chronology_verified": true,
+  "stage_b_gate_passed": false,
+  "stage_b_not_run": true,
+  "original_test_used": false,
+  "summary": [
+    {
+      "method": "diag_lw",
+      "threshold": -0.48939069650335604,
+      "impostor_accepted": 39,
+      "impostor_trials": 1820,
+      "macro_far": 0.02142857142857143,
+      "pooled_far": 0.02142857142857143,
+      "genuine_rejected": 892,
+      "genuine_trials": 1125,
+      "macro_frr": 0.6914542006535005,
+      "pooled_frr": 0.7928888888888889
+    },
+    {
+      "method": "full_lw",
+      "threshold": -0.4832797598193203,
+      "impostor_accepted": 54,
+      "impostor_trials": 1820,
+      "macro_far": 0.02967032967032967,
+      "pooled_far": 0.02967032967032967,
+      "genuine_rejected": 853,
+      "genuine_trials": 1125,
+      "macro_frr": 0.687368604924162,
+      "pooled_frr": 0.7582222222222222
+    },
+    {
+      "method": "scaled_manhattan",
+      "threshold": -0.49857310343019434,
+      "impostor_accepted": 56,
+      "impostor_trials": 1820,
+      "macro_far": 0.03076923076923077,
+      "pooled_far": 0.03076923076923077,
+      "genuine_rejected": 923,
+      "genuine_trials": 1125,
+      "macro_frr": 0.7403093930801214,
+      "pooled_frr": 0.8204444444444444
+    }
+  ],
+  "source_result_sha256": "841a6b8b77d9ada4e2a0526bc0d9f4f44d6681950968a383804a01b6856fc500"
+}

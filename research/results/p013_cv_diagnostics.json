@@ -1,0 +1,379 @@
+{
+  "target_id": "p013",
+  "scope": "post-hoc S1 CV distribution diagnosis, not a new calibration method",
+  "history": "same last50 S1 retained ordered samples; five contiguous held blocks of ten; train40",
+  "cv_training": "age weights restricted to train; held scores aggregated unweighted, population std ddof=0",
+  "arms": [
+    {
+      "method": "window50",
+      "distribution": {
+        "count": 50,
+        "mean": 54.378307160496405,
+        "std_population": 21.78402352762906,
+        "median": 46.93316031931394,
+        "minimum": 26.113675800849066,
+        "maximum": 130.57586025833467,
+        "q25": 38.25140953749546,
+        "q75": 67.18470799476134
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "held_history_positions": [
+            1,
+            10
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 10.0,
+          "count": 10,
+          "mean": 55.80928787419799,
+          "std_population": 13.393393225753655,
+          "median": 57.34741688339821,
+          "minimum": 34.314138611324736,
+          "maximum": 79.65414520745445,
+          "q25": 47.45643974873142,
+          "q75": 64.40978160601091
+        },
+        {
+          "fold": 2,
+          "held_history_positions": [
+            11,
+            20
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 10.0,
+          "count": 10,
+          "mean": 60.362152164826014,
+          "std_population": 20.783348264588344,
+          "median": 47.36488394078552,
+          "minimum": 41.915423687391836,
+          "maximum": 96.81073944764799,
+          "q25": 46.42578770115047,
+          "q75": 80.38173866944487
+        },
+        {
+          "fold": 3,
+          "held_history_positions": [
+            21,
+            30
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 10.0,
+          "count": 10,
+          "mean": 62.726856106557626,
+          "std_population": 29.097395415308917,
+          "median": 56.826040092967375,
+          "minimum": 32.15609866249495,
+          "maximum": 130.57586025833467,
+          "q25": 39.7191597584593,
+          "q75": 74.1348516259381
+        },
+        {
+          "fold": 4,
+          "held_history_positions": [
+            31,
+            40
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 10.0,
+          "count": 10,
+          "mean": 47.370520332727374,
+          "std_population": 23.00934311975538,
+          "median": 38.69174612756907,
+          "minimum": 26.113675800849066,
+          "maximum": 101.12769338068954,
+          "q25": 32.130188859929895,
+          "q75": 49.40799975213876
+        },
+        {
+          "fold": 5,
+          "held_history_positions": [
+            41,
+            50
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 10.0,
+          "count": 10,
+          "mean": 45.62271932417299,
+          "std_population": 12.327927497780928,
+          "median": 41.85647516165763,
+          "minimum": 34.50706608721707,
+          "maximum": 71.82733310297495,
+          "q25": 35.955985979006016,
+          "q75": 47.685144362593675
+        }
+      ],
+      "variance_decomposition": {
+        "within_blocks": 427.8793268669698,
+        "between_block_means": 46.664354185326786
+      },
+      "aggregation_leave_one_block_out": [
+        {
+          "omitted_score_block": 1,
+          "count": 40,
+          "mean": 54.020561982071,
+          "std_population": 23.402861955902345,
+          "median": 44.49940080446616,
+          "minimum": 26.113675800849066,
+          "maximum": 130.57586025833467,
+          "q25": 37.55541594700395,
+          "q75": 69.65813997930866
+        },
+        {
+          "omitted_score_block": 2,
+          "count": 40,
+          "mean": 52.88234590941399,
+          "std_population": 21.771614770610803,
+          "median": 44.49940080446616,
+          "minimum": 26.113675800849066,
+          "maximum": 130.57586025833467,
+          "q25": 36.15150440458734,
+          "q75": 65.90465080953444
+        },
+        {
+          "omitted_score_block": 3,
+          "count": 40,
+          "mean": 52.29116992398109,
+          "std_population": 18.966662518915044,
+          "median": 46.93316031931394,
+          "minimum": 26.113675800849066,
+          "maximum": 101.12769338068954,
+          "q25": 37.77224906221056,
+          "q75": 63.910939054350976
+        },
+        {
+          "omitted_score_block": 4,
+          "count": 40,
+          "mean": 56.13025386743865,
+          "std_population": 21.10629165189572,
+          "median": 47.36488394078552,
+          "minimum": 32.15609866249495,
+          "maximum": 130.57586025833467,
+          "q25": 41.59637380572772,
+          "q75": 68.10232134171939
+        },
+        {
+          "omitted_score_block": 5,
+          "count": 40,
+          "mean": 56.567204119577255,
+          "std_population": 23.048401305304623,
+          "median": 47.36488394078552,
+          "minimum": 26.113675800849066,
+          "maximum": 130.57586025833467,
+          "q25": 39.29435201299748,
+          "q75": 70.14589184367654
+        }
+      ],
+      "frozen_center": 54.378307160496405,
+      "frozen_scale": 21.78402352762906,
+      "fixed_threshold": -0.3582252078262172,
+      "raw_score_boundary": 46.57472080502028
+    },
+    {
+      "method": "decay20",
+      "distribution": {
+        "count": 50,
+        "mean": 61.231590236928426,
+        "std_population": 27.83818343509961,
+        "median": 54.55101001569357,
+        "minimum": 22.511985267764935,
+        "maximum": 155.69080114781192,
+        "q25": 40.99600698311459,
+        "q75": 74.98339818949476
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "held_history_positions": [
+            1,
+            10
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 2.14960109677583,
+          "count": 10,
+          "mean": 65.09838856240474,
+          "std_population": 16.43052818344607,
+          "median": 65.39517536537271,
+          "minimum": 41.7573375625811,
+          "maximum": 95.74801610164468,
+          "q25": 54.10215263504059,
+          "q75": 77.54175465046819
+        },
+        {
+          "fold": 2,
+          "held_history_positions": [
+            11,
+            20
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 3.039995024752459,
+          "count": 10,
+          "mean": 75.22192126982512,
+          "std_population": 25.173914815124874,
+          "median": 60.80387653221139,
+          "minimum": 50.09063542717165,
+          "maximum": 117.75143888099014,
+          "q25": 57.31463139714331,
+          "q75": 99.27847389593815
+        },
+        {
+          "fold": 3,
+          "held_history_positions": [
+            21,
+            30
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 4.29920219355166,
+          "count": 10,
+          "mean": 74.63863302487749,
+          "std_population": 35.23637691932189,
+          "median": 64.54507941025128,
+          "minimum": 37.81233112893567,
+          "maximum": 155.69080114781192,
+          "q25": 48.269892961967344,
+          "q75": 87.67492252226438
+        },
+        {
+          "fold": 4,
+          "held_history_positions": [
+            31,
+            40
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 6.079990049504918,
+          "count": 10,
+          "mean": 47.63605645240153,
+          "std_population": 26.315875426034843,
+          "median": 38.74265935505895,
+          "minimum": 22.511985267764935,
+          "maximum": 106.28812196991957,
+          "q25": 29.51596081955006,
+          "q75": 49.32163977290747
+        },
+        {
+          "fold": 5,
+          "held_history_positions": [
+            41,
+            50
+          ],
+          "train_rows": 40,
+          "held_weight_sum": 8.598404387103319,
+          "count": 10,
+          "mean": 43.56295187513325,
+          "std_population": 12.229344832084744,
+          "median": 40.198816092880115,
+          "minimum": 32.835575085076016,
+          "maximum": 68.98562059867452,
+          "q25": 33.37657521167766,
+          "q75": 46.74264818567988
+        }
+      ],
+      "variance_decomposition": {
+        "within_blocks": 597.4745352734644,
+        "between_block_means": 177.48992169278958
+      },
+      "aggregation_leave_one_block_out": [
+        {
+          "omitted_score_block": 1,
+          "count": 40,
+          "mean": 60.26489065555935,
+          "std_population": 29.942318993490936,
+          "median": 51.11101259333323,
+          "minimum": 22.511985267764935,
+          "maximum": 155.69080114781192,
+          "q25": 38.29563102755443,
+          "q75": 72.01853894917004
+        },
+        {
+          "omitted_score_block": 2,
+          "count": 40,
+          "mean": 57.73400747870424,
+          "std_population": 27.369849262918706,
+          "median": 49.158131315055755,
+          "minimum": 22.511985267764935,
+          "maximum": 155.69080114781192,
+          "q25": 38.29563102755443,
+          "q75": 72.479411877759
+        },
+        {
+          "omitted_score_block": 3,
+          "count": 40,
+          "mean": 57.87982953994117,
+          "std_population": 24.538408826946068,
+          "median": 54.55101001569357,
+          "minimum": 22.511985267764935,
+          "maximum": 117.75143888099014,
+          "q25": 40.28055484159305,
+          "q75": 69.39244581994902
+        },
+        {
+          "omitted_score_block": 4,
+          "count": 40,
+          "mean": 64.63047368306016,
+          "std_population": 27.162698741955488,
+          "median": 58.00400638569454,
+          "minimum": 32.835575085076016,
+          "maximum": 155.69080114781192,
+          "q25": 42.35695822863776,
+          "q75": 77.08817683235378
+        },
+        {
+          "omitted_score_block": 5,
+          "count": 40,
+          "mean": 65.64874982737722,
+          "std_population": 28.87490014207563,
+          "median": 58.00400638569454,
+          "minimum": 22.511985267764935,
+          "maximum": 155.69080114781192,
+          "q25": 42.25318430551936,
+          "q75": 81.90281119428036
+        }
+      ],
+      "frozen_center": 61.231590236928426,
+      "frozen_scale": 27.83818343509961,
+      "fixed_threshold": -0.35492309501165314,
+      "raw_score_boundary": 51.351176012640735
+    }
+  ],
+  "paired_fold_deltas": [
+    {
+      "fold": 1,
+      "mean_score_delta": 9.289100688206744,
+      "contribution_to_overall_mean_delta": 1.8578201376413488
+    },
+    {
+      "fold": 2,
+      "mean_score_delta": 14.859769104999103,
+      "contribution_to_overall_mean_delta": 2.9719538209998206
+    },
+    {
+      "fold": 3,
+      "mean_score_delta": 11.911776918319866,
+      "contribution_to_overall_mean_delta": 2.382355383663973
+    },
+    {
+      "fold": 4,
+      "mean_score_delta": 0.26553611967415947,
+      "contribution_to_overall_mean_delta": 0.053107223934831894
+    },
+    {
+      "fold": 5,
+      "mean_score_delta": -2.0597674490397395,
+      "contribution_to_overall_mean_delta": -0.4119534898079479
+    }
+  ],
+  "thresholds_changed": false,
+  "production_or_frozen_code_changed": false,
+  "limitations": "Dependent CV scores; block deletion is aggregation sensitivity only, not refitted CV/CI or selected calibration",
+  "provenance": {
+    "inputs_sha256": {
+      "results/matched_adaptation_results.json": "8bc3c63be6e7783720f58748e94bf44db655e82499d70916613c665e8a05dbaf",
+      "results/matched_pair_diagnostics.json": "98d86ffd459973eb36d2e8f4b8d0b1b698149a7036f203bd0ae6ce00365c2e52",
+      "results/matched_pair_diagnostic_cases.json": "05964a2d1c710d4677da40c7357d0bc2bb1f1b4a324766efda8cafd5debeaff7",
+      "report/preview/matched-pair-checkpoint-profiles.json": "eb0f56dc346082845964f0736cebe6501edeb2c5836306df93ecffb76b156f7f"
+    },
+    "script_sha256": "19f2c03201e42db98192027707e1ab33322990bfe2961935df6683e9cd49acfd",
+    "local_scores": "report/preview/p013-cv-scores.csv",
+    "local_scores_not_for_publication": true
+  }
+}

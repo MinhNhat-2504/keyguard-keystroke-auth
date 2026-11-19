@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KeyGuard · Khám phá thực nghiệm</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="readability.css">
+  <link rel="stylesheet" href="evidence.css">
+  <script defer src="evidence-data.js"></script><script defer src="evidence.js"></script>
+  <script defer src="research-data.js"></script><script defer src="diagnostics-data.js"></script><script defer src="enrollment-data.js"></script><script defer src="contamination-data.js"></script><script defer src="stability-data.js"></script><script defer src="adaptation-data.js"></script><script defer src="external-data.js"></script><script defer src="app.js"></script><script defer src="navigation.js"></script><script defer src="controls-data.js"></script><script defer src="controls.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#research-navigation">Đến nội dung nghiên cứu</a>
+<header><a class="brand" href="#overview">K<span>G</span> / KeyGuard</a><span class="tag">PHÒNG THÍ NGHIỆM · 17.11.2026</span></header>
+<main>
+  <section class="intro"><div class="eyebrow">TỪ DỮ LIỆU ĐẾN QUYẾT ĐỊNH</div>
+    <h1>Hiểu kết quả.<br>So sánh đánh đổi.</h1>
+    <p>Khám phá phương pháp xác thực nhịp gõ trên bộ tự thu, CMU, KeyRecs và GREYC-Web. Chọn một mục để xem kết quả, giao thức và giới hạn tương ứng.</p>
+    <div class="facts"><span><b>597</b> mẫu hợp lệ</span><span><b>15</b> mã tham gia</span><span><b>3 × 2</b> vòng đánh giá ngoài × trong</span></div>
+  </section>
+  <aside class="notice"><strong>Bộ tự thu: đánh giá sơ bộ.</strong> Chủ yếu một phiên; chưa kết luận ổn định qua ngày. Bảng kết quả không chọn mô hình triển khai và không thay đổi cấu hình web.</aside>
+<nav class="research-nav" id="research-navigation" aria-label="Các mục nghiên cứu">
+<button type="button" data-research-view="overview" aria-controls="panel-overview" aria-pressed="false">Tổng quan</button>
+<button type="button" data-research-view="methods" aria-controls="panel-methods" aria-pressed="false">Đặc trưng & ngưỡng</button>
+<button type="button" data-research-view="diagnostics" aria-controls="panel-diagnostics" aria-pressed="false">Chẩn đoán lỗi</button>
+<button type="button" data-research-view="profiles" aria-controls="panel-profiles" aria-pressed="false">Hồ sơ & cập nhật</button>
+<button type="button" data-research-view="stability" aria-controls="panel-stability" aria-pressed="false">Độ ổn định</button>
+<button type="button" data-research-view="external" aria-controls="panel-external" aria-pressed="false">Nguồn ngoài</button>
+<button type="button" data-research-view="controls" aria-controls="panel-controls" aria-pressed="false">Đối chứng mới</button>
+<button type="button" data-research-view="evidence" aria-controls="panel-evidence" aria-pressed="false">Bằng chứng & độ bất định</button>
+<button type="button" id="show-all" aria-pressed="false">Xem tất cả</button></nav>
+<p id="view-status" class="view-status" role="status"></p>
+<div id="panel-overview" data-research-panel="overview" aria-label="Tổng quan">
+  <section class="card" aria-labelledby="compare-title"><div class="section-title"><h2 tabindex="-1" id="compare-title">01 / Ba quy trình, cùng phép thử</h2><span>297 lượt genuine · 600 lượt impostor</span></div>
+    <div id="pipeline-summary" class="pipeline-grid"></div>
+    <p class="muted">Hồ sơ cố định sau 20 mẫu đăng ký. Cả tài khoản đích và mã đóng vai impostor nằm trong cùng nhóm phát triển hoặc đánh giá. Khác protocol mô phỏng cập nhật hồ sơ ở báo cáo trước.</p>
+  </section>
+<section class="card" aria-labelledby="reading-title"><div class="section-title"><h2 id="reading-title">Bắt đầu từ đâu?</h2></div>
+<div class="reading-guide">
+<article><h3>Đọc FAR và FRR cùng nhau</h3><p>FAR là nhận nhầm người khác. FRR là chính chủ không được nhận trực tiếp. Một chỉ số giảm có thể đi kèm chỉ số còn lại tăng.</p><button type="button" data-open-view="methods">Khám phá một phương án →</button></article>
+<article><h3>Xem lỗi theo tài khoản</h3><p>Trung bình có thể che khác biệt giữa các mã. Xem số đếm, cặp thử và trạng thái hồ sơ để hiểu kết quả.</p><button type="button" data-open-view="diagnostics">Xem chẩn đoán lỗi →</button></article>
+<article><h3>Đối chiếu đúng giao thức</h3><p>Các nghiên cứu khác nguồn và lịch chấm. Đọc phạm vi từng mục trước khi so sánh hoặc kết luận.</p><button type="button" data-open-view="external">Xem kiểm chứng nguồn ngoài →</button></article>
+</div></section>
+</div>
+<div id="panel-methods" data-research-panel="methods" aria-label="Đặc trưng & ngưỡng">
+  <section class="card" aria-labelledby="experiment-title"><div class="section-title"><h2 tabindex="-1" id="experiment-title">02 / Khám phá một phương án</h2><span>Điểm bất thường ≤ ngưỡng → chấp nhận</span></div>
+    <div class="controls">
+      <label>Mô hình<select id="model"><option value="mean_mad">Manhattan · trung bình/MAD trung bình</option><option value="median_mad">Manhattan · trung vị/MAD trung vị</option></select></label>
+      <label>Đặc trưng<select id="features"><option value="all">Toàn bộ · 31 chiều</option><option value="H">Giữ phím H · 11 chiều</option><option value="DD">Khoảng nhấn DD · 10 chiều</option><option value="UD">Nhả–nhấn UD · 10 chiều</option></select></label>
+      <label>Chuẩn hóa<select id="normalization"><option value="raw">Giữ thời gian gốc</option><option value="duration">Chia tổng thời gian gõ</option><option value="median_hold">Chia trung vị giữ phím</option></select></label>
+      <label>Vòng đánh giá<select id="fold"><option value="0">Vòng 1</option><option value="1">Vòng 2</option><option value="2">Vòng 3</option></select></label>
+    </div>
+    <div class="experiment-grid"><div>
+      <div class="threshold-row"><label for="policy">Cách đặt ngưỡng</label><select id="policy"><option value="dev">Ngưỡng chọn trên nhóm phát triển · FAR ≤ 5%</option><option value="cmu">Ngưỡng tham chiếu CMU · 0,272009</option><option value="explore">Khảo sát thủ công · không dùng để chọn mô hình</option></select></div>
+      <div class="slider-label"><label for="threshold">Ngưỡng đang xem</label><output id="threshold-value"></output></div>
+      <input id="threshold" type="range" min="0" max="1" step="1" aria-describedby="slider-help">
+      <p class="muted" id="slider-help">Kéo để khảo sát các mốc điểm thực nghiệm. Số lượt ở từng mốc được tính chính xác; thay đổi tại đây chỉ phục vụ quan sát.</p>
+      <div class="metrics" aria-live="polite"><div><span>FAR · Nhận nhầm</span><strong id="far"></strong><small id="far-count"></small></div><div><span>FRR · Cần xác minh thêm</span><strong id="frr"></strong><small id="frr-count"></small></div></div>
+      <div id="dev-status" class="status"></div>
+      <p id="variant-note" class="muted"></p>
+    </div><div><svg id="roc" viewBox="0 0 480 340" role="img" aria-label="Đường ROC trên nhóm phát triển và nhóm đánh giá"></svg><div class="legend"><span class="dev">Nhóm phát triển</span><span class="test">Nhóm đánh giá</span><span>● Ngưỡng đang xem</span></div><p id="curve-summary" class="muted"></p></div></div>
+    <details><summary>Mã tham gia và cách chọn phương án</summary><div id="partition-info"></div><p>Chỉ dùng điểm trong nhóm phát triển để chọn phương án qua 2 vòng trong, theo trung bình (FAR + FRR)/2. Sau đó chọn lại ngưỡng trên toàn bộ nhóm phát triển và đánh giá trên nhóm ngoài. Các mẫu đăng ký chỉ dùng xây hồ sơ và chuẩn hóa điểm của chính tài khoản.</p></details>
+  </section>
+  <section class="card" aria-labelledby="table-title"><div class="section-title"><h2 tabindex="-1" id="table-title">03 / Toàn bộ 24 phương án</h2><button id="download" type="button">Tải bảng CSV</button></div>
+    <p class="muted">Cộng tử số/mẫu số qua 3 vòng ngoài, mỗi vòng dùng ngưỡng chọn từ nhóm phát triển. EER/AUC là trung bình theo vòng. Giữ thứ tự định nghĩa thí nghiệm, không xếp hạng để chọn trên dữ liệu đánh giá. Nhấn tên phương án để khám phá.</p>
+    <details class="table-details"><summary>Mở bảng đầy đủ 24 phương án</summary><div class="table-scroll"><table><thead><tr><th>Phương án</th><th>FAR</th><th>FRR</th><th>EER TB</th><th>AUC TB</th></tr></thead><tbody id="variants-table"></tbody></table></div>
+    </details>
+  </section>
+</div>
+<div id="panel-diagnostics" data-research-panel="diagnostics" aria-label="Chẩn đoán lỗi">
+  <section class="card" aria-labelledby="diagnostics-title"><div class="section-title"><h2 tabindex="-1" id="diagnostics-title">04 / Lỗi tập trung ở đâu?</h2><span>Theo phương án và vòng đang chọn ở mục 02</span></div>
+    <p id="error-concentration" class="notice"></p>
+    <div class="controls diagnostic-controls"><label>Ngưỡng dùng chẩn đoán<select id="diagnostic-policy"><option value="dev">Ngưỡng đã chọn trên nhóm phát triển</option><option value="cmu">Ngưỡng tham chiếu CMU</option></select></label><label>Tài khoản cần xem<select id="diagnostic-account"></select></label></div>
+    <p class="muted">Chẩn đoán dùng hai ngưỡng cố định đã lưu, độc lập với thanh khảo sát thủ công. Không chọn lại ngưỡng từ các lỗi đang xem.</p>
+    <div class="table-scroll"><table><thead><tr><th>Tài khoản</th><th>Nhận nhầm / lượt</th><th>FAR</th><th>Cần xác minh / lượt</th><th>FRR</th></tr></thead><tbody id="account-errors"></tbody></table></div>
+    <div id="account-detail" class="account-detail" aria-live="polite"></div>
+    <p id="jackknife-detail" class="status"></p>
+    <details><summary>Cặp tài khoản đích – mã đóng vai impostor</summary><p class="muted">Tổng 20 cặp có hướng trong mỗi vòng: 5 tài khoản × 4 mã khác. Mỗi cặp có 5 lượt đầu và 5 lượt cuối; không phải 10 người độc lập.</p><div class="table-scroll"><table><thead><tr><th>Tài khoản đích</th><th>Mã impostor</th><th>Nhận nhầm đầu / 5</th><th>Nhận nhầm cuối / 5</th><th>Tổng / 10</th></tr></thead><tbody id="pair-errors"></tbody></table></div></details>
+    <p class="muted">Tỷ trọng đặc trưng mô tả khoảng cách Manhattan ở các lượt bị từ chối, không xác nhận nguyên nhân thiết bị hoặc danh tính. Tỷ lệ thời gian gõ là mô tả trong bộ hiện có, không chứng minh biến đổi nhiều ngày. Khoảng ngưỡng khi bỏ từng mã chỉ là kiểm tra độ nhạy, không phải khoảng tin cậy.</p>
+  </section>
+</div>
+<div id="panel-profiles" data-research-panel="profiles" aria-label="Hồ sơ & cập nhật">
+  <section class="card" aria-labelledby="enrollment-title"><div class="section-title"><h2 tabindex="-1" id="enrollment-title">05 / Chất lượng đăng ký và chuẩn hóa điểm</h2><span>6 phương án · Cùng 297 genuine / 600 impostor</span></div>
+    <p class="muted">Quy tắc định trước chỉ dùng 20 mẫu đăng ký, giữ ít nhất 80% và tính lại trong từng phần huấn luyện CV. Không loại tài khoản, không bỏ mẫu genuine đánh giá. Bảng dưới là khảo sát; quyết định chọn phương án chỉ dùng vòng trong trên dev.</p>
+    <div id="enrollment-summary" class="pipeline-grid"></div>
+    <div class="table-scroll"><table><thead><tr><th>Phương án</th><th>FAR</th><th>FRR</th><th>EER TB</th><th>Mẫu đăng ký giữ lại</th></tr></thead><tbody id="enrollment-table"></tbody></table></div>
+    <div class="controls diagnostic-controls"><label>Chi tiết phương án<select id="enrollment-variant"></select></label><label>Tài khoản<select id="enrollment-account"></select></label></div>
+    <div id="enrollment-detail" class="account-detail" aria-live="polite"></div>
+    <p class="notice">Một phương án có kết quả tốt trong bảng khám phá chưa phải bằng chứng để triển khai. Dữ liệu đã được xem trước; ngưỡng sản phẩm giữ nguyên. Mẫu bị cờ chỉ bị bỏ khỏi lần fit nghiên cứu, dữ liệu gốc vẫn còn.</p>
+  </section>
+  <section class="card" aria-labelledby="contamination-title"><div class="section-title"><h2 tabindex="-1" id="contamination-title">06 / Hồ sơ có nhận mẫu của người khác?</h2><span>CMU · 15 cặp có hướng · Mô phỏng offline</span></div>
+    <p>So sánh cùng chuỗi chính chủ có và không xen mẫu của một mã khác. Mỗi tài khoản có 20 mẫu đăng ký, 200 lượt genuine ở phiên 5–8 và 40 lượt xen thử định trước. Bộ probe riêng gồm 10 mẫu ở phiên 8 của mã đóng vai impostor; probe không cập nhật hồ sơ.</p>
+    <div class="controls diagnostic-controls"><label>Chính sách cập nhật<select id="contamination-policy"><option value="static">Giữ hồ sơ cố định</option><option value="accept">Cập nhật mọi lượt được nhịp gõ nhận</option><option value="fallback">Fallback · genuine qua OTP, impostor được nhận vẫn cập nhật</option><option value="verified_only">Đối chứng lý tưởng · xác minh độc lập mọi lần cập nhật</option></select></label><label>Phạm vi xem<select id="contamination-target"><option value="all">Tổng 15 tài khoản</option></select></label></div>
+    <div id="contamination-summary" class="metrics" aria-live="polite"></div>
+    <div class="table-scroll"><table><thead><tr><th>Mốc genuine</th><th>Probe được nhận · không xen</th><th>Probe được nhận · có xen</th><th>Mẫu impostor còn trong hồ sơ · có xen</th></tr></thead><tbody id="contamination-table"></tbody></table></div>
+    <p id="contamination-note" class="status"></p>
+    <p class="muted">Ngưỡng cố định 0,272009; mã đóng vai impostor là mã kế tiếp theo thứ tự tên, không chọn dựa vào điểm. Các mẫu xen ở phiên 1 không trùng bộ probe phiên 8. Không phải tấn công thích nghi hoặc thử server thật. Lặp cùng probe qua các mốc không tạo các quan sát độc lập. “Xác minh độc lập mọi lần” là đối chứng lý tưởng, không phải bảo đảm OTP thực tế.</p>
+  </section>
+</div>
+<div id="panel-stability" data-research-panel="stability" aria-label="Độ ổn định">
+  <section class="card" aria-labelledby="stability-title"><div class="section-title"><h2 tabindex="-1" id="stability-title">07 / Giảm trọng số mềm và độ ổn định giữa các cách chia</h2><span>9 phương án · 10 seed định trước · 3 vòng ngoài / 2 vòng trong</span></div>
+    <p>Giữ mẫu khác biệt với trọng số từ 0,25 đến 1 thay vì bỏ hẳn. Quy tắc trọng số được fit riêng từ enrollment trong từng fold. Mỗi lần chia vẫn chỉ có 15 mã, 297 genuine và 600 impostor.</p>
+    <div class="table-scroll"><table><thead><tr><th>Quy trình chọn trên dev</th><th>FAR TB ± SD</th><th>FRR TB ± SD</th><th>EER TB</th><th>AUC TB</th></tr></thead><tbody id="stability-summary"></tbody></table></div>
+    <p id="stability-paired" class="notice"></p>
+    <div class="controls"><label>Cách chia mã<select id="stability-seed"></select></label><label>Nhóm phương án<select id="stability-family"><option value="baseline">Baseline · giữ mẫu Mean/Std</option><option value="hard_selected">Lọc cứng · chọn chuẩn hóa qua vòng trong</option><option value="soft_selected">Trọng số mềm · chọn chuẩn hóa qua vòng trong</option><option value="all_selected">Chọn trong cả 9 phương án</option></select></label><label>Tài khoản<select id="stability-account"></select></label></div>
+    <div id="stability-detail" class="account-detail" aria-live="polite"></div>
+    <div class="table-scroll"><table><thead><tr><th>Mã / vòng</th><th>Phương án vòng trong chọn</th><th>FAR</th><th>FRR</th></tr></thead><tbody id="stability-accounts"></tbody></table></div>
+    <details><summary>Khảo sát đầy đủ 9 phương án · không chọn từ bảng đánh giá ngoài</summary><div class="table-scroll"><table><thead><tr><th>Phương án</th><th>FAR TB</th><th>FRR TB</th><th>EER TB</th><th>AUC TB</th></tr></thead><tbody id="stability-variants"></tbody></table></div></details>
+    <p class="muted">SD và min–max mô tả biến thiên trên các cách chia phụ thuộc, không phải khoảng tin cậy. Không cộng 10 lần thành 150 người độc lập. Quy tắc được thiết kế sau khi dữ liệu đã được phân tích nên toàn bộ nghiên cứu vẫn là khám phá.</p>
+  </section>
+  <section class="card" aria-labelledby="adaptation-title"><div class="section-title"><h2 tabindex="-1" id="adaptation-title">08 / Thích nghi qua các phiên CMU</h2><span>36 mã dev / 15 mã test · Ngưỡng cố định sau khi chọn trên dev</span></div>
+    <p>Đăng ký bằng 20 mẫu đầu, xử lý tuần tự 380 genuine còn lại. So sánh hồ sơ cố định, cửa sổ 50 mẫu và cửa sổ 50 mẫu giảm trọng số theo tuổi với chu kỳ bán rã 20 lượt genuine.</p>
+    <div class="controls diagnostic-controls"><label>Phương pháp<select id="adaptation-method"><option value="static">Hồ sơ cố định</option><option value="window50">Cửa sổ 50 mẫu · trọng số đều</option><option value="decay20">Cửa sổ 50 mẫu · bán rã 20 lượt</option></select></label><label>Phân vùng<select id="adaptation-partition"><option value="test">Nhóm đánh giá · 15 mã</option><option value="dev">Nhóm phát triển · 36 mã</option></select></label></div>
+    <div id="adaptation-summary" class="metrics" aria-live="polite"></div>
+    <div class="table-scroll"><table><thead><tr><th>Phiên</th><th>Genuine cần xác minh</th><th>FRR</th><th>Impostor được nhận</th><th>FAR</th><th>EER</th><th>AUC</th></tr></thead><tbody id="adaptation-sessions"></tbody></table></div>
+    <p id="adaptation-note" class="status"></p>
+    <p class="muted">Mọi genuine đều được giả định qua một bộ xác minh độc lập trước khi cập nhật; impostor chỉ là probe, không cập nhật hồ sơ. Đây là giả định nghiên cứu, không đo OTP hoặc khả năng chống nhiễm hồ sơ. Chấm probe tại đầu mỗi phiên; lượt lặp không độc lập. CMU đã được benchmark trước, không phải holdout mới; không so trực tiếp với lịch checkpoint cũ.</p>
+  </section>
+</div>
+<div id="panel-external" data-research-panel="external" aria-label="Nguồn ngoài">
+  <section class="card" aria-labelledby="external-title"><div class="section-title"><h2 tabindex="-1" id="external-title">09 / Kiểm chứng trên nguồn độc lập KeyRecs</h2><span>66 mã dev · 33 mã test · Phiên 1 → phiên 2</span></div>
+    <p>Phương pháp và code đã được khóa bằng hash trước lần chấm đầu tiên. Nhóm phát triển chỉ dùng phiên 1; nhóm test cố định chấm phiên 2. KeyRecs có 47 cột thời gian và câu gõ khác CMU31, nên kiểm chứng quy trình học và chọn ngưỡng, không chuyển nguyên profile hoặc ngưỡng sản phẩm.</p>
+    <p id="external-conclusion" class="notice"></p>
+    <div class="table-scroll"><table><thead><tr><th>Quy trình chọn từ dev</th><th>Nhận nhầm / lượt</th><th>FAR</th><th>Genuine cần xác minh / lượt</th><th>FRR</th><th>EER TB theo mã</th><th>AUC TB theo mã</th></tr></thead><tbody id="external-family-table"></tbody></table></div>
+    <div class="controls diagnostic-controls"><label>Quy trình cần xem<select id="external-family"><option value="baseline">Baseline</option><option value="hard_selected">Lọc cứng · chọn từ dev</option><option value="soft_selected">Trọng số mềm · chọn từ dev</option><option value="all_selected">Chọn cả 9 · chỉ từ dev</option></select></label><label>Tài khoản test<select id="external-account"></select></label></div>
+    <div id="external-account-detail" class="account-detail" aria-live="polite"></div>
+    <details><summary>Toàn bộ 9 phương án · bảng mô tả, không lựa chọn theo test</summary><div class="table-scroll"><table><thead><tr><th>Phương án</th><th>FAR</th><th>FRR</th><th>EER TB mã</th><th>AUC TB mã</th></tr></thead><tbody id="external-variants-table"></tbody></table></div></details>
+    <h3>Thích nghi trên cùng nguồn ngoài</h3><p class="muted">Ngưỡng chỉ từ probe dev ngay sau 20 enrollment ở phiên 1. Window/decay warm-up bằng genuine còn lại phiên 1 rồi chấm trước–cập nhật sau ở phiên 2. Mọi genuine giả định được xác minh độc lập; probe phiên 2 chỉ chấm ở đầu phiên, không cập nhật.</p>
+    <div class="table-scroll"><table><thead><tr><th>Phương pháp</th><th>FAR đầu phiên 2</th><th>FRR tuần tự phiên 2</th></tr></thead><tbody id="external-adaptation-table"></tbody></table></div>
+    <p id="external-freeze" class="muted"></p>
+    <p class="muted">Nguồn: Dias và cộng sự, <a href="https://zenodo.org/records/7886743" target="_blank" rel="noopener noreferrer">KeyRecs v1.0.0</a>, <a href="https://doi.org/10.1016/j.dib.2023.109509" target="_blank" rel="noopener noreferrer">bài dữ liệu 2023</a>, giấy phép CC BY 4.0. Raw giữ local; trang chỉ đọc kết quả tổng hợp. Đây là nguồn ngoài dự án chưa dùng phát triển quy tắc trước lượt kiểm chứng này, không phải đăng ký trước công khai hay xác nhận bởi nhóm độc lập.</p>
+  </section>
+</div>
+
+<div id="panel-controls" data-research-panel="controls" aria-label="Đối chứng mới" hidden>
+  <section class="card" aria-labelledby="controls-title">
+    <div class="section-title"><h2 tabindex="-1" id="controls-title">10 / Đối chứng mới · đọc đúng kết quả</h2><span>3 phép thử đã khóa · 2 nguồn</span></div>
+    <p>So baseline và candidate trong cùng phép thử. Các nguồn và lịch đánh giá khác nhau; không cộng chúng thành một FAR/FRR tổng hoặc chọn mô hình chỉ vì một số thuận lợi.</p>
+    <div class="controls comparison-controls">
+      <label>Phép so sánh<select id="control-study"></select></label>
+      <label>Nguồn dữ liệu<select id="control-source"></select></label>
+      <label>Cách hiển thị tỉ lệ<select id="control-basis"><option value="macro">Macro · trung bình theo mã</option><option value="pooled">Pooled · cộng số đếm</option></select></label>
+    </div>
+    <p id="control-protocol" class="notice"></p>
+    <p id="control-criterion" class="muted"></p>
+    <p id="control-status" role="status"></p>
+    <p id="control-delta"></p>
+    <p id="control-basis-label" class="muted"></p>
+    <div class="table-scroll"><table aria-label="Baseline và candidate"><thead><tr><th>Nhánh</th><th>FAR</th><th>FRR</th><th>Nhận nhầm / lượt</th><th>Genuine từ chối / lượt</th><th>Ngưỡng z theo nhánh</th></tr></thead><tbody id="control-summary-table"></tbody></table></div>
+    <button type="button" id="control-download">Tải CSV 12 dòng · đủ ba phép thử</button>
+    <h3>Lỗi theo tài khoản</h3>
+    <label>Tài khoản cần đối chiếu<select id="control-account"></select></label>
+    <p id="control-account-caption" class="muted"></p>
+    <div class="table-scroll"><table aria-label="Chi tiết lỗi theo tài khoản"><thead><tr><th>Nhánh</th><th>Nhận nhầm / lượt</th><th>FAR</th><th>Genuine từ chối / lượt</th><th>FRR</th></tr></thead><tbody id="control-account-table"></tbody></table></div>
+    <details class="control-provenance"><summary>Nguồn và giới hạn bằng chứng</summary>
+      <p>Đây là kết quả đã lưu, trang chỉ đọc và đổi cách trình bày. CMU/KeyRecs đã được xem trước các đối chứng này: phát triển phương pháp, không phải holdout mới. Không có CI/p-value mới hoặc thay đổi cấu hình triển khai. Macro và pooled có thể khác vì số mẫu từng mã khác nhau.</p>
+      <p><a id="control-source-link" target="_blank" rel="noopener noreferrer"></a></p><p id="control-source-hash"></p>
+    </details>
+  </section>
+</div>
+
+<div id="panel-evidence" data-research-panel="evidence" aria-label="Bằng chứng và độ bất định" hidden>
+  <section class="card" aria-labelledby="evidence-title">
+    <div class="section-title"><h2 tabindex="-1" id="evidence-title">11 / Bằng chứng & độ bất định</h2><span>11 nhóm · 35 dòng kết quả · 5 phân tích khoảng</span></div>
+    <p>Đọc kết quả cùng giao thức và vai trò của từng nhánh. Không xếp hạng hoặc cộng tỉ lệ giữa các nhóm có điều kiện khác nhau.</p>
+    <div class="evidence-glossary"><p><strong>FAR · nhận nhầm</strong><br>Tỉ lệ chấp nhận lượt giả mạo.</p><p><strong>FRR · từ chối genuine</strong><br>Tỉ lệ từ chối lượt của tài khoản thật trong giao thức tương ứng.</p></div>
+    <p class="notice">Macro là trung bình tỉ lệ theo tài khoản; pooled là tổng tử số chia tổng mẫu số. Trung bình qua 10 cách chia và SD theo cách chia là một loại thống kê khác, không phải CI. Số đếm trong bảng là số đếm pooled của cùng hàng khi có.</p>
+    <div class="controls"><label>Nhóm nghiên cứu<select id="evidence-group"></select></label><label>Nguồn trong nhóm<select id="evidence-source"></select></label></div>
+    <p id="evidence-count" role="status"></p><div id="evidence-protocols"></div>
+    <p class="muted">Vuốt hoặc cuộn ngang bảng để xem đủ các cột. Có thể chọn vùng bảng rồi dùng phím mũi tên.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Cuộn bảng kết quả và nguồn truy vết"><table aria-label="Kết quả có điều kiện và nguồn truy vết"><thead><tr><th>Nhóm</th><th>Nguồn</th><th>Nhánh</th><th>Vai trò</th><th>Cách tính tỉ lệ</th><th>FAR</th><th>FRR</th><th>Số lỗi / lượt</th><th>Nguồn & điều kiện</th></tr></thead><tbody id="evidence-table"></tbody></table></div>
+    <button type="button" id="evidence-download">Tải CSV các dòng đang xem</button>
+    <p class="muted">CSV giữ giá trị gốc: far/frr và SD ở thang 0–1; không phải phần trăm đã làm tròn trên màn hình. Cột metric_basis ghi cách tính. Mỗi dòng có artifact và JSON pointer để đối chiếu.</p>
+    <h3>Khoảng bootstrap mô tả theo tài khoản</h3>
+    <p>Phân tích hồi cứu trên kết quả đã xem: 20.000 lần lấy mẫu lại theo tài khoản đích, giữ cặp hai nhánh, seed 20261115. Khoảng percentile danh nghĩa 95% có điều kiện trên enrollment, calibration, ngưỡng và tập impostor đã cố định.</p>
+    <label>Phép so sánh của phân tích khoảng<select id="evidence-comparison"></select></label>
+    <p id="evidence-pair"></p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Cuộn bảng khoảng bootstrap"><table aria-label="Ước lượng và khoảng bootstrap có điều kiện"><thead><tr><th>Đại lượng</th><th>Ước lượng</th><th>Khoảng percentile danh nghĩa 95%</th><th>Đơn vị</th></tr></thead><tbody id="evidence-interval-table"></tbody></table></div>
+    <p class="notice">Phần này có bộ chọn riêng, độc lập với bảng 35 dòng bên trên. Chưa mô hình hóa đầy đủ phụ thuộc chéo do dùng chung impostor; không bảo đảm bao phủ 95% cho người dùng mới. Không có hiệu chỉnh đa so sánh, không dùng việc khoảng chứa hoặc không chứa 0 để đổi quyết định cổng cũ.</p>
+    <p id="evidence-ci-source"></p><button type="button" id="evidence-ci-download">Tải CSV đủ 30 đại lượng khoảng</button>
+    <p><a href="../docs/ACCOUNT_UNCERTAINTY_PLAN_20261115.md">Kế hoạch và giới hạn phân tích khoảng</a> · <a href="../docs/RESEARCH_DECISION_20261115.md">Kết luận tổng hợp đã chốt</a></p>
+    <p class="notice"><strong>Giữ kết luận:</strong> baseline được giữ để bảo toàn phiên bản, chưa phải bằng chứng đủ tốt để triển khai. Covariance chưa đi nguồn ngoài B vì cổng phát triển không đạt. Không đổi mô hình hoặc ngưỡng trên trang này.</p>
+  </section>
+</div>
+  <footer>Dữ liệu tính sẵn · Chạy hoàn toàn trên máy · Không gửi dữ liệu ra ngoài<br>Giới hạn: 15 mã không tự xác minh 15 người độc lập; các lượt cùng mã có phụ thuộc. 0 lỗi trên mẫu nhỏ không chứng minh lỗi quần thể bằng 0.</footer>
+</main>
+</body></html>

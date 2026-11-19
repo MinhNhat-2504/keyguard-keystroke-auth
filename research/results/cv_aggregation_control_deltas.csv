@@ -1,0 +1,49 @@
+dataset,participant_id,delta_far,delta_frr
+CMU,s002,-0.007142857142857143,0.02
+CMU,s003,-0.007142857142857143,0.02
+CMU,s004,-0.007142857142857143,0.04
+CMU,s010,0.0,0.04
+CMU,s012,-0.014285714285714285,-0.02
+CMU,s016,0.0,0.1
+CMU,s017,0.0,-0.02
+CMU,s018,-0.04285714285714286,0.02
+CMU,s019,0.0,-0.02
+CMU,s025,0.0,0.0
+CMU,s028,0.0,0.02
+CMU,s039,0.0,-0.02
+CMU,s041,-0.014285714285714285,-0.06
+CMU,s042,0.0,0.04
+CMU,s056,-0.04285714285714286,0.08
+KeyRecs fixed-text,p007,0.0,0.03
+KeyRecs fixed-text,p009,0.03125,0.03
+KeyRecs fixed-text,p012,0.078125,0.0
+KeyRecs fixed-text,p013,-0.034375,0.01
+KeyRecs fixed-text,p014,0.009375,0.03
+KeyRecs fixed-text,p015,0.01875,0.01
+KeyRecs fixed-text,p017,0.0,0.01
+KeyRecs fixed-text,p020,0.0,0.009345794392523364
+KeyRecs fixed-text,p023,0.0,0.06
+KeyRecs fixed-text,p031,-0.003125,0.03
+KeyRecs fixed-text,p032,0.0,0.09
+KeyRecs fixed-text,p035,0.0,-0.06060606060606061
+KeyRecs fixed-text,p036,0.003125,0.02
+KeyRecs fixed-text,p037,0.0,0.04
+KeyRecs fixed-text,p042,0.0,0.0
+KeyRecs fixed-text,p045,0.1,0.05
+KeyRecs fixed-text,p048,-0.009375,0.07
+KeyRecs fixed-text,p050,0.0,0.01
+KeyRecs fixed-text,p054,0.021875,0.050505050505050504
+KeyRecs fixed-text,p055,0.0,0.05
+KeyRecs fixed-text,p059,0.0,0.02
+KeyRecs fixed-text,p065,-0.021875,0.03
+KeyRecs fixed-text,p066,0.00625,0.03
+KeyRecs fixed-text,p067,0.0,-0.01
+KeyRecs fixed-text,p068,0.0,0.03
+KeyRecs fixed-text,p072,-0.003125,0.01
+KeyRecs fixed-text,p075,0.0,0.0
+KeyRecs fixed-text,p078,-0.00625,0.03
+KeyRecs fixed-text,p082,-0.00625,0.04040404040404041
+KeyRecs fixed-text,p085,0.0,0.06060606060606061
+KeyRecs fixed-text,p088,-0.0125,0.04
+KeyRecs fixed-text,p090,0.03125,0.06
+KeyRecs fixed-text,p099,-0.003125,0.0

@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "paired_accounts": 14,
+  "chronology_verified": true,
+  "counts_and_macro_recomputed": true,
+  "original_test_evaluated": false,
+  "summary": [
+    {
+      "arm": "baseline",
+      "counts": {
+        "genuine_trials": 1125,
+        "genuine_rejected": 923,
+        "impostor_trials": 1820,
+        "impostor_accepted": 56
+      },
+      "macro": {
+        "far": 0.03076923076923077,
+        "frr": 0.7403093930801214
+      },
+      "threshold": -0.49857310343019434,
+      "calibration_accepted": 378,
+      "calibration_trials": 7560
+    },
+    {
+      "arm": "oof_percentile",
+      "counts": {
+        "genuine_trials": 1125,
+        "genuine_rejected": 897,
+        "impostor_trials": 1820,
+        "impostor_accepted": 74
+      },
+      "macro": {
+        "far": 0.04065934065934066,
+        "frr": 0.7254238619445903
+      },
+      "threshold": 0.3571428571428571,
+      "calibration_accepted": 296,
+      "calibration_trials": 7560
+    }
+  ]
+}

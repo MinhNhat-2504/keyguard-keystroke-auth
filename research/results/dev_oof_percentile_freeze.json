@@ -1,0 +1,28 @@
+{
+  "frozen_at_utc": "2026-11-15T14:10:20.367837+00:00",
+  "hashes": {
+    "docs/DEV_OOF_PERCENTILE_PROTOCOL.md": "f0c36e475a1d9f751a9f5dd5e9a462d9495084e32e247419ee97ce32324aba8b",
+    "report/preview/greyc-dev-frr-20261115/dev-only.json": "393e295a98941977a82f61c19079096e53c6145cd66254c4016603bbe6c2aaff",
+    "scripts/dev_oof_percentile.py": "6ae096f4dbf91d3b3d00688ec5b68c14cf0e5e2a621b1bb58ea36fae1812f054",
+    "tests/test_dev_oof_percentile.py": "7aa337e3e6902b208af308437543df1c882e436108f5991ac1a73018e1177e20",
+    "scripts/greyc_dev_diagnostic_core.py": "12cd29b5e272c7e28734913013641097e2250a5b09bde3073f23b05f17eaab89",
+    "scripts/dispersion_shrinkage_core.py": "00a100be75fd8e2bda05290883127583c4f7b065281bdfafc578d6d48292da40",
+    "scripts/account_benefit_summary.py": "d1c641f393f715fb86543426b75ecabd8247b73136c037bc9ecef88a90e119eb",
+    "keyguard/detectors.py": "120273b2b450921c169804ec5c4da897b96e274699a742eaed27f36b1299015a",
+    "keyguard/evaluation.py": "ff46e23c89460e168ad5b9cf3e2b381de63000dfd94620efe07f7f822bce28c4"
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "implementation": "CPython",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "pytest": "9.1.1"
+    }
+  },
+  "test_sha256": "63c1555a78c374da573707e4241f57a2df5bf8a5d5135c2a4346fcdb6af076c9",
+  "real_scoring_before_freeze": false
+}

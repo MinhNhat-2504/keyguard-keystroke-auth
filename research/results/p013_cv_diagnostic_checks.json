@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "cv_rows": 50,
+  "folds": 5,
+  "held_rows_per_fold": 10,
+  "synthetic_tests_passed": 4,
+  "normalization_matches_frozen_checkpoint": true,
+  "input_hashes_and_frozen_code_environment_preserved": true,
+  "no_threshold_or_model_selection": true,
+  "diagnostics_sha256": "49f49202caa34cadd2b03c789c41322cf7976470eb392834c0e5f9f89a334f9c",
+  "local_scores_sha256": "3a61405deb519508f88e089b919a6211702310fbaeb7230717f8531b5a033b08",
+  "figure_sha256": "d7554ef9d7498764286c629a7a3164ab58bbd539055dc6ae5524e9f2124e056d",
+  "test_source_sha256": "cf537b6ee7fe4d2d7983bc8a9adc4d24d8e20051184d264ad1b18c2ed28414bd",
+  "test_report_sha256": "32950d5d3f223b5b645f8ef2a606e9730cc94ca0511ffbf0a49673da808c39f2",
+  "figure_visually_reviewed": true
+}

@@ -1,0 +1,20 @@
+/* Readability adjustments only; no experiment controls or data changed. */
+.notice, .status, .legend, details, .view-status { font-size: 14px; line-height: 1.6; }
+.research-nav button, .reading-guide button, .variant-link { font-size: 14px; }
+table, thead th { font-size: 14px; line-height: 1.5; }
+.metrics span, .metrics small { font-size: 14px; line-height: 1.5; }
+.controls label, .account-detail dl, .account-detail p { font-size: 14px; }
+select { font-size: 16px; min-height: 44px; }
+.table-scroll { overscroll-behavior-inline: contain; }
+.controls.comparison-controls { grid-template-columns: 1.4fr 1fr 1fr; }
+.control-provenance { overflow-wrap: anywhere; }
+#control-delta { font-variant-numeric: tabular-nums; }
+button:focus-visible, select:focus-visible, summary:focus-visible, a:focus-visible {
+  outline: 3px solid #00766b; outline-offset: 3px;
+}
+@media (max-width:600px) {
+  .controls { grid-template-columns: 1fr; }
+  .controls.comparison-controls { grid-template-columns: 1fr; }
+  .card { padding: 18px; }
+  .table-scroll { max-height: 440px; }
+}

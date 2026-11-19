@@ -1,0 +1,5 @@
+{
+  "completed_at_utc": "2026-11-15T14:10:20.367837+00:00",
+  "exit_code": 0,
+  "output": "test_baseline_detector_parity (test_dev_oof_percentile.PercentileTests.test_baseline_detector_parity) ... ok\ntest_invalid_input (test_dev_oof_percentile.PercentileTests.test_invalid_input) ... ok\ntest_monotonic_and_invariant_to_positive_affine_transform (test_dev_oof_percentile.PercentileTests.test_monotonic_and_invariant_to_positive_affine_transform) ... ok\ntest_ties_and_extremes (test_dev_oof_percentile.PercentileTests.test_ties_and_extremes) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.008s\n\nOK\n"
+}

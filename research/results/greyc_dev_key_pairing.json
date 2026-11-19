@@ -1,0 +1,174 @@
+{
+  "completed_at_utc": "2026-11-15T14:43:57.252924+00:00",
+  "freeze_sha256": "0c8065af228abbcef5fc986d7ce5ff5dfc77143b55e2e4fe163bc94b1c9ac081",
+  "scope": "six DEV code-order exceptions, synthetic-tested pairing; diagnostic only",
+  "dev_captures_scanned": 4405,
+  "exceptions": [
+    {
+      "case": 1,
+      "participant_id": "user_005",
+      "cohort": "later_dev",
+      "press_count": 7,
+      "release_count": 6,
+      "status": "resolved",
+      "paired_keys": 6,
+      "ignored_modifier_codes": [
+        "16"
+      ],
+      "issues": [],
+      "release_order_after_key_matching": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_vectors_match_key_aligned": {
+        "p_pp.txt": true,
+        "p_pr.txt": true,
+        "p_rp.txt": true,
+        "p_rr.txt": true
+      }
+    },
+    {
+      "case": 2,
+      "participant_id": "user_037",
+      "cohort": "enrollment",
+      "press_count": 7,
+      "release_count": 6,
+      "status": "resolved",
+      "paired_keys": 6,
+      "ignored_modifier_codes": [
+        "16"
+      ],
+      "issues": [],
+      "release_order_after_key_matching": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_vectors_match_key_aligned": {
+        "p_pp.txt": true,
+        "p_pr.txt": true,
+        "p_rp.txt": true,
+        "p_rr.txt": true
+      }
+    },
+    {
+      "case": 3,
+      "participant_id": "user_037",
+      "cohort": "later_dev",
+      "press_count": 7,
+      "release_count": 6,
+      "status": "resolved",
+      "paired_keys": 6,
+      "ignored_modifier_codes": [
+        "16"
+      ],
+      "issues": [],
+      "release_order_after_key_matching": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_vectors_match_key_aligned": {
+        "p_pp.txt": true,
+        "p_pr.txt": true,
+        "p_rp.txt": true,
+        "p_rr.txt": true
+      }
+    },
+    {
+      "case": 4,
+      "participant_id": "user_050",
+      "cohort": "later_dev",
+      "press_count": 6,
+      "release_count": 6,
+      "status": "resolved",
+      "paired_keys": 6,
+      "ignored_modifier_codes": [],
+      "issues": [],
+      "release_order_after_key_matching": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "source_vectors_match_key_aligned": {
+        "p_pp.txt": true,
+        "p_pr.txt": false,
+        "p_rp.txt": false,
+        "p_rr.txt": false
+      }
+    },
+    {
+      "case": 5,
+      "participant_id": "user_052",
+      "cohort": "later_dev",
+      "press_count": 7,
+      "release_count": 6,
+      "status": "resolved",
+      "paired_keys": 6,
+      "ignored_modifier_codes": [
+        "16"
+      ],
+      "issues": [],
+      "release_order_after_key_matching": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_vectors_match_key_aligned": {
+        "p_pp.txt": true,
+        "p_pr.txt": true,
+        "p_rp.txt": true,
+        "p_rr.txt": true
+      }
+    },
+    {
+      "case": 6,
+      "participant_id": "user_102",
+      "cohort": "later_dev",
+      "press_count": 7,
+      "release_count": 6,
+      "status": "unresolved",
+      "paired_keys": 6,
+      "ignored_modifier_codes": [],
+      "issues": [
+        {
+          "code": "255",
+          "reason": "unbalanced",
+          "press_count": 1,
+          "release_count": 0
+        }
+      ],
+      "release_order_after_key_matching": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_vectors_match_key_aligned": {}
+    }
+  ],
+  "resolved": 5,
+  "unresolved": 1,
+  "private_cases_sha256": "f6d0c1349b4cd1d942c077503a51f36fdca04f27305e504248fdc7919a6b07da",
+  "protected_unchanged": true,
+  "model_scoring_or_threshold_selection": false,
+  "raw_or_adapter_edited": false
+}
