@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "date": "2026-11-20",
+  "git_commit_tested": "e40b0c1463fd9ea5762b1c557254881a0b925456",
+  "source": "Fresh clone of submission/final-20261119 from GitHub",
+  "fresh_venv": true,
+  "system_site_packages": false,
+  "environment": {
+    "python": "3.11.9",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.17.1",
+      "matplotlib": "3.11.2",
+      "flask": "3.1.3",
+      "psycopg": "3.3.9"
+    }
+  },
+  "tests_passed": 50,
+  "test_commands": [
+    {
+      "label": "greyc_key_pairing",
+      "part": "research",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_greyc_key_pairing.py"
+      ],
+      "exit_code": 0,
+      "tests": 10
+    },
+    {
+      "label": "covariance_control",
+      "part": "research",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_covariance_control.py"
+      ],
+      "exit_code": 0,
+      "tests": 9
+    },
+    {
+      "label": "account_benefit_summary",
+      "part": "research",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_account_benefit_summary.py"
+      ],
+      "exit_code": 0,
+      "tests": 6
+    },
+    {
+      "label": "account_uncertainty",
+      "part": "research",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_account_uncertainty.py"
+      ],
+      "exit_code": 0,
+      "tests": 4
+    },
+    {
+      "label": "file-api",
+      "part": "web",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_collection_api.FileCollectionAPI"
+      ],
+      "exit_code": 0,
+      "tests": 13
+    },
+    {
+      "label": "data-quality",
+      "part": "web",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_data_quality_thu.py"
+      ],
+      "exit_code": 0,
+      "tests": 5
+    },
+    {
+      "label": "otp-boundaries",
+      "part": "web",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tests/test_otp_boundaries_thu.py"
+      ],
+      "exit_code": 0,
+      "tests": 3
+    }
+  ],
+  "integrity_check": {
+    "status": "passed",
+    "manifest_files": 325,
+    "report_referenced_files": 49,
+    "missing_report_references": 0,
+    "native_equations": 7,
+    "report_tables": 34,
+    "references": 18,
+    "self_collected_samples": 597,
+    "synthesis_rows": 35,
+    "uncertainty_comparisons": 5,
+    "scope": "Integrity and reconciliation of stored sources; not a model rerun or production acceptance"
+  },
+  "negative_checks": [
+    "changed_hash_rejected",
+    "rehashed_changed_counts_rejected",
+    "rehashed_missing_reference_rejected"
+  ],
+  "flask_smoke": {
+    "flask_get_routes": {
+      "/": 200,
+      "/register": 200,
+      "/login": 200,
+      "/static/pending-sample.js": 200,
+      "/static/readability.css": 200
+    },
+    "temporary_file_mode": true,
+    "app_from_clean_checkout": true
+  },
+  "tracked_checkout_clean_after_tests": true,
+  "production_database_access": false,
+  "raw_private_data_used": false,
+  "model_fit_on_real_data": false,
+  "scope": "Synthetic logic, Flask file-mode and saved-result reconciliation; no new model validation or full production test"
+}

@@ -36,6 +36,18 @@ Giải nén toàn bộ repo rồi mở `research/explorer/index.html#evidence` �
 
 Dùng Python 3.11 và môi trường ảo riêng; cài `requirements.txt` trong thư mục tương ứng. Để kiểm toàn bộ các lệnh dưới đây trong cùng môi trường local, có thể cài cả `research/requirements.txt` và `web/requirements.txt`; các phiên bản thư viện nghiên cứu vẫn được giữ nguyên. Không nâng dependency để ép các phép kiểm freeze qua.
 
+Đã kiểm lại ngày 20/11 trên bản clone GitHub sạch, trong venv mới không dùng system site-packages: **50/50 test logic/file-mode**, 5 GET qua Flask test client và 3 ca phát hiện lỗi của checker đạt. [Kết quả chi tiết](validation/clean_checkout_20261120.json) ghi commit, môi trường và phạm vi. Đây không phải huấn luyện lại trên raw hoặc kiểm toàn bộ dịch vụ thật.
+
+Để dùng bộ dependency đã kiểm trên Windows/Python 3.11, chạy từ gốc repo:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r validation/requirements-tested.txt
+.\.venv\Scripts\python.exe verify_submission.py
+```
+
+Sau đó dùng Python trong venv cho các lệnh test bên dưới. File [requirements-tested.txt](validation/requirements-tested.txt) khóa cả dependency phụ của môi trường đã kiểm; không khẳng định mọi hệ điều hành đều đã được thử.
+
 Sau khi clone, chạy `python verify_submission.py` ở gốc repo. Lệnh này chỉ cần Python standard library: kiểm manifest, các tham chiếu tệp trong báo cáo, cặp JSON/CSV và số đếm nguồn. Nó không huấn luyện lại mô hình hoặc ghi database.
 
 Ví dụ PowerShell tại `web/` sau khi cài dependency:

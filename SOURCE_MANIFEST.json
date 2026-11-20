@@ -10,7 +10,7 @@
   "files": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
     ".gitignore": "3b7c43003b45719061e27583668c049de3b0ff6784176e4402d6b2baa501113e",
-    "docs/READING_GUIDE.md": "e89ecf489b76e0d3786ef1ade6306f4521e35cba5708623e3309f4de9fb524a5",
+    "docs/READING_GUIDE.md": "7f98c0094860b0c099fd83748ef0d2a6148b88aa0f057a97e7119b2fe19ce5f9",
     "evidence/collection_idempotency_browser_checks_20261115.json": "57f30c1b952cc52bd3afbe1273b5539647b6a227c11cd7afff41f34c64a06886",
     "evidence/collection_idempotency_validation_20261115.json": "1c71aff632d30eb92dea4bf19d738f736063e6b4031212da74e8f523214f8a33",
     "evidence/render_cutover_thu.md": "ac771ce8711ddb6d3d5c9e4d0a169865c7b99243c95db2d0040ae8887a362d62",
@@ -50,7 +50,7 @@
     "evidence/screenshots/stats_truoc_restart.txt": "f0c6d156e78b5ea6f3841c5b6c50b5057c670581b3999482f2254d4c00982cf2",
     "evidence/screenshots/stats_truoc_restart_D4b.txt": "d056462fd1a03dbcfe55568dc0d23cbc7f1d2285df81584ad8da6af094795372",
     "evidence/screenshots/Su_co_deploy_som_e396685_19h36.png": "9c2c165cf65dd4890dbdc225c132fed637ea507d76245fa47a23216fd515c878",
-    "README.md": "2cb38ce996e1c065cdb373463572ff0f6480e552d8799b1c04e735e576d4309b",
+    "README.md": "2379df083ebc8bba1b24858f54c8a320ffca4e6991aa0bc787fdae92097ba254",
     "reports/KeyGuard_BaoCao_Chinh_6Trang_20261119.docx": "353702340fc01825cfeea8579d6f6b2d6d2c3fb454cfe4b1012951090ae6c54d",
     "reports/KeyGuard_BaoCao_Chinh_6Trang_20261119.pdf": "02e2b2ed9e0337180fa5b4ce60f6512dee4b47cba92fd3392a30041d8962e212",
     "reports/KeyGuard_BaoCao_NghienCuu_20261119.docx": "eaabad89216045996b4a6f94183d821756507e7725be7e9a03533918bc477d5f",
@@ -291,6 +291,8 @@
     "research/tests/test_cv_aggregation_control.py": "6a3445d25edee1a0374f5c3478513fc3765fc403cf7c5c97b32cafd31043737e",
     "research/tests/test_greyc_key_pairing.py": "9043d0ed56f194690db32ea2403d9bf5db002dabef4b61cc9e2780aa037d833a",
     "research/tests/test_matched_adaptation.py": "4de4d9a9bf9da666b8a8ecace1f76360ec679032c180504203355de8fac4844b",
+    "validation/clean_checkout_20261120.json": "01aa54678022bd659427869f9e547125ce2f415ea2dd2a3fe3ca8903468d9b4c",
+    "validation/requirements-tested.txt": "3fd1198a9eee0304a127b80addb64430445ae74f26fe66760d1f1f03c76330d0",
     "verify_submission.py": "a8aa838c0dfe1db1227a312c3118b4f3ee5608a450ccc8f342e45f3e4864c09e",
     "web/app.py": "f2a2b4a04e3c302c5e86db4a3a742bef125f07836c412084cbebff3fb7a7d213",
     "web/collection_quality.py": "d25cd1a6ed9e7c61b209cc455938cc0c5de34d21f10305eb1601dfea7638e926",
@@ -373,5 +375,8 @@
     "tests/test_collection_api.py": "42d7207e0bd8dc6686fe89410feb106e577ae6c090d41496b8a671dc883f71d0",
     "tests/test_handover_batch.py": "538d0200a4009e747a889302f8d528dfc61c400369d6390bd9f2657f83e7aae3",
     "tests/test_postgres_storage.py": "e3fd5dbd392c4df05f5a81af869d5e4b95b263f14170af642e20fbd2a7f6dfec"
-  }
+  },
+  "clean_checkout_validation": "validation/clean_checkout_20261120.json",
+  "dependency_lock": "validation/requirements-tested.txt",
+  "code_commit_tested": "e40b0c1463fd9ea5762b1c557254881a0b925456"
 }
