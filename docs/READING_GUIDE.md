@@ -1,5 +1,7 @@
 # Đọc lại nội dung trước khi nộp
 
+Rà soát ngày22/11 bổ sung đối chiếu số học và đường đi dữ liệu. Tổng595 quyết định genuine gồm297 dòng phân tích chính và298 dòng phân tích nhạy cảm, có dùng lại mẫu; không phải cỡ mẫu độc lập mới. Audit không fit lại model: FRR của hai bảng này được áp lại từ điểm đã lưu, còn FAR và nhiều thí nghiệm khác được cộng từ số đếm tài khoản/cặp. Bộ87test chỉ dùng dữ liệu giả. Bản PDF ngày22/11 vẫn45trang, không sửa số liệu hay hình khoa học.
+
 KeyGuard kiểm tra cách gõ một chuỗi đã biết. Một người biết đúng mật khẩu vẫn có thể có nhịp gõ khác chủ tài khoản. Đề tài khảo sát tín hiệu hành vi bổ sung này, không chứng minh nó thay thế mật khẩu hay tạo ra một cơ chế OTP thật. Các bài nền ở chương1 giải thích bài toán; mô tả cài đặt và kết quả của nhóm phải dẫn mã/protocol/artifact của nhóm.
 
 Mỗi lần nhấn/nhả có timestamp. Với10 ký tự và Enter, chương trình lấy11 thời gian giữ phím,10khoảng nhấn–nhấn và10khoảng nhả–nhấn, thành31 chiều. Khoảng nhả–nhấn có thể âm khi hai phím chồng nhau. Cần phân biệt đặc trưng CMU này với tên timingGREYC: giống tên không có nghĩa cùng sự kiện hoặc cùng đơn vị. Đó là lý do báo cáo giữ adapter và audit riêng.

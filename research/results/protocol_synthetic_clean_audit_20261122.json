@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "tests": 87,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 19.84,
+  "patterns": [
+    "test_external_validation.py",
+    "test_matched_adaptation.py",
+    "test_dispersion_shrinkage.py",
+    "test_cv_aggregation_control.py",
+    "test_soft_weighting.py",
+    "test_enrollment_study.py",
+    "test_dev_oof_percentile.py",
+    "test_covariance_control.py",
+    "test_independent_numeric_audit.py"
+  ],
+  "environment": "fresh clean-check venv, Python 3.11.9",
+  "synthetic_only": true,
+  "real_data_model_fit": false
+}

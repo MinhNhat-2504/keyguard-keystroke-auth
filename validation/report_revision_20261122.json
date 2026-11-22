@@ -1,0 +1,20 @@
+{
+  "source": "KeyGuard_BaoCao_Nop_20261120.docx",
+  "target": "KeyGuard_BaoCao_Nop_20261122.docx",
+  "status": "passed",
+  "table_changed_index": 30,
+  "numerical_tables_preserved": 33,
+  "scientific_figures_preserved": 19,
+  "original_report_sha256": "155197d52adb6a3a1b5462c17de98ac9cf6002a43f553905dde9ff683358004e",
+  "model_or_results_changed": false,
+  "pdf_pages": 45,
+  "report_cells_checked_against_counts": 78,
+  "media_bytes_unchanged": true,
+  "native_equations": 7,
+  "docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "pdf_sha256": "ca9502b47725cb7908065ee7fca4df780d74fbd4e1b5482f49dc87ed35becb43",
+  "all_pages_visually_reviewed": true,
+  "render_engine": "LibreOffice in offline container with Times New Roman and Cambria",
+  "renderer_image_digest": "sha256:ce2fc1d0a43de0ecc6bbaa2d1ec7b3df06384408dd74f5826c33eedfa4dec7ab",
+  "word_export_issue": "Windows Application Control blocked Office sppc.dll; no security policy changed"
+}

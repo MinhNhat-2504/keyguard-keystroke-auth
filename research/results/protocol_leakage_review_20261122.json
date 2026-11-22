@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-22",
+  "status": "review_completed_no_violation_found_in_checked_paths",
+  "code_protocol_hash_entries": 104,
+  "freeze_checks": [
+    {
+      "freeze": "external_validation_freeze.json",
+      "code_protocol_entries_matched": 10,
+      "frozen_at_utc": "2026-11-13T06:47:54.002973+00:00"
+    },
+    {
+      "freeze": "matched_adaptation_runner_freeze.json",
+      "code_protocol_entries_matched": 17,
+      "frozen_at_utc": "2026-11-13T08:25:06.198846+00:00"
+    },
+    {
+      "freeze": "cv_aggregation_control_runner_freeze.json",
+      "code_protocol_entries_matched": 20,
+      "frozen_at_utc": "2026-11-13T09:16:11.072084+00:00"
+    },
+    {
+      "freeze": "dispersion_shrinkage_freeze.json",
+      "code_protocol_entries_matched": 19,
+      "frozen_at_utc": "2026-11-14T17:48:48.399990+00:00"
+    },
+    {
+      "freeze": "greyc_web_account_benefit_freeze.json",
+      "code_protocol_entries_matched": 23,
+      "frozen_at_utc": "2026-11-15T07:14:06.165770+00:00"
+    },
+    {
+      "freeze": "dev_oof_percentile_freeze.json",
+      "code_protocol_entries_matched": 8,
+      "frozen_at_utc": "2026-11-15T14:10:20.367837+00:00"
+    },
+    {
+      "freeze": "covariance_control_freeze.json",
+      "code_protocol_entries_matched": 7,
+      "frozen_at_utc": "2026-11-15T15:31:37.155098+00:00"
+    }
+  ],
+  "synthetic_tests": {
+    "status": "passed",
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 19.84,
+    "patterns": [
+      "test_external_validation.py",
+      "test_matched_adaptation.py",
+      "test_dispersion_shrinkage.py",
+      "test_cv_aggregation_control.py",
+      "test_soft_weighting.py",
+      "test_enrollment_study.py",
+      "test_dev_oof_percentile.py",
+      "test_covariance_control.py",
+      "test_independent_numeric_audit.py"
+    ],
+    "environment": "fresh clean-check venv, Python 3.11.9",
+    "synthetic_only": true,
+    "real_data_model_fit": false
+  },
+  "cmu_dev_test_identity_overlap": 0,
+  "dev_controls_calibration_evaluation_sizes": [
+    28,
+    14
+  ],
+  "findings": [
+    "CMU threshold TEST identities previously appeared in the benchmark; not an end-to-end unseen holdout.",
+    "DEV probes may overlap source-identity enrollment; DEV is calibration, not independent evaluation.",
+    "OOF folds are enrollment calibration, not forward-only temporal CV.",
+    "Enrollment of a TEST target is legitimate profile registration; global prior/threshold must remain DEV-only.",
+    "KeyRecs/GREYC only previously unused for their first frozen evaluation; subsequent studies are development.",
+    "Adaptive updates assume genuine verification (oracle); no proof of OTP security or resistance to profile contamination."
+  ],
+  "arithmetic_audit": "results/independent_numeric_audit_20261122.json",
+  "review_document": "docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md",
+  "production_or_scientific_source_modified": false,
+  "initial_test_environment_issue": "Old venv: 80 passed, 2 DLL import failures under Application Control; clean venv: all 87 tests passed."
+}

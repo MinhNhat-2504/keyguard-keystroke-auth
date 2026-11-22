@@ -4,15 +4,20 @@ Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư
 Giảng viên hướng dẫn: Nguyễn Thái Anh  
 Bài tập lớn môn Học máy Ứng dụng — Trường Đại học Văn Lang
 
-Bản nộp gồm **PDF báo cáo đầy đủ và link GitHub**, theo hướng dẫn của giảng viên. Word được giữ để chỉnh sửa. Báo cáo cập nhật ngày 20/11/2026; hạn nộp nhóm xác nhận là hết ngày 22/11/2026, giờ Việt Nam. Nhánh này là bản bàn giao riêng, không thay nhánh đang triển khai dịch vụ.
+Bản nộp gồm **PDF báo cáo đầy đủ và link GitHub**, theo hướng dẫn của giảng viên. Word được giữ để chỉnh sửa. Báo cáo cập nhật ngày 22/11/2026; hạn nộp mới nhóm xác nhận là hết ngày **24/11/2026**, giờ Việt Nam. Nhánh này là bản bàn giao riêng, không thay nhánh đang triển khai dịch vụ.
 
 ## Đọc báo cáo
 
-- [Báo cáo nộp — PDF đầy đủ 45 trang](reports/KeyGuard_BaoCao_Nop_20261120.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_Nop_20261120.docx).
+- [Báo cáo nộp — PDF đầy đủ 45 trang](reports/KeyGuard_BaoCao_Nop_20261122.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_Nop_20261122.docx).
+- [Bản ngày 20/11 trước rà soát bổ sung](reports/KeyGuard_BaoCao_Nop_20261120.pdf) được giữ để đối chiếu.
 - [Bản tóm tắt 6 trang trước đó](reports/KeyGuard_BaoCao_Chinh_6Trang_20261119.pdf) được giữ để tham khảo, không thay PDF đầy đủ khi nộp email.
 - [Bản nghiên cứu 47 trang trước chỉnh sửa](reports/KeyGuard_BaoCao_NghienCuu_20261119.pdf) là bản lịch sử; các bản Word/PDF cũ vẫn có trong [reports/](reports/).
 
 Các công thức của bản nộp là Equation Word; có bảng đối chiếu mục tiêu–kết quả và nguồn tham khảo phân biệt tài liệu khoa học với hồ sơ thực nghiệm của nhóm. [Ghi chú đọc hiểu](docs/READING_GUIDE.md) giải thích những khái niệm cần tự kiểm tra trước khi nộp.
+
+Rà soát ngày22/11 đã tính lại 595 quyết định genuine từ điểm lưu của hai cách xử lý mẫu, cộng lại325 nhóm tài khoản/192 nhóm cặp–tài khoản và đối chiếu tiêu chí ban đầu. Hai cách xử lý dùng lại nhiều mẫu, nên595 không phải cỡ mẫu nghiên cứu độc lập. [Biên bản số liệu và protocol](research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md) phân biệt mức bằng chứng; [bản ghi số học](research/results/independent_numeric_audit_20261122.json) lưu chi tiết. 87/87 kiểm thử giả lập đạt trên môi trường sạch; không chạy thí nghiệm dữ liệu thật hoặc đổi ngưỡng. Bảng quyết định11 nhóm được viết rõ hơn; số liệu và hình khoa học giữ nguyên.
+
+Runner audit độc lập cần các tệp xuất điểm genuine gốc được giữ riêng, không có đầy đủ trong snapshot public; không thể chạy toàn bộ audit chỉ bằng clone public. Bộ kiểm `verify_submission.py` vẫn chạy được bằng thư viện chuẩn để đối chiếu phần công khai. Đây là giới hạn công bố dữ liệu, không phải tuyên bố đã tái lập mọi raw score.
 
 Thư mục `research/` chứa thư viện, runner, protocol, kết quả cố định và Explorer. Thư mục `web/` giữ code runtime đúng commit **b0bd22e13fd4f1c56ca2e638936daaa5f0767e39**, kèm helpers B1/B3 và dữ liệu giả đã kiểm. `evidence/` có ảnh/log đã rà và biên bản vận hành từ `thu-branch` **004bf1d847791fdd59126efbeda64755222fd0c8**, cùng kết quả đối chiếu độc lập. `SOURCE_MANIFEST.json` ghi hash từng tệp và nguồn snapshot.
 

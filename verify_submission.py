@@ -40,7 +40,9 @@ def check(root=ROOT):
         require(not any(x in name.lower() for x in ('.private-backup','.storage-test/','.env','/data/collected/','consent/','cham_diem')),'Private file in manifest')
         require((root/name).resolve().is_relative_to(root.resolve()),'Outside source tree')
         require(hashlib.sha256((root/name).read_bytes()).hexdigest()==expected,'Hash differs: '+name)
-    current=root/'reports/KeyGuard_BaoCao_Nop_20261120.docx';xml=document(current);paragraphs=paragraph_text(xml)
+    primary=manifest.get('primary_report','reports/KeyGuard_BaoCao_Nop_20261120.docx')
+    require(primary in manifest['files'],'Primary report absent from manifest')
+    current=root/primary;xml=document(current);paragraphs=paragraph_text(xml)
     require(len(xml.findall('.//m:oMath',NS))==7,'Native equation count differs')
     require(len(xml.findall('.//w:tbl',NS))==34,'Report table count differs')
     refs=[int(re.match(r'^\[(\d+)\]',p)[1]) for p in paragraphs if re.match(r'^\[\d+\]',p)]
