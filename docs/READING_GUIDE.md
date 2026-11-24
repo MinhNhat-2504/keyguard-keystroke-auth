@@ -1,5 +1,11 @@
 # Đọc lại nội dung trước khi nộp
 
+Bản v2 ngày 24/11 giữ 47 trang và cỡ chữ thường 13. Mục 1.2 nêu ba câu hỏi nghiên cứu, Chương 3 trả lời bằng kết quả cụ thể. Cần phân biệt câu hỏi tổng hợp khi viết báo cáo với giả thuyết được khóa trước từng phép thử trong protocol lịch sử.
+
+Một điểm cần hiểu ở mục 2.20 là tại cùng một hồ sơ, phép chuẩn hóa bằng trung bình và độ lệch chuẩn dương giữ thứ tự các điểm. Đổi cách chuẩn hóa nhưng giữ ngưỡng z có thể làm thay đổi FAR/FRR vì ngưỡng tương ứng trên điểm thô đã khác; điều này chưa chứng minh detector phân biệt tốt hơn. Khi hồ sơ thay đổi theo thời gian, không được suy rộng thành bất biến của thứ tự toàn bộ chuỗi điểm gộp.
+
+Mục 2.25 cũng chưa xác định được nguyên nhân FRR cao. Không chạm sàn trên hồ sơ đủ 20 mẫu chưa ủng hộ cách giải thích bằng sàn số học trong cấu hình đó. Điểm ngày sau tăng phù hợp với thay đổi phân bố, nhưng chưa tách được hành vi và thiết bị; FRR cao ngay trên enrollment/OOF cho thấy không thể quy toàn bộ lỗi cho thời gian. Đây là phân tích các khả năng, không phải kết luận nhân quả.
+
 Bản nộp lại ngày 24/11 có 47 trang. Phần chữ thường, bảng, chú thích và tài liệu tham khảo dùng cỡ 13; các mục lớn dùng cỡ lớn hơn. Nội dung đã làm rõ đóng góp của nhóm và lý do chọn phương pháp. Mục 1.2 và Bảng 3.1 nối mục tiêu với kết quả; Bảng 2.29 tổng hợp 11 nhóm đối chứng. Nhóm chưa tìm được một thay đổi giúp giảm đồng thời FAR và FRR một cách nhất quán giữa các nguồn. Các số liệu, hình khoa học và giới hạn dữ liệu vẫn giữ nguyên. Đoạn dưới ghi lại lần kiểm tra số liệu ngày 22/11, không phải một thí nghiệm mới ngày 24/11.
 
 Rà soát ngày22/11 bổ sung đối chiếu số học và đường đi dữ liệu. Tổng595 quyết định genuine gồm297 dòng phân tích chính và298 dòng phân tích nhạy cảm, có dùng lại mẫu; không phải cỡ mẫu độc lập mới. Audit không fit lại model: FRR của hai bảng này được áp lại từ điểm đã lưu, còn FAR và nhiều thí nghiệm khác được cộng từ số đếm tài khoản/cặp. Bộ87test chỉ dùng dữ liệu giả. Bản PDF ngày22/11 vẫn45trang, không sửa số liệu hay hình khoa học.
