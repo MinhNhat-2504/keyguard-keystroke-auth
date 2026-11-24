@@ -1,128 +1,105 @@
-# KeyGuard — Bài tập lớn Học máy Ứng dụng
+# KeyGuard
 
-Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư  
-Giảng viên hướng dẫn: Nguyễn Thái Anh  
-Bài tập lớn môn Học máy Ứng dụng — Trường Đại học Văn Lang
+**Xác thực người dùng qua nhịp gõ phím với cập nhật hồ sơ thích nghi**
 
-Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và link GitHub**. Word được giữ để chỉnh sửa. Nội dung làm rõ ý tưởng, đóng góp, mục tiêu, phương pháp và kết quả; phần chữ thường, bảng, chú thích và tài liệu tham khảo thống nhất cỡ13. Nhánh này là bản bàn giao riêng, không thay nhánh đang triển khai dịch vụ.
+Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-## Đọc báo cáo
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v9_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v9_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
-Bản v9 làm rõ [cơ chế mean/SD bằng ví dụ đại số](research/docs/CALIBRATION_INFLUENCE_NOTE_20261124.md) trong Phụ lục D và cập nhật tóm tắt để nêu cả đánh đổi xác minh. Với n−1 điểm OOF bằng 0 và một điểm M lớn, ngưỡng thô tăng theo M; nếu giữ điểm thô đánh giá hữu hạn độc lập với M, z tiến về −1/√(n−1). Đây là ví dụ nhân tạo có điều kiện, không thay dữ liệu USN, không phải thuật toán mới hoặc bằng chứng cải thiện FAR/FRR. Hai công thức mới là Equation gốc trong Word, có ghi rõ điều kiện sàn SD.
+## Bài toán
 
-Từ `research/`, chạy `python -m pytest tests/test_calibration_influence.py -q` (19 ca) và `python scripts/verify_calibration_influence_20261124.py` để đối chiếu phép tính với thống kê quần thể, giới hạn và các ngưỡng thật đã lưu. Không fit hoặc chấm lại mô hình. Các bản báo cáo trước đều được giữ.
+Một người biết đúng mật khẩu vẫn có thể gõ khác chủ tài khoản. KeyGuard khảo sát thời gian giữ phím và khoảng cách giữa các lần nhấn, nhả để bổ sung tín hiệu hành vi cho việc xác thực.
 
-Bản v8 bổ sung [phân tích tuyến xác minh](research/docs/CALIBRATION_ROUTING_RESULTS_20261124.md) để lượng hóa đánh đổi của prototype: 1.020 quyết định giả mạo không còn qua trực tiếp bước nhịp gõ, nhưng thêm 540 lượt chính chủ phải xác minh; vẫn còn 374 quyết định giả mạo qua nhịp gõ. Đây là đếm lại kết quả đã lưu trên USN đã xem, không phải kiểm chứng độc lập hoặc FAR/FRR cuối cùng của hệ thống. Bảng E.1 giữ nguyên mẫu số trước–sau; chưa giả định OTP thành công hay thất bại. Bảng 3.1 cũng được cập nhật nguồn USN và vị trí bằng chứng.
+Nhóm quan tâm đến hai câu hỏi: cấu hình chọn trên dữ liệu chuẩn có dùng được cho dữ liệu tự thu không, và các thay đổi trong đăng ký, chuẩn hóa điểm hoặc cập nhật hồ sơ có giúp giảm lỗi một cách nhất quán không?
 
-Từ `research/`, chạy `python -m pytest tests/test_calibration_routing.py -q` (11 ca dữ liệu giả), rồi `python scripts/verify_calibration_routing_20261124.py` để đếm lại độc lập đủ 15.610 quyết định bằng thư viện chuẩn. Runner `python -m scripts.run_calibration_routing_20261124 --check` kiểm khóa nguồn/mã; `--run` từ chối ghi đè kết quả đã lưu.
+```mermaid
+flowchart LR
+    A["Dữ liệu nhịp gõ"] --> B["Trích đặc trưng"]
+    B --> C["Hồ sơ và điểm số"]
+    C --> D["Đánh giá và phân tích lỗi"]
+```
 
-Bản v7 bổ sung [bộ kiểm tra chuẩn hóa từ mẫu đăng ký](research/docs/CALIBRATION_PREFLIGHT_RESULTS_20261124.md), xuất phát từ lỗi CV đã chẩn đoán. Module nghiên cứu chỉ dùng 20 mẫu đăng ký, cảnh báo ngoại suy qua sàn hoặc CV suy biến; cổng quyết định thử nghiệm yêu cầu xác minh bổ sung khi có cảnh báo, kể cả z rất thấp. 18 ca kiểm thử dữ liệu giả đạt trước lượt audit 30 hồ sơ. Audit hồi cứu cảnh báo ba hồ sơ đã biết; chưa có FAR/FRR mới, chưa tích hợp web, không coi các hồ sơ không cảnh báo là an toàn. Xem mục 1.2, 3.1 và Phụ lục E trong báo cáo.
+## Nhóm đã thực hiện
 
-Từ `research/`, chạy `python -m pytest tests/test_calibration_preflight.py -q` để kiểm logic, và `python scripts/verify_calibration_preflight_20261124.py` để đối chiếu artifact lưu bằng thư viện chuẩn. Lệnh đối chiếu không kiểm lại raw và không chạy CV. Runner `python -m scripts.run_calibration_preflight_20261124 --check` cần raw đúng khóa; `--run` từ chối ghi đè kết quả đã có.
+- **Thư viện nhịp gõ:** trích 31 đặc trưng cho chuỗi cố định, so sánh bốn họ mô hình và ba cách cập nhật hồ sơ.
+- **Ứng dụng web:** thu mẫu, đăng ký, đăng nhập, OTP mô phỏng; kiểm tra đầu vào, chống lưu mẫu hai lần và hỗ trợ PostgreSQL.
+- **Thực nghiệm:** so sánh trên CMU, đánh giá sơ bộ dữ liệu tự thu, đối chứng trên KeyRecs/GREYC-Web và kiểm tra quy tắc cố định trên USN.
+- **Phân tích chuẩn hóa:** tái lập một cơ chế lỗi CV, giải thích bằng đại số và xây bước kiểm tra mẫu đăng ký ở mức thử nghiệm nghiên cứu.
 
-Bản v6 thêm Phụ lục D để giải thích bằng hình cơ chế chuẩn hóa đã chẩn đoán. [Hình nguồn](research/figures/usn_normalization_20261124.png) dùng đủ 100 điểm OOF và năm ngưỡng thô tương đương từ kết quả lưu, không chấm mô hình mới. Chạy `python scripts/verify_usn_figure_20261124.py` từ `research/` để đối chiếu từng điểm, ngưỡng và hash hình bằng thư viện chuẩn. Điểm OOF không phải điểm của lượt giả mạo; ngưỡng thô thấp hơn cũng chưa chứng minh FAR–FRR tốt hơn.
+## Kết quả chính
 
-- [Báo cáo nộp lại ngày 24/11 — bản v9](reports/KeyGuard_BaoCao_NopLai_v9_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v9_20261124.docx).
-- [Bản v8](reports/KeyGuard_BaoCao_NopLai_v8_20261124.pdf) được giữ để đối chiếu.
-- [Bản v7](reports/KeyGuard_BaoCao_NopLai_v7_20261124.pdf) được giữ để đối chiếu.
-- [Bản v6](reports/KeyGuard_BaoCao_NopLai_v6_20261124.pdf) được giữ để đối chiếu.
-- [Bản v5](reports/KeyGuard_BaoCao_NopLai_v5_20261124.pdf) được giữ để đối chiếu.
-- [Bản v4](reports/KeyGuard_BaoCao_NopLai_v4_20261124.pdf) được giữ để đối chiếu.
-- [Bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) được giữ để đối chiếu.
-- [Bản v2, 47 trang](reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf) được giữ để đối chiếu.
-- [Bản v1 ngày 24/11](reports/KeyGuard_BaoCao_NopLai_20261124.pdf) được giữ để đối chiếu.
-- [Bản đã nộp ngày22/11 — 45 trang](reports/KeyGuard_BaoCao_Nop_20261122.pdf) được giữ nguyên để đối chiếu.
-- [Bản ngày 20/11 trước rà soát bổ sung](reports/KeyGuard_BaoCao_Nop_20261120.pdf) được giữ để đối chiếu.
-- [Bản tóm tắt 6 trang trước đó](reports/KeyGuard_BaoCao_Chinh_6Trang_20261119.pdf) được giữ để tham khảo, không thay PDF đầy đủ khi nộp email.
-- [Bản nghiên cứu 47 trang trước chỉnh sửa](reports/KeyGuard_BaoCao_NghienCuu_20261119.pdf) là bản lịch sử; các bản Word/PDF cũ vẫn có trong [reports/](reports/).
+FAR là tỷ lệ nhận nhầm; FRR là tỷ lệ chính chủ không được nhận trực tiếp tại ngưỡng đang xét.
 
-Các công thức của bản nộp là Equation Word; có bảng đối chiếu mục tiêu–kết quả và nguồn tham khảo phân biệt tài liệu khoa học với hồ sơ thực nghiệm của nhóm. [Ghi chú đọc hiểu](docs/READING_GUIDE.md) giải thích những khái niệm cần tự kiểm tra trước khi nộp.
+| Phép đánh giá | FAR | FRR | Nguồn kết quả |
+|---|---:|---:|---|
+| CMU — mô phỏng fallback | 1,49% | 19,21% | [Bảng ngưỡng](research/results/threshold_selection.csv) |
+| Dữ liệu tự thu — 597 mẫu, 15 người | 27,05–31,52% | 16,50% | [Tổng hợp tự thu](research/results/collected_preliminary_summary.json) |
+| USN — quy tắc cố định, 5 người và 6 câu | 13,65% | 32,81% | [Kết quả USN](research/docs/USN_TRANSFER_RESULTS_20261124.md) |
 
-[Mã nguồn và phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md) chỉ rõ các thư mục, chương trình chính và phần việc của hai thành viên. Để đọc nhanh, xem mục1.2 của báo cáo về mục tiêu/đóng góp, Chương2 về phương pháp và kết quả, rồi Bảng3.1 về mức thực hiện từng mục tiêu. Các kết quả bất lợi được giữ; bản v2 chỉ sửa lập luận, bản v3 bổ sung đối chứng DEV dưới đây.
+Mỗi hàng có cách chia dữ liệu và lịch chấm riêng; chi tiết nằm trong báo cáo và protocol. Mô phỏng fallback dùng giả định xác minh bổ sung đáng tin cậy khi cập nhật hồ sơ.
 
-Bản v3 có [đối chứng chọn 10 mẫu từ cùng 20 lượt đăng ký](research/docs/ENROLLMENT_SELECTION_RESULTS_20261124.md), so với 10 lượt đầu và 10 lượt cuối. Runner và protocol được khóa sau 13 kiểm thử giả lập, trước lần chấm. Bộ kiểm độc lập đối chiếu đạt 1.034 mục số đếm/metadata/hash. Cả bốn so sánh trên DEV CMU/KeyRecs không đạt tiêu chí đã chọn nên dừng trước kiểm chứng nguồn mới; không tuyên bố có cải tiến mô hình hay dữ liệu kiểm chứng độc lập mới. Cấu hình ứng dụng 20 mẫu và các kết quả lịch sử giữ nguyên.
+Kết quả cho thấy mức lỗi thấp trên CMU chưa giữ được khi chuyển sang dữ liệu tự thu. Các đối chứng chưa tìm được cải tiến đồng thời FAR–FRR nhất quán giữa các nguồn.
 
-Bản v4 thêm [đánh giá quy tắc cố định trên USN](research/docs/USN_TRANSFER_RESULTS_20261124.md), có xuất xứ trực tiếp từ [bài báo](https://doi.org/10.1007/s12243-024-01039-z) tới [kho USN phiên bản 1, CC BY 4.0](https://doi.org/10.23642/usn.23790858.v1). 37 tệp khớp MD5 công bố; 10 kiểm thử giả lập đạt trước khóa và chấm lần đầu. Giữ detector, 20 mẫu, CV và ngưỡng CMU; không học ngưỡng từ USN, không mở lại nhánh chọn mẫu. Kết quả: FAR gộp 13,65%, FRR 32,81%, khác biệt lớn giữa sáu câu. Chỉ có 5 người tạo 30 hồ sơ, mỗi câu thu một phiên; không tuyên bố hiệu quả nhiều ngày hoặc cải tiến mới. Bộ audit độc lập áp lại ngưỡng cho 15.610 quyết định, đạt 62.724 mục đối chiếu local. Raw không có trong repo; kết quả công khai đủ để kiểm lại các quyết định từ score đã lưu.
+Phần [chẩn đoán CV](research/docs/USN_SENSITIVITY_RESULTS_20261124.md) xác định ba hồ sơ có chuẩn hóa quá dễ nhận. Bước kiểm tra thử nghiệm chuyển thêm 1.020 quyết định giả mạo sang xác minh, đồng thời thêm 540 lượt chính chủ cũng cần xác minh; vẫn còn 374 quyết định giả mạo qua bước nhịp gõ. Đây là [phân tích tuyến xử lý hồi cứu](research/docs/CALIBRATION_ROUTING_RESULTS_20261124.md), chưa có kết quả OTP để tính FAR/FRR cuối cùng của toàn hệ thống.
 
-Để kiểm phần USN từ bản clone, chạy `python scripts/audit_usn_transfer_20261124.py --saved-only` ở `research/`; lệnh chỉ cần thư viện chuẩn và báo rõ không kiểm raw/kho bảo toàn lịch sử local. Kiểm logic bằng dữ liệu giả: `python -m pytest tests/test_usn_fixed_text.py -q`. Lần chấm thật đã có kết quả nên runner từ chối chạy lại hoặc ghi đè. Không dùng kết quả USN để đổi ngưỡng rồi gọi là cùng một lượt kiểm chứng.
+## Bắt đầu nhanh
 
-Bản v5 thêm [độ nhạy và chẩn đoán chuẩn hóa USN](research/docs/USN_SENSITIVITY_RESULTS_20261124.md), giữ nguyên mọi quyết định của lượt chấm gốc. Ba hồ sơ Ob$erv3r có một chiều Ctrl–Alt chạm sàn trong fold: sai khác 1 ms ở mẫu giữ ra tạo đóng góp điểm OOF 1.000.000. Thống kê CV của cả 30 hồ sơ được tái lập; chẩn đoán giúp giải thích ba hồ sơ nhận mọi attack của câu đó, không khẳng định nguyên nhân của mọi lỗi. Bỏ lần lượt một người vẫn cho FAR gộp 12,49–16,83%; cận đại số xét các dòng attack đã loại là 13,48–14,78%. Đây là phân tích hồi cứu, không phải phương pháp được sửa và kiểm chứng lại trên USN.
+Clone đúng nhánh nộp bài và kiểm các tệp công khai. Lệnh kiểm tra chỉ cần Python, chưa cần cài thư viện ngoài:
 
-Từ `research/`, chạy `python scripts/validate_usn_diagnostics_20261124.py` để đối chiếu bảng và thống kê OOF đã lưu bằng thư viện chuẩn; 326 mục kiểm tra đạt. Kiểm logic với `python -m pytest tests/test_usn_sensitivity.py tests/test_usn_oof_diagnostic.py -q` (11 ca). Muốn tái tính CV từ mẫu đăng ký cần raw đúng manifest; lệnh là `python -m scripts.usn_oof_diagnostic_20261124` và từ chối ghi đè kết quả. Không có sửa sàn, cắt score, chọn ngưỡng hoặc bỏ câu lỗi cao trong bản này.
+```powershell
+git clone --branch submission/final-20261119 https://github.com/MinhNhat-2504/keyguard-keystroke-auth.git
+cd keyguard-keystroke-auth
+python verify_submission.py
+```
 
-Chạy `python scripts/audit_enrollment_selection_20261124.py --saved-only` từ `research/` để kiểm số đếm công khai và hash mã nghiên cứu đã khóa. Chế độ này báo rõ các raw vắng trong snapshot và không kiểm kho bảo toàn báo cáo/cấu hình lịch sử local. Chạy `python -m pytest tests/test_enrollment_selection.py -q` để kiểm logic bằng dữ liệu giả. Kiểm khóa đầy đủ cần đúng raw và kho báo cáo lịch sử local; runner từ chối chạy lại hoặc ghi đè kết quả đã có.
-
-Bản v2 nối các phép thử theo ba câu hỏi: cấu hình có giữ mức lỗi khi chuyển sang bộ tự thu không; từng thay đổi có lợi hơn đối chứng trong cùng điều kiện không; lợi ích có giữ qua tài khoản và nguồn khác không. Phần thảo luận giải thích tác động của chuẩn hóa/ngưỡng, các khả năng làm FRR cao và mức biến động theo tài khoản. Nhóm phân biệt đóng góp triển khai và thực nghiệm với việc đề xuất thuật toán mới; các kết quả hiện tại chưa xác lập một cải tiến đồng thời FAR–FRR nhất quán giữa các nguồn.
-
-Rà soát ngày22/11 đã tính lại 595 quyết định genuine từ điểm lưu của hai cách xử lý mẫu, cộng lại325 nhóm tài khoản/192 nhóm cặp–tài khoản và đối chiếu tiêu chí ban đầu. Hai cách xử lý dùng lại nhiều mẫu, nên595 không phải cỡ mẫu nghiên cứu độc lập. [Biên bản số liệu và protocol](research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md) phân biệt mức bằng chứng; [bản ghi số học](research/results/independent_numeric_audit_20261122.json) lưu chi tiết. 87/87 kiểm thử giả lập đạt trên môi trường sạch; không chạy thí nghiệm dữ liệu thật hoặc đổi ngưỡng. Bảng quyết định11 nhóm được viết rõ hơn; số liệu và hình khoa học giữ nguyên.
-
-Runner audit độc lập cần các tệp xuất điểm genuine gốc được giữ riêng, không có đầy đủ trong snapshot public; không thể chạy toàn bộ audit chỉ bằng clone public. Bộ kiểm `verify_submission.py` vẫn chạy được bằng thư viện chuẩn để đối chiếu phần công khai. Đây là giới hạn công bố dữ liệu, không phải tuyên bố đã tái lập mọi raw score.
-
-Thư mục `research/` chứa thư viện, runner, protocol, kết quả cố định và Explorer. Thư mục `web/` giữ code runtime đúng commit **b0bd22e13fd4f1c56ca2e638936daaa5f0767e39**, kèm helpers B1/B3 và dữ liệu giả đã kiểm. `evidence/` có ảnh/log đã rà và biên bản vận hành từ `thu-branch` **004bf1d847791fdd59126efbeda64755222fd0c8**, cùng kết quả đối chiếu độc lập. `SOURCE_MANIFEST.json` ghi hash từng tệp và nguồn snapshot.
-
-Các nguồn tổng hợp được báo cáo dẫn gồm [kết quả 597 mẫu tự thu](research/results/collected_preliminary_summary.json), [bảng ngưỡng CMU](research/results/threshold_selection.csv) và [cấu hình nghiên cứu](research/models/model_config.json). Đã bổ sung các script/tài liệu được báo cáo dẫn; không bổ sung raw riêng tư hoặc chạy lại mô hình để thay số liệu.
-
-`config_sha256` trong summary tính từ `json.dumps(cfg, sort_keys=True)` như code đánh giá gốc. Đây là hash biểu diễn JSON đã sắp khóa, khác hash byte của file trong manifest; hai loại được kiểm riêng.
-
-`research/results/live_test_summary.json` là đợt lịch sử ngày 11/11: 34 lượt verify có role và 6 event OTP. Đợt 33 verify ngày 13/11 được báo cáo riêng; không ghép hai mốc. `research/results/test_results.xml` lưu lần chạy 27 test lịch sử, không phải kết quả kiểm checkout sạch hiện tại.
-
-Giải nén toàn bộ repo rồi mở `research/explorer/index.html#evidence` để xem bảng offline. Các đường dẫn `results/...`, `docs/...`, `scripts/...` trong phần nghiên cứu được hiểu từ thư mục `research/`. Các đường dẫn lịch sử trong biên bản người vận hành được giữ để truy vết; ảnh tương ứng đặt tại `evidence/screenshots/`.
-
-## Phạm vi kết luận
-
-- Bộ nghiên cứu tự thu: 601 dòng ban đầu/15 mã, 597 mẫu sau loại bảo thủ; chủ yếu một phiên. Giữ giới hạn P10/metadata và provenance log live cũ. Không dựng phiên/ngày hoặc metadata thiếu.
-- Bản backup cuối dùng kiểm lưu trữ có 609 mẫu = 601 cũ + 8 P16 thử; thêm tài khoản test. P16/tài khoản test không được đưa vào kết quả nghiên cứu hoặc live33 lượt.
-- Không thay detector/ngưỡng hoặc chọn lại mô hình. Các kết quả bất lợi và đối chứng không đạt vẫn được giữ; bootstrap theo tài khoản là mô tả hồi cứu có điều kiện, không phải kiểm chứng trên dữ liệu mới.
-- D1–D6 được nghiệm thu trong phạm vi hồ sơ ảnh/log và kiểm độc lập đã nêu. D4 dựa trên hồ sơ restart Render của người vận hành; D5 đã restore backup thực nhận vào PostgreSQL local rỗng, so toàn bộ nội dung/hash và nhập lại không nhân đôi. GET web/static200 và khóa admin cũ404 được kiểm riêng. Không tuyên bố đã tự chạy toàn bộ production hoặc bảo đảm an toàn lâu dài.
-- Sự cố deploy sớm và thiếu xác nhận mẫu chờ trong lịch sử được công bố; không đánh dấu như chưa từng có sự cố. Mở lại thu là quyết định vận hành riêng, không điều kiện nộp bài.
-
-## Chạy mã local
-
-Dùng Python 3.11 và môi trường ảo riêng; cài `requirements.txt` trong thư mục tương ứng. Để kiểm toàn bộ các lệnh dưới đây trong cùng môi trường local, có thể cài cả `research/requirements.txt` và `web/requirements.txt`; các phiên bản thư viện nghiên cứu vẫn được giữ nguyên. Không nâng dependency để ép các phép kiểm freeze qua.
-
-Đã kiểm lại ngày 20/11 trên bản clone GitHub sạch, trong venv mới không dùng system site-packages: **50/50 test logic/file-mode**, 5 GET qua Flask test client và 3 ca phát hiện lỗi của checker đạt. [Kết quả chi tiết](validation/clean_checkout_20261120.json) ghi commit, môi trường và phạm vi. Đây không phải huấn luyện lại trên raw hoặc kiểm toàn bộ dịch vụ thật.
-
-Để dùng bộ dependency đã kiểm trên Windows/Python 3.11, chạy từ gốc repo:
+Để chạy ứng dụng và các kiểm thử, dùng Python 3.11 và bộ thư viện đã kiểm:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r validation/requirements-tested.txt
-.\.venv\Scripts\python.exe verify_submission.py
 ```
 
-Sau đó dùng Python trong venv cho các lệnh test bên dưới. File [requirements-tested.txt](validation/requirements-tested.txt) khóa cả dependency phụ của môi trường đã kiểm; không khẳng định mọi hệ điều hành đều đã được thử.
-
-Sau khi clone, chạy `python verify_submission.py` ở gốc repo. Lệnh này chỉ cần Python standard library: kiểm manifest, các tham chiếu tệp trong báo cáo, cặp JSON/CSV và số đếm nguồn. Nó không huấn luyện lại mô hình hoặc ghi database.
-
-Ví dụ PowerShell tại `web/` sau khi cài dependency:
+Chạy web bằng file storage riêng cho local:
 
 ```powershell
-$env:PYTHONUTF8='1'
-$env:KEYGUARD_STORAGE='file'
-$env:DATABASE_URL=''
-$env:KEYGUARD_DATA_DIR=Join-Path $PWD 'local-test-data'
-python app.py
+cd web
+$env:PYTHONUTF8 = '1'
+$env:KEYGUARD_STORAGE = 'file'
+$env:DATABASE_URL = ''
+$env:KEYGUARD_DATA_DIR = Join-Path $PWD 'local-test-data'
+..\.venv\Scripts\python.exe app.py
 ```
 
-Mở `http://127.0.0.1:5000`. Enroll cần 20 lượt hợp lệ của `.tie5Roanl` + Enter; OTP là mô phỏng. File storage chỉ dùng local. Collector cần mã thiết bị tự khai báo; trình duyệt tự tạo request_id và giữ mẫu chờ trong tab để retry.
+Mở **http://127.0.0.1:5000**. Phần đăng ký cần 20 lượt hợp lệ của chuỗi `.tie5Roanl` và Enter; OTP là mô phỏng.
 
-Test local trong `web/`:
+[Hướng dẫn chạy và đối chiếu kết quả](docs/RUNNING_AND_REPRODUCIBILITY.md) ghi các lệnh kiểm thử, audit và đầu vào cần có khi chạy lại nghiên cứu.
+
+## Cấu trúc mã nguồn
 
 ```text
-python -X utf8 -m unittest tests.test_collection_api.FileCollectionAPI
-python -X utf8 -m unittest discover -s tests -p test_data_quality_thu.py
-python -X utf8 tests/test_otp_boundaries_thu.py
+reports/       Báo cáo Word và PDF
+research/      Thư viện, thực nghiệm, protocol và kết quả nghiên cứu
+web/           Ứng dụng Flask và kiểm thử API
+evidence/      Ảnh, nhật ký và hồ sơ vận hành
+docs/          Hướng dẫn đọc, chạy và phân công
+validation/    Hồ sơ kiểm tra và thư viện đã kiểm
 ```
 
-Test logic dữ liệu giả trong `research/`:
+`research/` và `web/` giữ các phần mã tương ứng với phạm vi đã đánh giá. [SOURCE_MANIFEST.json](SOURCE_MANIFEST.json) ghi hash các tệp trong bản nộp.
 
-```text
-python -X utf8 -m unittest discover -s tests -p test_greyc_key_pairing.py
-python -X utf8 -m unittest discover -s tests -p test_covariance_control.py
-python -X utf8 -m unittest discover -s tests -p test_account_benefit_summary.py
-python -X utf8 -m unittest discover -s tests -p test_account_uncertainty.py
-```
+## Phạm vi và giới hạn
 
-Các runner thực nghiệm cần đúng CMU/KeyRecs/GREYC, nguồn và điều kiện sử dụng ghi trong protocol/data README. Raw tự thu và private backup không công bố; không hướng dẫn chạy toàn bộ test lịch sử khi thiếu các đầu vào này. Đọc CSV/checksum không đồng nghĩa đã chạy lại mô hình. PostgreSQL test/restore chỉ chạy trên database local riêng rỗng; không dùng thông tin kết nối dịch vụ thật.
+Dữ liệu tự thu chủ yếu một phiên nên chưa chứng minh độ ổn định qua nhiều ngày. USN có 5 người tạo 30 hồ sơ người–câu; các quyết định chấm lặp không phải các cá nhân độc lập. Bước kiểm tra chuẩn hóa mới nằm trong phần nghiên cứu, chưa tích hợp vào web.
 
-Repo không chứa `.env`, DATABASE_URL thật, khóa, account/profile/challenge thực, private backup, raw tự thu, consent, lịch sử chấm điểm nội bộ hoặc môi trường ảo. Có số liệu theo mã giả danh trong artifact công khai và dữ liệu giả được ghi nhãn. Không gửi credential qua issue, ảnh nộp hoặc commit.
+Repo có mã nguồn, kết quả đã lưu và dữ liệu giả để kiểm logic. Raw tự thu, tài khoản thực, OTP và thông tin kết nối riêng được giữ ngoài bản công khai. Đối chiếu được kết quả lưu không đồng nghĩa đã chạy lại toàn bộ mô hình từ raw.
+
+## Nhóm thực hiện
+
+| Sinh viên | MSSV |
+|---|---|
+| Trịnh Ngọc Minh Nhật | 2474802010280 |
+| Nguyễn Anh Thư | 2474802010381 |
+
+**Giảng viên hướng dẫn:** Nguyễn Thái Anh.
+
+Bản nộp cập nhật ngày **24/11/2026**. Các báo cáo trước được giữ trong [reports/](reports/) để đối chiếu.

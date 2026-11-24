@@ -10,9 +10,10 @@
   "files": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
     ".gitignore": "3b7c43003b45719061e27583668c049de3b0ff6784176e4402d6b2baa501113e",
-    "README.md": "cfe4799579ca8749c5d6037f0e18961967e045f1e57d854180b5e5686a5e7eed",
+    "README.md": "f1019b0234853fb460c3e3d75618276174031554f03e8dfdeed1d08a47740d62",
     "docs/MA_NGUON_VA_PHAN_CONG.md": "ef7f0985a9ea1c11addd074d52537db366c89028f228e165f6c1cdb2d573583a",
-    "docs/READING_GUIDE.md": "aeca63491e348ca314337f3bbef38d2da2befca3727c8c2a05cfb31504c403be",
+    "docs/READING_GUIDE.md": "417eee44acaabf92f449e8e1c0a5520d05ea4b1a71a566f06bd13a3ce9abb68c",
+    "docs/RUNNING_AND_REPRODUCIBILITY.md": "2bca89abb576cf476461cb7a9bde0a158fe9f128cac16ed555f7d72a29f6e8ba",
     "evidence/collection_idempotency_browser_checks_20261115.json": "57f30c1b952cc52bd3afbe1273b5539647b6a227c11cd7afff41f34c64a06886",
     "evidence/collection_idempotency_validation_20261115.json": "1c71aff632d30eb92dea4bf19d738f736063e6b4031212da74e8f523214f8a33",
     "evidence/render_cutover_thu.md": "ac771ce8711ddb6d3d5c9e4d0a169865c7b99243c95db2d0040ae8887a362d62",
@@ -506,5 +507,6 @@
   "calibration_preflight": "research/results/calibration_preflight_20261124_results.json",
   "calibration_routing": "research/results/calibration_routing_20261124_results.json",
   "native_equations": 9,
-  "calibration_influence": "research/results/calibration_influence_20261124.json"
+  "calibration_influence": "research/results/calibration_influence_20261124.json",
+  "documentation_updated_at": "2026-11-24"
 }
