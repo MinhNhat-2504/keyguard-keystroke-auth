@@ -1,0 +1,13 @@
+# Kiểm tra mẫu đăng ký trước khi dùng điểm nhịp gõ
+
+Từ chẩn đoán chuẩn hóa USN, nhóm bổ sung module thử nghiệm `keyguard/calibration_preflight.py`. Đầu vào chỉ là 20 mẫu đăng ký; detector, cách chia CV và sàn số học được giữ nguyên. Hai dấu hiệu cần xem lại là chiều chạm sàn trong phần học của fold nhưng mẫu giữ ra lệch hơn sàn, hoặc độ lệch chuẩn OOF chạm sàn 1e-6. Không chọn thêm mức cắt từ FAR/FRR.
+
+Module trả nguyên nhân, fold, chiều đặc trưng, độ lệch lớn nhất và đóng góp điểm. Hàm quyết định thử nghiệm chỉ cho phép dùng kết quả nhịp gõ nếu không cảnh báo và z không vượt ngưỡng được cấp. Nếu không thỏa, luồng cần xác minh bổ sung. Hàm không tạo hoặc xác nhận OTP, không tự đăng nhập và không cập nhật hồ sơ. Khi tích hợp sau này, audit phải thuộc đúng hồ sơ đăng ký đang chấm; đầu ra không được lấy từ trình duyệt không tin cậy.
+
+18 ca dữ liệu giả đạt trước khi khóa mã: khớp điểm CV của detector gốc; không thay đầu vào; nhận ra ngoại suy qua sàn dù hồ sơ đủ mẫu không chạm sàn; không gắn cờ chỉ vì một chiều hằng không ngoại suy; CV hằng hoàn toàn; không để điểm z rất thấp bỏ qua cảnh báo; ngưỡng biên; dữ liệu sai dạng, không hữu hạn hoặc tràn số. Mã, kế hoạch và nguồn được khóa trước lượt audit, nhưng sau khi đã biết lỗi USN; không gọi là kiểm chứng độc lập.
+
+Audit đọc đúng 600 dòng đăng ký của đủ 30 hồ sơ; không phân tích 5.400 dòng chính chủ đánh giá hoặc các dòng attack. Hash toàn bộ tệp nguồn được kiểm để xác nhận xuất xứ, nhưng chỉ 20 dòng đầu mỗi tệp được parse vào module. Thống kê CV khớp các kết quả đã lưu của đủ 30 hồ sơ. Có ba hồ sơ cần xem lại, đều là participant1–3 của Ob$erv3r, do ngoại suy qua sàn trong fold; không có hồ sơ bị gắn cờ CV hằng. Đây chính là ba trường hợp đã biết từ chẩn đoán trước đó. Không được gọi tỷ lệ 3/30 là độ nhạy, độ chính xác hoặc bằng chứng phát hiện tổng quát; 27 hồ sơ còn lại không được chứng nhận an toàn.
+
+Đóng góp thêm là biến một lỗi số học đã mô tả thành bước kiểm tra có thể chạy và kiểm thử. Chưa đo chi phí tăng lượt xác minh, chưa tích hợp backend, chưa kiểm trên nguồn chưa xem và chưa có FAR/FRR mới. Không gán các lượt yêu cầu OTP thành nhận đúng hoặc từ chối đúng. Vì vậy báo cáo không kết luận mô hình phân biệt tốt hơn hoặc hệ thống an toàn hơn sau thay đổi này.
+
+Mã chạy: `python -m scripts.run_calibration_preflight_20261124 --check`; `--run` từ chối ghi đè. Mã/test/khóa và kết quả nằm dưới prefix `results/calibration_preflight_20261124_`. Chạy `python -m pytest tests/test_calibration_preflight.py -q` để kiểm bằng dữ liệu giả. Từ snapshot công khai không có raw, dùng `python scripts/verify_calibration_preflight_20261124.py` để đối chiếu artifact đã lưu; chế độ này báo rõ không kiểm lại raw và không chạy lại CV.

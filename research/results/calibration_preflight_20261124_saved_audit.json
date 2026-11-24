@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "profile_summaries_reconciled": 30,
+  "review_required_count": 3,
+  "synthetic_test_cases_passed": 18,
+  "raw_rechecked": false,
+  "model_rerun": false,
+  "scope": "Saved artifact/code reconciliation only; no efficacy, OTP or deployment acceptance"
+}

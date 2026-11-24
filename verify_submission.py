@@ -110,6 +110,19 @@ def check(root=ROOT):
             for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
         bounds=sensitivity['results']['excluded_attack_decision_bounds']
         require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    if manifest.get('calibration_preflight'):
+        preflight=json.loads((root/manifest['calibration_preflight']).read_text(encoding='utf-8'))
+        lock_path=root/'research/results/calibration_preflight_20261124_freeze.json'
+        lock=json.loads(lock_path.read_text(encoding='utf-8'))
+        require(hashlib.sha256(lock_path.read_bytes()).hexdigest()==preflight['freeze_sha256'],'Preflight lock changed')
+        for name,h in lock['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Preflight source changed: '+name)
+        tests=(root/'research/results/calibration_preflight_20261124_synthetic_tests.json').read_bytes()
+        require(hashlib.sha256(tests).hexdigest()==lock['synthetic_tests_sha256'],'Preflight tests record changed')
+        require(len(preflight['profiles'])==preflight['profile_count']==30,'Preflight profile count differs')
+        require(sum(p['review_required'] for p in preflight['profiles'])==preflight['review_required_count'],'Preflight warning count differs')
+        require(preflight['enrollment_rows_parsed']==600 and preflight['test_rows_parsed']==0,'Preflight scope differs')
+        require(not preflight['production_changed'] and not preflight['test_decisions_changed'],'Preflight deployment/performance overclaim')
     if manifest.get('usn_explanation_figure'):
         figure=json.loads((root/manifest['usn_explanation_figure']).read_text(encoding='utf-8'))
         diagnostic=json.loads((root/manifest['usn_diagnostics']).read_text(encoding='utf-8'))

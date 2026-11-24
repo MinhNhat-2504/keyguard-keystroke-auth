@@ -8,9 +8,14 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 ## Đọc báo cáo
 
+Bản v7 bổ sung [bộ kiểm tra chuẩn hóa từ mẫu đăng ký](research/docs/CALIBRATION_PREFLIGHT_RESULTS_20261124.md), xuất phát từ lỗi CV đã chẩn đoán. Module nghiên cứu chỉ dùng 20 mẫu đăng ký, cảnh báo ngoại suy qua sàn hoặc CV suy biến; cổng quyết định thử nghiệm yêu cầu xác minh bổ sung khi có cảnh báo, kể cả z rất thấp. 18 ca kiểm thử dữ liệu giả đạt trước lượt audit 30 hồ sơ. Audit hồi cứu cảnh báo ba hồ sơ đã biết; chưa có FAR/FRR mới, chưa tích hợp web, không coi các hồ sơ không cảnh báo là an toàn. Xem mục 1.2, 3.1 và Phụ lục E trong báo cáo.
+
+Từ `research/`, chạy `python -m pytest tests/test_calibration_preflight.py -q` để kiểm logic, và `python scripts/verify_calibration_preflight_20261124.py` để đối chiếu artifact lưu bằng thư viện chuẩn. Lệnh đối chiếu không kiểm lại raw và không chạy CV. Runner `python -m scripts.run_calibration_preflight_20261124 --check` cần raw đúng khóa; `--run` từ chối ghi đè kết quả đã có.
+
 Bản v6 thêm Phụ lục D để giải thích bằng hình cơ chế chuẩn hóa đã chẩn đoán. [Hình nguồn](research/figures/usn_normalization_20261124.png) dùng đủ 100 điểm OOF và năm ngưỡng thô tương đương từ kết quả lưu, không chấm mô hình mới. Chạy `python scripts/verify_usn_figure_20261124.py` từ `research/` để đối chiếu từng điểm, ngưỡng và hash hình bằng thư viện chuẩn. Điểm OOF không phải điểm của lượt giả mạo; ngưỡng thô thấp hơn cũng chưa chứng minh FAR–FRR tốt hơn.
 
-- [Báo cáo nộp lại ngày 24/11 — bản v6](reports/KeyGuard_BaoCao_NopLai_v6_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v6_20261124.docx).
+- [Báo cáo nộp lại ngày 24/11 — bản v7](reports/KeyGuard_BaoCao_NopLai_v7_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v7_20261124.docx).
+- [Bản v6](reports/KeyGuard_BaoCao_NopLai_v6_20261124.pdf) được giữ để đối chiếu.
 - [Bản v5](reports/KeyGuard_BaoCao_NopLai_v5_20261124.pdf) được giữ để đối chiếu.
 - [Bản v4](reports/KeyGuard_BaoCao_NopLai_v4_20261124.pdf) được giữ để đối chiếu.
 - [Bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) được giữ để đối chiếu.
