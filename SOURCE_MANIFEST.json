@@ -1,17 +1,18 @@
 {
-  "version": "final-file-submission-20261120",
+  "version": "resubmission-20261124",
   "web_commit": "b0bd22e13fd4f1c56ca2e638936daaa5f0767e39",
   "evidence_commit": "004bf1d847791fdd59126efbeda64755222fd0c8",
   "layout": {
-    "main": 45,
+    "main": 47,
     "legacy_short": 6,
     "legacy_research": 47
   },
   "files": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
     ".gitignore": "3b7c43003b45719061e27583668c049de3b0ff6784176e4402d6b2baa501113e",
-    "README.md": "87248eba28c189daaef73c3f5ef992f4378203197c4545438d36ff9b594329b6",
-    "docs/READING_GUIDE.md": "440928a4cf296f5251474636882bf38d5744563e3cfea817f7f1546a9e6b3a1d",
+    "README.md": "66571d76ccefc8003d8bbec5884c04128226b9d4efc1ade3d2858f2502d5bdc9",
+    "docs/MA_NGUON_VA_PHAN_CONG.md": "ef7f0985a9ea1c11addd074d52537db366c89028f228e165f6c1cdb2d573583a",
+    "docs/READING_GUIDE.md": "b1b80fce0e4738d1d91a6a4befef726dd41a84467e0d6080442ebefeec05a2a8",
     "evidence/collection_idempotency_browser_checks_20261115.json": "57f30c1b952cc52bd3afbe1273b5539647b6a227c11cd7afff41f34c64a06886",
     "evidence/collection_idempotency_validation_20261115.json": "1c71aff632d30eb92dea4bf19d738f736063e6b4031212da74e8f523214f8a33",
     "evidence/render_cutover_thu.md": "ac771ce8711ddb6d3d5c9e4d0a169865c7b99243c95db2d0040ae8887a362d62",
@@ -55,6 +56,8 @@
     "reports/KeyGuard_BaoCao_Chinh_6Trang_20261119.pdf": "02e2b2ed9e0337180fa5b4ce60f6512dee4b47cba92fd3392a30041d8962e212",
     "reports/KeyGuard_BaoCao_NghienCuu_20261119.docx": "eaabad89216045996b4a6f94183d821756507e7725be7e9a03533918bc477d5f",
     "reports/KeyGuard_BaoCao_NghienCuu_20261119.pdf": "2a02ad6c9d586198464ba3a5506b73b3f8dda0de2b9abc228ad8adb03662ffcf",
+    "reports/KeyGuard_BaoCao_NopLai_20261124.docx": "85ecf67086da043b72f79ed884a64e9945bd4c05c70460ff7f8959ed9f76c2a8",
+    "reports/KeyGuard_BaoCao_NopLai_20261124.pdf": "62ba62bf33f5be69e27a295faf5690cde6880f7d157ee75f86dfc394f54e64fb",
     "reports/KeyGuard_BaoCao_Nop_20261120.docx": "155197d52adb6a3a1b5462c17de98ac9cf6002a43f553905dde9ff683358004e",
     "reports/KeyGuard_BaoCao_Nop_20261120.pdf": "fb20610562b8134b0f60c738dc601d75642eac807a450523cd942185c2f5e8b3",
     "reports/KeyGuard_BaoCao_Nop_20261122.docx": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
@@ -302,7 +305,9 @@
     "validation/clean_checkout_20261120.json": "01aa54678022bd659427869f9e547125ce2f415ea2dd2a3fe3ca8903468d9b4c",
     "validation/report_revision_20261122.json": "1134dfb9da26c0a6bfdafd0380bfbbea80341c8c9f1bdbd79b89294062546ced",
     "validation/requirements-tested.txt": "3fd1198a9eee0304a127b80addb64430445ae74f26fe66760d1f1f03c76330d0",
-    "verify_submission.py": "be965b9b72343a8055839867b66c413c1fcb852b3be6bcdaa3529fec709e8359",
+    "validation/resubmission_20261124.json": "f026f43b8c77eda8491a03e0122562d10cd73b5232cd8388f28ab1c95bf19c47",
+    "validation/resubmission_font_guard_20261124.json": "e98586c178f88f51845ca9fe436d4e698e2f6bcbd08747296a7119fe0e06d072",
+    "verify_submission.py": "c3fb588ca48d60a4b18236c733f9ab9a041f25c96627066bd1b655ed9226c564",
     "web/Dockerfile.storage": "04155817551ca306ec61aa2fe51c71714f161ec451d7d94e600b83ace74d6473",
     "web/Procfile": "5fb151f140fea77201b908f7e7b21b97162ebc9d51614240319a77203f0e4105",
     "web/app.py": "f2a2b4a04e3c302c5e86db4a3a742bef125f07836c412084cbebff3fb7a7d213",
@@ -388,6 +393,8 @@
   "clean_checkout_validation": "validation/clean_checkout_20261120.json",
   "dependency_lock": "validation/requirements-tested.txt",
   "code_commit_tested": "e40b0c1463fd9ea5762b1c557254881a0b925456",
-  "primary_report": "reports/KeyGuard_BaoCao_Nop_20261122.docx",
-  "latest_review": "research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md"
+  "primary_report": "reports/KeyGuard_BaoCao_NopLai_20261124.docx",
+  "latest_review": "research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md",
+  "primary_report_tables": 33,
+  "body_font_pt": 13
 }

@@ -21,6 +21,14 @@ def document(path):
 def paragraph_text(xml):
     return [''.join(n.text or '' for n in p.iter('{'+NS['w']+'}t')) for p in xml.iter('{'+NS['w']+'}p')]
 
+
+def check_table_font(xml, points):
+    for table in xml.findall('.//w:tbl',NS):
+        for run in table.findall('.//w:r',NS):
+            if not ''.join(run.itertext()).strip():continue
+            size=run.find('w:rPr/w:sz',NS)
+            require(size is not None and size.get('{'+NS['w']+'}val')==str(points*2),'Primary report table font differs')
+
 def referenced_files(paragraphs):
     pattern=r'(?<![\w/])(?:research/|web/)?(?:docs|results|scripts|keyguard|models|explorer|data)/[A-Za-z0-9_./-]+\.[A-Za-z0-9_]+'
     names=set()
@@ -44,7 +52,8 @@ def check(root=ROOT):
     require(primary in manifest['files'],'Primary report absent from manifest')
     current=root/primary;xml=document(current);paragraphs=paragraph_text(xml)
     require(len(xml.findall('.//m:oMath',NS))==7,'Native equation count differs')
-    require(len(xml.findall('.//w:tbl',NS))==34,'Report table count differs')
+    require(len(xml.findall('.//w:tbl',NS))==manifest.get('primary_report_tables',34),'Report table count differs')
+    if manifest.get('body_font_pt'):check_table_font(xml,manifest['body_font_pt'])
     refs=[int(re.match(r'^\[(\d+)\]',p)[1]) for p in paragraphs if re.match(r'^\[\d+\]',p)]
     require(refs==list(range(1,19)),'Bibliography order differs')
     paths=referenced_files(paragraphs);missing=[]
@@ -71,7 +80,7 @@ def check(root=ROOT):
     for target in re.findall(r'\]\(([^)]+)\)',(root/'README.md').read_text(encoding='utf-8')):
         if target.startswith(('https:','http:','#')):continue
         require((root/target.split('#',1)[0]).exists(),'README link missing: '+target)
-    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':34,'references':18,'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
+    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':18,'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
 
 if __name__=='__main__':
     try:print(json.dumps(check(),ensure_ascii=True))

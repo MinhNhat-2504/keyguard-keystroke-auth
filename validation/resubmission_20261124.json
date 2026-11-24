@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "pdf_pages": 47,
+  "normal_font_pt": 13,
+  "table_caption_references_font_pt": 13,
+  "heading_font_pt": [
+    14,
+    16
+  ],
+  "math_base_font_pt": 13,
+  "math_subscripts_pt": 7.8,
+  "math_large_sum_symbol_pt": 17.5,
+  "docx_font_counts": {
+    "16.0": 9,
+    "14.0": 46,
+    "20.0": 1,
+    "18.0": 3,
+    "13.0": 296,
+    "25.0": 1
+  },
+  "pdf_font_counts": {
+    "16.0": 9,
+    "14.0": 46,
+    "20.0": 1,
+    "18.0": 3,
+    "13.0": 2061,
+    "25.0": 1,
+    "7.8": 46,
+    "17.5": 1
+  },
+  "table_number_cells_preserved": 437,
+  "tables": 33,
+  "native_equations": 7,
+  "duplicate_source_table_removed": 23,
+  "image_bytes_preserved": true,
+  "references": 18,
+  "toc_entries_verified": 49,
+  "docx_sha256": "85ecf67086da043b72f79ed884a64e9945bd4c05c70460ff7f8959ed9f76c2a8",
+  "pdf_sha256": "62ba62bf33f5be69e27a295faf5690cde6880f7d157ee75f86dfc394f54e64fb",
+  "source_docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "grading_rubric": {
+    "content": 80,
+    "presentation": 10,
+    "github": 10
+  },
+  "new_model_experiment": false,
+  "visual_review_all_pages": true,
+  "scope": "Report content, formatting and reconciliation; no model rerun or production change."
+}

@@ -1,0 +1,6 @@
+{
+  "valid_13_accepted": true,
+  "font_11_rejected": true,
+  "missing_direct_size_rejected": true,
+  "synthetic_corruption_only_in_memory": true
+}

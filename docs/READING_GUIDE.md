@@ -1,5 +1,7 @@
 # Đọc lại nội dung trước khi nộp
 
+Bản nộp lại ngày 24/11 có 47 trang. Phần chữ thường, bảng, chú thích và tài liệu tham khảo dùng cỡ 13; các mục lớn dùng cỡ lớn hơn. Nội dung đã làm rõ đóng góp của nhóm và lý do chọn phương pháp. Mục 1.2 và Bảng 3.1 nối mục tiêu với kết quả; Bảng 2.29 tổng hợp 11 nhóm đối chứng. Nhóm chưa tìm được một thay đổi giúp giảm đồng thời FAR và FRR một cách nhất quán giữa các nguồn. Các số liệu, hình khoa học và giới hạn dữ liệu vẫn giữ nguyên. Đoạn dưới ghi lại lần kiểm tra số liệu ngày 22/11, không phải một thí nghiệm mới ngày 24/11.
+
 Rà soát ngày22/11 bổ sung đối chiếu số học và đường đi dữ liệu. Tổng595 quyết định genuine gồm297 dòng phân tích chính và298 dòng phân tích nhạy cảm, có dùng lại mẫu; không phải cỡ mẫu độc lập mới. Audit không fit lại model: FRR của hai bảng này được áp lại từ điểm đã lưu, còn FAR và nhiều thí nghiệm khác được cộng từ số đếm tài khoản/cặp. Bộ87test chỉ dùng dữ liệu giả. Bản PDF ngày22/11 vẫn45trang, không sửa số liệu hay hình khoa học.
 
 KeyGuard kiểm tra cách gõ một chuỗi đã biết. Một người biết đúng mật khẩu vẫn có thể có nhịp gõ khác chủ tài khoản. Đề tài khảo sát tín hiệu hành vi bổ sung này, không chứng minh nó thay thế mật khẩu hay tạo ra một cơ chế OTP thật. Các bài nền ở chương1 giải thích bài toán; mô tả cài đặt và kết quả của nhóm phải dẫn mã/protocol/artifact của nhóm.

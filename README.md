@@ -4,16 +4,19 @@ Trịnh Ngọc Minh Nhật · Nguyễn Anh Thư
 Giảng viên hướng dẫn: Nguyễn Thái Anh  
 Bài tập lớn môn Học máy Ứng dụng — Trường Đại học Văn Lang
 
-Bản nộp gồm **PDF báo cáo đầy đủ và link GitHub**, theo hướng dẫn của giảng viên. Word được giữ để chỉnh sửa. Báo cáo cập nhật ngày 22/11/2026; hạn nộp mới nhóm xác nhận là hết ngày **24/11/2026**, giờ Việt Nam. Nhánh này là bản bàn giao riêng, không thay nhánh đang triển khai dịch vụ.
+Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và link GitHub**. Word được giữ để chỉnh sửa. Nội dung làm rõ ý tưởng, đóng góp, mục tiêu, phương pháp và kết quả; phần chữ thường, bảng, chú thích và tài liệu tham khảo thống nhất cỡ13. Nhánh này là bản bàn giao riêng, không thay nhánh đang triển khai dịch vụ.
 
 ## Đọc báo cáo
 
-- [Báo cáo nộp — PDF đầy đủ 45 trang](reports/KeyGuard_BaoCao_Nop_20261122.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_Nop_20261122.docx).
+- [Báo cáo nộp lại ngày24/11 — PDF](reports/KeyGuard_BaoCao_NopLai_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_20261124.docx).
+- [Bản đã nộp ngày22/11 — 45 trang](reports/KeyGuard_BaoCao_Nop_20261122.pdf) được giữ nguyên để đối chiếu.
 - [Bản ngày 20/11 trước rà soát bổ sung](reports/KeyGuard_BaoCao_Nop_20261120.pdf) được giữ để đối chiếu.
 - [Bản tóm tắt 6 trang trước đó](reports/KeyGuard_BaoCao_Chinh_6Trang_20261119.pdf) được giữ để tham khảo, không thay PDF đầy đủ khi nộp email.
 - [Bản nghiên cứu 47 trang trước chỉnh sửa](reports/KeyGuard_BaoCao_NghienCuu_20261119.pdf) là bản lịch sử; các bản Word/PDF cũ vẫn có trong [reports/](reports/).
 
 Các công thức của bản nộp là Equation Word; có bảng đối chiếu mục tiêu–kết quả và nguồn tham khảo phân biệt tài liệu khoa học với hồ sơ thực nghiệm của nhóm. [Ghi chú đọc hiểu](docs/READING_GUIDE.md) giải thích những khái niệm cần tự kiểm tra trước khi nộp.
+
+[Mã nguồn và phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md) chỉ rõ các thư mục, chương trình chính và phần việc của hai thành viên. Để đọc nhanh, xem mục1.2 của báo cáo về mục tiêu/đóng góp, Chương2 về phương pháp và kết quả, rồi Bảng3.1 về mức thực hiện từng mục tiêu. Các kết quả bất lợi được giữ; bản sửa không thêm thí nghiệm mô hình hoặc thay số liệu để cải thiện kết luận.
 
 Rà soát ngày22/11 đã tính lại 595 quyết định genuine từ điểm lưu của hai cách xử lý mẫu, cộng lại325 nhóm tài khoản/192 nhóm cặp–tài khoản và đối chiếu tiêu chí ban đầu. Hai cách xử lý dùng lại nhiều mẫu, nên595 không phải cỡ mẫu nghiên cứu độc lập. [Biên bản số liệu và protocol](research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md) phân biệt mức bằng chứng; [bản ghi số học](research/results/independent_numeric_audit_20261122.json) lưu chi tiết. 87/87 kiểm thử giả lập đạt trên môi trường sạch; không chạy thí nghiệm dữ liệu thật hoặc đổi ngưỡng. Bảng quyết định11 nhóm được viết rõ hơn; số liệu và hình khoa học giữ nguyên.
 
