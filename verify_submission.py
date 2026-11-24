@@ -1,5 +1,6 @@
 """Check this submission's saved sources using Python standard library only."""
 import csv
+from fractions import Fraction
 import hashlib
 import io
 import json
@@ -55,7 +56,7 @@ def check(root=ROOT):
     require(len(xml.findall('.//w:tbl',NS))==manifest.get('primary_report_tables',34),'Report table count differs')
     if manifest.get('body_font_pt'):check_table_font(xml,manifest['body_font_pt'])
     refs=[int(re.match(r'^\[(\d+)\]',p)[1]) for p in paragraphs if re.match(r'^\[\d+\]',p)]
-    require(refs==list(range(1,19)),'Bibliography order differs')
+    require(refs==list(range(1,manifest.get('reference_count',18)+1)),'Bibliography order differs')
     paths=referenced_files(paragraphs);missing=[]
     for n in paths:
         if not any((root/base/n).is_file() for base in ('','research','web')):missing.append(n)
@@ -80,7 +81,19 @@ def check(root=ROOT):
     for target in re.findall(r'\]\(([^)]+)\)',(root/'README.md').read_text(encoding='utf-8')):
         if target.startswith(('https:','http:','#')):continue
         require((root/target.split('#',1)[0]).exists(),'README link missing: '+target)
-    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':18,'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
+    if manifest.get('enrollment_selection_study'):
+        study=json.loads((root/manifest['enrollment_selection_study']).read_text(encoding='utf-8'))
+        require(not study['continuation_gate_met'] and not study['new_source_scored'],'Selection-study scope differs')
+        for dataset in study['datasets'].values():
+            for arm in dataset['arms'].values():
+                rows=arm['accounts'];m=arm['metrics']
+                for metric,num,den in [('far','impostor_accepted','impostor_trials'),('frr','genuine_rejected','genuine_trials')]:
+                    require(sum(r[num] for r in rows)==m[num] and sum(r[den] for r in rows)==m[den],'Selection counts differ')
+                    macro=sum((Fraction(r[num],r[den]) for r in rows),Fraction())/len(rows)
+                    require(abs(float(macro)-m['macro_'+metric])<1e-12,'Selection macro differs')
+                require(all(r['stored_samples']==10 and len(set(r['selected_positions_1based']))==10 for r in rows),'Selection budget differs')
+            require(not dataset['continuation_gate_met'],'Selection continuation status differs')
+    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
 
 if __name__=='__main__':
     try:print(json.dumps(check(),ensure_ascii=True))

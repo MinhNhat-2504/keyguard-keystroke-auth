@@ -1,0 +1,209 @@
+{
+  "status": "passed",
+  "independent_count_checks": 897,
+  "datasets": {
+    "CMU": {
+      "evaluation_accounts": 12,
+      "genuine_trials": 600,
+      "raw_metadata_counts_checked": false,
+      "impostor_trials_per_arm": 1320,
+      "continuation_gate_met": false
+    },
+    "KeyRecs": {
+      "evaluation_accounts": 22,
+      "genuine_trials": 2197,
+      "raw_metadata_counts_checked": false,
+      "impostor_trials_per_arm": 4620,
+      "continuation_gate_met": false
+    }
+  },
+  "source": "Saved account CSV/JSON with raw metadata when present; no model or metric-core import",
+  "archives_not_checked": [
+    {
+      "path": "data/raw/DSL-StrongPasswordData.csv",
+      "reason": "Raw unavailable in this checkout",
+      "present": false
+    },
+    {
+      "path": "data/raw/keyrecs/fixed-text.csv",
+      "reason": "Raw unavailable in this checkout",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Chinh_6Trang_20261118.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Chinh_6Trang_20261118.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Chinh_6Trang_20261119.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Chinh_6Trang_20261119.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_DayDu.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_DayDu.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_DayDu_NghienCuu_20261114.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_DayDu_NghienCuu_20261114.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_DayDu_NghienCuu_20261115.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_DayDu_NghienCuu_20261115.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NghienCuu_20261118.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NghienCuu_20261118.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NghienCuu_20261119.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NghienCuu_20261119.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NopLai_20261124.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NopLai_20261124.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NopLai_v2_20261124.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_NopLai_v2_20261124.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Nop_20261120.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Nop_20261120.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Nop_20261122.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_Nop_20261122.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_TongHop_20261115.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_BaoCao_TongHop_20261115.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_PhuLuc_Audit_DEV_20261115.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_PhuLuc_Audit_DEV_20261115.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_Report.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_Report.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_Report_HoanThien_20261115.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/KeyGuard_Report_HoanThien_20261115.pdf",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "report/~$yGuard_BaoCao_DayDu.docx",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": false
+    },
+    {
+      "path": "models/model_config.json",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": true
+    },
+    {
+      "path": "results/matched_adaptation_plan.json",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": true
+    },
+    {
+      "path": "results/dispersion_shrinkage_results.json",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": true
+    },
+    {
+      "path": "results/cv_aggregation_control_results.json",
+      "reason": "Local historical preservation check is outside saved-count mode",
+      "present": true
+    }
+  ],
+  "new_source_scored": false
+}

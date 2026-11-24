@@ -1,0 +1,2467 @@
+{
+  "completed_at_utc": "2026-11-24T12:03:03.894114+00:00",
+  "freeze_sha256": "1bb57a31c795827deae225a8b29a7e49d11ba7598f97af5fd2888cb47b4bd886",
+  "datasets": {
+    "CMU": {
+      "arms": {
+        "first10": {
+          "threshold": -0.23365584000249914,
+          "calibration_impostor_trials": 5520,
+          "calibration_impostor_accepted": 276,
+          "accounts": [
+            {
+              "participant_id": "s005",
+              "genuine_trials": 50,
+              "genuine_rejected": 14,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.46699248632641
+            },
+            {
+              "participant_id": "s013",
+              "genuine_trials": 50,
+              "genuine_rejected": 28,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.7861872582947809
+            },
+            {
+              "participant_id": "s020",
+              "genuine_trials": 50,
+              "genuine_rejected": 49,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.4778345818031484
+            },
+            {
+              "participant_id": "s024",
+              "genuine_trials": 50,
+              "genuine_rejected": 39,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.5641032611701433
+            },
+            {
+              "participant_id": "s035",
+              "genuine_trials": 50,
+              "genuine_rejected": 43,
+              "impostor_trials": 110,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.6629185493185183
+            },
+            {
+              "participant_id": "s038",
+              "genuine_trials": 50,
+              "genuine_rejected": 33,
+              "impostor_trials": 110,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.7279119282823654
+            },
+            {
+              "participant_id": "s043",
+              "genuine_trials": 50,
+              "genuine_rejected": 40,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.2169927480923182
+            },
+            {
+              "participant_id": "s046",
+              "genuine_trials": 50,
+              "genuine_rejected": 45,
+              "impostor_trials": 110,
+              "impostor_accepted": 4,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.8781896754467289
+            },
+            {
+              "participant_id": "s047",
+              "genuine_trials": 50,
+              "genuine_rejected": 48,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.5629561147667987
+            },
+            {
+              "participant_id": "s050",
+              "genuine_trials": 50,
+              "genuine_rejected": 47,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.7608418636578174
+            },
+            {
+              "participant_id": "s051",
+              "genuine_trials": 50,
+              "genuine_rejected": 46,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.064512660716248
+            },
+            {
+              "participant_id": "s052",
+              "genuine_trials": 50,
+              "genuine_rejected": 47,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.302969866176943
+            }
+          ],
+          "metrics": {
+            "genuine_trials": 600,
+            "genuine_rejected": 479,
+            "impostor_trials": 1320,
+            "impostor_accepted": 7,
+            "pooled_far": 0.005303030303030303,
+            "pooled_frr": 0.7983333333333333,
+            "macro_far": 0.005303030303030303,
+            "macro_frr": 0.7983333333333333
+          }
+        },
+        "last10": {
+          "threshold": -0.2033625496682572,
+          "calibration_impostor_trials": 5520,
+          "calibration_impostor_accepted": 276,
+          "accounts": [
+            {
+              "participant_id": "s005",
+              "genuine_trials": 50,
+              "genuine_rejected": 6,
+              "impostor_trials": 110,
+              "impostor_accepted": 3,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 5.263565466828566
+            },
+            {
+              "participant_id": "s013",
+              "genuine_trials": 50,
+              "genuine_rejected": 9,
+              "impostor_trials": 110,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.7946784245338194
+            },
+            {
+              "participant_id": "s020",
+              "genuine_trials": 50,
+              "genuine_rejected": 33,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 5.868187412527307
+            },
+            {
+              "participant_id": "s024",
+              "genuine_trials": 50,
+              "genuine_rejected": 26,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.4225163334829456
+            },
+            {
+              "participant_id": "s035",
+              "genuine_trials": 50,
+              "genuine_rejected": 21,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.8005598243110805
+            },
+            {
+              "participant_id": "s038",
+              "genuine_trials": 50,
+              "genuine_rejected": 28,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.314815611421572
+            },
+            {
+              "participant_id": "s043",
+              "genuine_trials": 50,
+              "genuine_rejected": 22,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.2728226210363727
+            },
+            {
+              "participant_id": "s046",
+              "genuine_trials": 50,
+              "genuine_rejected": 26,
+              "impostor_trials": 110,
+              "impostor_accepted": 6,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.402633246457171
+            },
+            {
+              "participant_id": "s047",
+              "genuine_trials": 50,
+              "genuine_rejected": 26,
+              "impostor_trials": 110,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 5.978885834261414
+            },
+            {
+              "participant_id": "s050",
+              "genuine_trials": 50,
+              "genuine_rejected": 18,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.3539936657565086
+            },
+            {
+              "participant_id": "s051",
+              "genuine_trials": 50,
+              "genuine_rejected": 45,
+              "impostor_trials": 110,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.131947521496113
+            },
+            {
+              "participant_id": "s052",
+              "genuine_trials": 50,
+              "genuine_rejected": 49,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 4.210870115638686
+            }
+          ],
+          "metrics": {
+            "genuine_trials": 600,
+            "genuine_rejected": 309,
+            "impostor_trials": 1320,
+            "impostor_accepted": 13,
+            "pooled_far": 0.009848484848484848,
+            "pooled_frr": 0.515,
+            "macro_far": 0.009848484848484848,
+            "macro_frr": 0.515
+          }
+        },
+        "cover10": {
+          "threshold": -0.23498676639346855,
+          "calibration_impostor_trials": 5520,
+          "calibration_impostor_accepted": 276,
+          "accounts": [
+            {
+              "participant_id": "s005",
+              "genuine_trials": 50,
+              "genuine_rejected": 15,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                12,
+                17
+              ],
+              "coverage_radius": 0.953484134156609
+            },
+            {
+              "participant_id": "s013",
+              "genuine_trials": 50,
+              "genuine_rejected": 36,
+              "impostor_trials": 110,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                11,
+                15,
+                16
+              ],
+              "coverage_radius": 1.2906947958099149
+            },
+            {
+              "participant_id": "s020",
+              "genuine_trials": 50,
+              "genuine_rejected": 49,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                6,
+                7,
+                8,
+                9,
+                11,
+                14,
+                18
+              ],
+              "coverage_radius": 1.0387954730660383
+            },
+            {
+              "participant_id": "s024",
+              "genuine_trials": 50,
+              "genuine_rejected": 37,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                7,
+                9,
+                11,
+                14,
+                15,
+                17
+              ],
+              "coverage_radius": 1.1591084687179691
+            },
+            {
+              "participant_id": "s035",
+              "genuine_trials": 50,
+              "genuine_rejected": 40,
+              "impostor_trials": 110,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                5,
+                7,
+                9,
+                13,
+                16,
+                18,
+                19
+              ],
+              "coverage_radius": 1.3609698116751578
+            },
+            {
+              "participant_id": "s038",
+              "genuine_trials": 50,
+              "genuine_rejected": 31,
+              "impostor_trials": 110,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                7,
+                8,
+                10,
+                12,
+                15,
+                16,
+                19
+              ],
+              "coverage_radius": 1.4853302026977118
+            },
+            {
+              "participant_id": "s043",
+              "genuine_trials": 50,
+              "genuine_rejected": 37,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                8,
+                10,
+                15,
+                16,
+                18
+              ],
+              "coverage_radius": 1.0804234367702865
+            },
+            {
+              "participant_id": "s046",
+              "genuine_trials": 50,
+              "genuine_rejected": 47,
+              "impostor_trials": 110,
+              "impostor_accepted": 5,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                9,
+                10,
+                11,
+                14
+              ],
+              "coverage_radius": 1.1917287183207659
+            },
+            {
+              "participant_id": "s047",
+              "genuine_trials": 50,
+              "genuine_rejected": 43,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                4,
+                5,
+                6,
+                7,
+                11,
+                12,
+                13,
+                17
+              ],
+              "coverage_radius": 1.1174517878430723
+            },
+            {
+              "participant_id": "s050",
+              "genuine_trials": 50,
+              "genuine_rejected": 42,
+              "impostor_trials": 110,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7,
+                10,
+                13,
+                14,
+                15
+              ],
+              "coverage_radius": 1.0464136150208228
+            },
+            {
+              "participant_id": "s051",
+              "genuine_trials": 50,
+              "genuine_rejected": 49,
+              "impostor_trials": 110,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                2,
+                3,
+                5,
+                6,
+                7,
+                10,
+                11,
+                14,
+                15,
+                19
+              ],
+              "coverage_radius": 1.29873274300086
+            },
+            {
+              "participant_id": "s052",
+              "genuine_trials": 50,
+              "genuine_rejected": 47,
+              "impostor_trials": 110,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                12,
+                14,
+                16,
+                18,
+                20
+              ],
+              "coverage_radius": 1.0930752951528246
+            }
+          ],
+          "metrics": {
+            "genuine_trials": 600,
+            "genuine_rejected": 473,
+            "impostor_trials": 1320,
+            "impostor_accepted": 12,
+            "pooled_far": 0.00909090909090909,
+            "pooled_frr": 0.7883333333333333,
+            "macro_far": 0.00909090909090909,
+            "macro_frr": 0.7883333333333333
+          }
+        }
+      },
+      "cover10_minus_controls": {
+        "first10": {
+          "delta_macro_far": 0.003787878787878788,
+          "delta_macro_frr": -0.01,
+          "delta_macro_far_exact": "1/264",
+          "delta_macro_frr_exact": "-1/100",
+          "accounts": 12,
+          "benefited_accounts": 4,
+          "harmed_accounts": 6,
+          "unchanged_accounts": 2,
+          "primary_met": false,
+          "majority_benefit_met": false,
+          "continuation_gate_met": false,
+          "conditional_account_bootstrap_pp": {
+            "delta_far": [
+              0.0,
+              0.7575757575757576
+            ],
+            "delta_frr": [
+              -4.666666666666667,
+              3.3333333333333335
+            ]
+          },
+          "interval_scope": "Paired target-account resampling; cross-target shared-impostor dependence not modelled; descriptive only"
+        },
+        "last10": {
+          "delta_macro_far": -0.0007575757575757576,
+          "delta_macro_frr": 0.2733333333333333,
+          "delta_macro_far_exact": "-1/1320",
+          "delta_macro_frr_exact": "41/150",
+          "accounts": 12,
+          "benefited_accounts": 1,
+          "harmed_accounts": 11,
+          "unchanged_accounts": 0,
+          "primary_met": false,
+          "majority_benefit_met": false,
+          "continuation_gate_met": false,
+          "conditional_account_bootstrap_pp": {
+            "delta_far": [
+              -0.7575757575757576,
+              0.5303030303030304
+            ],
+            "delta_frr": [
+              17.666666666666664,
+              36.833333333333336
+            ]
+          },
+          "interval_scope": "Paired target-account resampling; cross-target shared-impostor dependence not modelled; descriptive only"
+        }
+      },
+      "continuation_gate_met": false
+    },
+    "KeyRecs": {
+      "arms": {
+        "first10": {
+          "threshold": -0.34079225597461016,
+          "calibration_impostor_trials": 18920,
+          "calibration_impostor_accepted": 946,
+          "accounts": [
+            {
+              "participant_id": "p001",
+              "genuine_trials": 100,
+              "genuine_rejected": 88,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.164549129308903
+            },
+            {
+              "participant_id": "p002",
+              "genuine_trials": 100,
+              "genuine_rejected": 98,
+              "impostor_trials": 210,
+              "impostor_accepted": 16,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.8503372626245083
+            },
+            {
+              "participant_id": "p021",
+              "genuine_trials": 100,
+              "genuine_rejected": 89,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 8.896158694005152
+            },
+            {
+              "participant_id": "p022",
+              "genuine_trials": 100,
+              "genuine_rejected": 95,
+              "impostor_trials": 210,
+              "impostor_accepted": 19,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.87865026148828
+            },
+            {
+              "participant_id": "p028",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.056111010960655
+            },
+            {
+              "participant_id": "p029",
+              "genuine_trials": 100,
+              "genuine_rejected": 55,
+              "impostor_trials": 210,
+              "impostor_accepted": 5,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.078771330084698
+            },
+            {
+              "participant_id": "p033",
+              "genuine_trials": 100,
+              "genuine_rejected": 36,
+              "impostor_trials": 210,
+              "impostor_accepted": 12,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.3221202145004614
+            },
+            {
+              "participant_id": "p040",
+              "genuine_trials": 100,
+              "genuine_rejected": 97,
+              "impostor_trials": 210,
+              "impostor_accepted": 10,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.26947174692806
+            },
+            {
+              "participant_id": "p047",
+              "genuine_trials": 99,
+              "genuine_rejected": 11,
+              "impostor_trials": 210,
+              "impostor_accepted": 160,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.5977179480119148
+            },
+            {
+              "participant_id": "p051",
+              "genuine_trials": 99,
+              "genuine_rejected": 12,
+              "impostor_trials": 210,
+              "impostor_accepted": 58,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 3.659215123093353
+            },
+            {
+              "participant_id": "p056",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 4.948382795437691
+            },
+            {
+              "participant_id": "p057",
+              "genuine_trials": 100,
+              "genuine_rejected": 77,
+              "impostor_trials": 210,
+              "impostor_accepted": 5,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.818167931881338
+            },
+            {
+              "participant_id": "p060",
+              "genuine_trials": 100,
+              "genuine_rejected": 81,
+              "impostor_trials": 210,
+              "impostor_accepted": 23,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 3.7449034469157128
+            },
+            {
+              "participant_id": "p062",
+              "genuine_trials": 100,
+              "genuine_rejected": 98,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 3.763880846362303
+            },
+            {
+              "participant_id": "p076",
+              "genuine_trials": 100,
+              "genuine_rejected": 97,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.4380777670771914
+            },
+            {
+              "participant_id": "p077",
+              "genuine_trials": 100,
+              "genuine_rejected": 57,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 21279.564509341268
+            },
+            {
+              "participant_id": "p083",
+              "genuine_trials": 100,
+              "genuine_rejected": 78,
+              "impostor_trials": 210,
+              "impostor_accepted": 6,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.895893412935884
+            },
+            {
+              "participant_id": "p084",
+              "genuine_trials": 100,
+              "genuine_rejected": 92,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.3730372404915865
+            },
+            {
+              "participant_id": "p089",
+              "genuine_trials": 99,
+              "genuine_rejected": 84,
+              "impostor_trials": 210,
+              "impostor_accepted": 18,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 2.482258066883242
+            },
+            {
+              "participant_id": "p091",
+              "genuine_trials": 100,
+              "genuine_rejected": 99,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.420815772060702
+            },
+            {
+              "participant_id": "p097",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 5,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.2516911476745975
+            },
+            {
+              "participant_id": "p098",
+              "genuine_trials": 100,
+              "genuine_rejected": 95,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "coverage_radius": 1.4926569384055381
+            }
+          ],
+          "metrics": {
+            "genuine_trials": 2197,
+            "genuine_rejected": 1739,
+            "impostor_trials": 4620,
+            "impostor_accepted": 341,
+            "pooled_far": 0.07380952380952381,
+            "pooled_frr": 0.7915339098771051,
+            "macro_far": 0.07380952380952381,
+            "macro_frr": 0.7909458218549128
+          }
+        },
+        "last10": {
+          "threshold": -0.3639517159635801,
+          "calibration_impostor_trials": 18920,
+          "calibration_impostor_accepted": 946,
+          "accounts": [
+            {
+              "participant_id": "p001",
+              "genuine_trials": 100,
+              "genuine_rejected": 26,
+              "impostor_trials": 210,
+              "impostor_accepted": 13,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 4.129514538675857
+            },
+            {
+              "participant_id": "p002",
+              "genuine_trials": 100,
+              "genuine_rejected": 73,
+              "impostor_trials": 210,
+              "impostor_accepted": 16,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 4.756782941073767
+            },
+            {
+              "participant_id": "p021",
+              "genuine_trials": 100,
+              "genuine_rejected": 98,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 1.275210849261108
+            },
+            {
+              "participant_id": "p022",
+              "genuine_trials": 100,
+              "genuine_rejected": 43,
+              "impostor_trials": 210,
+              "impostor_accepted": 55,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.527809088669499
+            },
+            {
+              "participant_id": "p028",
+              "genuine_trials": 100,
+              "genuine_rejected": 76,
+              "impostor_trials": 210,
+              "impostor_accepted": 6,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.223602900436475
+            },
+            {
+              "participant_id": "p029",
+              "genuine_trials": 100,
+              "genuine_rejected": 31,
+              "impostor_trials": 210,
+              "impostor_accepted": 11,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.527071994776406
+            },
+            {
+              "participant_id": "p033",
+              "genuine_trials": 100,
+              "genuine_rejected": 36,
+              "impostor_trials": 210,
+              "impostor_accepted": 34,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.205581067031049
+            },
+            {
+              "participant_id": "p040",
+              "genuine_trials": 100,
+              "genuine_rejected": 97,
+              "impostor_trials": 210,
+              "impostor_accepted": 4,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.9619461058933707
+            },
+            {
+              "participant_id": "p047",
+              "genuine_trials": 99,
+              "genuine_rejected": 19,
+              "impostor_trials": 210,
+              "impostor_accepted": 8,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 5.628726296649561
+            },
+            {
+              "participant_id": "p051",
+              "genuine_trials": 99,
+              "genuine_rejected": 27,
+              "impostor_trials": 210,
+              "impostor_accepted": 18,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 5.482421230602115
+            },
+            {
+              "participant_id": "p056",
+              "genuine_trials": 100,
+              "genuine_rejected": 97,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 1.793919979836402
+            },
+            {
+              "participant_id": "p057",
+              "genuine_trials": 100,
+              "genuine_rejected": 36,
+              "impostor_trials": 210,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.8991000422897186
+            },
+            {
+              "participant_id": "p060",
+              "genuine_trials": 100,
+              "genuine_rejected": 91,
+              "impostor_trials": 210,
+              "impostor_accepted": 6,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 8.239347425121204
+            },
+            {
+              "participant_id": "p062",
+              "genuine_trials": 100,
+              "genuine_rejected": 50,
+              "impostor_trials": 210,
+              "impostor_accepted": 8,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 4.6616973851023
+            },
+            {
+              "participant_id": "p076",
+              "genuine_trials": 100,
+              "genuine_rejected": 86,
+              "impostor_trials": 210,
+              "impostor_accepted": 3,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 1.5550737449301457
+            },
+            {
+              "participant_id": "p077",
+              "genuine_trials": 100,
+              "genuine_rejected": 37,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 510640.18633546826
+            },
+            {
+              "participant_id": "p083",
+              "genuine_trials": 100,
+              "genuine_rejected": 95,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 9.603781837715545
+            },
+            {
+              "participant_id": "p084",
+              "genuine_trials": 100,
+              "genuine_rejected": 59,
+              "impostor_trials": 210,
+              "impostor_accepted": 4,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.6611521626928165
+            },
+            {
+              "participant_id": "p089",
+              "genuine_trials": 99,
+              "genuine_rejected": 80,
+              "impostor_trials": 210,
+              "impostor_accepted": 4,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 2.74720090015132
+            },
+            {
+              "participant_id": "p091",
+              "genuine_trials": 100,
+              "genuine_rejected": 84,
+              "impostor_trials": 210,
+              "impostor_accepted": 4,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 1.7805747817901565
+            },
+            {
+              "participant_id": "p097",
+              "genuine_trials": 100,
+              "genuine_rejected": 21,
+              "impostor_trials": 210,
+              "impostor_accepted": 49,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 8.073855290526591
+            },
+            {
+              "participant_id": "p098",
+              "genuine_trials": 100,
+              "genuine_rejected": 24,
+              "impostor_trials": 210,
+              "impostor_accepted": 7,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 3.839582826407639
+            }
+          ],
+          "metrics": {
+            "genuine_trials": 2197,
+            "genuine_rejected": 1286,
+            "impostor_trials": 4620,
+            "impostor_accepted": 252,
+            "pooled_far": 0.05454545454545454,
+            "pooled_frr": 0.5853436504324079,
+            "macro_far": 0.05454545454545454,
+            "macro_frr": 0.5851239669421487
+          }
+        },
+        "cover10": {
+          "threshold": -0.3276264121031151,
+          "calibration_impostor_trials": 18920,
+          "calibration_impostor_accepted": 946,
+          "accounts": [
+            {
+              "participant_id": "p001",
+              "genuine_trials": 100,
+              "genuine_rejected": 84,
+              "impostor_trials": 210,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                10,
+                12,
+                15,
+                19
+              ],
+              "coverage_radius": 1.494828101950554
+            },
+            {
+              "participant_id": "p002",
+              "genuine_trials": 100,
+              "genuine_rejected": 98,
+              "impostor_trials": 210,
+              "impostor_accepted": 18,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                5,
+                6,
+                7,
+                8,
+                12,
+                14,
+                17,
+                20
+              ],
+              "coverage_radius": 1.291186049270198
+            },
+            {
+              "participant_id": "p021",
+              "genuine_trials": 100,
+              "genuine_rejected": 92,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                4,
+                7,
+                8,
+                10,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage_radius": 0.8994617610337411
+            },
+            {
+              "participant_id": "p022",
+              "genuine_trials": 100,
+              "genuine_rejected": 80,
+              "impostor_trials": 210,
+              "impostor_accepted": 36,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                5,
+                9,
+                10,
+                11,
+                12,
+                14,
+                15
+              ],
+              "coverage_radius": 1.27099405860042
+            },
+            {
+              "participant_id": "p028",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7,
+                8,
+                9,
+                12,
+                13
+              ],
+              "coverage_radius": 1.0714110592768071
+            },
+            {
+              "participant_id": "p029",
+              "genuine_trials": 100,
+              "genuine_rejected": 28,
+              "impostor_trials": 210,
+              "impostor_accepted": 15,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                4,
+                5,
+                10,
+                11,
+                12,
+                17,
+                19,
+                20
+              ],
+              "coverage_radius": 1.4826821778830286
+            },
+            {
+              "participant_id": "p033",
+              "genuine_trials": 100,
+              "genuine_rejected": 55,
+              "impostor_trials": 210,
+              "impostor_accepted": 28,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                8,
+                11,
+                13,
+                14,
+                18
+              ],
+              "coverage_radius": 1.0408741593659676
+            },
+            {
+              "participant_id": "p040",
+              "genuine_trials": 100,
+              "genuine_rejected": 99,
+              "impostor_trials": 210,
+              "impostor_accepted": 9,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                11,
+                12,
+                14
+              ],
+              "coverage_radius": 1.3601402987276336
+            },
+            {
+              "participant_id": "p047",
+              "genuine_trials": 99,
+              "genuine_rejected": 10,
+              "impostor_trials": 210,
+              "impostor_accepted": 175,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                9,
+                12,
+                15,
+                17
+              ],
+              "coverage_radius": 1.0161498872022683
+            },
+            {
+              "participant_id": "p051",
+              "genuine_trials": 99,
+              "genuine_rejected": 17,
+              "impostor_trials": 210,
+              "impostor_accepted": 47,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                11,
+                12,
+                15,
+                19
+              ],
+              "coverage_radius": 1.037465192600377
+            },
+            {
+              "participant_id": "p056",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                4,
+                5,
+                7,
+                8,
+                10,
+                13,
+                14,
+                16
+              ],
+              "coverage_radius": 1.1217865068722732
+            },
+            {
+              "participant_id": "p057",
+              "genuine_trials": 100,
+              "genuine_rejected": 59,
+              "impostor_trials": 210,
+              "impostor_accepted": 4,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                5,
+                6,
+                7,
+                9,
+                12,
+                13,
+                17
+              ],
+              "coverage_radius": 1.002561179397215
+            },
+            {
+              "participant_id": "p060",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 10,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                6,
+                8,
+                11,
+                14,
+                16,
+                19,
+                20
+              ],
+              "coverage_radius": 1.6405586862262926
+            },
+            {
+              "participant_id": "p062",
+              "genuine_trials": 100,
+              "genuine_rejected": 97,
+              "impostor_trials": 210,
+              "impostor_accepted": 2,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                9,
+                14,
+                15,
+                18
+              ],
+              "coverage_radius": 1.1038746379162403
+            },
+            {
+              "participant_id": "p076",
+              "genuine_trials": 100,
+              "genuine_rejected": 97,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                9,
+                12,
+                14,
+                15,
+                16
+              ],
+              "coverage_radius": 1.2072219911860664
+            },
+            {
+              "participant_id": "p077",
+              "genuine_trials": 100,
+              "genuine_rejected": 52,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                19
+              ],
+              "coverage_radius": 2.837339311473294
+            },
+            {
+              "participant_id": "p083",
+              "genuine_trials": 100,
+              "genuine_rejected": 99,
+              "impostor_trials": 210,
+              "impostor_accepted": 1,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                6,
+                8,
+                10,
+                12,
+                15,
+                17
+              ],
+              "coverage_radius": 1.121407318155138
+            },
+            {
+              "participant_id": "p084",
+              "genuine_trials": 100,
+              "genuine_rejected": 86,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                12,
+                13,
+                15
+              ],
+              "coverage_radius": 0.9609286917521922
+            },
+            {
+              "participant_id": "p089",
+              "genuine_trials": 99,
+              "genuine_rejected": 79,
+              "impostor_trials": 210,
+              "impostor_accepted": 19,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                8,
+                11,
+                14,
+                18,
+                19
+              ],
+              "coverage_radius": 1.0927825609022177
+            },
+            {
+              "participant_id": "p091",
+              "genuine_trials": 100,
+              "genuine_rejected": 99,
+              "impostor_trials": 210,
+              "impostor_accepted": 3,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                5,
+                6,
+                9,
+                13,
+                14,
+                17,
+                18,
+                20
+              ],
+              "coverage_radius": 1.1815655652376844
+            },
+            {
+              "participant_id": "p097",
+              "genuine_trials": 100,
+              "genuine_rejected": 100,
+              "impostor_trials": 210,
+              "impostor_accepted": 7,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                9,
+                10,
+                14,
+                20
+              ],
+              "coverage_radius": 0.9809439151769876
+            },
+            {
+              "participant_id": "p098",
+              "genuine_trials": 100,
+              "genuine_rejected": 92,
+              "impostor_trials": 210,
+              "impostor_accepted": 0,
+              "stored_samples": 10,
+              "candidate_pool": 20,
+              "selected_positions_1based": [
+                1,
+                2,
+                5,
+                6,
+                7,
+                8,
+                9,
+                12,
+                14,
+                17
+              ],
+              "coverage_radius": 1.1516187930789692
+            }
+          ],
+          "metrics": {
+            "genuine_trials": 2197,
+            "genuine_rejected": 1723,
+            "impostor_trials": 4620,
+            "impostor_accepted": 378,
+            "pooled_far": 0.08181818181818182,
+            "pooled_frr": 0.784251251706873,
+            "macro_far": 0.08181818181818182,
+            "macro_frr": 0.7836685032139578
+          }
+        }
+      },
+      "cover10_minus_controls": {
+        "first10": {
+          "delta_macro_far": 0.008008658008658008,
+          "delta_macro_frr": -0.007277318640955005,
+          "delta_macro_far_exact": "37/4620",
+          "delta_macro_frr_exact": "-317/43560",
+          "accounts": 22,
+          "benefited_accounts": 4,
+          "harmed_accounts": 15,
+          "unchanged_accounts": 3,
+          "primary_met": false,
+          "majority_benefit_met": false,
+          "continuation_gate_met": false,
+          "conditional_account_bootstrap_pp": {
+            "delta_far": [
+              -0.6277056277056278,
+              2.294372294372294
+            ],
+            "delta_frr": [
+              -5.225929752066116,
+              3.863682277318641
+            ]
+          },
+          "interval_scope": "Paired target-account resampling; cross-target shared-impostor dependence not modelled; descriptive only"
+        },
+        "last10": {
+          "delta_macro_far": 0.02727272727272727,
+          "delta_macro_frr": 0.19854453627180899,
+          "delta_macro_far_exact": "3/110",
+          "delta_macro_frr_exact": "43243/217800",
+          "accounts": 22,
+          "benefited_accounts": 1,
+          "harmed_accounts": 21,
+          "unchanged_accounts": 0,
+          "primary_met": false,
+          "majority_benefit_met": false,
+          "continuation_gate_met": false,
+          "conditional_account_bootstrap_pp": {
+            "delta_far": [
+              -2.9220779220779236,
+              11.363636363636363
+            ],
+            "delta_frr": [
+              10.257943067033978,
+              30.045006887052338
+            ]
+          },
+          "interval_scope": "Paired target-account resampling; cross-target shared-impostor dependence not modelled; descriptive only"
+        }
+      },
+      "continuation_gate_met": false
+    }
+  },
+  "continuation_gate_met": false,
+  "new_source_scored": false,
+  "new_source_status": "Not opened because the locked DEV continuation gate failed",
+  "production_changed": false,
+  "scope": "Fixed-budget enrollment selection control on previously viewed DEV; no independent validation claim"
+}

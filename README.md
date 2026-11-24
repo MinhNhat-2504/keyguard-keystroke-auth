@@ -8,7 +8,8 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 ## Đọc báo cáo
 
-- [Báo cáo nộp lại ngày 24/11 — bản v2, 47 trang](reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v2_20261124.docx).
+- [Báo cáo nộp lại ngày 24/11 — bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v3_20261124.docx).
+- [Bản v2, 47 trang](reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf) được giữ để đối chiếu.
 - [Bản v1 ngày 24/11](reports/KeyGuard_BaoCao_NopLai_20261124.pdf) được giữ để đối chiếu.
 - [Bản đã nộp ngày22/11 — 45 trang](reports/KeyGuard_BaoCao_Nop_20261122.pdf) được giữ nguyên để đối chiếu.
 - [Bản ngày 20/11 trước rà soát bổ sung](reports/KeyGuard_BaoCao_Nop_20261120.pdf) được giữ để đối chiếu.
@@ -17,7 +18,11 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 Các công thức của bản nộp là Equation Word; có bảng đối chiếu mục tiêu–kết quả và nguồn tham khảo phân biệt tài liệu khoa học với hồ sơ thực nghiệm của nhóm. [Ghi chú đọc hiểu](docs/READING_GUIDE.md) giải thích những khái niệm cần tự kiểm tra trước khi nộp.
 
-[Mã nguồn và phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md) chỉ rõ các thư mục, chương trình chính và phần việc của hai thành viên. Để đọc nhanh, xem mục1.2 của báo cáo về mục tiêu/đóng góp, Chương2 về phương pháp và kết quả, rồi Bảng3.1 về mức thực hiện từng mục tiêu. Các kết quả bất lợi được giữ; bản sửa không thêm thí nghiệm mô hình hoặc thay số liệu để cải thiện kết luận.
+[Mã nguồn và phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md) chỉ rõ các thư mục, chương trình chính và phần việc của hai thành viên. Để đọc nhanh, xem mục1.2 của báo cáo về mục tiêu/đóng góp, Chương2 về phương pháp và kết quả, rồi Bảng3.1 về mức thực hiện từng mục tiêu. Các kết quả bất lợi được giữ; bản v2 chỉ sửa lập luận, bản v3 bổ sung đối chứng DEV dưới đây.
+
+Bản v3 có [đối chứng chọn 10 mẫu từ cùng 20 lượt đăng ký](research/docs/ENROLLMENT_SELECTION_RESULTS_20261124.md), so với 10 lượt đầu và 10 lượt cuối. Runner và protocol được khóa sau 13 kiểm thử giả lập, trước lần chấm. Bộ kiểm độc lập đối chiếu đạt 1.034 mục số đếm/metadata/hash. Cả bốn so sánh trên DEV CMU/KeyRecs không đạt tiêu chí đã chọn nên dừng trước kiểm chứng nguồn mới; không tuyên bố có cải tiến mô hình hay dữ liệu kiểm chứng độc lập mới. Cấu hình ứng dụng 20 mẫu và các kết quả lịch sử giữ nguyên.
+
+Chạy `python scripts/audit_enrollment_selection_20261124.py --saved-only` từ `research/` để kiểm số đếm công khai và hash mã nghiên cứu đã khóa. Chế độ này báo rõ các raw vắng trong snapshot và không kiểm kho bảo toàn báo cáo/cấu hình lịch sử local. Chạy `python -m pytest tests/test_enrollment_selection.py -q` để kiểm logic bằng dữ liệu giả. Kiểm khóa đầy đủ cần đúng raw và kho báo cáo lịch sử local; runner từ chối chạy lại hoặc ghi đè kết quả đã có.
 
 Bản v2 nối các phép thử theo ba câu hỏi: cấu hình có giữ mức lỗi khi chuyển sang bộ tự thu không; từng thay đổi có lợi hơn đối chứng trong cùng điều kiện không; lợi ích có giữ qua tài khoản và nguồn khác không. Phần thảo luận giải thích tác động của chuẩn hóa/ngưỡng, các khả năng làm FRR cao và mức biến động theo tài khoản. Nhóm phân biệt đóng góp triển khai và thực nghiệm với việc đề xuất thuật toán mới; các kết quả hiện tại chưa xác lập một cải tiến đồng thời FAR–FRR nhất quán giữa các nguồn.
 

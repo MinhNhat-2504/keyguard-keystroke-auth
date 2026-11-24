@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "independent_count_checks": 1034,
+  "datasets": {
+    "CMU": {
+      "evaluation_accounts": 12,
+      "genuine_trials": 600,
+      "raw_metadata_counts_checked": true,
+      "impostor_trials_per_arm": 1320,
+      "continuation_gate_met": false
+    },
+    "KeyRecs": {
+      "evaluation_accounts": 22,
+      "genuine_trials": 2197,
+      "raw_metadata_counts_checked": true,
+      "impostor_trials_per_arm": 4620,
+      "continuation_gate_met": false
+    }
+  },
+  "source": "Saved account CSV/JSON with raw metadata when present; no model or metric-core import",
+  "archives_not_checked": [],
+  "new_source_scored": false
+}

@@ -1,5 +1,7 @@
 # Đọc lại nội dung trước khi nộp
 
+Bản v3 bổ sung mục 2.30, Bảng 2.30–2.31 về chọn mẫu đăng ký. Cả ba nhánh cùng thu 20 mẫu và giữ 10 mẫu để học; CV chọn lại trong phần học, không chọn trước trên toàn bộ pool. Mốc 10 lượt cuối là đối chứng cần thiết để phân biệt chọn đại diện với tính gần đây. Phép thử chỉ dùng DEV đã xem, không chấm TEST cũ. Kết quả không qua cổng tiếp tục đã khóa nên chưa mở nguồn kiểm chứng mới, không thay cấu hình ứng dụng. Đây là thêm bằng chứng thực nghiệm, không phải một cải tiến đã thành công.
+
 Bản v2 ngày 24/11 giữ 47 trang và cỡ chữ thường 13. Mục 1.2 nêu ba câu hỏi nghiên cứu, Chương 3 trả lời bằng kết quả cụ thể. Cần phân biệt câu hỏi tổng hợp khi viết báo cáo với giả thuyết được khóa trước từng phép thử trong protocol lịch sử.
 
 Một điểm cần hiểu ở mục 2.20 là tại cùng một hồ sơ, phép chuẩn hóa bằng trung bình và độ lệch chuẩn dương giữ thứ tự các điểm. Đổi cách chuẩn hóa nhưng giữ ngưỡng z có thể làm thay đổi FAR/FRR vì ngưỡng tương ứng trên điểm thô đã khác; điều này chưa chứng minh detector phân biệt tốt hơn. Khi hồ sơ thay đổi theo thời gian, không được suy rộng thành bất biến của thứ tự toàn bộ chuỗi điểm gộp.
