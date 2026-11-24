@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "oof_points_reconciled": 100,
+  "equivalent_limits_reconciled": 5,
+  "figure_sha256": "6086928e5660b29a1f25cb73839413cbbe84c367ee38486a60008f157bf308cb",
+  "scope": "Saved-source visualization only; not independent model scoring or evidence of correction"
+}

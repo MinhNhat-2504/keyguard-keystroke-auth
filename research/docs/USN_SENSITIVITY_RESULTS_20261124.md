@@ -27,3 +27,9 @@ Với ba hồ sơ đầu, ngưỡng z cố định tương ứng giới hạn đ
 Kết quả cho thấy cần kiểm độ nhạy của scale ở từng fold và mức phân giải thời gian khi phát triển quy tắc tiếp theo. Nghiên cứu cũ chỉ thấy không chạm sàn trên hồ sơ đủ mẫu chưa đủ để loại khả năng chạm sàn trong CV ở nguồn khác. Muốn kiểm một cách sửa phải đặt đối chứng trên DEV và dùng nguồn chưa xem để xác nhận; không sửa sàn hoặc cắt điểm CV trên chính USN rồi gọi là kiểm chứng độc lập.
 
 7 test số học tổng hợp và 4 test chẩn đoán CV đạt bằng dữ liệu giả trước khi chạy phân tích tương ứng. Nguồn đầy đủ/hash ở `results/usn_sensitivity_20261124.json`, `results/usn_sensitivity_20261124_people.csv`, `results/usn_oof_diagnostic_20261124.json`. Mã `scripts/usn_sensitivity_20261124.py` và `scripts/usn_oof_diagnostic_20261124.py`. Không thay chương trình hoặc kết quả của lượt chấm USN đã khóa.
+
+## Minh họa để đọc kết quả
+
+Hình `figures/usn_normalization_20261124.png` và Phụ lục D của báo cáo v6 đặt đủ 100 điểm OOF bên cạnh năm ngưỡng điểm thô tương đương, trên trục tung logarit. Mỗi điểm tròn là điểm OOF của một mẫu đăng ký giữ ra, không phải điểm của lượt giả mạo. Hình thoi là trung bình OOF cộng ngưỡng z cố định nhân độ lệch chuẩn OOF. Hai loại điểm cùng được biểu diễn theo đơn vị điểm thô để nhìn thấy độ nhạy của phép chuẩn hóa; việc so sánh không giả định phân bố điểm OOF bằng phân bố điểm đánh giá khi học đủ mẫu.
+
+P1–P3 có một điểm OOF khoảng một triệu và ngưỡng thô khoảng 109 nghìn; P4–P5 có ngưỡng thô khoảng 43. P4 vẫn từ chối 165/180 lượt chính chủ, nên ngưỡng thô nhỏ hơn không tự chứng minh chất lượng tốt hơn. Mã vẽ `scripts/plot_usn_normalization_20261124.py` chỉ đọc JSON đã có. Dữ liệu vẽ và hash được lưu ở `results/usn_normalization_figure_20261124.json`; lệnh `python scripts/verify_usn_figure_20261124.py` đối chiếu đủ 100 điểm, năm ngưỡng và hash hình, không cần raw hoặc thư viện học máy.

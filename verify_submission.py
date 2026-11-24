@@ -110,6 +110,21 @@ def check(root=ROOT):
             for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
         bounds=sensitivity['results']['excluded_attack_decision_bounds']
         require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    if manifest.get('usn_explanation_figure'):
+        figure=json.loads((root/manifest['usn_explanation_figure']).read_text(encoding='utf-8'))
+        diagnostic=json.loads((root/manifest['usn_diagnostics']).read_text(encoding='utf-8'))
+        profiles=[p for p in diagnostic['profiles'] if p['phrase']==figure['phrase']]
+        require(len(profiles)==len(figure['plotted_points'])==5,'Figure profile count differs')
+        for source,plotted in zip(profiles,figure['plotted_points']):
+            require(source['oof_scores']==plotted['oof_scores'] and len(plotted['oof_scores'])==20,'Figure OOF points differ')
+            require(source['equivalent_raw_score_limit']==plotted['equivalent_raw_score_limit'],'Figure equivalent limit differs')
+        for name,h in figure['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Figure source changed: '+name)
+        image_hash=hashlib.sha256((root/'research'/figure['figure']).read_bytes()).hexdigest()
+        require(image_hash==figure['figure_sha256'],'Figure hash differs')
+        with zipfile.ZipFile(current) as archive:
+            image_hashes=[hashlib.sha256(archive.read(n)).hexdigest() for n in archive.namelist() if n.startswith('word/media/')]
+        require(image_hash in image_hashes,'Source figure missing from report')
     return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'usn_transfer_reconciled':bool(manifest.get('usn_transfer_study')),'usn_diagnostics_reconciled':bool(manifest.get('usn_diagnostics')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
 
 if __name__=='__main__':

@@ -8,7 +8,10 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 ## Đọc báo cáo
 
-- [Báo cáo nộp lại ngày 24/11 — bản v5](reports/KeyGuard_BaoCao_NopLai_v5_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v5_20261124.docx).
+Bản v6 thêm Phụ lục D để giải thích bằng hình cơ chế chuẩn hóa đã chẩn đoán. [Hình nguồn](research/figures/usn_normalization_20261124.png) dùng đủ 100 điểm OOF và năm ngưỡng thô tương đương từ kết quả lưu, không chấm mô hình mới. Chạy `python scripts/verify_usn_figure_20261124.py` từ `research/` để đối chiếu từng điểm, ngưỡng và hash hình bằng thư viện chuẩn. Điểm OOF không phải điểm của lượt giả mạo; ngưỡng thô thấp hơn cũng chưa chứng minh FAR–FRR tốt hơn.
+
+- [Báo cáo nộp lại ngày 24/11 — bản v6](reports/KeyGuard_BaoCao_NopLai_v6_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v6_20261124.docx).
+- [Bản v5](reports/KeyGuard_BaoCao_NopLai_v5_20261124.pdf) được giữ để đối chiếu.
 - [Bản v4](reports/KeyGuard_BaoCao_NopLai_v4_20261124.pdf) được giữ để đối chiếu.
 - [Bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) được giữ để đối chiếu.
 - [Bản v2, 47 trang](reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf) được giữ để đối chiếu.
