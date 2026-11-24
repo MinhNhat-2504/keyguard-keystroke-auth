@@ -57,6 +57,7 @@ Hai audit bổ sung có nhóm kiểm thử reader và thống kê xếp hạng r
 ..\.venv\Scripts\python.exe -m pytest tests/test_dev_enrollment_audit.py tests/test_dev_enrollment_columns.py tests/test_residual_score_diagnostic.py -q
 ..\.venv\Scripts\python.exe -m pytest tests/test_calibration_order_audit.py -q
 ..\.venv\Scripts\python.exe -m pytest tests/test_group_sensitivity.py -q
+..\.venv\Scripts\python.exe -m pytest tests/test_attack_exposure.py -q
 ```
 
 ## Đối chiếu kết quả đã lưu
@@ -72,6 +73,7 @@ Tại `research/`, các lệnh sau dùng thư viện chuẩn và chạy được
 ..\.venv\Scripts\python.exe scripts/verify_usn_residual_diagnostic_20261124.py
 ..\.venv\Scripts\python.exe scripts/verify_calibration_order_20261124.py --saved-only
 ..\.venv\Scripts\python.exe scripts/verify_group_sensitivity_20261124.py
+..\.venv\Scripts\python.exe scripts/verify_attack_exposure_20261124.py
 ```
 
 Bộ USN áp lại ngưỡng cho score đã lưu và cộng lại các tỷ lệ; chế độ `--saved-only` báo rõ bỏ qua raw và kho bảo toàn lịch sử local. Các bộ còn lại đối chiếu cảnh báo, đếm tuyến và phép tính minh họa. Chúng không suy ra kết quả OTP hoặc chạy lại toàn bộ mô hình từ đặc trưng gốc.
@@ -81,6 +83,8 @@ Audit DEV đối chiếu đủ 102 hồ sơ từ artifact; kiểm lại CV từ 
 Kiểm độ nhạy fold đối chiếu đủ 132 hồ sơ × 5 cách từ artifact. Chế độ `--check-raw` cần raw CMU/KeyRecs/USN cùng dependency nghiên cứu, dùng lại input reader đã kiểm và tính CV bằng Python statistics. Đây là kiểm độ nhạy hiệu chỉnh, không phải phép thử ngưỡng hoặc kết quả OTP mới.
 
 Kiểm ảnh hưởng nhóm cộng lại 23 tập con trực tiếp từ 15.610 quyết định, bao gồm bảng đủ nhóm, từng nhóm và các trường hợp bỏ từng mã đích/câu. Chỉ thay phép cộng; không học lại, đổi ngưỡng hoặc tạo quan sát độc lập mới. Runner `python -m scripts.run_group_sensitivity_20261124 --check` kiểm mã và input đã khóa.
+
+Kiểm mẫu giả mạo dựng ma trận 2.042 mẫu × 5 hồ sơ từ 10.210 quyết định attack, đếm số mẫu qua ít nhất một đích và histogram 0–5 hồ sơ. Kiểm khóa bằng `python -m scripts.run_attack_exposure_20261124 --check`. Kết quả chỉ mô tả kịch bản tĩnh đã xét, không đổi FAR chính hoặc mô phỏng giới hạn thử của web.
 
 Kết quả từng lần kiểm nằm trong [validation/](../validation/) và [research/results/](../research/results/). Mỗi record có phạm vi riêng; một số file là kết quả lịch sử, không phải lần chạy hiện tại.
 

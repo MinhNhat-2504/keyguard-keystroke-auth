@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "distinct_samples": 2042,
+  "attack_decisions": 10210,
+  "summaries_recounted": 7,
+  "runner_module_imported": false,
+  "result_sha256": "f493a2a408f398f44f30fb165f2873313e684b62ec09678d3ad3f8cc0d74f9df"
+}

@@ -1,0 +1,199 @@
+{
+  "target_count_per_sample": 5,
+  "overall": {
+    "distinct_attack_samples": 2042,
+    "target_decisions": 10210,
+    "targets_passed_histogram_before": [
+      1356,
+      321,
+      25,
+      337,
+      3,
+      0
+    ],
+    "samples_any_target_before": 686,
+    "samples_any_target_rate_before": 0.33594515181194906,
+    "accepted_target_decisions_before": 1394,
+    "targets_passed_histogram_after": [
+      1693,
+      324,
+      25,
+      0,
+      0,
+      0
+    ],
+    "samples_any_target_after": 349,
+    "samples_any_target_rate_after": 0.17091087169441724,
+    "accepted_target_decisions_after": 374
+  },
+  "by_phrase": [
+    {
+      "phrase": "Gigab-exclm-t R3ceiver",
+      "distinct_attack_samples": 322,
+      "target_decisions": 1610,
+      "targets_passed_histogram_before": [
+        299,
+        19,
+        4,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_before": 23,
+      "samples_any_target_rate_before": 0.07142857142857142,
+      "accepted_target_decisions_before": 27,
+      "targets_passed_histogram_after": [
+        299,
+        19,
+        4,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_after": 23,
+      "samples_any_target_rate_after": 0.07142857142857142,
+      "accepted_target_decisions_after": 27
+    },
+    {
+      "phrase": "Ob-dollar-erv3r",
+      "distinct_attack_samples": 340,
+      "target_decisions": 1700,
+      "targets_passed_histogram_before": [
+        0,
+        0,
+        0,
+        337,
+        3,
+        0
+      ],
+      "samples_any_target_before": 340,
+      "samples_any_target_rate_before": 1.0,
+      "accepted_target_decisions_before": 1023,
+      "targets_passed_histogram_after": [
+        337,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_after": 3,
+      "samples_any_target_rate_after": 0.008823529411764706,
+      "accepted_target_decisions_after": 3
+    },
+    {
+      "phrase": "flying automatic monster",
+      "distinct_attack_samples": 340,
+      "target_decisions": 1700,
+      "targets_passed_histogram_before": [
+        306,
+        34,
+        0,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_before": 34,
+      "samples_any_target_rate_before": 0.1,
+      "accepted_target_decisions_before": 34,
+      "targets_passed_histogram_after": [
+        306,
+        34,
+        0,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_after": 34,
+      "samples_any_target_rate_after": 0.1,
+      "accepted_target_decisions_after": 34
+    },
+    {
+      "phrase": "gigabit receiver",
+      "distinct_attack_samples": 350,
+      "target_decisions": 1750,
+      "targets_passed_histogram_before": [
+        215,
+        126,
+        9,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_before": 135,
+      "samples_any_target_rate_before": 0.38571428571428573,
+      "accepted_target_decisions_before": 144,
+      "targets_passed_histogram_after": [
+        215,
+        126,
+        9,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_after": 135,
+      "samples_any_target_rate_after": 0.38571428571428573,
+      "accepted_target_decisions_after": 144
+    },
+    {
+      "phrase": "observer",
+      "distinct_attack_samples": 350,
+      "target_decisions": 1750,
+      "targets_passed_histogram_before": [
+        216,
+        122,
+        12,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_before": 134,
+      "samples_any_target_rate_before": 0.38285714285714284,
+      "accepted_target_decisions_before": 146,
+      "targets_passed_histogram_after": [
+        216,
+        122,
+        12,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_after": 134,
+      "samples_any_target_rate_after": 0.38285714285714284,
+      "accepted_target_decisions_after": 146
+    },
+    {
+      "phrase": "repetition learn machine thinker",
+      "distinct_attack_samples": 340,
+      "target_decisions": 1700,
+      "targets_passed_histogram_before": [
+        320,
+        20,
+        0,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_before": 20,
+      "samples_any_target_rate_before": 0.058823529411764705,
+      "accepted_target_decisions_before": 20,
+      "targets_passed_histogram_after": [
+        320,
+        20,
+        0,
+        0,
+        0,
+        0
+      ],
+      "samples_any_target_after": 20,
+      "samples_any_target_rate_after": 0.058823529411764705,
+      "accepted_target_decisions_after": 20
+    }
+  ],
+  "completed_at_utc": "2026-11-24T16:04:54.587431+00:00",
+  "freeze_sha256": "1cadae9b55f1c6146e8f520419f9281dff0a456d04e5cec3c5151cf7ef5f86eb",
+  "model_fit_performed": false,
+  "new_threshold_chosen": false,
+  "independent_trials_claim": false,
+  "scope": "Retrospective fixed five-target any-profile exposure; not single-target FAR or post-OTP success"
+}

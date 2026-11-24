@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-11-24T16:04:47.769416+00:00",
+  "source_sha256": {
+    "keyguard/attack_exposure.py": "5f9d6078e2d003527e40447cf003e87de1d9be5a3cf204778fb88a44480f94dd",
+    "tests/test_attack_exposure.py": "5b5f73544a8082cafc8b986b6215fa02443348e2c300e5542e568e5be007bbfd",
+    "scripts/run_attack_exposure_20261124.py": "6b3e4285ad44d5d535bd5862294763d0042a34cad4756a034dc6df68fd6261f8",
+    "docs/ATTACK_EXPOSURE_PROTOCOL_20261124.md": "1cfa3e2c0599734d4a015e987e191a14a44ed36df4fbe0639fd92a8b93330018",
+    "results/usn_transfer_20261124_decisions.csv": "a5f36f2bad45f458681c2d9b549f295446706ed0aaeac5c9629d2b5cf75bba92",
+    "results/usn_transfer_20261124_results.json": "df9d72aeba79a91360f5096eb55cb4c3c177818eecbc163f329a041658aa6837",
+    "results/calibration_preflight_20261124_results.json": "6fc6620ef05d1ea49104f1a744d27f9da43265ceb302c694ea0b627ec9a8dd85",
+    "results/calibration_routing_20261124_results.json": "ae8532e63d2c76e2c5704ba87f880eda235d77aa481e98f5db916b1211484f50"
+  },
+  "tests_sha256": "a54d676158a805af8e817d8110fe925c739b8ab478de02192535f9a0e2c0f0e4"
+}

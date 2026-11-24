@@ -4,7 +4,7 @@
 
 Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v13_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v13_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v14_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v14_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
 ## Bài toán
 
@@ -41,6 +41,8 @@ Mỗi hàng có cách chia dữ liệu và lịch chấm riêng; chi tiết nằ
 Kết quả cho thấy mức lỗi thấp trên CMU chưa giữ được khi chuyển sang dữ liệu tự thu. Các đối chứng chưa tìm được cải tiến đồng thời FAR–FRR nhất quán giữa các nguồn.
 
 Phần [chẩn đoán CV](research/docs/USN_SENSITIVITY_RESULTS_20261124.md) xác định ba hồ sơ có chuẩn hóa quá dễ nhận. Bước kiểm tra thử nghiệm chuyển thêm 1.020 quyết định giả mạo sang xác minh, đồng thời thêm 540 lượt chính chủ cũng cần xác minh; vẫn còn 374 quyết định giả mạo qua bước nhịp gõ. Đây là [phân tích tuyến xử lý hồi cứu](research/docs/CALIBRATION_ROUTING_RESULTS_20261124.md), chưa có kết quả OTP để tính FAR/FRR cuối cùng của toàn hệ thống.
+
+374 quyết định trên tương ứng [349/2.042 mẫu giả mạo qua ít nhất một trong năm hồ sơ](research/docs/ATTACK_EXPOSURE_RESULTS_20261124.md). Số mẫu và số quyết định có mẫu số khác nhau; tỷ lệ thử nhiều hồ sơ không thay thế FAR một tài khoản.
 
 Các kiểm tra bổ sung giúp làm rõ phạm vi của bước cảnh báo:
 

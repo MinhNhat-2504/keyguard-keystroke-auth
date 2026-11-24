@@ -152,6 +152,35 @@ def check(root=ROOT):
                 require(a['auc_twice_pair_count']==2*a['genuine_trials']*a['attack_trials'],'AUC denominator differs')
                 require(a['auc']==a['auc_twice_wins_plus_ties']/a['auc_twice_pair_count'],'AUC fraction differs')
             require(not audit_result['new_threshold_chosen'] and not audit_result['model_fit_performed'],'Residual tuning overclaim')
+    if manifest.get('attack_exposure'):
+        exposure_path=root/manifest['attack_exposure']
+        exposure=json.loads(exposure_path.read_text(encoding='utf-8'))
+        lock_path=root/'research/results/attack_exposure_20261124_freeze.json'
+        lock=json.loads(lock_path.read_text(encoding='utf-8'))
+        require(hashlib.sha256(lock_path.read_bytes()).hexdigest()==exposure['freeze_sha256'],'Exposure lock differs')
+        for name,h in lock['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Exposure source changed: '+name)
+        test_path=root/'research/results/attack_exposure_20261124_synthetic_tests.json'
+        require(hashlib.sha256(test_path.read_bytes()).hexdigest()==lock['tests_sha256'],'Exposure tests changed')
+        require(exposure['target_count_per_sample']==5 and len(exposure['by_phrase'])==6,'Exposure matrix scope differs')
+        for row in [exposure['overall']]+exposure['by_phrase']:
+            require(row['target_decisions']==5*row['distinct_attack_samples'],'Exposure denominator differs')
+            for arm in ('before','after'):
+                h=row['targets_passed_histogram_'+arm]
+                require(len(h)==6 and sum(h)==row['distinct_attack_samples'],'Exposure histogram differs')
+                require(sum(i*n for i,n in enumerate(h))==row['accepted_target_decisions_'+arm],'Exposure decision count differs')
+                require(sum(h[1:])==row['samples_any_target_'+arm],'Exposure union count differs')
+                require(row['samples_any_target_rate_'+arm]==sum(h[1:])/sum(h),'Exposure union rate differs')
+        require((exposure['overall']['samples_any_target_before'],exposure['overall']['samples_any_target_after'])==(686,349),'Exposure union totals differ')
+        figure=json.loads((root/'research/results/attack_exposure_figure_20261124.json').read_text(encoding='utf-8'))
+        require(hashlib.sha256(exposure_path.read_bytes()).hexdigest()==figure['result_sha256'],'Exposure figure source differs')
+        for arm in ('before','after'):require(figure[arm]==exposure['overall']['targets_passed_histogram_'+arm],'Exposure plotted values differ')
+        image_hash=hashlib.sha256((root/'research'/figure['figure']).read_bytes()).hexdigest()
+        require(image_hash==figure['figure_sha256'],'Exposure figure hash differs')
+        with zipfile.ZipFile(current) as archive:
+            images=[hashlib.sha256(archive.read(n)).hexdigest() for n in archive.namelist() if n.startswith('word/media/')]
+        require(image_hash in images,'Exposure figure missing from report')
+        require(not exposure['model_fit_performed'] and not exposure['new_threshold_chosen'],'Exposure scope overclaim')
     if manifest.get('group_sensitivity'):
         grouped=json.loads((root/manifest['group_sensitivity']).read_text(encoding='utf-8'))
         lock_path=root/'research/results/group_sensitivity_20261124_freeze.json'

@@ -1,0 +1,21 @@
+{
+  "figure": "figures/attack_exposure_20261124.png",
+  "figure_sha256": "d310552d919d7cecb9f4a1d0037dcfc8ec3163026aecdf4d88c2af8b4d3b9a6d",
+  "result_sha256": "f493a2a408f398f44f30fb165f2873313e684b62ec09678d3ad3f8cc0d74f9df",
+  "before": [
+    1356,
+    321,
+    25,
+    337,
+    3,
+    0
+  ],
+  "after": [
+    1693,
+    324,
+    25,
+    0,
+    0,
+    0
+  ]
+}

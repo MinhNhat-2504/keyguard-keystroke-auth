@@ -1,0 +1,48 @@
+{
+  "status": "checks_and_visual_review_passed",
+  "pdf_pages": 55,
+  "normal_font_pt": 13,
+  "table_caption_references_font_pt": 13,
+  "heading_font_pt": [
+    14,
+    16
+  ],
+  "math_base_font_pt": 13,
+  "math_subscripts_pt": 7.8,
+  "math_large_sum_symbol_pt": 17.5,
+  "table_number_cells_preserved": 436,
+  "updated_section_reference_cells": 1,
+  "tables": 39,
+  "native_equations": 9,
+  "duplicate_source_table_removed": 23,
+  "image_bytes_preserved": true,
+  "references": 24,
+  "toc_entries_verified": 49,
+  "docx_sha256": "57ff5c4986a5cce7a636ca4a1ad3b6c4b3deb572bd8d69da017a53cda14a3438",
+  "pdf_sha256": "e7740502920c2fc36350c2d8e1a1061c57e6fef5914234f8022a21ad06b55ae3",
+  "source_docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "grading_rubric": {
+    "content": 80,
+    "presentation": 10,
+    "github": 10
+  },
+  "new_model_experiment": false,
+  "selection_study_tables_reconciled": 2,
+  "usn_study_tables_reconciled": 1,
+  "usn_diagnostic_tables_reconciled": 1,
+  "usn_explanation_figure_verified": true,
+  "routing_tables_reconciled": 1,
+  "influence_equations_verified": 2,
+  "attack_exposure_analysis": true,
+  "visual_review_pages": [
+    46,
+    55
+  ],
+  "pages_pixel_identical_to_previous": 53,
+  "previous_report": "KeyGuard_BaoCao_NopLai_v13_20261124",
+  "new_model_experiment_note": "Distinct saved attack sample counts across fixed targets; no model fit or threshold search.",
+  "public_related_tests_passed": 51,
+  "synthetic_exposure_tests_passed_before_freeze": 11,
+  "independent_distinct_samples_recounted": 2042,
+  "independent_attack_decisions_recounted": 10210
+}

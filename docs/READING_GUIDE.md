@@ -1,6 +1,6 @@
 # Hướng dẫn đọc báo cáo
 
-Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v13_20261124.pdf) có bảng, hình và tài liệu tham khảo.
+Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v14_20261124.pdf) có bảng, hình và tài liệu tham khảo.
 
 ## Đọc theo câu hỏi nghiên cứu
 
@@ -36,6 +36,8 @@ Hình D.1 biểu diễn điểm OOF từ mẫu đăng ký và ngưỡng thô tư
 Bảng E.1 cho thấy 1.020 quyết định giả mạo chuyển sang xác minh nhưng thêm 540 lượt chính chủ cũng phải xác minh. Còn 374 quyết định giả mạo qua nhịp gõ. Tỷ lệ 3,66% qua nhịp gõ chưa phải FAR toàn hệ thống; 42,81% chính chủ cần xác minh chưa phải FRR cuối cùng vì chưa có kết quả bước bổ sung. Không cảnh báo cũng chưa chứng minh hồ sơ an toàn.
 
 ## Đối chiếu trước khi nộp
+
+Hình E.1 phân biệt mẫu với quyết định: sau chuyển tuyến có 324 mẫu qua một hồ sơ và 25 mẫu qua hai hồ sơ. Vì vậy, số mẫu qua ít nhất một hồ sơ là 349/2.042, còn số quyết định được nhận là (324 + 2×25)/10.210 = 374/10.210. Chỉ số đầu xét năm hồ sơ cố định, chưa là FAR một tài khoản hoặc xác suất thành công sau OTP. [Phép đếm và giới hạn](../research/docs/ATTACK_EXPOSURE_RESULTS_20261124.md).
 
 Bảng E.2 giữ đủ sáu trường hợp bỏ câu khỏi phép cộng. Khi bỏ Ob$erv3r, cả trước và sau quy tắc đều còn 371/8.510 lượt giả mạo qua trực tiếp và 1.470/4.500 lượt chính chủ cần xác minh thêm. Đây là bằng chứng tác động hiện tại tập trung ở một câu, chưa là cải thiện trên các câu khác. Việc bỏ nhóm chỉ thay bảng cộng, không học lại mô hình hoặc thay kết quả chính. [Kết quả và giới hạn](../research/docs/GROUP_SENSITIVITY_RESULTS_20261124.md).
 
