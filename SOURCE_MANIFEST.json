@@ -1,5 +1,5 @@
 {
-  "version": "argument-alignment-20261124",
+  "version": "submission-final-reviewed-20261124",
   "web_commit": "b0bd22e13fd4f1c56ca2e638936daaa5f0767e39",
   "evidence_commit": "004bf1d847791fdd59126efbeda64755222fd0c8",
   "layout": {
@@ -10,9 +10,9 @@
   "files": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
     ".gitignore": "3b7c43003b45719061e27583668c049de3b0ff6784176e4402d6b2baa501113e",
-    "README.md": "22c54733c85577f5780be5d5f2dfdd692ff0d11ae9676df71ab779e3d657d88b",
+    "README.md": "629400b4907117b0a572062be317df68180556c5017d0c286ccf6707fd66696a",
     "docs/MA_NGUON_VA_PHAN_CONG.md": "ef7f0985a9ea1c11addd074d52537db366c89028f228e165f6c1cdb2d573583a",
-    "docs/READING_GUIDE.md": "198eb804d62245aaf612f87270a6b62a7a6dab07dae583f2bdd053332c539328",
+    "docs/READING_GUIDE.md": "4a48e20b026bc82d317648c821f9c835406c3af15656afebc0b7696877d2e765",
     "docs/RUNNING_AND_REPRODUCIBILITY.md": "0bc1d79707bce3c45f09fbc8b0bbbd53cb6ad831822712417500a07a041d2281",
     "evidence/collection_idempotency_browser_checks_20261115.json": "57f30c1b952cc52bd3afbe1273b5539647b6a227c11cd7afff41f34c64a06886",
     "evidence/collection_idempotency_validation_20261115.json": "1c71aff632d30eb92dea4bf19d738f736063e6b4031212da74e8f523214f8a33",
@@ -71,6 +71,8 @@
     "reports/KeyGuard_BaoCao_NopLai_v14_20261124.pdf": "e7740502920c2fc36350c2d8e1a1061c57e6fef5914234f8022a21ad06b55ae3",
     "reports/KeyGuard_BaoCao_NopLai_v15_20261124.docx": "1792bf828e9684ceb61d028931923e98f90587dab63127f2b4cc0a160e547dc4",
     "reports/KeyGuard_BaoCao_NopLai_v15_20261124.pdf": "9c3913316d5264ea431b298247ed4e491dd1355e8d13641f990aa469a996adbe",
+    "reports/KeyGuard_BaoCao_NopLai_v16_20261124.docx": "a5e96b80d247f672d97cebd64a72b988c82a141f10d448eb17cecfce2be66538",
+    "reports/KeyGuard_BaoCao_NopLai_v16_20261124.pdf": "7ce4e53830fa03366a9c487282f7b2920d632f22412110043ccc1e8dc855c94c",
     "reports/KeyGuard_BaoCao_NopLai_v2_20261124.docx": "05732092b3b9f461b3626556b42ca0d5266adf25d621476525b14c27021fa10c",
     "reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf": "a88c1d64028ab9473ec398a039ec8e52ea932751194931723c5662572e36b317",
     "reports/KeyGuard_BaoCao_NopLai_v3_20261124.docx": "c8b7bab3b422782bccd1c9d136b24931986f8186ca1e9cbdb7437c59ed9a07c6",
@@ -123,6 +125,7 @@
     "research/docs/EVIDENCE_EXPLORER_20261117.md": "d2e9d93fbaa39024de70f3d6c85c24113e596a71ab943ac72f15a912e54c7c8d",
     "research/docs/EXTERNAL_VALIDATION_PROTOCOL.md": "abec28a4faf3ce99ff32194483f85c0101abd3f6ad0a3e8929c83449a6d88f35",
     "research/docs/EXTERNAL_VALIDATION_RESULTS.md": "037c9f7f26fc5e95034e54a2d95acd00854c380709d7c6e54f7ec492a6a164cc",
+    "research/docs/FINAL_REVIEW_AND_CITATIONS_20261124.md": "671437f9b86e90d409d5ac541a54718f8d830d65a6216ede50e899fca696bcc9",
     "research/docs/FINAL_TERMINOLOGY_REVIEW_20261124.md": "14808a8491301dc84c35f69155fac8cf54c19ad9a0ea0d1f54b15c33e905be67",
     "research/docs/GREYC_DEV_COMPATIBILITY_AUDIT.md": "a4312f6f848a849f3c50281a85e3be46de3fa23af117f8935d68da8d3aedca7b",
     "research/docs/GREYC_DEV_FRR_DIAGNOSTICS.md": "b476a4e55e9b815cdde3a803e1ad77f25e8225b53c4c29bacbeedadb19a911cb",
@@ -274,6 +277,7 @@
     "research/results/external_validation.json": "aa14a46bb45f2f09dfee70793d45e6fa29f9054e9a3bd6ade9ed03c9b05a9444",
     "research/results/external_validation_checks.json": "80297584ba702bd969b89e9986112e618d6a9b56b8c1fa5e14a9386ae253312c",
     "research/results/external_validation_freeze.json": "be80e8833994e388d27a814aa4e525a7bf29cef09308ed5286caa7c3e4e9288a",
+    "research/results/final_primary_metadata_20261124.json": "d9e6f77f4833e4dd9d42a9acd3a81d0bfd4f7a913ec303ca938f6f4fce475935",
     "research/results/greyc_dev_compatibility_accounts.csv": "0ae7fa6be894670049eeb74d851eafca706a66cfc9bef06d9155bad134c4859e",
     "research/results/greyc_dev_compatibility_audit.json": "dac00e5ff0dc0a80c02c903d27c3fd0b4ecf78d95cb0e3815048e548f021363e",
     "research/results/greyc_dev_compatibility_checks.json": "f346c4b89faa961fdccd4e0b060a2bea49f4abe005ca9da25573bacc50e70b68",
@@ -485,6 +489,7 @@
     "validation/resubmission_20261124.json": "f026f43b8c77eda8491a03e0122562d10cd73b5232cd8388f28ab1c95bf19c47",
     "validation/resubmission_font_guard_20261124.json": "e98586c178f88f51845ca9fe436d4e698e2f6bcbd08747296a7119fe0e06d072",
     "validation/selection_study_20261124.json": "1e1f37794fe8107bdb1a2f087e94e48a8af6139370194cf71e8cacf6f2d36a6f",
+    "validation/submission_final_20261124.json": "5b8fab0773e922dbedc429f8accbbb1fad693cf5c443c751201b4ce74df70a2f",
     "validation/usn_diagnostics_20261124.json": "591737790025060bf9adaf77feb98701ab4d33228a64e2c7e248caa848b01326",
     "validation/usn_explanation_20261124.json": "35d62c43a0d8ea060560824c127cce097fa8cb88f09eb54c6944a0926cece67f",
     "validation/usn_study_20261124.json": "395011f00f62dd039049e7d9ab2eb3ffa10c9ade7098df3b7e2eb12cbe4463db",
@@ -535,7 +540,7 @@
   "credentials_included": false,
   "scope": "Reviewed reports and source; raw data dependencies and production evidence limitations in README",
   "previous_source_commit": "d1ac20da545152dc6115e5242ce55c95e29b3da8",
-  "main_report": "reports/KeyGuard_BaoCao_NopLai_v15_20261124.pdf",
+  "main_report": "reports/KeyGuard_BaoCao_NopLai_v16_20261124.pdf",
   "deadline_vietnam": "2026-11-24 23:59:59",
   "report_requirements": "PDF attachment and GitHub link; Word editable source retained",
   "web_runtime_sha256": {
@@ -574,7 +579,7 @@
   "clean_checkout_validation": "validation/clean_checkout_20261120.json",
   "dependency_lock": "validation/requirements-tested.txt",
   "code_commit_tested": "e40b0c1463fd9ea5762b1c557254881a0b925456",
-  "primary_report": "reports/KeyGuard_BaoCao_NopLai_v15_20261124.docx",
+  "primary_report": "reports/KeyGuard_BaoCao_NopLai_v16_20261124.docx",
   "latest_review": "research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md",
   "primary_report_tables": 39,
   "body_font_pt": 13,
@@ -594,5 +599,6 @@
   "final_terminology_review": "research/docs/FINAL_TERMINOLOGY_REVIEW_20261124.md",
   "group_sensitivity": "research/results/group_sensitivity_20261124_results.json",
   "attack_exposure": "research/results/attack_exposure_20261124_results.json",
-  "argument_alignment_review": "research/docs/ARGUMENT_ALIGNMENT_REVIEW_20261124.md"
+  "argument_alignment_review": "research/docs/ARGUMENT_ALIGNMENT_REVIEW_20261124.md",
+  "final_source_review": "research/docs/FINAL_REVIEW_AND_CITATIONS_20261124.md"
 }

@@ -1,0 +1,118 @@
+{
+  "keyrecs_article": {
+    "source_url": "https://api.crossref.org/works/10.1016/j.dib.2023.109509",
+    "metadata": {
+      "title": [
+        "KeyRecs: A keystroke dynamics and typing pattern recognition dataset"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-1693-7872",
+          "authenticated-orcid": false,
+          "given": "Tiago",
+          "family": "Dias",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jo\u00e3o",
+          "family": "Vitorino",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eva",
+          "family": "Maia",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-0779-3480",
+          "authenticated-orcid": false,
+          "given": "Orlando",
+          "family": "Sousa",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Isabel",
+          "family": "Pra\u00e7a",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Data in Brief"
+      ],
+      "volume": "50",
+      "page": "109509",
+      "article-number": "109509",
+      "DOI": "10.1016/j.dib.2023.109509"
+    }
+  },
+  "usn_dataset": {
+    "source_url": "https://api.figshare.com/v2/articles/23790858/versions/1",
+    "metadata": {
+      "title": "Replication data for<b>:</b> Collection and statistical analysis of a fixed-text keystroke dynamics authentication data set",
+      "authors": [
+        {
+          "id": 16685397,
+          "full_name": "Halvor Nyb\u00f8 Risto",
+          "first_name": "Halvor Nyb\u00f8",
+          "last_name": "Risto",
+          "is_active": true,
+          "url_name": "Halvor_Nyb_Risto",
+          "orcid_id": ""
+        },
+        {
+          "id": 16685391,
+          "full_name": "Olaf Hallan Graven",
+          "first_name": "Olaf Hallan",
+          "last_name": "Graven",
+          "is_active": true,
+          "url_name": "Olaf_Hallan_Graven",
+          "orcid_id": ""
+        }
+      ],
+      "doi": "10.23642/usn.23790858.v1",
+      "version": 1,
+      "license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "published_date": "2023-09-12T08:05:52Z",
+      "url_public_html": "https://usn.figshare.com/articles/dataset/Replication_data_for_b_b_Collection_and_statistical_analysis_of_a_fixed-text_keystroke_dynamics_authentication_data_set/23790858/1"
+    }
+  }
+}

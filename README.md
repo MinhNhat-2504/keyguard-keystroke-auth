@@ -4,7 +4,7 @@
 
 Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v15_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v15_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v16_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v16_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
 ## Bài toán
 

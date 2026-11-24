@@ -1,0 +1,63 @@
+{
+  "status": "checks_and_visual_review_passed",
+  "pdf_pages": 55,
+  "normal_font_pt": 13,
+  "table_caption_references_font_pt": 13,
+  "heading_font_pt": [
+    14,
+    16
+  ],
+  "math_base_font_pt": 13,
+  "math_subscripts_pt": 7.8,
+  "math_large_sum_symbol_pt": 17.5,
+  "table_number_cells_preserved": 436,
+  "updated_section_reference_cells": 1,
+  "tables": 39,
+  "native_equations": 9,
+  "duplicate_source_table_removed": 23,
+  "image_bytes_preserved": true,
+  "references": 24,
+  "toc_entries_verified": 49,
+  "docx_sha256": "a5e96b80d247f672d97cebd64a72b988c82a141f10d448eb17cecfce2be66538",
+  "pdf_sha256": "7ce4e53830fa03366a9c487282f7b2920d632f22412110043ccc1e8dc855c94c",
+  "source_docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "grading_rubric": {
+    "content": 80,
+    "presentation": 10,
+    "github": 10
+  },
+  "new_model_experiment": false,
+  "selection_study_tables_reconciled": 2,
+  "usn_study_tables_reconciled": 1,
+  "usn_diagnostic_tables_reconciled": 1,
+  "usn_explanation_figure_verified": true,
+  "routing_tables_reconciled": 1,
+  "influence_equations_verified": 2,
+  "editorial_only": true,
+  "argument_and_citation_review_complete": true,
+  "body_paragraphs_changed": [
+    96,
+    135,
+    139,
+    157,
+    244,
+    361,
+    382
+  ],
+  "visual_review_pages": [
+    6,
+    11,
+    15,
+    29,
+    48,
+    49
+  ],
+  "pages_pixel_identical_to_previous": 49,
+  "previous_report": "KeyGuard_BaoCao_NopLai_v15_20261124",
+  "all_table_text_preserved": true,
+  "external_references_reviewed": 13,
+  "internal_references": 11,
+  "primary_metadata_sha256": "d9e6f77f4833e4dd9d42a9acd3a81d0bfd4f7a913ec303ca938f6f4fce475935",
+  "source_review_scope": "Metadata and important cited claims checked against primary sources; not replication of original papers.",
+  "new_model_experiment_note": "Final editorial/source review only; previous experiment tables checked without model rerun."
+}
