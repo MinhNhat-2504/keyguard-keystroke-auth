@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "profiles_reconciled": 132,
+  "ordering_cases_reconciled": 660,
+  "raw_cv_cases_recomputed": 0,
+  "raw_hashes_checked": false,
+  "shared_previously_validated_enrollment_reader": false,
+  "test_decisions_scored": 0,
+  "scope": "Enrollment sensitivity consistency; not independent validation of authentication efficacy"
+}

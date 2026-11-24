@@ -1,6 +1,6 @@
 # Hướng dẫn đọc báo cáo
 
-Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v10_20261124.pdf) có bảng, hình và tài liệu tham khảo.
+Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v11_20261124.pdf) có bảng, hình và tài liệu tham khảo.
 
 ## Đọc theo câu hỏi nghiên cứu
 
@@ -13,6 +13,7 @@ Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài to�
 | Bước cảnh báo đổi luồng xác minh như thế nào? | Phụ lục E | [Kiểm tra đăng ký](../research/docs/CALIBRATION_PREFLIGHT_RESULTS_20261124.md), [đếm tuyến xử lý](../research/docs/CALIBRATION_ROUTING_RESULTS_20261124.md) |
 | Cảnh báo có xuất hiện trên DEV của nguồn khác không? | Phụ lục E | [Audit 102 hồ sơ DEV](../research/docs/PREFLIGHT_DEV_AUDIT_RESULTS_20261124.md) |
 | Phần nhận nhầm còn lại tập trung ở đâu? | Mục 3.1, Phụ lục E | [Chẩn đoán đủ 30 hồ sơ USN](../research/docs/USN_RESIDUAL_DIAGNOSTIC_RESULTS_20261124.md) |
+| Cùng tập mẫu, đổi biên fold có làm thang CV thay đổi không? | Mục 2.31 | [Độ nhạy trên 132 hồ sơ](../research/docs/CALIBRATION_ORDER_RESULTS_20261124.md) |
 
 ## Những khái niệm cần phân biệt
 
@@ -35,6 +36,8 @@ Hình D.1 biểu diễn điểm OOF từ mẫu đăng ký và ngưỡng thô tư
 Bảng E.1 cho thấy 1.020 quyết định giả mạo chuyển sang xác minh nhưng thêm 540 lượt chính chủ cũng phải xác minh. Còn 374 quyết định giả mạo qua nhịp gõ. Tỷ lệ 3,66% qua nhịp gõ chưa phải FAR toàn hệ thống; 42,81% chính chủ cần xác minh chưa phải FRR cuối cùng vì chưa có kết quả bước bổ sung. Không cảnh báo cũng chưa chứng minh hồ sơ an toàn.
 
 ## Đối chiếu trước khi nộp
+
+Năm cách đặt cùng 20 mẫu cho cảnh báo không đổi ở 132 hồ sơ, nhưng tỷ số ngưỡng thô max/min trong một hồ sơ đạt tới 2,57 ở KeyRecs. Cảnh báo ổn định và thang hiệu chỉnh ổn định là hai khía cạnh khác nhau. Đảo thứ tự là kiểm soát giữ tập fold; dịch vòng làm thay đổi biên fold. Năm cách không chứng minh mọi phân hoạch đều như nhau; trong dữ liệu giả, tách hai giá trị hiếm sang fold khác có thể đổi cảnh báo. Không chấm lại FAR/FRR bằng thang mới.
 
 Audit bổ sung không có cảnh báo ở 36 hồ sơ CMU và 66 hồ sơ KeyRecs, chỉ dùng mẫu đăng ký DEV; điều này chưa chứng minh các hồ sơ an toàn. Sau khi giữ nguyên bước cảnh báo, 305/374 quyết định giả mạo còn qua nhịp gõ thuộc hồ sơ đích participant5. AUC hai hồ sơ lớn nhất là 0,9424 và 0,8670; khả năng xếp hạng và tỷ lệ nhận nhầm tại ngưỡng hiện tại là hai khía cạnh khác nhau. Không dùng các số vừa thấy để chọn ngưỡng rồi gọi là kiểm chứng độc lập mới.
 

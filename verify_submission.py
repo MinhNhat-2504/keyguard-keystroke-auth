@@ -112,6 +112,22 @@ def check(root=ROOT):
             for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
         bounds=sensitivity['results']['excluded_attack_decision_bounds']
         require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    if manifest.get('calibration_order_audit'):
+        ordering=json.loads((root/manifest['calibration_order_audit']).read_text(encoding='utf-8'))
+        freeze_path=root/'research/results/calibration_order_20261124_freeze.json'
+        freeze=json.loads(freeze_path.read_text(encoding='utf-8'))
+        require(hashlib.sha256(freeze_path.read_bytes()).hexdigest()==ordering['freeze_sha256'],'Order freeze changed')
+        for name,h in freeze['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Order source changed: '+name)
+        tests=root/'research/results/calibration_order_20261124_synthetic_tests.json'
+        require(hashlib.sha256(tests.read_bytes()).hexdigest()==freeze['tests_sha256'],'Order test record changed')
+        require(len(ordering['profiles'])==ordering['profile_count']==132,'Order profile count differs')
+        require(sum(len(p['cases']) for p in ordering['profiles'])==ordering['ordering_case_count']==660,'Order case count differs')
+        for p in ordering['profiles']:
+            for case in p['cases']:
+                require(sorted(case['indices_0based'])==list(range(20)),'Order sample permutation differs')
+                require(math.isclose(case['cv_center']+ordering['threshold']*case['cv_scale'],case['raw_acceptance_limit'],rel_tol=1e-12),'Order equivalent limit differs')
+        require(ordering['test_decisions_scored']==0 and not ordering['threshold_or_policy_changed'],'Order audit scope differs')
     for result_key,prefix in [('preflight_dev_audit','preflight_dev_audit_20261124_'),('usn_residual_diagnostic','usn_residual_diagnostic_20261124_')]:
         if not manifest.get(result_key):continue
         audit_result=json.loads((root/manifest[result_key]).read_text(encoding='utf-8'))

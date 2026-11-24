@@ -55,6 +55,7 @@ Hai audit bổ sung có nhóm kiểm thử reader và thống kê xếp hạng r
 
 ```powershell
 ..\.venv\Scripts\python.exe -m pytest tests/test_dev_enrollment_audit.py tests/test_dev_enrollment_columns.py tests/test_residual_score_diagnostic.py -q
+..\.venv\Scripts\python.exe -m pytest tests/test_calibration_order_audit.py -q
 ```
 
 ## Đối chiếu kết quả đã lưu
@@ -68,11 +69,14 @@ Tại `research/`, các lệnh sau dùng thư viện chuẩn và chạy được
 ..\.venv\Scripts\python.exe scripts/verify_calibration_influence_20261124.py
 ..\.venv\Scripts\python.exe scripts/verify_preflight_dev_audit_20261124.py --saved-only
 ..\.venv\Scripts\python.exe scripts/verify_usn_residual_diagnostic_20261124.py
+..\.venv\Scripts\python.exe scripts/verify_calibration_order_20261124.py --saved-only
 ```
 
 Bộ USN áp lại ngưỡng cho score đã lưu và cộng lại các tỷ lệ; chế độ `--saved-only` báo rõ bỏ qua raw và kho bảo toàn lịch sử local. Các bộ còn lại đối chiếu cảnh báo, đếm tuyến và phép tính minh họa. Chúng không suy ra kết quả OTP hoặc chạy lại toàn bộ mô hình từ đặc trưng gốc.
 
 Audit DEV đối chiếu đủ 102 hồ sơ từ artifact; kiểm lại CV từ raw cần `--check-raw` và đúng hai tệp nguồn có hash trong khóa. Chẩn đoán USN đếm lại AUC bằng so trực tiếp các cặp score đã lưu. Cả hai giữ nguyên quy tắc/điểm/ngưỡng và ghi rõ dữ liệu đã được xem.
+
+Kiểm độ nhạy fold đối chiếu đủ 132 hồ sơ × 5 cách từ artifact. Chế độ `--check-raw` cần raw CMU/KeyRecs/USN cùng dependency nghiên cứu, dùng lại input reader đã kiểm và tính CV bằng Python statistics. Đây là kiểm độ nhạy hiệu chỉnh, không phải phép thử ngưỡng hoặc kết quả OTP mới.
 
 Kết quả từng lần kiểm nằm trong [validation/](../validation/) và [research/results/](../research/results/). Mỗi record có phạm vi riêng; một số file là kết quả lịch sử, không phải lần chạy hiện tại.
 
