@@ -110,6 +110,22 @@ def check(root=ROOT):
             for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
         bounds=sensitivity['results']['excluded_attack_decision_bounds']
         require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    if manifest.get('calibration_routing'):
+        routing=json.loads((root/manifest['calibration_routing']).read_text(encoding='utf-8'))
+        lock_path=root/'research/results/calibration_routing_20261124_freeze.json'
+        lock=json.loads(lock_path.read_text(encoding='utf-8'))
+        require(hashlib.sha256(lock_path.read_bytes()).hexdigest()==routing['freeze_sha256'],'Routing lock changed')
+        for name,h in lock['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Routing source changed: '+name)
+        tests=(root/'research/results/calibration_routing_20261124_synthetic_tests.json').read_bytes()
+        require(hashlib.sha256(tests).hexdigest()==lock['synthetic_tests_sha256'],'Routing test record changed')
+        require(len(routing['profiles'])==routing['profile_count']==30,'Routing profile count differs')
+        for role,total in [('genuine',5400),('attack',10210)]:
+            require(sum(p[role+'_trials'] for p in routing['profiles'])==routing['overall'][role+'_trials']==total,'Routing denominator differs')
+            for arm in ('before','after'):
+                fields=[role+'_behavioral_'+arm,role+'_additional_verification_'+arm]
+                require(sum(routing['overall'][k] for k in fields)==total,'Routing does not conserve counts')
+        require(not any(routing[k] for k in ('production_changed','scores_or_threshold_changed','otp_success_assumed','model_fit_performed')),'Routing scope overclaim')
     if manifest.get('calibration_preflight'):
         preflight=json.loads((root/manifest['calibration_preflight']).read_text(encoding='utf-8'))
         lock_path=root/'research/results/calibration_preflight_20261124_freeze.json'

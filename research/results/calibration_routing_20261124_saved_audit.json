@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "saved_decisions_reconciled": 15610,
+  "profiles_reconciled": 30,
+  "attack_moved_to_verification": 1020,
+  "genuine_moved_to_verification": 540,
+  "remaining_attack_behavioral_passes": 374,
+  "model_rerun": false,
+  "otp_outcomes_measured": false,
+  "scope": "Independent recount of retrospective saved routes, not final authentication efficacy"
+}

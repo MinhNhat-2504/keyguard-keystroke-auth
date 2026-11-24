@@ -1,0 +1,31 @@
+phrase,target,review_required,genuine_trials,genuine_behavioral_before,genuine_behavioral_after,genuine_additional_verification_before,genuine_additional_verification_after,genuine_moved_to_verification,attack_trials,attack_behavioral_before,attack_behavioral_after,attack_additional_verification_before,attack_additional_verification_after,attack_moved_to_verification
+flying automatic monster,participant1,False,180,150,150,30,30,0,340,0,0,340,340,0
+flying automatic monster,participant2,False,180,103,103,77,77,0,340,0,0,340,340,0
+flying automatic monster,participant3,False,180,154,154,26,26,0,340,3,3,337,337,0
+flying automatic monster,participant4,False,180,149,149,31,31,0,340,0,0,340,340,0
+flying automatic monster,participant5,False,180,150,150,30,30,0,340,31,31,309,309,0
+Gigab-exclm-t R3ceiver,participant1,False,180,163,163,17,17,0,322,0,0,322,322,0
+Gigab-exclm-t R3ceiver,participant2,False,180,90,90,90,90,0,322,0,0,322,322,0
+Gigab-exclm-t R3ceiver,participant3,False,180,127,127,53,53,0,322,0,0,322,322,0
+Gigab-exclm-t R3ceiver,participant4,False,180,174,174,6,6,0,322,15,15,307,307,0
+Gigab-exclm-t R3ceiver,participant5,False,180,164,164,16,16,0,322,12,12,310,310,0
+gigabit receiver,participant1,False,180,98,98,82,82,0,350,0,0,350,350,0
+gigabit receiver,participant2,False,180,12,12,168,168,0,350,0,0,350,350,0
+gigabit receiver,participant3,False,180,159,159,21,21,0,350,31,31,319,319,0
+gigabit receiver,participant4,False,180,131,131,49,49,0,350,0,0,350,350,0
+gigabit receiver,participant5,False,180,154,154,26,26,0,350,113,113,237,237,0
+Ob-dollar-erv3r,participant1,True,180,180,0,0,180,180,340,340,0,0,340,340
+Ob-dollar-erv3r,participant2,True,180,180,0,0,180,180,340,340,0,0,340,340
+Ob-dollar-erv3r,participant3,True,180,180,0,0,180,180,340,340,0,0,340,340
+Ob-dollar-erv3r,participant4,False,180,15,15,165,165,0,340,0,0,340,340,0
+Ob-dollar-erv3r,participant5,False,180,43,43,137,137,0,340,3,3,337,337,0
+observer,participant1,False,180,24,24,156,156,0,350,0,0,350,350,0
+observer,participant2,False,180,178,178,2,2,0,350,16,16,334,334,0
+observer,participant3,False,180,38,38,142,142,0,350,0,0,350,350,0
+observer,participant4,False,180,89,89,91,91,0,350,3,3,347,347,0
+observer,participant5,False,180,171,171,9,9,0,350,127,127,223,223,0
+repetition learn machine thinker,participant1,False,180,75,75,105,105,0,340,0,0,340,340,0
+repetition learn machine thinker,participant2,False,180,164,164,16,16,0,340,0,0,340,340,0
+repetition learn machine thinker,participant3,False,180,63,63,117,117,0,340,0,0,340,340,0
+repetition learn machine thinker,participant4,False,180,88,88,92,92,0,340,1,1,339,339,0
+repetition learn machine thinker,participant5,False,180,162,162,18,18,0,340,19,19,321,321,0

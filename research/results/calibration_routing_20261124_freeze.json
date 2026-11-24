@@ -1,0 +1,15 @@
+{
+  "frozen_at_utc": "2026-11-24T13:55:08.175517+00:00",
+  "source_sha256": {
+    "keyguard/calibration_preflight.py": "c0d6e7ab497544a464730d2e76117df25e2eb8826bfc38917d705408c95b381c",
+    "keyguard/calibration_routing.py": "b9669d2b58ebd6ca0d7d3d7968590dd4df020f057d7f44f05747b6ff5e41e85c",
+    "scripts/run_calibration_routing_20261124.py": "57583b28b7d6a1fbbf64b1d4e0e21b28928c6d3f1eb01565888684cbb1d3afde",
+    "tests/test_calibration_routing.py": "e8e975ef4c5cb7319d34252a79c9b02d27c9c5db5cac6337204199cac5710294",
+    "docs/CALIBRATION_ROUTING_PLAN_20261124.md": "2adf54b90f4b25c34651a5355c7e777552e4877ef798a5e7612df316f547f0a6",
+    "results/calibration_preflight_20261124_results.json": "6fc6620ef05d1ea49104f1a744d27f9da43265ceb302c694ea0b627ec9a8dd85",
+    "results/usn_transfer_20261124_decisions.csv": "a5f36f2bad45f458681c2d9b549f295446706ed0aaeac5c9629d2b5cf75bba92",
+    "results/usn_transfer_20261124_results.json": "df9d72aeba79a91360f5096eb55cb4c3c177818eecbc163f329a041658aa6837"
+  },
+  "synthetic_tests_sha256": "49f0bcd246a559ed2ccd42e3e96c97916a534b65fed6015984aeec111c0acba9",
+  "scope": "Retrospective accounting after USN and preflight were viewed; not independent validation"
+}
