@@ -1,0 +1,86 @@
+{
+  "status": "checks_and_visual_review_passed",
+  "pdf_pages": 55,
+  "normal_font_pt": 13,
+  "table_caption_references_font_pt": 13,
+  "heading_font_pt": [
+    14,
+    16
+  ],
+  "math_base_font_pt": 13,
+  "math_subscripts_pt": 7.8,
+  "math_large_sum_symbol_pt": 17.5,
+  "table_number_cells_preserved": 436,
+  "updated_section_reference_cells": 1,
+  "tables": 39,
+  "native_equations": 9,
+  "duplicate_source_table_removed": 23,
+  "image_bytes_preserved": true,
+  "references": 24,
+  "toc_entries_verified": 49,
+  "docx_sha256": "1792bf828e9684ceb61d028931923e98f90587dab63127f2b4cc0a160e547dc4",
+  "pdf_sha256": "9c3913316d5264ea431b298247ed4e491dd1355e8d13641f990aa469a996adbe",
+  "source_docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "grading_rubric": {
+    "content": 80,
+    "presentation": 10,
+    "github": 10
+  },
+  "new_model_experiment": false,
+  "selection_study_tables_reconciled": 2,
+  "usn_study_tables_reconciled": 1,
+  "usn_diagnostic_tables_reconciled": 1,
+  "usn_explanation_figure_verified": true,
+  "routing_tables_reconciled": 1,
+  "influence_equations_verified": 2,
+  "editorial_only": true,
+  "body_paragraphs_changed": [
+    21,
+    22,
+    83,
+    346,
+    347,
+    348,
+    359
+  ],
+  "visual_review_pages": [
+    2,
+    4,
+    46,
+    47
+  ],
+  "pages_pixel_identical_to_previous": 51,
+  "all_table_text_preserved": true,
+  "cv_count_pairs_checked": [
+    {
+      "dataset": "CMU",
+      "metric": "impostor_accepted",
+      "control": 62,
+      "candidate": 43,
+      "denominator": 2100
+    },
+    {
+      "dataset": "CMU",
+      "metric": "genuine_rejected",
+      "control": 201,
+      "candidate": 213,
+      "denominator": 750
+    },
+    {
+      "dataset": "KeyRecs fixed-text",
+      "metric": "impostor_accepted",
+      "control": 451,
+      "candidate": 515,
+      "denominator": 10560
+    },
+    {
+      "dataset": "KeyRecs fixed-text",
+      "metric": "genuine_rejected",
+      "control": 1609,
+      "candidate": 1697,
+      "denominator": 3301
+    }
+  ],
+  "cv_count_source_sha256": "cf1be383b5073f21847919efb84c1def93d604d70a8fa207e0734c37e006c403",
+  "new_model_experiment_note": "Argument alignment only; prior experiment table checks do not indicate a model rerun."
+}

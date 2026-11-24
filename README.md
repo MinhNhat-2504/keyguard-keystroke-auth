@@ -4,13 +4,13 @@
 
 Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v14_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v14_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v15_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v15_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
 ## Bài toán
 
 Một người biết đúng mật khẩu vẫn có thể gõ khác chủ tài khoản. KeyGuard khảo sát thời gian giữ phím và khoảng cách giữa các lần nhấn, nhả để bổ sung tín hiệu hành vi cho việc xác thực.
 
-Nhóm quan tâm đến hai câu hỏi: cấu hình chọn trên dữ liệu chuẩn có dùng được cho dữ liệu tự thu không, và các thay đổi trong đăng ký, chuẩn hóa điểm hoặc cập nhật hồ sơ có giúp giảm lỗi một cách nhất quán không?
+Nhóm xem xét ba câu hỏi: cấu hình chọn trên dữ liệu chuẩn có giữ được mức lỗi ở bộ tự thu không; thay đổi đăng ký, chuẩn hóa hoặc cập nhật hồ sơ có giảm đồng thời hai loại lỗi không; lợi ích có giữ qua tài khoản và nguồn dữ liệu khác không? Mục 3.1 của báo cáo trả lời lần lượt từng câu hỏi, kèm kết quả và quyết định thiết kế.
 
 ```mermaid
 flowchart LR

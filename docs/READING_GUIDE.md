@@ -1,6 +1,6 @@
 # Hướng dẫn đọc báo cáo
 
-Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v14_20261124.pdf) có bảng, hình và tài liệu tham khảo.
+Nên bắt đầu từ Tóm tắt, mục 1.2 và 3.1 để nắm ba câu hỏi nghiên cứu cùng câu trả lời. Bảng 3.1 đối chiếu sáu mục tiêu triển khai/đánh giá với bằng chứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v15_20261124.pdf) có bảng, hình và tài liệu tham khảo.
 
 ## Đọc theo câu hỏi nghiên cứu
 
