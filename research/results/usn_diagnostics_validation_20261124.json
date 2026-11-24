@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "independent_checks": 326,
+  "profile_cv_summaries": 30,
+  "person_omissions": 5,
+  "phrase_omissions": 6,
+  "scope": "Saved OOF statistics and count reconciliation; no model rerun or claim of a correction"
+}

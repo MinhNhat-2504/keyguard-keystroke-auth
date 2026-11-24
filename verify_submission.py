@@ -102,7 +102,15 @@ def check(root=ROOT):
         for key in ('genuine_trials','genuine_rejected','impostor_trials','impostor_accepted'):
             require(sum(v[key] for v in by_phrase.values())==overall[key],'USN pooled count differs')
         require((overall['genuine_trials'],overall['genuine_rejected'],overall['impostor_trials'],overall['impostor_accepted'])==(5400,1772,10210,1394),'USN counts differ')
-    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'usn_transfer_reconciled':bool(manifest.get('usn_transfer_study')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
+    if manifest.get('usn_diagnostics'):
+        diagnostic=json.loads((root/manifest['usn_diagnostics']).read_text(encoding='utf-8'))
+        require(len(diagnostic['profiles'])==30 and diagnostic['all_30_saved_cv_summaries_reproduced'],'USN CV diagnostic differs')
+        sensitivity=json.loads((root/'research/results/usn_sensitivity_20261124.json').read_text(encoding='utf-8'))
+        for artifact in (diagnostic,sensitivity):
+            for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
+        bounds=sensitivity['results']['excluded_attack_decision_bounds']
+        require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'usn_transfer_reconciled':bool(manifest.get('usn_transfer_study')),'usn_diagnostics_reconciled':bool(manifest.get('usn_diagnostics')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
 
 if __name__=='__main__':
     try:print(json.dumps(check(),ensure_ascii=True))

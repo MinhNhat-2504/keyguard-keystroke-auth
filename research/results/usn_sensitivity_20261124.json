@@ -1,0 +1,241 @@
+{
+  "completed_at_utc": "2026-11-24T13:13:40.555382+00:00",
+  "scope": "Retrospective sensitivity; no fitting, threshold changes, independent-validation or causal claim",
+  "plan_sha256": "30a6cfac580ed060c5be355d9c93d9c9c920f8706c472a51fd88f09411f00f2b",
+  "source_sha256": {
+    "results/usn_transfer_20261124_accounts.csv": "62d49bc517bda67babf17cdbc6cdf830b2d5d7b066806af07a643c950e4482dd",
+    "results/usn_transfer_20261124_decisions.csv": "a5f36f2bad45f458681c2d9b549f295446706ed0aaeac5c9629d2b5cf75bba92",
+    "results/usn_transfer_20261124_results.json": "df9d72aeba79a91360f5096eb55cb4c3c177818eecbc163f329a041658aa6837",
+    "results/usn_schema_audit_20261124.json": "c5b569848ed9a00d6a926abd6994447903a3af6f2779f6c5e1b33472b2b31b03",
+    "docs/USN_SENSITIVITY_PLAN_20261124.md": "30a6cfac580ed060c5be355d9c93d9c9c920f8706c472a51fd88f09411f00f2b",
+    "scripts/usn_sensitivity_20261124.py": "0813ac0077e8215fd7ae60da755c93702163fe71efa3e1170566ed6988fb3c0a",
+    "tests/test_usn_sensitivity.py": "f5d6c96da91d6458af1ea1cf2c5cad26646376013054c27dbc37c55c9fa3eb07"
+  },
+  "results": {
+    "overall": {
+      "genuine_trials": 5400,
+      "genuine_rejected": 1772,
+      "impostor_trials": 10210,
+      "impostor_accepted": 1394,
+      "profiles": 30,
+      "pooled_far": 0.1365328109696376,
+      "pooled_frr": 0.32814814814814813,
+      "macro_far": 0.1360023139690659,
+      "macro_frr": 0.32814814814814813,
+      "profiles_far_above_5pct": 8
+    },
+    "by_person": {
+      "participant1": {
+        "genuine_trials": 1080,
+        "genuine_rejected": 390,
+        "impostor_trials": 2042,
+        "impostor_accepted": 340,
+        "profiles": 6,
+        "pooled_far": 0.1665034280117532,
+        "pooled_frr": 0.3611111111111111,
+        "macro_far": 0.16666666666666666,
+        "macro_frr": 0.3611111111111111,
+        "profiles_far_above_5pct": 1
+      },
+      "participant2": {
+        "genuine_trials": 1080,
+        "genuine_rejected": 353,
+        "impostor_trials": 2042,
+        "impostor_accepted": 356,
+        "profiles": 6,
+        "pooled_far": 0.1743388834476004,
+        "pooled_frr": 0.32685185185185184,
+        "macro_far": 0.1742857142857143,
+        "macro_frr": 0.32685185185185184,
+        "profiles_far_above_5pct": 1
+      },
+      "participant3": {
+        "genuine_trials": 1080,
+        "genuine_rejected": 359,
+        "impostor_trials": 2042,
+        "impostor_accepted": 374,
+        "profiles": 6,
+        "pooled_far": 0.1831537708129285,
+        "pooled_frr": 0.33240740740740743,
+        "macro_far": 0.18289915966386555,
+        "macro_frr": 0.33240740740740743,
+        "profiles_far_above_5pct": 2
+      },
+      "participant4": {
+        "genuine_trials": 1080,
+        "genuine_rejected": 434,
+        "impostor_trials": 2042,
+        "impostor_accepted": 19,
+        "profiles": 6,
+        "pooled_far": 0.00930460333006856,
+        "pooled_frr": 0.40185185185185185,
+        "macro_far": 0.009682742662282305,
+        "macro_frr": 0.40185185185185185,
+        "profiles_far_above_5pct": 0
+      },
+      "participant5": {
+        "genuine_trials": 1080,
+        "genuine_rejected": 236,
+        "impostor_trials": 2042,
+        "impostor_accepted": 305,
+        "profiles": 6,
+        "pooled_far": 0.1493633692458374,
+        "pooled_frr": 0.21851851851851853,
+        "macro_far": 0.14647728656680065,
+        "macro_frr": 0.21851851851851853,
+        "profiles_far_above_5pct": 4
+      }
+    },
+    "leave_one_person": {
+      "participant1": {
+        "genuine_trials": 4320,
+        "genuine_rejected": 1382,
+        "impostor_trials": 8168,
+        "impostor_accepted": 1054,
+        "profiles": 24,
+        "pooled_far": 0.1290401567091087,
+        "pooled_frr": 0.3199074074074074,
+        "macro_far": 0.1283362257946657,
+        "macro_frr": 0.3199074074074074,
+        "profiles_far_above_5pct": 7
+      },
+      "participant2": {
+        "genuine_trials": 4320,
+        "genuine_rejected": 1419,
+        "impostor_trials": 8168,
+        "impostor_accepted": 1038,
+        "profiles": 24,
+        "pooled_far": 0.1270812928501469,
+        "pooled_frr": 0.3284722222222222,
+        "macro_far": 0.12643146388990378,
+        "macro_frr": 0.3284722222222222,
+        "profiles_far_above_5pct": 7
+      },
+      "participant3": {
+        "genuine_trials": 4320,
+        "genuine_rejected": 1413,
+        "impostor_trials": 8168,
+        "impostor_accepted": 1020,
+        "profiles": 24,
+        "pooled_far": 0.12487757100881489,
+        "pooled_frr": 0.32708333333333334,
+        "macro_far": 0.12427810254536598,
+        "macro_frr": 0.32708333333333334,
+        "profiles_far_above_5pct": 6
+      },
+      "participant4": {
+        "genuine_trials": 4320,
+        "genuine_rejected": 1338,
+        "impostor_trials": 8168,
+        "impostor_accepted": 1375,
+        "profiles": 24,
+        "pooled_far": 0.16833986287952987,
+        "pooled_frr": 0.30972222222222223,
+        "macro_far": 0.16758220679576177,
+        "macro_frr": 0.30972222222222223,
+        "profiles_far_above_5pct": 8
+      },
+      "participant5": {
+        "genuine_trials": 4320,
+        "genuine_rejected": 1536,
+        "impostor_trials": 8168,
+        "impostor_accepted": 1089,
+        "profiles": 24,
+        "pooled_far": 0.13332517140058767,
+        "pooled_frr": 0.35555555555555557,
+        "macro_far": 0.1333835708196322,
+        "macro_frr": 0.35555555555555557,
+        "profiles_far_above_5pct": 4
+      }
+    },
+    "leave_one_phrase": {
+      "Gigab-exclm-t R3ceiver": {
+        "genuine_trials": 4500,
+        "genuine_rejected": 1590,
+        "impostor_trials": 8600,
+        "impostor_accepted": 1367,
+        "profiles": 25,
+        "pooled_far": 0.15895348837209303,
+        "pooled_frr": 0.35333333333333333,
+        "macro_far": 0.1598487394957983,
+        "macro_frr": 0.35333333333333333,
+        "profiles_far_above_5pct": 8
+      },
+      "Ob-dollar-erv3r": {
+        "genuine_trials": 4500,
+        "genuine_rejected": 1470,
+        "impostor_trials": 8510,
+        "impostor_accepted": 371,
+        "profiles": 25,
+        "pooled_far": 0.0435957696827262,
+        "pooled_frr": 0.32666666666666666,
+        "macro_far": 0.04284983558640847,
+        "macro_frr": 0.32666666666666666,
+        "profiles_far_above_5pct": 5
+      },
+      "flying automatic monster": {
+        "genuine_trials": 4500,
+        "genuine_rejected": 1578,
+        "impostor_trials": 8510,
+        "impostor_accepted": 1360,
+        "profiles": 25,
+        "pooled_far": 0.1598119858989424,
+        "pooled_frr": 0.3506666666666667,
+        "macro_far": 0.15920277676287906,
+        "macro_frr": 0.3506666666666667,
+        "profiles_far_above_5pct": 7
+      },
+      "gigabit receiver": {
+        "genuine_trials": 4500,
+        "genuine_rejected": 1426,
+        "impostor_trials": 8460,
+        "impostor_accepted": 1250,
+        "profiles": 25,
+        "pooled_far": 0.14775413711583923,
+        "pooled_frr": 0.3168888888888889,
+        "macro_far": 0.1467456339057362,
+        "macro_frr": 0.3168888888888889,
+        "profiles_far_above_5pct": 6
+      },
+      "observer": {
+        "genuine_trials": 4500,
+        "genuine_rejected": 1372,
+        "impostor_trials": 8460,
+        "impostor_accepted": 1248,
+        "profiles": 25,
+        "pooled_far": 0.1475177304964539,
+        "pooled_frr": 0.3048888888888889,
+        "macro_far": 0.14651706247716478,
+        "macro_frr": 0.3048888888888889,
+        "profiles_far_above_5pct": 7
+      },
+      "repetition learn machine thinker": {
+        "genuine_trials": 4500,
+        "genuine_rejected": 1424,
+        "impostor_trials": 8510,
+        "impostor_accepted": 1374,
+        "profiles": 25,
+        "pooled_far": 0.16145710928319623,
+        "pooled_frr": 0.3164444444444444,
+        "macro_far": 0.16084983558640847,
+        "macro_frr": 0.3164444444444444,
+        "profiles_far_above_5pct": 7
+      }
+    },
+    "highest_fa_profile": {
+      "participant_id": "participant1",
+      "phrase": "Ob-dollar-erv3r",
+      "impostor_accepted": 340,
+      "impostor_trials": 340,
+      "fraction_of_all_false_accepts": 0.24390243902439024
+    },
+    "excluded_attack_decision_bounds": {
+      "retained_accepted": 1394,
+      "retained_trials": 10210,
+      "additional_unknown_decisions": 135,
+      "raw_row_scenario_trials": 10345,
+      "lower": 0.1347510874818753,
+      "upper": 0.14780086998550024
+    }
+  }
+}

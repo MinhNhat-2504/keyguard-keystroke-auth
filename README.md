@@ -8,7 +8,8 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 ## Đọc báo cáo
 
-- [Báo cáo nộp lại ngày 24/11 — bản v4](reports/KeyGuard_BaoCao_NopLai_v4_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v4_20261124.docx).
+- [Báo cáo nộp lại ngày 24/11 — bản v5](reports/KeyGuard_BaoCao_NopLai_v5_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v5_20261124.docx).
+- [Bản v4](reports/KeyGuard_BaoCao_NopLai_v4_20261124.pdf) được giữ để đối chiếu.
 - [Bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) được giữ để đối chiếu.
 - [Bản v2, 47 trang](reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf) được giữ để đối chiếu.
 - [Bản v1 ngày 24/11](reports/KeyGuard_BaoCao_NopLai_20261124.pdf) được giữ để đối chiếu.
@@ -26,6 +27,10 @@ Bản v3 có [đối chứng chọn 10 mẫu từ cùng 20 lượt đăng ký](r
 Bản v4 thêm [đánh giá quy tắc cố định trên USN](research/docs/USN_TRANSFER_RESULTS_20261124.md), có xuất xứ trực tiếp từ [bài báo](https://doi.org/10.1007/s12243-024-01039-z) tới [kho USN phiên bản 1, CC BY 4.0](https://doi.org/10.23642/usn.23790858.v1). 37 tệp khớp MD5 công bố; 10 kiểm thử giả lập đạt trước khóa và chấm lần đầu. Giữ detector, 20 mẫu, CV và ngưỡng CMU; không học ngưỡng từ USN, không mở lại nhánh chọn mẫu. Kết quả: FAR gộp 13,65%, FRR 32,81%, khác biệt lớn giữa sáu câu. Chỉ có 5 người tạo 30 hồ sơ, mỗi câu thu một phiên; không tuyên bố hiệu quả nhiều ngày hoặc cải tiến mới. Bộ audit độc lập áp lại ngưỡng cho 15.610 quyết định, đạt 62.724 mục đối chiếu local. Raw không có trong repo; kết quả công khai đủ để kiểm lại các quyết định từ score đã lưu.
 
 Để kiểm phần USN từ bản clone, chạy `python scripts/audit_usn_transfer_20261124.py --saved-only` ở `research/`; lệnh chỉ cần thư viện chuẩn và báo rõ không kiểm raw/kho bảo toàn lịch sử local. Kiểm logic bằng dữ liệu giả: `python -m pytest tests/test_usn_fixed_text.py -q`. Lần chấm thật đã có kết quả nên runner từ chối chạy lại hoặc ghi đè. Không dùng kết quả USN để đổi ngưỡng rồi gọi là cùng một lượt kiểm chứng.
+
+Bản v5 thêm [độ nhạy và chẩn đoán chuẩn hóa USN](research/docs/USN_SENSITIVITY_RESULTS_20261124.md), giữ nguyên mọi quyết định của lượt chấm gốc. Ba hồ sơ Ob$erv3r có một chiều Ctrl–Alt chạm sàn trong fold: sai khác 1 ms ở mẫu giữ ra tạo đóng góp điểm OOF 1.000.000. Thống kê CV của cả 30 hồ sơ được tái lập; chẩn đoán giúp giải thích ba hồ sơ nhận mọi attack của câu đó, không khẳng định nguyên nhân của mọi lỗi. Bỏ lần lượt một người vẫn cho FAR gộp 12,49–16,83%; cận đại số xét các dòng attack đã loại là 13,48–14,78%. Đây là phân tích hồi cứu, không phải phương pháp được sửa và kiểm chứng lại trên USN.
+
+Từ `research/`, chạy `python scripts/validate_usn_diagnostics_20261124.py` để đối chiếu bảng và thống kê OOF đã lưu bằng thư viện chuẩn; 326 mục kiểm tra đạt. Kiểm logic với `python -m pytest tests/test_usn_sensitivity.py tests/test_usn_oof_diagnostic.py -q` (11 ca). Muốn tái tính CV từ mẫu đăng ký cần raw đúng manifest; lệnh là `python -m scripts.usn_oof_diagnostic_20261124` và từ chối ghi đè kết quả. Không có sửa sàn, cắt score, chọn ngưỡng hoặc bỏ câu lỗi cao trong bản này.
 
 Chạy `python scripts/audit_enrollment_selection_20261124.py --saved-only` từ `research/` để kiểm số đếm công khai và hash mã nghiên cứu đã khóa. Chế độ này báo rõ các raw vắng trong snapshot và không kiểm kho bảo toàn báo cáo/cấu hình lịch sử local. Chạy `python -m pytest tests/test_enrollment_selection.py -q` để kiểm logic bằng dữ liệu giả. Kiểm khóa đầy đủ cần đúng raw và kho báo cáo lịch sử local; runner từ chối chạy lại hoặc ghi đè kết quả đã có.
 
