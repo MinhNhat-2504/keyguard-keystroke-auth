@@ -1,0 +1,49 @@
+{
+  "status": "checks_and_visual_review_passed",
+  "pdf_pages": 54,
+  "normal_font_pt": 13,
+  "table_caption_references_font_pt": 13,
+  "heading_font_pt": [
+    14,
+    16
+  ],
+  "math_base_font_pt": 13,
+  "math_subscripts_pt": 7.8,
+  "math_large_sum_symbol_pt": 17.5,
+  "table_number_cells_preserved": 436,
+  "updated_section_reference_cells": 1,
+  "tables": 39,
+  "native_equations": 9,
+  "duplicate_source_table_removed": 23,
+  "image_bytes_preserved": true,
+  "references": 24,
+  "toc_entries_verified": 49,
+  "docx_sha256": "9b61499d33184b8ca642c450537ac7277e5d56556e98d51cfd5960ec4882cd65",
+  "pdf_sha256": "dbf4d101d65c69181a54ed71d428eff70f5e4990d578e97764e30aa8da514bef",
+  "source_docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "grading_rubric": {
+    "content": 80,
+    "presentation": 10,
+    "github": 10
+  },
+  "new_model_experiment": false,
+  "selection_study_tables_reconciled": 2,
+  "usn_study_tables_reconciled": 1,
+  "usn_diagnostic_tables_reconciled": 1,
+  "usn_explanation_figure_verified": true,
+  "routing_tables_reconciled": 1,
+  "influence_equations_verified": 2,
+  "group_sensitivity_analysis": true,
+  "visual_review_pages": [
+    46,
+    47,
+    54
+  ],
+  "pages_pixel_identical_to_previous": 51,
+  "previous_report": "KeyGuard_BaoCao_NopLai_v12_20261124",
+  "new_model_experiment_note": "Fixed saved-decision accounting; no model fitting, rescoring, or threshold selection.",
+  "public_related_tests_passed": 40,
+  "synthetic_group_tests_passed_before_freeze": 11,
+  "independent_subsets_recounted": 23,
+  "independent_saved_decisions_read": 15610
+}

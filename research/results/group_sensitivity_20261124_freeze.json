@@ -1,0 +1,13 @@
+{
+  "frozen_at_utc": "2026-11-24T15:55:12.302854+00:00",
+  "source_sha256": {
+    "keyguard/group_sensitivity.py": "e106530bb1915497c7c138b4d85da910fc8d5575a0f9450b2d16118a031c6dfc",
+    "tests/test_group_sensitivity.py": "662700a0a437df351d22f4be403101a8657792a3a2d626369b9961b85f92b410",
+    "scripts/run_group_sensitivity_20261124.py": "ecdc6864cecbc4352e721a98d53d8858df02ef3df1ed5b9c15b14cc6b52d035b",
+    "docs/GROUP_SENSITIVITY_PROTOCOL_20261124.md": "3817580b03e40b38601da6e11b7b3c496b32334097cac7c24368327f2da07019",
+    "results/calibration_routing_20261124_results.json": "ae8532e63d2c76e2c5704ba87f880eda235d77aa481e98f5db916b1211484f50",
+    "results/usn_transfer_20261124_decisions.csv": "a5f36f2bad45f458681c2d9b549f295446706ed0aaeac5c9629d2b5cf75bba92",
+    "results/calibration_preflight_20261124_results.json": "6fc6620ef05d1ea49104f1a744d27f9da43265ceb302c694ea0b627ec9a8dd85"
+  },
+  "tests_sha256": "89ec0e5e2dc94caff45308c3ec25ac82dfd71a57d9f2523edafc6780c500de92"
+}

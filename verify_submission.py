@@ -152,6 +152,32 @@ def check(root=ROOT):
                 require(a['auc_twice_pair_count']==2*a['genuine_trials']*a['attack_trials'],'AUC denominator differs')
                 require(a['auc']==a['auc_twice_wins_plus_ties']/a['auc_twice_pair_count'],'AUC fraction differs')
             require(not audit_result['new_threshold_chosen'] and not audit_result['model_fit_performed'],'Residual tuning overclaim')
+    if manifest.get('group_sensitivity'):
+        grouped=json.loads((root/manifest['group_sensitivity']).read_text(encoding='utf-8'))
+        lock_path=root/'research/results/group_sensitivity_20261124_freeze.json'
+        lock=json.loads(lock_path.read_text(encoding='utf-8'))
+        require(hashlib.sha256(lock_path.read_bytes()).hexdigest()==grouped['freeze_sha256'],'Group lock changed')
+        for name,h in lock['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Group source changed: '+name)
+        tests=root/'research/results/group_sensitivity_20261124_synthetic_tests.json'
+        require(hashlib.sha256(tests.read_bytes()).hexdigest()==lock['tests_sha256'],'Group tests changed')
+        require(len(grouped['leave_one_target_out'])==5 and len(grouped['leave_one_phrase_out'])==6,'Group deletion scope differs')
+        require(not grouped['model_fit_performed'] and not grouped['new_threshold_chosen'],'Group analysis tuning overclaim')
+        routing=json.loads((root/'research/results/calibration_routing_20261124_results.json').read_text(encoding='utf-8'))
+        keys=('genuine_trials','attack_trials','genuine_additional_verification_before','genuine_additional_verification_after','attack_behavioral_before','attack_behavioral_after')
+        for axis in ('target','phrase'):
+            require({r['excluded'] for r in grouped['leave_one_'+axis+'_out']}=={r[axis] for r in routing['profiles']},'Group omission differs')
+            for row in grouped['leave_one_'+axis+'_out']:
+                subset=[r for r in routing['profiles'] if r[axis]!=row['excluded']]
+                for key in keys:require(row[key]==sum(r[key] for r in subset),'Group subtotal differs')
+        tables=xml.findall('.//w:tbl',NS)
+        rows=tables[38].findall('w:tr',NS)
+        require(len(rows)==7,'Group table rows differ')
+        for saved,row in zip(grouped['leave_one_phrase_out'],rows[1:]):
+            cells=row.findall('w:tc',NS)
+            for ci,(key,den) in enumerate((('attack_behavioral_before','attack_trials'),('attack_behavioral_after','attack_trials'),('genuine_additional_verification_before','genuine_trials'),('genuine_additional_verification_after','genuine_trials')),1):
+                text=''.join(n.text or '' for n in cells[ci].iter('{'+NS['w']+'}t'))
+                require(text==f"{saved[key]}/{saved[den]}",'Group report number differs')
     if manifest.get('calibration_influence'):
         influence=json.loads((root/manifest['calibration_influence']).read_text(encoding='utf-8'))
         for name,h in influence['source_sha256'].items():

@@ -4,7 +4,7 @@
 
 Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v12_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v12_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v13_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v13_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
 ## Bài toán
 
@@ -44,6 +44,7 @@ Phần [chẩn đoán CV](research/docs/USN_SENSITIVITY_RESULTS_20261124.md) xá
 
 Các kiểm tra bổ sung giúp làm rõ phạm vi của bước cảnh báo:
 
+- [Ảnh hưởng của từng nhóm](research/docs/GROUP_SENSITIVITY_RESULTS_20261124.md): toàn bộ thay đổi định tuyến nằm ở ba hồ sơ của câu Ob$erv3r; năm câu còn lại không đổi. Đủ các trường hợp bỏ từng mã đích và từng câu được giữ để tránh kết luận chỉ từ tỷ lệ gộp.
 - [Audit trên DEV](research/docs/PREFLIGHT_DEV_AUDIT_RESULTS_20261124.md): không có cảnh báo ở 36 hồ sơ CMU và 66 hồ sơ KeyRecs, dùng 2.040 mẫu đăng ký. Đây chưa phải tỷ lệ nhận nhầm bằng 0 hoặc chứng nhận an toàn.
 - [Chẩn đoán phần nhận nhầm còn lại](research/docs/USN_RESIDUAL_DIAGNOSTIC_RESULTS_20261124.md): 305/374 quyết định thuộc các hồ sơ đích mang mã `participant5`. Hai hồ sơ lớn nhất có AUC 0,9424 và 0,8670, cho thấy cần phân biệt xếp hạng với quyết định tại ngưỡng. Phân tích dùng điểm đã lưu, không chọn ngưỡng mới.
 - [Độ nhạy theo biên fold CV](research/docs/CALIBRATION_ORDER_RESULTS_20261124.md): cảnh báo không đổi ở 132 hồ sơ qua năm cách đã định, nhưng ngưỡng thô trong cùng hồ sơ KeyRecs có thể chênh tới 2,57 lần. Ngưỡng z cố định; chưa chấm lại FAR/FRR hoặc chọn thứ tự mới để dùng.
