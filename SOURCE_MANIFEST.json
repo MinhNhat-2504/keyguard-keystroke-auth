@@ -1,5 +1,5 @@
 {
-  "version": "calibration-order-sensitivity-20261124",
+  "version": "final-terminology-review-20261124",
   "web_commit": "b0bd22e13fd4f1c56ca2e638936daaa5f0767e39",
   "evidence_commit": "004bf1d847791fdd59126efbeda64755222fd0c8",
   "layout": {
@@ -10,9 +10,9 @@
   "files": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
     ".gitignore": "3b7c43003b45719061e27583668c049de3b0ff6784176e4402d6b2baa501113e",
-    "README.md": "e32e97f58650b3359f7ccebcdba95f66094ea6092454274f14dc3d9f6d864144",
+    "README.md": "374b15da0c30296a29ef3c67df367a3da837e5a3f407713ec33e191cb3f79577",
     "docs/MA_NGUON_VA_PHAN_CONG.md": "ef7f0985a9ea1c11addd074d52537db366c89028f228e165f6c1cdb2d573583a",
-    "docs/READING_GUIDE.md": "40e6f42f529df1d6f415f0d328c097da505c4ccd482f3965b1e705559ac3c0c7",
+    "docs/READING_GUIDE.md": "b859a146376f15ad40763665b6e17a574fb5859e354326120a3de6b3181d4e52",
     "docs/RUNNING_AND_REPRODUCIBILITY.md": "1118233f0b3c2b35af10fd0a209a76f9f9bf67f2b5aeeed4849d75903040d741",
     "evidence/collection_idempotency_browser_checks_20261115.json": "57f30c1b952cc52bd3afbe1273b5539647b6a227c11cd7afff41f34c64a06886",
     "evidence/collection_idempotency_validation_20261115.json": "1c71aff632d30eb92dea4bf19d738f736063e6b4031212da74e8f523214f8a33",
@@ -63,6 +63,8 @@
     "reports/KeyGuard_BaoCao_NopLai_v10_20261124.pdf": "d41fb8967ad4faeff21d55758376406fa2a59e589989af8cc67d33af7ed517f2",
     "reports/KeyGuard_BaoCao_NopLai_v11_20261124.docx": "057decab2030e32af232f907ad245c0b5925b9bf5639abebfcf9143db79892d4",
     "reports/KeyGuard_BaoCao_NopLai_v11_20261124.pdf": "6b97a2c0c725bca99aa7c6daf5dcfcb1a1a481bbbe215b34b6288f6fda5a50f6",
+    "reports/KeyGuard_BaoCao_NopLai_v12_20261124.docx": "fc720a97f29e390a0dbd81d6fe317667a2cb4949fee0b4c1b999c582d8ea1110",
+    "reports/KeyGuard_BaoCao_NopLai_v12_20261124.pdf": "1a97026c28439c78e9035e66250f33d6d34f24f2c7e218a60bcebec32418f705",
     "reports/KeyGuard_BaoCao_NopLai_v2_20261124.docx": "05732092b3b9f461b3626556b42ca0d5266adf25d621476525b14c27021fa10c",
     "reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf": "a88c1d64028ab9473ec398a039ec8e52ea932751194931723c5662572e36b317",
     "reports/KeyGuard_BaoCao_NopLai_v3_20261124.docx": "c8b7bab3b422782bccd1c9d136b24931986f8186ca1e9cbdb7437c59ed9a07c6",
@@ -112,6 +114,7 @@
     "research/docs/EVIDENCE_EXPLORER_20261117.md": "d2e9d93fbaa39024de70f3d6c85c24113e596a71ab943ac72f15a912e54c7c8d",
     "research/docs/EXTERNAL_VALIDATION_PROTOCOL.md": "abec28a4faf3ce99ff32194483f85c0101abd3f6ad0a3e8929c83449a6d88f35",
     "research/docs/EXTERNAL_VALIDATION_RESULTS.md": "037c9f7f26fc5e95034e54a2d95acd00854c380709d7c6e54f7ec492a6a164cc",
+    "research/docs/FINAL_TERMINOLOGY_REVIEW_20261124.md": "14808a8491301dc84c35f69155fac8cf54c19ad9a0ea0d1f54b15c33e905be67",
     "research/docs/GREYC_DEV_COMPATIBILITY_AUDIT.md": "a4312f6f848a849f3c50281a85e3be46de3fa23af117f8935d68da8d3aedca7b",
     "research/docs/GREYC_DEV_FRR_DIAGNOSTICS.md": "b476a4e55e9b815cdde3a803e1ad77f25e8225b53c4c29bacbeedadb19a911cb",
     "research/docs/GREYC_DEV_FRR_DIAGNOSTIC_PROTOCOL.md": "4df5d488c10d6ff8efab180dd90a0ed3aa0568d1228947f13242b207776c4d62",
@@ -442,6 +445,7 @@
     "validation/calibration_routing_20261124.json": "6a4d93a734e524a8597bcd1cbbe4e55812bd80f955b8bd3824d3b659ec19b5e8",
     "validation/clean_checkout_20261120.json": "01aa54678022bd659427869f9e547125ce2f415ea2dd2a3fe3ca8903468d9b4c",
     "validation/content_review_20261124.json": "fb59e9bbe5714e1356e313f24bfa371276e3069b7294fde49e3786393cc80822",
+    "validation/final_terminology_20261124.json": "05118571bf0a8330e6d4b557c3811d01ebf512f256d3ccdeda9d02a6d118faa7",
     "validation/followup_audits_20261124.json": "13e4681c2a91fd2ebef3829d8629330620e36fc7d101422a0a7360b985556a95",
     "validation/report_revision_20261122.json": "1134dfb9da26c0a6bfdafd0380bfbbea80341c8c9f1bdbd79b89294062546ced",
     "validation/requirements-tested.txt": "3fd1198a9eee0304a127b80addb64430445ae74f26fe66760d1f1f03c76330d0",
@@ -498,8 +502,8 @@
   "credentials_included": false,
   "scope": "Reviewed reports and source; raw data dependencies and production evidence limitations in README",
   "previous_source_commit": "d1ac20da545152dc6115e5242ce55c95e29b3da8",
-  "main_report": "reports/KeyGuard_BaoCao_Nop_20261120.pdf",
-  "deadline_vietnam": "2026-11-22 23:59:59",
+  "main_report": "reports/KeyGuard_BaoCao_NopLai_v12_20261124.pdf",
+  "deadline_vietnam": "2026-11-24 23:59:59",
   "report_requirements": "PDF attachment and GitHub link; Word editable source retained",
   "web_runtime_sha256": {
     "Dockerfile.storage": "04155817551ca306ec61aa2fe51c71714f161ec451d7d94e600b83ace74d6473",
@@ -537,7 +541,7 @@
   "clean_checkout_validation": "validation/clean_checkout_20261120.json",
   "dependency_lock": "validation/requirements-tested.txt",
   "code_commit_tested": "e40b0c1463fd9ea5762b1c557254881a0b925456",
-  "primary_report": "reports/KeyGuard_BaoCao_NopLai_v11_20261124.docx",
+  "primary_report": "reports/KeyGuard_BaoCao_NopLai_v12_20261124.docx",
   "latest_review": "research/docs/RA_SOAT_SO_LIEU_VA_PROTOCOL_20261122.md",
   "primary_report_tables": 38,
   "body_font_pt": 13,
@@ -553,5 +557,6 @@
   "documentation_updated_at": "2026-11-24",
   "preflight_dev_audit": "research/results/preflight_dev_audit_20261124_results.json",
   "usn_residual_diagnostic": "research/results/usn_residual_diagnostic_20261124_results.json",
-  "calibration_order_audit": "research/results/calibration_order_20261124_results.json"
+  "calibration_order_audit": "research/results/calibration_order_20261124_results.json",
+  "final_terminology_review": "research/docs/FINAL_TERMINOLOGY_REVIEW_20261124.md"
 }

@@ -1,6 +1,6 @@
 # Hướng dẫn đọc báo cáo
 
-Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v11_20261124.pdf) có bảng, hình và tài liệu tham khảo.
+Nên bắt đầu từ Tóm tắt, mục 1.2 và Bảng 3.1 để nắm bài toán, phần nhóm thực hiện và kết quả tương ứng. Sau đó đọc các phép đánh giá dưới đây. [Báo cáo đầy đủ](../reports/KeyGuard_BaoCao_NopLai_v12_20261124.pdf) có bảng, hình và tài liệu tham khảo.
 
 ## Đọc theo câu hỏi nghiên cứu
 
@@ -23,7 +23,7 @@ Scaled Manhattan đo độ lệch so với tâm và độ biến thiên của m�
 
 FAR đo việc nhận nhầm người khác; FRR ở các bảng chấm nhịp gõ đo chính chủ không được nhận trực tiếp. EER/AUC nói về nhiều ngưỡng, còn FAR/FRR được báo tại ngưỡng cụ thể. Muốn so sánh hai hàng phải xem cùng cách chia dữ liệu, lịch cập nhật, đối tượng và cách gộp tỷ lệ.
 
-Trong mô phỏng fallback, việc cập nhật mẫu genuine dùng giả định xác minh bổ sung đáng tin cậy. Web chỉ có OTP mô phỏng. Các kết quả này có phạm vi khác với việc đánh giá một dịch vụ xác minh thật.
+Trong mô phỏng chọn ngưỡng, fallback cập nhật mọi mẫu genuine theo giả định xác minh bổ sung thành công. Probe giả mạo chỉ được chấm, không cập nhật kể cả khi được nhận; vì vậy kết quả này chưa mô tả nhiễm hồ sơ. Mục 2.15 xét riêng trường hợp attack được nhận có thể cập nhật. FRR của mô phỏng là tỷ lệ chính chủ cần bước thêm tại nhịp gõ, chưa là tỷ lệ từ chối cuối cùng. Web chỉ có OTP mô phỏng, chưa đo giao mã hoặc hiệu quả của một dịch vụ xác minh thật.
 
 ## Kết quả đáng chú ý
 

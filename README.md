@@ -4,7 +4,7 @@
 
 Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v11_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v11_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v12_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v12_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
 ## Bài toán
 
@@ -36,7 +36,7 @@ FAR là tỷ lệ nhận nhầm; FRR là tỷ lệ chính chủ không được 
 | Dữ liệu tự thu — 597 mẫu, 15 người | 27,05–31,52% | 16,50% | [Tổng hợp tự thu](research/results/collected_preliminary_summary.json) |
 | USN — quy tắc cố định, 5 người và 6 câu | 13,65% | 32,81% | [Kết quả USN](research/docs/USN_TRANSFER_RESULTS_20261124.md) |
 
-Mỗi hàng có cách chia dữ liệu và lịch chấm riêng; chi tiết nằm trong báo cáo và protocol. Mô phỏng fallback dùng giả định xác minh bổ sung đáng tin cậy khi cập nhật hồ sơ.
+Mỗi hàng có cách chia dữ liệu và lịch chấm riêng; chi tiết nằm trong báo cáo và protocol. Trong mô phỏng chọn ngưỡng, fallback cập nhật mẫu chính chủ theo giả định xác minh bổ sung thành công; các probe giả mạo không cập nhật hồ sơ. Phép thử nhiễm hồ sơ được xét riêng. Các tỷ lệ ở đây đo tại bước nhịp gõ, trước kết quả xác minh bổ sung.
 
 Kết quả cho thấy mức lỗi thấp trên CMU chưa giữ được khi chuyển sang dữ liệu tự thu. Các đối chứng chưa tìm được cải tiến đồng thời FAR–FRR nhất quán giữa các nguồn.
 

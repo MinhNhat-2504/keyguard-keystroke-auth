@@ -1,0 +1,49 @@
+{
+  "status": "checks_and_visual_review_passed",
+  "pdf_pages": 53,
+  "normal_font_pt": 13,
+  "table_caption_references_font_pt": 13,
+  "heading_font_pt": [
+    14,
+    16
+  ],
+  "math_base_font_pt": 13,
+  "math_subscripts_pt": 7.8,
+  "math_large_sum_symbol_pt": 17.5,
+  "table_number_cells_preserved": 436,
+  "updated_section_reference_cells": 1,
+  "tables": 38,
+  "native_equations": 9,
+  "duplicate_source_table_removed": 23,
+  "image_bytes_preserved": true,
+  "references": 24,
+  "toc_entries_verified": 49,
+  "docx_sha256": "fc720a97f29e390a0dbd81d6fe317667a2cb4949fee0b4c1b999c582d8ea1110",
+  "pdf_sha256": "1a97026c28439c78e9035e66250f33d6d34f24f2c7e218a60bcebec32418f705",
+  "source_docx_sha256": "0309f41add08ccdfad63d5a84f74142c7a7d06498d6dfdfd6056b40e62e118ae",
+  "grading_rubric": {
+    "content": 80,
+    "presentation": 10,
+    "github": 10
+  },
+  "new_model_experiment": false,
+  "selection_study_tables_reconciled": 2,
+  "usn_study_tables_reconciled": 1,
+  "usn_diagnostic_tables_reconciled": 1,
+  "usn_explanation_figure_verified": true,
+  "routing_tables_reconciled": 1,
+  "influence_equations_verified": 2,
+  "editorial_only": true,
+  "visual_review_changed_pages": [
+    7,
+    9,
+    17,
+    26,
+    28,
+    36,
+    47
+  ],
+  "pages_pixel_identical_to_previous": 46,
+  "prior_report": "KeyGuard_BaoCao_NopLai_v11_20261124",
+  "new_model_experiment_note": "Existing study tables verified; no new model experiment in this editorial pass."
+}
