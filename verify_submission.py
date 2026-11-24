@@ -93,7 +93,16 @@ def check(root=ROOT):
                     require(abs(float(macro)-m['macro_'+metric])<1e-12,'Selection macro differs')
                 require(all(r['stored_samples']==10 and len(set(r['selected_positions_1based']))==10 for r in rows),'Selection budget differs')
             require(not dataset['continuation_gate_met'],'Selection continuation status differs')
-    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
+    if manifest.get('usn_transfer_study'):
+        usn=json.loads((root/manifest['usn_transfer_study']).read_text(encoding='utf-8'))
+        require(usn['threshold']==cfg['threshold'] and usn['source_specific_tuning'] is False,'USN threshold/protocol differs')
+        overall=usn['overall'];by_phrase=usn['by_phrase']
+        require((usn['unique_genuine_people'],usn['account_phrase_profiles'],usn['unique_attack_rows'])==(5,30,2042),'USN units differ')
+        require(not usn['multi_day_validation'] and not usn['candidate_selection_tested'],'USN scope differs')
+        for key in ('genuine_trials','genuine_rejected','impostor_trials','impostor_accepted'):
+            require(sum(v[key] for v in by_phrase.values())==overall[key],'USN pooled count differs')
+        require((overall['genuine_trials'],overall['genuine_rejected'],overall['impostor_trials'],overall['impostor_accepted'])==(5400,1772,10210,1394),'USN counts differ')
+    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'usn_transfer_reconciled':bool(manifest.get('usn_transfer_study')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
 
 if __name__=='__main__':
     try:print(json.dumps(check(),ensure_ascii=True))

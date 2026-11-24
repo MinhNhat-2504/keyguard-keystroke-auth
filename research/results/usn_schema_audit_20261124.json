@@ -1,0 +1,541 @@
+{
+  "files": [
+    {
+      "file": "attack - flying automatic monster.csv",
+      "raw_rows": 340,
+      "retained_rows": 340,
+      "feature_count": 73,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": 34
+    },
+    {
+      "file": "participant1 - flying automatic monster.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 73,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 5.551115123125783e-17,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant2 - flying automatic monster.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 73,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant3 - flying automatic monster.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 73,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant4 - flying automatic monster.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 73,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant5 - flying automatic monster.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 73,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "attack - Gigab-exclm-t R3ceiver.csv",
+      "raw_rows": 349,
+      "retained_rows": 322,
+      "feature_count": 58,
+      "excluded": [
+        {
+          "line": 342,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 343,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 344,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 345,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 346,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 347,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 348,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 349,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 350,
+          "reason": "blank_timing",
+          "subject": "103"
+        },
+        {
+          "line": 112,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 35
+        },
+        {
+          "line": 122,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 35
+        },
+        {
+          "line": 273,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 84
+        },
+        {
+          "line": 274,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 84
+        },
+        {
+          "line": 283,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 84
+        },
+        {
+          "line": 284,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 84
+        },
+        {
+          "line": 285,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 87
+        },
+        {
+          "line": 295,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 87
+        },
+        {
+          "line": 326,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 327,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 328,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 329,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 330,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 336,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 337,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 338,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 339,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        },
+        {
+          "line": 340,
+          "reason": "ambiguous_duplicate_key",
+          "subject": 100
+        }
+      ],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.7763568394002505e-15,
+      "unique_attack_ids": 34
+    },
+    {
+      "file": "participant1 - Gigab-exclm-t R3ceiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 58,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant2 - Gigab-exclm-t R3ceiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 58,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant3 - Gigab-exclm-t R3ceiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 58,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant4 - Gigab-exclm-t R3ceiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 58,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 8.881784197001252e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant5 - Gigab-exclm-t R3ceiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 58,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "attack - gigabit receiver.csv",
+      "raw_rows": 350,
+      "retained_rows": 350,
+      "feature_count": 49,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": 35
+    },
+    {
+      "file": "participant1 - gigabit receiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 49,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.1102230246251565e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant2 - gigabit receiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 49,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant3 - gigabit receiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 49,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.1102230246251565e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant4 - gigabit receiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 49,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant5 - gigabit receiver.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 49,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "attack - Ob-dollar-erv3r.csv",
+      "raw_rows": 340,
+      "retained_rows": 340,
+      "feature_count": 34,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.7763568394002505e-15,
+      "unique_attack_ids": 34
+    },
+    {
+      "file": "participant1 - Ob-dollar-erv3r.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 34,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.1102230246251565e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant2 - Ob-dollar-erv3r.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 34,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant3 - Ob-dollar-erv3r.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 34,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant4 - Ob-dollar-erv3r.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 34,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.7763568394002505e-15,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant5 - Ob-dollar-erv3r.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 34,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "attack - observer.csv",
+      "raw_rows": 350,
+      "retained_rows": 350,
+      "feature_count": 25,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 8.881784197001252e-16,
+      "unique_attack_ids": 35
+    },
+    {
+      "file": "participant1 - observer.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 25,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 5.551115123125783e-17,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant2 - observer.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 25,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant3 - observer.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 25,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 1.1102230246251565e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant4 - observer.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 25,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant5 - observer.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 25,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "attack - repetition learn machine thinker.csv",
+      "raw_rows": 340,
+      "retained_rows": 340,
+      "feature_count": 97,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": 34
+    },
+    {
+      "file": "participant1 - repetition learn machine thinker.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 97,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 5.551115123125783e-17,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant2 - repetition learn machine thinker.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 97,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant3 - repetition learn machine thinker.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 97,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 2.220446049250313e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant4 - repetition learn machine thinker.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 97,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 8.881784197001252e-16,
+      "unique_attack_ids": null
+    },
+    {
+      "file": "participant5 - repetition learn machine thinker.csv",
+      "raw_rows": 200,
+      "retained_rows": 200,
+      "feature_count": 97,
+      "excluded": [],
+      "has_session_or_timestamp": false,
+      "negative_hold_values": 0,
+      "max_dd_minus_h_ud_abs": 4.440892098500626e-16,
+      "unique_attack_ids": null
+    }
+  ],
+  "raw_rows": 8069,
+  "retained_rows": 8042,
+  "excluded_rows": 27,
+  "model_scoring_performed": false,
+  "scope": "Source/schema audit; row order is not verified chronological order"
+}

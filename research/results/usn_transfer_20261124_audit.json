@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "independent_checks": 62724,
+  "decisions_checked": 15610,
+  "profiles": 30,
+  "unique_attack_rows": 2042,
+  "genuine_evaluation_rows": 5400,
+  "raw_and_historical_archives_checked": true,
+  "archives_not_checked": [],
+  "scope": "Recomputed every accept decision and account/phrase aggregate from saved scores using standard library; no model rerun"
+}

@@ -8,7 +8,8 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 ## Đọc báo cáo
 
-- [Báo cáo nộp lại ngày 24/11 — bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v3_20261124.docx).
+- [Báo cáo nộp lại ngày 24/11 — bản v4](reports/KeyGuard_BaoCao_NopLai_v4_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v4_20261124.docx).
+- [Bản v3, 49 trang](reports/KeyGuard_BaoCao_NopLai_v3_20261124.pdf) được giữ để đối chiếu.
 - [Bản v2, 47 trang](reports/KeyGuard_BaoCao_NopLai_v2_20261124.pdf) được giữ để đối chiếu.
 - [Bản v1 ngày 24/11](reports/KeyGuard_BaoCao_NopLai_20261124.pdf) được giữ để đối chiếu.
 - [Bản đã nộp ngày22/11 — 45 trang](reports/KeyGuard_BaoCao_Nop_20261122.pdf) được giữ nguyên để đối chiếu.
@@ -21,6 +22,10 @@ Các công thức của bản nộp là Equation Word; có bảng đối chiếu
 [Mã nguồn và phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md) chỉ rõ các thư mục, chương trình chính và phần việc của hai thành viên. Để đọc nhanh, xem mục1.2 của báo cáo về mục tiêu/đóng góp, Chương2 về phương pháp và kết quả, rồi Bảng3.1 về mức thực hiện từng mục tiêu. Các kết quả bất lợi được giữ; bản v2 chỉ sửa lập luận, bản v3 bổ sung đối chứng DEV dưới đây.
 
 Bản v3 có [đối chứng chọn 10 mẫu từ cùng 20 lượt đăng ký](research/docs/ENROLLMENT_SELECTION_RESULTS_20261124.md), so với 10 lượt đầu và 10 lượt cuối. Runner và protocol được khóa sau 13 kiểm thử giả lập, trước lần chấm. Bộ kiểm độc lập đối chiếu đạt 1.034 mục số đếm/metadata/hash. Cả bốn so sánh trên DEV CMU/KeyRecs không đạt tiêu chí đã chọn nên dừng trước kiểm chứng nguồn mới; không tuyên bố có cải tiến mô hình hay dữ liệu kiểm chứng độc lập mới. Cấu hình ứng dụng 20 mẫu và các kết quả lịch sử giữ nguyên.
+
+Bản v4 thêm [đánh giá quy tắc cố định trên USN](research/docs/USN_TRANSFER_RESULTS_20261124.md), có xuất xứ trực tiếp từ [bài báo](https://doi.org/10.1007/s12243-024-01039-z) tới [kho USN phiên bản 1, CC BY 4.0](https://doi.org/10.23642/usn.23790858.v1). 37 tệp khớp MD5 công bố; 10 kiểm thử giả lập đạt trước khóa và chấm lần đầu. Giữ detector, 20 mẫu, CV và ngưỡng CMU; không học ngưỡng từ USN, không mở lại nhánh chọn mẫu. Kết quả: FAR gộp 13,65%, FRR 32,81%, khác biệt lớn giữa sáu câu. Chỉ có 5 người tạo 30 hồ sơ, mỗi câu thu một phiên; không tuyên bố hiệu quả nhiều ngày hoặc cải tiến mới. Bộ audit độc lập áp lại ngưỡng cho 15.610 quyết định, đạt 62.724 mục đối chiếu local. Raw không có trong repo; kết quả công khai đủ để kiểm lại các quyết định từ score đã lưu.
+
+Để kiểm phần USN từ bản clone, chạy `python scripts/audit_usn_transfer_20261124.py --saved-only` ở `research/`; lệnh chỉ cần thư viện chuẩn và báo rõ không kiểm raw/kho bảo toàn lịch sử local. Kiểm logic bằng dữ liệu giả: `python -m pytest tests/test_usn_fixed_text.py -q`. Lần chấm thật đã có kết quả nên runner từ chối chạy lại hoặc ghi đè. Không dùng kết quả USN để đổi ngưỡng rồi gọi là cùng một lượt kiểm chứng.
 
 Chạy `python scripts/audit_enrollment_selection_20261124.py --saved-only` từ `research/` để kiểm số đếm công khai và hash mã nghiên cứu đã khóa. Chế độ này báo rõ các raw vắng trong snapshot và không kiểm kho bảo toàn báo cáo/cấu hình lịch sử local. Chạy `python -m pytest tests/test_enrollment_selection.py -q` để kiểm logic bằng dữ liệu giả. Kiểm khóa đầy đủ cần đúng raw và kho báo cáo lịch sử local; runner từ chối chạy lại hoặc ghi đè kết quả đã có.
 

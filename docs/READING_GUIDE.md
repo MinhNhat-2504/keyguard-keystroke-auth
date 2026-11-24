@@ -1,5 +1,7 @@
 # Đọc lại nội dung trước khi nộp
 
+Bản v4 có mục 2.31 về USN. Điểm cần giải thích là giữ quy tắc và ngưỡng chuẩn hóa CMU nhưng học hồ sơ riêng theo từng câu nguồn; số chiều khác nên không chuyển nguyên vector/hồ sơ CMU. Kết quả 1.394/10.210 nhận nhầm và 1.772/5.400 chính chủ bị từ chối không phải bằng chứng cải tiến thành công. Chỉ có 5 người chính chủ gõ sáu câu, không phải 30 người; 2.042 mẫu attack được chấm lại trên 5 hồ sơ tương ứng. FAR thấp ở một câu không đại diện cho mọi câu hoặc tài khoản. Chia theo dòng tệp không chứng minh nhiều ngày hay thứ tự thời gian. Nhánh chọn mẫu vẫn dừng ở DEV, không được thử lại trên USN.
+
 Bản v3 bổ sung mục 2.30, Bảng 2.30–2.31 về chọn mẫu đăng ký. Cả ba nhánh cùng thu 20 mẫu và giữ 10 mẫu để học; CV chọn lại trong phần học, không chọn trước trên toàn bộ pool. Mốc 10 lượt cuối là đối chứng cần thiết để phân biệt chọn đại diện với tính gần đây. Phép thử chỉ dùng DEV đã xem, không chấm TEST cũ. Kết quả không qua cổng tiếp tục đã khóa nên chưa mở nguồn kiểm chứng mới, không thay cấu hình ứng dụng. Đây là thêm bằng chứng thực nghiệm, không phải một cải tiến đã thành công.
 
 Bản v2 ngày 24/11 giữ 47 trang và cỡ chữ thường 13. Mục 1.2 nêu ba câu hỏi nghiên cứu, Chương 3 trả lời bằng kết quả cụ thể. Cần phân biệt câu hỏi tổng hợp khi viết báo cáo với giả thuyết được khóa trước từng phép thử trong protocol lịch sử.

@@ -1,0 +1,102 @@
+{
+  "completed_at_utc": "2026-11-24T12:56:23.174065+00:00",
+  "freeze_sha256": "18694bb617348902124a5d9acd4429b26c1231c1dc667266f3f907c27b4ac134",
+  "threshold": 0.2720094565367825,
+  "by_phrase": {
+    "flying automatic monster": {
+      "genuine_trials": 900,
+      "genuine_rejected": 194,
+      "impostor_trials": 1700,
+      "impostor_accepted": 34,
+      "accounts": 5,
+      "pooled_far": 0.02,
+      "pooled_frr": 0.21555555555555556,
+      "macro_far": 0.019999999999999997,
+      "macro_frr": 0.21555555555555558,
+      "accounts_far_above_5pct": 1
+    },
+    "Gigab-exclm-t R3ceiver": {
+      "genuine_trials": 900,
+      "genuine_rejected": 182,
+      "impostor_trials": 1610,
+      "impostor_accepted": 27,
+      "accounts": 5,
+      "pooled_far": 0.016770186335403725,
+      "pooled_frr": 0.20222222222222222,
+      "macro_far": 0.016770186335403725,
+      "macro_frr": 0.20222222222222222,
+      "accounts_far_above_5pct": 0
+    },
+    "gigabit receiver": {
+      "genuine_trials": 900,
+      "genuine_rejected": 346,
+      "impostor_trials": 1750,
+      "impostor_accepted": 144,
+      "accounts": 5,
+      "pooled_far": 0.08228571428571428,
+      "pooled_frr": 0.3844444444444444,
+      "macro_far": 0.08228571428571428,
+      "macro_frr": 0.3844444444444444,
+      "accounts_far_above_5pct": 2
+    },
+    "Ob-dollar-erv3r": {
+      "genuine_trials": 900,
+      "genuine_rejected": 302,
+      "impostor_trials": 1700,
+      "impostor_accepted": 1023,
+      "accounts": 5,
+      "pooled_far": 0.601764705882353,
+      "pooled_frr": 0.33555555555555555,
+      "macro_far": 0.601764705882353,
+      "macro_frr": 0.3355555555555555,
+      "accounts_far_above_5pct": 3
+    },
+    "observer": {
+      "genuine_trials": 900,
+      "genuine_rejected": 400,
+      "impostor_trials": 1750,
+      "impostor_accepted": 146,
+      "accounts": 5,
+      "pooled_far": 0.08342857142857144,
+      "pooled_frr": 0.4444444444444444,
+      "macro_far": 0.08342857142857144,
+      "macro_frr": 0.44444444444444436,
+      "accounts_far_above_5pct": 1
+    },
+    "repetition learn machine thinker": {
+      "genuine_trials": 900,
+      "genuine_rejected": 348,
+      "impostor_trials": 1700,
+      "impostor_accepted": 20,
+      "accounts": 5,
+      "pooled_far": 0.011764705882352941,
+      "pooled_frr": 0.38666666666666666,
+      "macro_far": 0.011764705882352941,
+      "macro_frr": 0.3866666666666667,
+      "accounts_far_above_5pct": 1
+    }
+  },
+  "overall": {
+    "genuine_trials": 5400,
+    "genuine_rejected": 1772,
+    "impostor_trials": 10210,
+    "impostor_accepted": 1394,
+    "accounts": 30,
+    "pooled_far": 0.1365328109696376,
+    "pooled_frr": 0.32814814814814813,
+    "macro_far": 0.13600231396906587,
+    "macro_frr": 0.32814814814814813,
+    "accounts_far_above_5pct": 8
+  },
+  "unique_genuine_people": 5,
+  "account_phrase_profiles": 30,
+  "unique_attack_rows": 2042,
+  "independent_trials_claim": false,
+  "multi_day_validation": false,
+  "chronological_order_verified": false,
+  "candidate_selection_tested": false,
+  "new_source_first_scoring": true,
+  "source_specific_tuning": false,
+  "production_changed": false,
+  "scope": "Fixed static scoring/threshold rule on a previously unscored source; descriptive, not a model-improvement or production claim"
+}

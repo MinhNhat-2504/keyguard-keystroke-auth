@@ -1,0 +1,275 @@
+{
+  "dataset": "USN fixed-text keystroke dynamics",
+  "version": 1,
+  "doi": "10.23642/usn.23790858.v1",
+  "landing_page": "https://usn.figshare.com/articles/dataset/Replication_data_for_b_b_Collection_and_statistical_analysis_of_a_fixed-text_keystroke_dynamics_authentication_data_set/23790858/1",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "paper_doi": "10.1007/s12243-024-01039-z",
+  "retrieved_at_utc": "2026-11-24T12:22:56.909290+00:00",
+  "model_scoring_performed": false,
+  "files": [
+    {
+      "file": "data/raw/usn_fixed_text_v1/readme.txt",
+      "bytes": 5463,
+      "md5": "9fc8a39224ac0e68d5e0e41eae59ab6a",
+      "sha256": "7155734beb41f3591bd1db706b60aca04c1c136bb3c7ddf4827f846fbf957f4e",
+      "source_url": "https://ndownloader.figshare.com/files/42323139"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant1 - flying automatic monster.csv",
+      "bytes": 90746,
+      "md5": "e95ddb0f68813718a6f0d0f4bd1104b9",
+      "sha256": "9decc47623eaf733bdfcc197a38bdb7317b722bb384b8a15c1552ba420c2bc62",
+      "source_url": "https://ndownloader.figshare.com/files/42323142"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant1 - Gigab-exclm-t R3ceiver.csv",
+      "bytes": 72068,
+      "md5": "bfb5502b13b54898a9e53c7234f6368c",
+      "sha256": "9ad979de4ab58a178d8abddbe314b69fd96a268629509ab6dc46f2dcbf098999",
+      "source_url": "https://ndownloader.figshare.com/files/42323151"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant1 - gigabit receiver.csv",
+      "bytes": 61238,
+      "md5": "0b5f9ec025c3681219b4eb7ff9ec6f8e",
+      "sha256": "4c9e6ac28abaac5433b37f992fd35601f38021518296eebca8dca5e1dfc97bf0",
+      "source_url": "https://ndownloader.figshare.com/files/42323145"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant1 - Ob-dollar-erv3r.csv",
+      "bytes": 41289,
+      "md5": "ce66b403c5459557c95c4f2b8668f764",
+      "sha256": "f1e41a0302af8cdd10c69c13e6e72f3a1ed53d6e642ca9fa7653a310cefd8ae8",
+      "source_url": "https://ndownloader.figshare.com/files/42323148"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant1 - observer.csv",
+      "bytes": 30926,
+      "md5": "c578a0118ee35f29c122630ebebba554",
+      "sha256": "b469be71be294620837250e112bbe459d31fcff003b10205b00f75ae3108378e",
+      "source_url": "https://ndownloader.figshare.com/files/42323154"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant1 - repetition learn machine thinker.csv",
+      "bytes": 121067,
+      "md5": "c182bb3f1676fe804545004e89c53627",
+      "sha256": "0e895cccc3b5f727d11b96ad850e89e85db8c8c228ca766a4779f43b5e5f9c5e",
+      "source_url": "https://ndownloader.figshare.com/files/42323157"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant2 - flying automatic monster.csv",
+      "bytes": 88163,
+      "md5": "c8f9c2c2de8edcdd3f16740894ea33b7",
+      "sha256": "35a10ac5c1f06bb2d5ced0e215090e7c49efe1156a375f5bc59c597061262846",
+      "source_url": "https://ndownloader.figshare.com/files/42323163"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant2 - Gigab-exclm-t R3ceiver.csv",
+      "bytes": 70484,
+      "md5": "49c86b2ddb08225b053d675e412e5c68",
+      "sha256": "a3618a01d5bb00c30db691f5f397480c2bec841b63ff091cda1841a15d84bc25",
+      "source_url": "https://ndownloader.figshare.com/files/42323166"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant2 - gigabit receiver.csv",
+      "bytes": 59116,
+      "md5": "09095f0855e7f7e837b61585ec38d263",
+      "sha256": "eadd8a12d3cdb588c2bc3b9020455300c4f1602367748b1639ffdb26ecd3e37f",
+      "source_url": "https://ndownloader.figshare.com/files/42323169"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant2 - Ob-dollar-erv3r.csv",
+      "bytes": 40905,
+      "md5": "aede34cd5838737f4345d611c716c87b",
+      "sha256": "85f067ab4e2d47c86807307e20a3d01f47d0bc2f7c60bf31c4a5f9a3da80053f",
+      "source_url": "https://ndownloader.figshare.com/files/42323172"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant2 - observer.csv",
+      "bytes": 30187,
+      "md5": "94804197b5e779b438c4b4cd1a9cf6b1",
+      "sha256": "7f65efa31024d71924378da1e8a2dd85764410a83834d79ef5169bed409ed661",
+      "source_url": "https://ndownloader.figshare.com/files/42323175"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant2 - repetition learn machine thinker.csv",
+      "bytes": 116961,
+      "md5": "95b5ceb800ce50aa7b6faa46007875df",
+      "sha256": "942e0c84dec5db88568892fa9594bfd17bfa079ec28107543d804471eec0ba0a",
+      "source_url": "https://ndownloader.figshare.com/files/42323178"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant3 - flying automatic monster.csv",
+      "bytes": 90408,
+      "md5": "96243925b8fe2bb0d103a901a49867c3",
+      "sha256": "99e33bf30b04a6e68717dcb4a079ab24b5f8893b0a25938eeb1729c30e93f095",
+      "source_url": "https://ndownloader.figshare.com/files/42323181"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant3 - Gigab-exclm-t R3ceiver.csv",
+      "bytes": 71046,
+      "md5": "24a70e18268e6fc675327d5a3f6b58de",
+      "sha256": "e2283a42ed394597d62cc1b48a3db2b3618c353d33787901da69a930631e620f",
+      "source_url": "https://ndownloader.figshare.com/files/42323184"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant3 - gigabit receiver.csv",
+      "bytes": 60045,
+      "md5": "cc090f34d831b29b86b69644f745c919",
+      "sha256": "c4f7a5fedc8d8d310fd98d3c01ee58526b9c097f33a303e79241a83272b9d560",
+      "source_url": "https://ndownloader.figshare.com/files/42323187"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant3 - Ob-dollar-erv3r.csv",
+      "bytes": 41022,
+      "md5": "82c3851e8682b1cb87d2e39ad5f60267",
+      "sha256": "522792389da346a5a403eeed41eef4775ebeeb4c3a70fa91f5c12559d2c4bdab",
+      "source_url": "https://ndownloader.figshare.com/files/42323190"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant3 - observer.csv",
+      "bytes": 30748,
+      "md5": "49a538b47b5fe12326a5411c54a13d34",
+      "sha256": "89d669aaa6ca89ee5b35d273fcf4ca73a7b5c06286cdcfc6bd9024ada44e49e9",
+      "source_url": "https://ndownloader.figshare.com/files/42323193"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant3 - repetition learn machine thinker.csv",
+      "bytes": 120830,
+      "md5": "1ae6d4490764f494b38d273819ffb193",
+      "sha256": "338220940838472bdecd80796441629429251fa5c160f64f979e35ea6cdd598e",
+      "source_url": "https://ndownloader.figshare.com/files/42323196"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant4 - flying automatic monster.csv",
+      "bytes": 88028,
+      "md5": "e919aaacd6dc122fe95d5a7f34d50ec7",
+      "sha256": "d54755c2bc616ce0994872f39d75b32d5a90aa4e3095aeb7be456d36df607fe9",
+      "source_url": "https://ndownloader.figshare.com/files/42323199"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant4 - Gigab-exclm-t R3ceiver.csv",
+      "bytes": 70640,
+      "md5": "cee871f6968e66eb2ed6f07ca37ce761",
+      "sha256": "88efab5a686a05227c0772d0a1cf84782f4fda990db0a282f4387a6829c23306",
+      "source_url": "https://ndownloader.figshare.com/files/42323211"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant4 - gigabit receiver.csv",
+      "bytes": 59154,
+      "md5": "6bdf75e4a90685384dc7816ef5e5bbae",
+      "sha256": "3277ce20f3c41ea3ac9908b4215f6542f2809aa7af7b1e6dfefccb14c044b1b6",
+      "source_url": "https://ndownloader.figshare.com/files/42323202"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant4 - Ob-dollar-erv3r.csv",
+      "bytes": 41201,
+      "md5": "1464e3ccc449ccb981ad68e86d808a94",
+      "sha256": "0667d1fedb3dafcf0c3a82d3cc0d81c424073c29a1c542cf76f378f26114d658",
+      "source_url": "https://ndownloader.figshare.com/files/42323205"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant4 - observer.csv",
+      "bytes": 30298,
+      "md5": "de8869ba99c9d7ccc84168e67239a5db",
+      "sha256": "825bbdfc47f60599b25108bef6fb2bc5b56d091751cb6163da4e510cab6924f8",
+      "source_url": "https://ndownloader.figshare.com/files/42323208"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant4 - repetition learn machine thinker.csv",
+      "bytes": 116878,
+      "md5": "9e161d83a3abcee6d930d462946d9ec0",
+      "sha256": "cfe042d824ec02f4dfa30ea7a9329e586a78a73f5db7002fd12979067927cf39",
+      "source_url": "https://ndownloader.figshare.com/files/42323214"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant5 - gigabit receiver.csv",
+      "bytes": 59128,
+      "md5": "5dcb305785df8e3354656a5f4b807124",
+      "sha256": "17f330a0e614f3528b3a5154c2b3ecbe16c886cd2bdf7eb0d49fa65b3d11b7a4",
+      "source_url": "https://ndownloader.figshare.com/files/42323217"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant5 - Ob-dollar-erv3r.csv",
+      "bytes": 41672,
+      "md5": "77d7f45cd2ae6ead4fc3957b7a897ae4",
+      "sha256": "0d592f613573e9f21e1c0067fd2a483e09dd6e800cab5ad583f718fb3802f788",
+      "source_url": "https://ndownloader.figshare.com/files/42323220"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant5 - observer.csv",
+      "bytes": 30433,
+      "md5": "e402dede44b50ad00abcdc48821eac7e",
+      "sha256": "21fb49b2b9186709d034f0b0acab4eb673da9bcbcefa155019d03d2148eabb8d",
+      "source_url": "https://ndownloader.figshare.com/files/42323223"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant5 - repetition learn machine thinker.csv",
+      "bytes": 116747,
+      "md5": "58f37ec781fd495e15b26f7e0e519fe1",
+      "sha256": "77e06767d65a9095d53240487f7fad1cb4ad3b583e145f26c3bbf8fa11f66651",
+      "source_url": "https://ndownloader.figshare.com/files/42323226"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant5 - flying automatic monster.csv",
+      "bytes": 88162,
+      "md5": "4f0f2535831b2cad152de0e2cbd9a9d6",
+      "sha256": "a6c54a52b1fe5323b89329164dc04403c365d84583db4a546c9324efefd0af81",
+      "source_url": "https://ndownloader.figshare.com/files/42323229"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/participant5 - Gigab-exclm-t R3ceiver.csv",
+      "bytes": 70633,
+      "md5": "2249ec55fd37a0f20ded65a49db17179",
+      "sha256": "2f220d5fb9a1c39f41aae6d8de2968b7b63fc9f3eac408b6183312b6d99df05e",
+      "source_url": "https://ndownloader.figshare.com/files/42323232"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/attack - Gigab-exclm-t R3ceiver.csv",
+      "bytes": 121680,
+      "md5": "5ed323be3797450a8fb90893a5a267a9",
+      "sha256": "7d1bec7520dee352b2824afd324476ea64f53fe63bbf851c50366f79ab8af325",
+      "source_url": "https://ndownloader.figshare.com/files/42323235"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/attack - gigabit receiver.csv",
+      "bytes": 105100,
+      "md5": "e4478b86e58d6958812e5ad2ff274e6b",
+      "sha256": "60eb6da6fecb976f3751f6fabcb6102e8604a0119d97b03df5d21a62178e5ca7",
+      "source_url": "https://ndownloader.figshare.com/files/42323238"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/attack - Ob-dollar-erv3r.csv",
+      "bytes": 71548,
+      "md5": "4b69457efa0bf3f57fd55f99e8d67b87",
+      "sha256": "221393fc19c49b7e8907946f09181cf3eb8d8b1b4654724f3a2be227288a04de",
+      "source_url": "https://ndownloader.figshare.com/files/42323241"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/attack - observer.csv",
+      "bytes": 54734,
+      "md5": "46794543563b615a6b312e6c7ce1a7a4",
+      "sha256": "f208680a06dd09e08dd6c416a25a2ff5e5b6e24cb751a6aca4a3c3e54624fd09",
+      "source_url": "https://ndownloader.figshare.com/files/42323244"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/attack - repetition learn machine thinker.csv",
+      "bytes": 200570,
+      "md5": "267908d15da370c8fd32f741fe1818c3",
+      "sha256": "3033516b9e6e13c5ee09257fe1e74a793a593acbaee3e9dca93c07b4d22abe28",
+      "source_url": "https://ndownloader.figshare.com/files/42323247"
+    },
+    {
+      "file": "data/raw/usn_fixed_text_v1/attack - flying automatic monster.csv",
+      "bytes": 151613,
+      "md5": "eb3de1cba149b642caf3d842008b611c",
+      "sha256": "52f42d3be370699e3945d700941f3b05abfa8cb87e54df2e05a0375590f018a5",
+      "source_url": "https://ndownloader.figshare.com/files/42323250"
+    }
+  ]
+}
