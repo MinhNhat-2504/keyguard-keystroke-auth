@@ -51,6 +51,12 @@ cd research
 
 Các ca này kiểm điều kiện cảnh báo, tuyến quyết định, mẫu số và ví dụ đại số; không tạo bằng chứng về hiệu quả trên người dùng mới. Những nhóm kiểm thử khác được giữ trong `research/tests/` và `web/tests/`; một số ca lịch sử cần dữ liệu riêng.
 
+Hai audit bổ sung có nhóm kiểm thử reader và thống kê xếp hạng riêng, gồm ca giữ hai cột trùng tên ở KeyRecs:
+
+```powershell
+..\.venv\Scripts\python.exe -m pytest tests/test_dev_enrollment_audit.py tests/test_dev_enrollment_columns.py tests/test_residual_score_diagnostic.py -q
+```
+
 ## Đối chiếu kết quả đã lưu
 
 Tại `research/`, các lệnh sau dùng thư viện chuẩn và chạy được với phần công khai:
@@ -60,9 +66,13 @@ Tại `research/`, các lệnh sau dùng thư viện chuẩn và chạy được
 ..\.venv\Scripts\python.exe scripts/verify_calibration_preflight_20261124.py
 ..\.venv\Scripts\python.exe scripts/verify_calibration_routing_20261124.py
 ..\.venv\Scripts\python.exe scripts/verify_calibration_influence_20261124.py
+..\.venv\Scripts\python.exe scripts/verify_preflight_dev_audit_20261124.py --saved-only
+..\.venv\Scripts\python.exe scripts/verify_usn_residual_diagnostic_20261124.py
 ```
 
 Bộ USN áp lại ngưỡng cho score đã lưu và cộng lại các tỷ lệ; chế độ `--saved-only` báo rõ bỏ qua raw và kho bảo toàn lịch sử local. Các bộ còn lại đối chiếu cảnh báo, đếm tuyến và phép tính minh họa. Chúng không suy ra kết quả OTP hoặc chạy lại toàn bộ mô hình từ đặc trưng gốc.
+
+Audit DEV đối chiếu đủ 102 hồ sơ từ artifact; kiểm lại CV từ raw cần `--check-raw` và đúng hai tệp nguồn có hash trong khóa. Chẩn đoán USN đếm lại AUC bằng so trực tiếp các cặp score đã lưu. Cả hai giữ nguyên quy tắc/điểm/ngưỡng và ghi rõ dữ liệu đã được xem.
 
 Kết quả từng lần kiểm nằm trong [validation/](../validation/) và [research/results/](../research/results/). Mỗi record có phạm vi riêng; một số file là kết quả lịch sử, không phải lần chạy hiện tại.
 

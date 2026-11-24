@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "profiles_reconciled": 102,
+  "warnings": 0,
+  "raw_hashes_checked": false,
+  "profile_cv_recomputed_from_raw": 0,
+  "test_decisions_scored": 0,
+  "scope": "Enrollment-only consistency and optional raw recomputation; not authentication accuracy"
+}

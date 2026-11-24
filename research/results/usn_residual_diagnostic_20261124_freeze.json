@@ -1,0 +1,15 @@
+{
+  "frozen_at_utc": "2026-11-24T14:53:41.144760+00:00",
+  "source_sha256": {
+    "keyguard/residual_score_diagnostic.py": "fc7c6b0301752b6b734d0b28e68430366d4b5f1259797a75f99ec573451dda7b",
+    "tests/test_residual_score_diagnostic.py": "43fcee5bc32c6a6c0d888891e4d66eb2f4f254170a5655330640793b19327384",
+    "scripts/run_usn_residual_diagnostic_20261124.py": "ca05da72cf83dac138f6f687b613f90e95d568dddfe46b83de57c3ca5b414d8d",
+    "docs/USN_RESIDUAL_DIAGNOSTIC_PROTOCOL_20261124.md": "f3bb3dbe7c488f25ed1e5ad7a74bc5efc5dd6acfb2e47bce7be465ff0e14dc79",
+    "results/usn_transfer_20261124_decisions.csv": "a5f36f2bad45f458681c2d9b549f295446706ed0aaeac5c9629d2b5cf75bba92",
+    "results/usn_transfer_20261124_results.json": "df9d72aeba79a91360f5096eb55cb4c3c177818eecbc163f329a041658aa6837",
+    "results/usn_oof_diagnostic_20261124.json": "e11ddd4da0b3ca8730b84f177eb6a169d6ea99aece710c93cbaa635eae41553b",
+    "results/calibration_preflight_20261124_results.json": "6fc6620ef05d1ea49104f1a744d27f9da43265ceb302c694ea0b627ec9a8dd85"
+  },
+  "tests_sha256": "a5a59a7933f50393b5ad7a69c76d90a1049c7374d9f7dcd1219dbd99f4e3585a",
+  "scope": "Retrospective description, no threshold search or independent validation"
+}

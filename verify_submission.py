@@ -112,6 +112,30 @@ def check(root=ROOT):
             for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
         bounds=sensitivity['results']['excluded_attack_decision_bounds']
         require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    for result_key,prefix in [('preflight_dev_audit','preflight_dev_audit_20261124_'),('usn_residual_diagnostic','usn_residual_diagnostic_20261124_')]:
+        if not manifest.get(result_key):continue
+        audit_result=json.loads((root/manifest[result_key]).read_text(encoding='utf-8'))
+        freeze_path=root/'research/results'/(prefix+'freeze.json')
+        lock=json.loads(freeze_path.read_text(encoding='utf-8'))
+        require(hashlib.sha256(freeze_path.read_bytes()).hexdigest()==audit_result['freeze_sha256'],'Follow-up freeze changed')
+        for name,h in lock['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Follow-up source changed: '+name)
+        tests=root/'research/results'/(prefix+'synthetic_tests.json')
+        require(hashlib.sha256(tests.read_bytes()).hexdigest()==lock['tests_sha256'],'Follow-up test record changed')
+        if result_key=='preflight_dev_audit':
+            require(audit_result['profile_count']==102 and audit_result['enrollment_rows_parsed']==2040,'DEV enrollment count differs')
+            require(audit_result['test_decisions_scored']==0 and not audit_result['threshold_changed'],'DEV audit scope differs')
+            for dataset,source in zip(audit_result['datasets'],lock['datasets']):
+                require({p['participant_id'] for p in dataset['profiles']}==set(source['dev_ids']),'DEV identities differ')
+                require(not set(source['dev_ids'])&set(source['excluded_test_ids']),'DEV/TEST identity overlap')
+                require(sum(p['review_required'] for p in dataset['profiles'])==dataset['review_required_count'],'DEV warning count differs')
+        else:
+            require(len(audit_result['accounts'])==30 and audit_result['decisions_count']==15610,'Residual scope differs')
+            require(sum(a['attack_behavioral_passes_after_guard'] for a in audit_result['accounts'])==audit_result['remaining_attack_behavioral_passes']==374,'Residual count differs')
+            for a in audit_result['accounts']:
+                require(a['auc_twice_pair_count']==2*a['genuine_trials']*a['attack_trials'],'AUC denominator differs')
+                require(a['auc']==a['auc_twice_wins_plus_ties']/a['auc_twice_pair_count'],'AUC fraction differs')
+            require(not audit_result['new_threshold_chosen'] and not audit_result['model_fit_performed'],'Residual tuning overclaim')
     if manifest.get('calibration_influence'):
         influence=json.loads((root/manifest['calibration_influence']).read_text(encoding='utf-8'))
         for name,h in influence['source_sha256'].items():

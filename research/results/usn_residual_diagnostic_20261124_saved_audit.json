@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "profiles_reconciled": 30,
+  "saved_decisions_reconciled": 15610,
+  "brute_force_pairwise_comparisons": 1837800,
+  "remaining_attack_behavioral_passes": 374,
+  "new_threshold_chosen": false,
+  "model_rerun": false,
+  "scope": "Independent descriptive AUC/count check, not independent efficacy validation"
+}

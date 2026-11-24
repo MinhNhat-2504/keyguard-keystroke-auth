@@ -4,7 +4,7 @@
 
 Bài tập lớn môn Học máy Ứng dụng · Trường Đại học Văn Lang
 
-[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v9_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v9_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
+[Báo cáo PDF](reports/KeyGuard_BaoCao_NopLai_v10_20261124.pdf) · [Bản Word](reports/KeyGuard_BaoCao_NopLai_v10_20261124.docx) · [Hướng dẫn đọc](docs/READING_GUIDE.md) · [Phân công thực hiện](docs/MA_NGUON_VA_PHAN_CONG.md)
 
 ## Bài toán
 
@@ -41,6 +41,11 @@ Mỗi hàng có cách chia dữ liệu và lịch chấm riêng; chi tiết nằ
 Kết quả cho thấy mức lỗi thấp trên CMU chưa giữ được khi chuyển sang dữ liệu tự thu. Các đối chứng chưa tìm được cải tiến đồng thời FAR–FRR nhất quán giữa các nguồn.
 
 Phần [chẩn đoán CV](research/docs/USN_SENSITIVITY_RESULTS_20261124.md) xác định ba hồ sơ có chuẩn hóa quá dễ nhận. Bước kiểm tra thử nghiệm chuyển thêm 1.020 quyết định giả mạo sang xác minh, đồng thời thêm 540 lượt chính chủ cũng cần xác minh; vẫn còn 374 quyết định giả mạo qua bước nhịp gõ. Đây là [phân tích tuyến xử lý hồi cứu](research/docs/CALIBRATION_ROUTING_RESULTS_20261124.md), chưa có kết quả OTP để tính FAR/FRR cuối cùng của toàn hệ thống.
+
+Hai kiểm tra bổ sung giúp làm rõ phạm vi của bước cảnh báo:
+
+- [Audit trên DEV](research/docs/PREFLIGHT_DEV_AUDIT_RESULTS_20261124.md): không có cảnh báo ở 36 hồ sơ CMU và 66 hồ sơ KeyRecs, dùng 2.040 mẫu đăng ký. Đây chưa phải tỷ lệ nhận nhầm bằng 0 hoặc chứng nhận an toàn.
+- [Chẩn đoán phần nhận nhầm còn lại](research/docs/USN_RESIDUAL_DIAGNOSTIC_RESULTS_20261124.md): 305/374 quyết định thuộc các hồ sơ đích mang mã `participant5`. Hai hồ sơ lớn nhất có AUC 0,9424 và 0,8670, cho thấy cần phân biệt xếp hạng với quyết định tại ngưỡng. Phân tích dùng điểm đã lưu, không chọn ngưỡng mới.
 
 ## Bắt đầu nhanh
 
