@@ -4,6 +4,8 @@ from fractions import Fraction
 import hashlib
 import io
 import json
+import math
+import statistics
 from pathlib import Path,PurePosixPath
 import re
 import sys
@@ -52,7 +54,7 @@ def check(root=ROOT):
     primary=manifest.get('primary_report','reports/KeyGuard_BaoCao_Nop_20261120.docx')
     require(primary in manifest['files'],'Primary report absent from manifest')
     current=root/primary;xml=document(current);paragraphs=paragraph_text(xml)
-    require(len(xml.findall('.//m:oMath',NS))==7,'Native equation count differs')
+    require(len(xml.findall('.//m:oMath',NS))==manifest.get('native_equations',7),'Native equation count differs')
     require(len(xml.findall('.//w:tbl',NS))==manifest.get('primary_report_tables',34),'Report table count differs')
     if manifest.get('body_font_pt'):check_table_font(xml,manifest['body_font_pt'])
     refs=[int(re.match(r'^\[(\d+)\]',p)[1]) for p in paragraphs if re.match(r'^\[\d+\]',p)]
@@ -110,6 +112,16 @@ def check(root=ROOT):
             for name,h in artifact['source_sha256'].items():require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'USN diagnostic source changed: '+name)
         bounds=sensitivity['results']['excluded_attack_decision_bounds']
         require(bounds['raw_row_scenario_trials']==10345 and bounds['additional_unknown_decisions']==135,'USN sensitivity denominator differs')
+    if manifest.get('calibration_influence'):
+        influence=json.loads((root/manifest['calibration_influence']).read_text(encoding='utf-8'))
+        for name,h in influence['source_sha256'].items():
+            require(hashlib.sha256((root/'research'/name).read_bytes()).hexdigest()==h,'Influence source changed: '+name)
+        sample=influence['example'];values=[0.]*(sample['n']-1)+[sample['outlier']]
+        require(math.isclose(statistics.mean(values),sample['center'],rel_tol=1e-14),'Illustrative mean differs')
+        require(math.isclose(statistics.pstdev(values),sample['population_sd'],rel_tol=1e-14),'Illustrative population SD differs')
+        require(math.isclose(sample['center']+sample['threshold']*sample['used_scale'],sample['raw_acceptance_limit'],rel_tol=1e-14),'Illustrative limit differs')
+        for node,texts in zip(xml.findall('.//m:oMath',NS)[7:],influence['equation_text_nodes']):
+            require([n.text for n in node.findall('.//m:t',NS)]==texts,'Illustrative native equation differs')
     if manifest.get('calibration_routing'):
         routing=json.loads((root/manifest['calibration_routing']).read_text(encoding='utf-8'))
         lock_path=root/'research/results/calibration_routing_20261124_freeze.json'
@@ -154,7 +166,7 @@ def check(root=ROOT):
         with zipfile.ZipFile(current) as archive:
             image_hashes=[hashlib.sha256(archive.read(n)).hexdigest() for n in archive.namelist() if n.startswith('word/media/')]
         require(image_hash in image_hashes,'Source figure missing from report')
-    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':7,'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'usn_transfer_reconciled':bool(manifest.get('usn_transfer_study')),'usn_diagnostics_reconciled':bool(manifest.get('usn_diagnostics')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
+    return {'status':'passed','manifest_files':len(manifest['files']),'report_referenced_files':len(paths),'missing_report_references':0,'native_equations':len(xml.findall('.//m:oMath',NS)),'report_tables':len(xml.findall('.//w:tbl',NS)),'references':len(refs),'self_collected_samples':597,'synthesis_rows':35,'uncertainty_comparisons':5,'enrollment_selection_reconciled':bool(manifest.get('enrollment_selection_study')),'usn_transfer_reconciled':bool(manifest.get('usn_transfer_study')),'usn_diagnostics_reconciled':bool(manifest.get('usn_diagnostics')),'scope':'Integrity and reconciliation of stored sources; not a model rerun or production acceptance'}
 
 if __name__=='__main__':
     try:print(json.dumps(check(),ensure_ascii=True))

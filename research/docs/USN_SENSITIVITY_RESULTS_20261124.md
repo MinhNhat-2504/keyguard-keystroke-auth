@@ -30,6 +30,8 @@ Kết quả cho thấy cần kiểm độ nhạy của scale ở từng fold và
 
 ## Minh họa để đọc kết quả
 
+Ví dụ đại số trong `docs/CALIBRATION_INFLUENCE_NOTE_20261124.md` giải thích vì sao một điểm OOF lớn có thể làm thang mean/SD và ngưỡng thô tăng mạnh. Ví dụ dùng các điểm còn lại bằng 0 để tính được biểu thức đóng, không thay hoặc mô tả chính xác dữ liệu USN. Giới hạn z chỉ được suy ra khi giữ điểm thô đánh giá hữu hạn độc lập với điểm OOF lớn, và biểu thức ngưỡng thô đơn giản cần SD không chạm sàn. Đây là cách diễn giải số học, không phải thuật toán mới hoặc kiểm chứng hiệu quả xác thực.
+
 Phản hồi kỹ thuật từ chẩn đoán này được mô tả riêng ở `docs/CALIBRATION_PREFLIGHT_RESULTS_20261124.md`: bộ kiểm tra mẫu đăng ký và cổng quyết định thử nghiệm. Đây chưa phải sửa detector hoặc kết quả chứng minh cải thiện FAR/FRR; không sửa bảng chấm gốc.
 
 Hình `figures/usn_normalization_20261124.png` và Phụ lục D của báo cáo v6 đặt đủ 100 điểm OOF bên cạnh năm ngưỡng điểm thô tương đương, trên trục tung logarit. Mỗi điểm tròn là điểm OOF của một mẫu đăng ký giữ ra, không phải điểm của lượt giả mạo. Hình thoi là trung bình OOF cộng ngưỡng z cố định nhân độ lệch chuẩn OOF. Hai loại điểm cùng được biểu diễn theo đơn vị điểm thô để nhìn thấy độ nhạy của phép chuẩn hóa; việc so sánh không giả định phân bố điểm OOF bằng phân bố điểm đánh giá khi học đủ mẫu.

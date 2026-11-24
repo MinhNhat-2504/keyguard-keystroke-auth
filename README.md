@@ -8,6 +8,10 @@ Bản nộp lại cập nhật ngày **24/11/2026**, gồm **PDF báo cáo và l
 
 ## Đọc báo cáo
 
+Bản v9 làm rõ [cơ chế mean/SD bằng ví dụ đại số](research/docs/CALIBRATION_INFLUENCE_NOTE_20261124.md) trong Phụ lục D và cập nhật tóm tắt để nêu cả đánh đổi xác minh. Với n−1 điểm OOF bằng 0 và một điểm M lớn, ngưỡng thô tăng theo M; nếu giữ điểm thô đánh giá hữu hạn độc lập với M, z tiến về −1/√(n−1). Đây là ví dụ nhân tạo có điều kiện, không thay dữ liệu USN, không phải thuật toán mới hoặc bằng chứng cải thiện FAR/FRR. Hai công thức mới là Equation gốc trong Word, có ghi rõ điều kiện sàn SD.
+
+Từ `research/`, chạy `python -m pytest tests/test_calibration_influence.py -q` (19 ca) và `python scripts/verify_calibration_influence_20261124.py` để đối chiếu phép tính với thống kê quần thể, giới hạn và các ngưỡng thật đã lưu. Không fit hoặc chấm lại mô hình. Các bản báo cáo trước đều được giữ.
+
 Bản v8 bổ sung [phân tích tuyến xác minh](research/docs/CALIBRATION_ROUTING_RESULTS_20261124.md) để lượng hóa đánh đổi của prototype: 1.020 quyết định giả mạo không còn qua trực tiếp bước nhịp gõ, nhưng thêm 540 lượt chính chủ phải xác minh; vẫn còn 374 quyết định giả mạo qua nhịp gõ. Đây là đếm lại kết quả đã lưu trên USN đã xem, không phải kiểm chứng độc lập hoặc FAR/FRR cuối cùng của hệ thống. Bảng E.1 giữ nguyên mẫu số trước–sau; chưa giả định OTP thành công hay thất bại. Bảng 3.1 cũng được cập nhật nguồn USN và vị trí bằng chứng.
 
 Từ `research/`, chạy `python -m pytest tests/test_calibration_routing.py -q` (11 ca dữ liệu giả), rồi `python scripts/verify_calibration_routing_20261124.py` để đếm lại độc lập đủ 15.610 quyết định bằng thư viện chuẩn. Runner `python -m scripts.run_calibration_routing_20261124 --check` kiểm khóa nguồn/mã; `--run` từ chối ghi đè kết quả đã lưu.
@@ -18,7 +22,8 @@ Từ `research/`, chạy `python -m pytest tests/test_calibration_preflight.py -
 
 Bản v6 thêm Phụ lục D để giải thích bằng hình cơ chế chuẩn hóa đã chẩn đoán. [Hình nguồn](research/figures/usn_normalization_20261124.png) dùng đủ 100 điểm OOF và năm ngưỡng thô tương đương từ kết quả lưu, không chấm mô hình mới. Chạy `python scripts/verify_usn_figure_20261124.py` từ `research/` để đối chiếu từng điểm, ngưỡng và hash hình bằng thư viện chuẩn. Điểm OOF không phải điểm của lượt giả mạo; ngưỡng thô thấp hơn cũng chưa chứng minh FAR–FRR tốt hơn.
 
-- [Báo cáo nộp lại ngày 24/11 — bản v8](reports/KeyGuard_BaoCao_NopLai_v8_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v8_20261124.docx).
+- [Báo cáo nộp lại ngày 24/11 — bản v9](reports/KeyGuard_BaoCao_NopLai_v9_20261124.pdf) · [Word cùng phiên bản](reports/KeyGuard_BaoCao_NopLai_v9_20261124.docx).
+- [Bản v8](reports/KeyGuard_BaoCao_NopLai_v8_20261124.pdf) được giữ để đối chiếu.
 - [Bản v7](reports/KeyGuard_BaoCao_NopLai_v7_20261124.pdf) được giữ để đối chiếu.
 - [Bản v6](reports/KeyGuard_BaoCao_NopLai_v6_20261124.pdf) được giữ để đối chiếu.
 - [Bản v5](reports/KeyGuard_BaoCao_NopLai_v5_20261124.pdf) được giữ để đối chiếu.

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "illustrative_population_statistics_reconciled": true,
+  "fixed_raw_score_limit_checked_numerically": true,
+  "saved_real_limits_reconciled": 3,
+  "synthetic_test_cases_passed": 19,
+  "model_rerun": false,
+  "scope": "Elementary illustrative arithmetic, not novel algorithm or independent model validation"
+}

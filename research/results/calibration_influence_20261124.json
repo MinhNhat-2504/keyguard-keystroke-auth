@@ -1,0 +1,67 @@
+{
+  "completed_at_utc": "2026-11-24T14:14:50.288485+00:00",
+  "example": {
+    "n": 20,
+    "outlier": 1000000.0,
+    "threshold": 0.2720094565367825,
+    "center": 50000.0,
+    "population_sd": 217944.9471770337,
+    "used_scale": 217944.9471770337,
+    "raw_acceptance_limit": 109283.0866365627,
+    "scale_floor_active": false,
+    "fixed_raw_score_limit_z": -0.22941573387056174
+  },
+  "fixed_raw_score_example": 50.0,
+  "standardized_example": -0.2291863181366912,
+  "real_profile_limits_already_saved": [
+    {
+      "participant_id": "participant1",
+      "raw_acceptance_limit": 109323.40938870916
+    },
+    {
+      "participant_id": "participant2",
+      "raw_acceptance_limit": 109334.82189836897
+    },
+    {
+      "participant_id": "participant3",
+      "raw_acceptance_limit": 109323.5272063753
+    }
+  ],
+  "comparison_is_illustrative_not_equivalence": true,
+  "equation_text_nodes": [
+    [
+      "μ = ",
+      "M",
+      "n",
+      "; σ = ",
+      "M√(n−1)",
+      "n",
+      "; q = ",
+      "M(1+τ√(n−1))",
+      "n"
+    ],
+    [
+      "z(s) = ",
+      "s−μ",
+      "σ",
+      " → ",
+      "−1",
+      "√(n−1)",
+      " ≈ −0,2294"
+    ]
+  ],
+  "synthetic_test_cases_passed": 19,
+  "test_stdout": "...................                                                      [100%]\n19 passed in 0.06s\n",
+  "test_returncode": 0,
+  "source_sha256": {
+    "keyguard/calibration_influence.py": "106fe9fcbc916bfe4df538b9c971c7a20259b98dca372b325eeb4592b0f9c91e",
+    "tests/test_calibration_influence.py": "2f1daf12af822252d8e8da9346eddf2931a5821dbd3d4325262244c214570a2c",
+    "scripts/analyze_calibration_influence_20261124.py": "366c509e1932c2c702fcfb176887e6dc7c0f57a86ce49bde40e1737c048b0b5d",
+    "docs/CALIBRATION_INFLUENCE_NOTE_20261124.md": "9ef466de9e567c213d85e91aa24b3ec7727c4c490c023644d4b08849d8998c43",
+    "results/usn_transfer_20261124_results.json": "df9d72aeba79a91360f5096eb55cb4c3c177818eecbc163f329a041658aa6837",
+    "results/usn_oof_diagnostic_20261124.json": "e11ddd4da0b3ca8730b84f177eb6a169d6ea99aece710c93cbaa635eae41553b"
+  },
+  "model_or_test_decisions_changed": false,
+  "production_changed": false,
+  "scope": "Elementary mean/population-SD illustration with fixed bounded raw score; not an algorithm novelty or efficacy claim"
+}
